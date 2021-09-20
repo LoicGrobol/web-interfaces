@@ -33,17 +33,17 @@ Cours 1 : Introduction et rappels Python
 - De manière générale, n'hésitez pas à m'écrire
 
 
-## Infos pratiques
+  ## Infos pratiques
 
-- **Quoi** « Bases de données et web dynamique » 4L3SC01P
-- **Où** Salle 219, bâtiment Paul Ricœur
-- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 21/09 au 17/11
-  - Voir [le
-    planning](http://www.tal.univ-paris3.fr/plurital/admin/Calendrier_M2_TAL_PX_2021_22.xlsx) pour
-    les dates exactes
+  - **Quoi** « Bases de données et web dynamique » 4L3SC01P
+  - **Où** Salle 219, bâtiment Paul Ricœur
+  - **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 21/09 au 17/11
+    - Voir [le
+      planning](http://www.tal.univ-paris3.fr/plurital/admin/Calendrier_M2_TAL_PX_2021_22.xlsx) pour
+      les dates exactes
 
-→ PC portable obligatoire pour les cours, de préférence chargé. Si c'est un problème parlez m'en
-tout de suite et on trouvera une solution.
+  → PC portable obligatoire pour les cours, de préférence chargé. Si c'est un problème parlez m'en
+  tout de suite et on trouvera une solution.
 
 ## Liens
 
