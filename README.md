@@ -31,6 +31,14 @@ Pour travailler au développement de ce cours :
    ```
 
    Idéalement ça devrait aussi marcher avec jupyterlab [mais ce n'est pas encore le cas pour les slides](https://github.com/damianavila/RISE/pull/381)
+4. On peut alors modifier les fichiers md dans jupyter comme si c'étaient des notebooks grâce à la magie de [jupytext](https://github.com/mwouts/jupytext)
+
+Autres éléments magiques :
+
+- On peut ouvrir les notebooks en md sur Binder grâce au [postBuild](postBuild) qui dit de compiler
+  l'extension jupytext. Par contre le build initial de l'image est assez lent. (même avec
+  `--minimize=False` qui [accélère un
+  peu](https://github.com/jupyterlab/jupyterlab/issues/4824#issuecomment-697188390))
 
 ## Licences
 
