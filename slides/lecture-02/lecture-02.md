@@ -123,7 +123,7 @@ que les noms composés
 
 ```python
 words = tokenize("De-ci de-là, cahin-caha, va trottine, va chemine, va petit âne")
-compounds = [word for word in words if type(word) is list]
+compounds = [] # ← modifiez ça
 assert compounds == [['De', 'ci'], ['de', 'là,'], ['cahin', 'caha,']]
 ```
 

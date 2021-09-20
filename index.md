@@ -16,6 +16,9 @@ title: Interfaces web pour le TAL — M2 PluriTAL 2021
 
 ## Séances
 
+Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), les liens vers
+les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilisation sans rien installer.
+
 ### 2021-09-22 — Introduction et rappels Python
 
 - [Slides 1](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
