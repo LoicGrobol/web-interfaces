@@ -1,1 +1,1 @@
-jupyter lab build
+jupyter lab build --minimize=False
