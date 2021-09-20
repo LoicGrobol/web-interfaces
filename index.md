@@ -18,7 +18,7 @@ title: Interfaces web pour le TAL — M2 PluriTAL 2021
 
 ### 2021-09-22 — Introduction et rappels Python
 
-- [Slides](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?filepath=slides/lecture-01/lecture-01.md)
+- [Slides 1](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
 
 ## Licences
 

@@ -48,9 +48,9 @@ Cours 1 : Introduction et rappels Python
 ## Liens
 
 - La page du cours (slides, documents, nouvelles, consignes…)
-  - → <https://loicgrobol.github.io/web_interfaces>
+  - → <https://loicgrobol.github.io/web-interfaces>
 - Le dépôt GitHub (sources, compléments et historique)
-  - → <https://github.com/LoicGrobol/web_interfaces>
+  - → <https://github.com/LoicGrobol/web-interfaces>
 
 ## Setup
 
