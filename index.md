@@ -32,12 +32,11 @@ Vous aurez besoin d'un interpréteur Python et d'un éditeur de texte.
 
 Vous travaillerons avec Python 3.7 et supérieur
 
-Les supports de cours sont essentiellement sous forme de notebooks  [Jupyter](http://jupyter.org/),
-les diapos utilisant [RISE](https://github.com/damianavila/RISE).
-Pour utiliser les notebooks (anciennement ipython notebook maintenant jupyter notebook) vous aurez
-besoin d'installer sur votre machine de travail.
-Je vous incite également à utiliser le shell interactif `ipython` qui est une version améliorée du
-shell `python` (ipython est inclus dans jupyter).
+Les supports de cours sont essentiellement sous forme de notebooks [Jupyter](http://jupyter.org/),
+les diapos utilisant [RISE](https://github.com/damianavila/RISE). Pour utiliser les notebooks
+(anciennement ipython notebook maintenant jupyter notebook) vous aurez besoin d'installer sur votre
+machine de travail. Je vous incite également à utiliser le shell interactif `ipython` qui est une
+version améliorée du shell `python` (ipython est inclus dans jupyter).
 
 Deux options pour l'installation :
 
@@ -60,20 +59,12 @@ Deux options pour l'installation :
 
 #### Utiliser Anaconda
 
-Nous ne le recommandons pas, mais si vous préférez, vous pouvez installer
+Ce n'est pas recommandé, mais si vous préférez, vous pouvez installer
 [anaconda](https://www.continuum.io/downloads), qui gère non-seulement Python et les modules Python,
-mais aussi beaucoup d'autres paquets et installera
-beaucoup de modules tiers dont on se servira pas
+mais aussi beaucoup d'autres paquets et installera beaucoup de modules tiers dont on se servira pas
 
 Nous verrons également dans le cours comment utiliser [virtualenv](https://virtualenv.pypa.io) pour
 gérer des installations de Python isolées du système pour plus de confort.
-
-### Éditeur de texte
-
-Dans un premier temps : pas un traitement de texte, pas un IDE, un *[éditeur de texte](https://fr.wikipedia.org/wiki/%C3%89diteur_de_texte)*.
-
-Une fois que vous êtes à l'aise pour développer dans un éditeur de texte, vous pouvez si vous le
-désirez passer à un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement)
 
 ## Ressources
 
