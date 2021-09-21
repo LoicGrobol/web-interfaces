@@ -27,7 +27,7 @@ Cours 1 : Introduction et rappels Python
 ## Bonjour
 
 - Loïc Grobol (il/iel) [<loic.grobol@parisnanterre.fr>](mailto:loic.grobol@parisnanterre.fr)
-- PHILLIA / MoDyCo (Bâtiment Rémond, 4ème)
+- PHILLIA / MoDyCo (Bâtiment Rémond, 4ème, bureau 404C)
 - *Office hours* le mardi après-midi, n'hésitez pas à passer y compris sans rendez-vous (mais je
   préfère si vous m'envoyez un mail pour me prévenir)
 - De manière générale, n'hésitez pas à m'écrire
@@ -35,9 +35,9 @@ Cours 1 : Introduction et rappels Python
 
 ## Infos pratiques
 
-- **Quoi** « Bases de données et web dynamique » 4L3SC01P
+- **Quoi** « Bases de données et web dynamique »
 - **Où** Salle 219, bâtiment Paul Ricœur
-- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 21/09 au 17/11
+- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 22/09 au 17/11
   - Voir [le
     planning](http://www.tal.univ-paris3.fr/plurital/admin/Calendrier_M2_TAL_PX_2021_22.xlsx) pour
     les dates exactes

@@ -8,7 +8,7 @@ title: Interfaces web pour le TAL — M2 PluriTAL 2021
 
 - **Quoi** « Bases de données et web dynamique » 4L3SC01P
 - **Où** Salle 219, bâtiment Paul Ricœur
-- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 21/09 au 17/11
+- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 22/09 au 17/11
   - Voir [le
     planning](http://www.tal.univ-paris3.fr/plurital/admin/Calendrier_M2_TAL_PX_2021_22.xlsx) pour
     les dates exactes
@@ -42,7 +42,7 @@ Vous aurez besoin d'un interpréteur Python et d'un éditeur de texte.
 
 ### Python & co
 
-Vous travaillerons avec Python 3.7 et supérieur
+On travaillera avec Python 3.8 et supérieur
 
 Les supports de cours sont essentiellement sous forme de notebooks [Jupyter](http://jupyter.org/),
 les diapos utilisant [RISE](https://github.com/damianavila/RISE). Pour utiliser les notebooks
