@@ -20,7 +20,7 @@ jupyter:
 Cours 3 : POO
 =============
 
-**Loïc Grobol**
+**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 2021-09-22
 <!-- #endregion -->
