@@ -21,11 +21,20 @@ les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 
 ### 2021-09-22 — Introduction et *crash course* Python
 
+Slides :
+
 - [Slides 1](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
 - [Slides 2](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/lecture-02.md)
 - [Slides 3](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-03/lecture-03.md)
 - [Slides 4](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-04/lecture-04.md)
 - [Slides 5](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+
+Exos :
+
+- [Power of Thor E01](https://www.codingame.com/ide/puzzle/power-of-thor-episode-1)
+- [ASCII art](https://www.codingame.com/ide/puzzle/ascii-art)
+- [The descent](https://www.codingame.com/ide/puzzle/the-descent)
+- [Shadow of the knight E01](https://www.codingame.com/ide/puzzle/shadows-of-the-knight-episode-1)
 
 ## Outils
 
