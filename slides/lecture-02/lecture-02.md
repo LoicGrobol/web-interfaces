@@ -16,7 +16,7 @@ jupyter:
 
 [comment]: <> "LTeX: language=fr"
 
-Cours 2 : Environnements Python
+Cours 2 : Structures de données
 ===============================
 
 **Loïc Grobol**
@@ -29,14 +29,17 @@ Voir [https://github.com/LoicGrobol/web-interfaces/tree/main/corrections](https:
 
 ## Les listes : fonctions
 
-- Les listes héritent des fonctions des *sequences*, elles ont également des [fonctions propres](https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists)
-- Parmi ces fonctions nous utiliserons principalement :
+- Les listes héritent des fonctions des *sequences*, elles ont également des [fonctions
+  propres](https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists)
+- Parmi ces fonctions, nous utiliserons principalement :
   - `append(x)` : ajoute un élément x à la fin de la liste (haut de la pile*)
   - `extend([x, y, z])` : ajoute tous les éléments de la liste arg à la fin de la liste
   - `pop(index=-1)` : supprime et renvoie l'élément de la liste à la position `index`
   - `index(x)` : renvoie l'index du premier élément de valeur x
   - `count(x)` : renvoie le nombre de fois où x apparaît
-  - `sort(key=None, reverse=False)` : trie et modifie la liste, lire la [doc](https://docs.python.org/3.6/howto/sorting.html#sortinghowto) pour en savoir plus sur les ordres de tri.
+  - `sort(key=None, reverse=False)` : trie et modifie la liste, lire la
+    [doc](https://docs.python.org/3/howto/sorting.html#sortinghowto) pour en savoir plus sur les
+    ordres de tri.
 
 ```python
 stack = [12, 15, 12, 7, 18]
@@ -46,6 +49,9 @@ stack.index(12)
 ```python
 stack.count(12)
 ```
+
+**Attention** : si vous avez plusieurs éléments à compter, utilisez plutôt
+[`collections.Counter`](https://docs.python.org/3/library/collections.html#collections.Counter)
 
 ```python
 stack.sort()
@@ -67,7 +73,7 @@ stack.extend([51, 52])
 stack
 ```
 
-### ✍️ Exo ✍️
+### ✍️ Exo 1 ✍️
 
 ```python
 def tokenize(sentence):
@@ -80,13 +86,7 @@ def tokenize(sentence):
     Returns:
         list
     """
-    words = []
-    for item in sentence.split():
-        if '-' in item:
-            words.append(item.split('-'))
-        else:
-            words.append(item)
-    return words
+    pass # À vous
 ```
 
 ```python
@@ -96,7 +96,7 @@ assert tokenize("tout mon cœur est resté là-bas") == \
     ['tout', 'mon', 'cœur', 'est', 'resté', ['là', 'bas']]
 ```
 
-# Les listes en compréhension
+## Les listes en compréhension
 
 - Elles permettent de définir des listes par filtrage ou opération sur les éléments d'une autre
   liste
@@ -116,7 +116,7 @@ assert tokenize("tout mon cœur est resté là-bas") == \
 [(i, j) for i in range(2) for j in ['a', 'b']]
 ```
 
-### ✍️ Exo ✍️
+### ✍️ Exo 2 ✍️
 
 Utilisez une liste en compréhension sur la sortie de votre fonction tokenize de manière à ne retenir
 que les noms composés
@@ -145,9 +145,12 @@ for i, item in enumerate(voyelles):
     print(i, item)
 ```
 
-## Copie de liste
+C'est de très loin préférable à itérer sur `range(len(voyelles))`.
 
-Dans `y = x`, `y` n'est pas une copie de x, les deux pointent vers le même objet
+## Copie
+
+Dans `y = x`, `y` n'est pas une copie de x, les deux pointent vers le même objet. C'st
+particulièrement important pour les objets *mutables* comme les listes.
 
 ```python
 x = [1, 2, 3]
@@ -156,16 +159,25 @@ y[0] = 4
 x
 ```
 
-Pour copier une liste il faut utiliser :
+Si ce qu'on veut copier est une liste, on peut utiliser
 
 ```python
 x = [1, 2, 3]
 y = x[:]
-# ou
+```
+
+ou
+
+```python
 y = list(x)
 y[0] = 4
 x
 ```
+
+Il y a d'autres façons de faire. Pour les objets complexes on peut regarder du côté du module
+[`copy`](https://docs.python.org/3/library/copy.html) mais il n'y a pas de réponse universelle et
+copier c'est souvent coûteux. Le mieux à faire quand on a envie de faire une copie c'est de
+commencer par se demander si on en a vraiment besoin.
 
 # Déballage de séquences
 
@@ -191,7 +203,7 @@ for i in range(*bornes):
     print(i)
 ```
 
-# Les ensembles
+## Les ensembles
 
 Les ensembles (`set`) sont des collections non ordonnées d'élements sans doublons
 Les ensembles supportent les fonctions mathématiques d'union, d'intersection, de différence ([doc](https://docs.python.org/3.6/library/stdtypes.html#set))
@@ -218,7 +230,19 @@ ens2 = {"avec", "le", "chandelier", "dans", "la", "cuisine"}
 ens1.intersection(ens2)
 ```
 
-### ✍️  Exo 
+Attention il y a un piège
+
+```python
+a = {1}
+type(a)
+```
+
+```python
+b = {}
+type(b)
+```
+
+## ✍️ Exo 3
 
 Dans cet extrait de données tirées des [listes de Swadesh de langues
 austronésiennes](https://en.wiktionary.org/wiki/Appendix:Austronesian_Swadesh_lists), ici pour le
@@ -234,7 +258,7 @@ cebuano = {'i':'ako', 'you_sg':'ikaw', 'he':'siya', 'we':'kita', 'you_pl':'kamo'
 set(tagalog.values()).intersection(set(cebuano.values()))
 ```
 
-# Les dictionnaires
+## Les dictionnaires
 
 - Les dictionnaires (`dict`) sont des structures de données associatives de type clé: valeur
 - Les clés d'un dictionnaire sont uniques, seuls les types *hashable* (*immutable* et objets que
@@ -287,8 +311,6 @@ for ortho, phon in lexique:
 dico
 ```
 
-## Module collections
-
 - `Counter`
   
 `Counter` est un dictionnaire où les valeurs attendues sont les nombres d'occurences des clés
@@ -302,7 +324,7 @@ for item in list:
 cnt
 ```
 
-### ✍️  Exo 
+### ✍️ Exo 4
 
 Faites la même chose avec un dictionnaire
 
@@ -322,7 +344,6 @@ Faites la même chose avec un dictionnaire
     >>> f = open('nom_fichier', 'w')
   ```
 
-<!-- #region -->
 Les modes sont : 
 
 - `r` : lecture (défaut)
@@ -335,9 +356,6 @@ Les modes sont :
 - `t` : mode texte (défaut)
 - `+` : read/write (ex: r+b)
 
-<!-- #endregion -->
-
-<!-- #region -->
 ## Les fichiers : ouverture
 
 La documentation de Python conseille cette façon de faire :
@@ -346,9 +364,7 @@ with open('mon_fichier', 'r') as f:
     read_data = f.read()
 ```
 L'utilisation du mot clé `with` garantit la fermeture du fichier même si une exception est soulevée.  
-<!-- #endregion -->
 
-<!-- #region -->
 ## Les fichiers : lecture
 
 - `read(size=-1)` lit les `size` premiers octets (mode `b`) ou caractères (mode `t`). Si `size` < 0,
@@ -363,9 +379,7 @@ L'utilisation du mot clé `with` garantit la fermeture du fichier même si une e
 for line in f:
     process(line)
 ```
-<!-- #endregion -->
 
-<!-- #region -->
 ## Les fichiers : écriture et fermeture
 
 - `write(text)` écrit `texte` dans le fichier?
@@ -381,9 +395,8 @@ with open('mon_fichier', 'w') as output_f:
         print(item, file=output_f)
 ```
 - `sys.stdin`, `sys.stdout` et `sys.stderr` sont des objets de type `file`
-<!-- #endregion -->
 
-### ✍️  Exo 
+### ✍️ Exo 5
 
 Lisez le fichier `data/austronesian_swadesh.csv` et écrivez les mots des langues Ilocano et Malagasy dans deux fichiers distincts.  
 Les données viennent de [Wiktionary](https://en.wiktionary.org/wiki/Appendix:Austronesian_Swadesh_lists).
@@ -501,10 +514,11 @@ if re.search(r"\w", "هيلاري كلينتون"):
     print("Yeah !")
 ```
 
-### ☕  Exos ☕
+### ☕ Exos 6 ☕
 
 
-1. Écrire une fonction qui reçoit deux noms de langue austronésiennes, une liste de mots en anglais et renvoie chacun des mots anglais avec leur traduction dans les deux langues.
+1\. Écrire une fonction qui reçoit deux noms de langue austronésiennes, une liste de mots en anglais
+et renvoie chacun des mots anglais avec leur traduction dans les deux langues.
 
 ```python
 def get_austro_words(langue1, langue2, words):
@@ -530,10 +544,11 @@ assert get_austro_words('Malay', 'Balinese', ['new', 'old', 'good']) == \
     }
 ```
 
-2. Pour chaque mot du Cebuano de la liste Swadesh austronésienne, trouvez les mots des autres
+2\. Pour chaque mot du Cebuano de la liste Swadesh austronésienne, trouvez les mots des autres
    langues qui ont les deux ou trois premiers caractères en commun.  
    (optionnel si vous voulez jouer avec les expressions régulières) Si le mot commence par une
    voyelle, elle pourra différer dans les autres langues. Ex: isa / usa seront considérées comme
    similaires (i/u) parce qu'à part la première lettre voyelle elles sont similaires.
-3. Sans rechercher de solution sur internet, essayez d'implémenter une fonction qui calcule la
+
+3\. Sans rechercher de solution sur internet, essayez d'implémenter une fonction qui calcule la
    distance de Levenshtein
