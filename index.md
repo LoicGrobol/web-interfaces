@@ -25,6 +25,7 @@ les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 - [Slides 2](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/lecture-02.md)
 - [Slides 3](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-03/lecture-03.md)
 - [Slides 4](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-04/lecture-04.md)
+- [Slides 5](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
 
 ## Outils
 

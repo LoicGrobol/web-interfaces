@@ -19,7 +19,7 @@ jupyter:
 Cours 1 : Introduction et rappels Python
 ========================================
 
-**Loïc Grobol**
+**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 2021-09-22
 

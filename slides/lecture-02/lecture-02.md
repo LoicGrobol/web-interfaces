@@ -19,7 +19,7 @@ jupyter:
 Cours 2 : Structures de données
 ===============================
 
-**Loïc Grobol**
+**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 2021-09-22
 
