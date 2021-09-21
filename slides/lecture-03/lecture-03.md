@@ -508,13 +508,13 @@ l'utilisation d'objets d'autres classes comme attributs. Voir
 <https://python-patterns.guide/gang-of-four/composition-over-inheritance/>
 
 
-### ☕  Exos ☕
+### ☕  Exos 1 ☕
 
 Écrire une classe `Sentence` et une classe `Word` qui représenteront les données d'un fichier ud (https://universaldependencies.org/).  
 Vous écrirez également un programme qui reçoit un fichier .conll en argument et instancie autant d'objets Sentence et Word que nécessaires.
 
 
-### ☕  Exos ☕
+### ☕  Exos 2 ☕
 
 Écrivez un script qui reçoit trois arguments : un répertoire de fichiers conllu, une chaîne de car. notant le mode (form ou pos) et un entier (n entre 2 et 4).  
 Votre calculera les fréquences des n-grammes (où la valeur de n est passée en argument) dans les fichiers du répertoire. Deux modes de calcul : par forme ou par pos.  

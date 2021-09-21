@@ -57,7 +57,7 @@ C'est aussi pratique pour séparer des morceaux de code qui font des choses diff
 <!-- #endregion -->
 
 ```python
-²from collections import Counter
+from collections import Counter
 
 def most_common(lst, n):
     """Renvoie les n éléments les plus fréquents de lst"""
@@ -302,3 +302,78 @@ with contextlib.redirect_stdout(io.StringIO()) as ham:
 print(ham.getvalue().splitlines()[3])
 ```
 
+## Un package
+
+```python
+! tree operations_pack
+```
+
+Un package python peut contenir des modules, des répertoires et sous-répertoires, et bien souvent du non-python : de la doc html, des données pour les tests, etc…
+
+Le répertoire principal et les répertoires contenant des modules python doivent contenir un fichier `__init__.py`
+
+`__init__.py` peut être vide, contenir du code d'initialisation ou contenir la variable `__all__`
+
+```python
+import operations_pack.simple
+operations_pack.simple.addition(2, 4)
+```
+
+```python
+from operations_pack import simple
+simple.soustraction(4, 2)
+```
+
+``__all__`` dans ``__init__.py`` définit quels seront les modules qui seront importés avec ``import *``
+
+```python
+from operations_pack.avance import *
+multi.multiplication(2,4)
+```
+
+# Pas de main en Python ?
+
+Vous trouverez fréquemment le test suivant dans les scripts Python :
+
+```python
+if __name__ == '__main__':
+    instruction1
+    instruction2
+```
+
+ou
+
+```python
+def main():
+    instruction
+
+if __name__ == '__main__':
+    main()
+```
+
+Cela évite que le code sous le test ne soit exécuté lors de l'import du script : `__name__` est une
+variable créée automatiquement qui vaut `__main__` si le script a été appelé en ligne de commande,
+le nom du script s'il a été importé.
+
+Accessoirement cela permet d'organiser son code et de le rendre plus lisible
+Cela permet aussi d'importer les fonctions du script à la manière d'un module
+
+Je vous ~recommande vivement~ demande de l'inclure dans tous vos scripts. On verra aussi d'autres
+façons de gérer les interfaces en ligne de commande…
+
+## Où sont les modules et les packages ?
+
+Pour que `import` fonctionne il faut que les modules soient dans le PATH.
+
+```python
+import sys
+sys.path
+```
+
+``sys.path`` est une liste, vous pouvez la modifier **mais évitez à moins d'avoir une très bonne
+raison**.
+
+```python
+sys.path.append("[...]") # le chemin vers le dossier operations_pack
+sys.path
+```
