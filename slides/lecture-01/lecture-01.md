@@ -95,7 +95,7 @@ from IPython.display import display
 - On peut utiliser des parenthèses pour définir des priorités.
 
 
-### ✍️ Exos ✍️
+### ✍️ Exos 1 ✍️
 
 C'est à vous de jouer !
 
@@ -141,7 +141,7 @@ assert square(-2) == 4
 - `==` égal / `!=` différent
 - `is` identité (pour les objets surtout)/ `is not` non identité
 
-### ✍️ Exo ✍️
+### ✍️ Exo 2 ✍️
 
 ```python
 def on_fait_la_taille(moi, toi):
@@ -210,26 +210,29 @@ MAIS ON NE LE FAIT PAS
 
 # Les types
 
-* Python est un langage à typage *dynamique* fort : le type d'une variable est déterminé par l'interpréteur.
-* Python est un langage à typage dynamique *fort* : pas de conversion implicite, certaines actions sont interdites.
+- Python est un langage à typage *dynamique* fort : le type d'une variable est déterminé par
+  l'interpréteur.
+- Python est un langage à typage dynamique *fort* : pas de conversion implicite, certaines actions
+  sont interdites.
 
 ```python
 "Hello" + 1
 ```
 
-* La fonction `type()` retourne le type de la variable donnée en argument.
+- La fonction `type()` retourne le type de la variable donnée en argument.
 
 ```python
 type("Hello")
 ```
 
-* La fonction `isinstance(obj, class)` vous dit si l'objet donné en argument est de la classe 'class' ou non
+- La fonction `isinstance(obj, class)` vous dit si l'objet donné en argument est de la classe
+  'class' ou non
 
 ```python
 isinstance('hello', int)
 ```
 
-### ✍️  Exo ✍️
+### ✍️ Exo 3 ✍️
 
 Vous reprenez votre fonction `is_even` de façon à afficher "Erreur de type" quand l'argument n'est pas de type `int`
 
@@ -253,8 +256,8 @@ assert is_even("test") == "Erreur de type"
 ## Les chaînes de caractère
 
 
-* Les chaînes de caractères sont entourées soit de quotes simples `'`, soit de guillemets `"`
-* Si votre mot contient une apostrophe, entourez-le de guillemets `"`
+- Les chaînes de caractères sont entourées de quotes simples `'` ou doubles `"`
+- Si votre mot contient une apostrophe, entourez-le de guillemets `"`
 
 ```python
 'Ça donne une erreur t'as vu'
@@ -264,15 +267,24 @@ assert is_even("test") == "Erreur de type"
 "Ça donne une erreur t'as vu"
 ```
 
-Les chaînes sont des *sequences*, on peut leur appliquer les opérations suivantes propres à la catégorie d'objets *sequence* :  
-(vous connaissez d'autres *sequence* au fait ?)
+On peut aussi utiliser trois quotes pour avoir une chaîne de caractères sur plusieurs lignes
 
-* longueur, minimum, maximum
+```python
+"""Ceci est une
+chaîne de caractères
+sur plusieurs lignes
+Je peux y mettre des simples ' et double " quotes sans problème !
+"""
+```
+
+Les chaînes sont des *séquences*, on peut leur appliquer les opérations suivantes propres à la catégorie d'objets *séquences* :
+
+(Vous connaissez d'autres *séquences* au fait ?)
+
+- longueur, minimum, maximum
 
 ```python
 spam = "bonjour"
-
-# longueur, minimum, maximum
 print(len(spam))
 print(max(spam))
 ```
@@ -281,22 +293,20 @@ print(max(spam))
   - Les indices commencent à `0` !
 
 ```python
-# indexing
 spam = "bonjour"
 print(spam[2])
 print(spam[-1])
 ```
 
 - _slicing_
-  - `spam[i:j]` c'est `spam[i]`, `spam[i+1]`, …, `spam[j-1]`
+  - `spam[i:j]`, c'est `spam[i]`, `spam[i+1]`, …, `spam[j-1]`
 
 ```python
-# slicing
 print(spam[0:3]) # 3 premiers éléments
 print(spam[-3:]) # 3 derniers éléments
 ```
 
-* _membership_
+- _membership_
 
 ```python
 if 'u' in spam:
@@ -307,15 +317,19 @@ Les chaînes ont aussi des fonctions qui leur sont propres
 
 Voir la liste complète dans la doc python
 
-`lower()` transforme la chaine en minuscules  
-`upper()` transforme la chaine en majuscules  
-`replace(old, new)` remplace les occurrences de `old` par `new`  
-`strip(chars=None)` appelé sans arguments supprime le ou les espaces en tête et en fin de chaîne  
-`rstrip(chars=None)` fait la même chose en fin de chaîne uniquement  
-`lstrip(chars=None)` idem en début de chaîne  
-`split(sep=None)` découpe une chaîne en fonction de `sep` et renvoie une liste. Si `sep` n'est pas donné, coupe sur tous les caractères d'espace  
-`join(iterable)` est l'inverse de `split`, il permet de joindre les éléments d'un *iterable* pour former une seule chaîne de caractères  
-[`format()`](https://docs.python.org/3.5/library/string.html#formatstrings) depuis python3 (et python2.7) pour effectuer l'[interpolation de chaîne](https://en.wikipedia.org/wiki/String_interpolation)  
+- `lower()` transforme la chaine en minuscules
+- `upper()` transforme la chaine en majuscules
+- `replace(old, new)` remplace les occurrences de `old` par `new`
+- `strip(chars=None)` appelé sans arguments supprime le ou les espaces en tête et en fin de chaîne  
+- `rstrip(chars=None)` fait la même chose en fin de chaîne uniquement
+- `lstrip(chars=None)` idem en début de chaîne
+- `split(sep=None)` découpe une chaîne en fonction de `sep` et renvoie une liste. Si `sep` n'est pas
+  donné, coupe sur tous les caractères d'espace
+- `join(iterable)` est l'inverse de `split`, il permet de joindre les éléments d'un *iterable* pour
+  former une seule chaîne de caractères
+  [`format()`](https://docs.python.org/3/library/string.html#formatstrings) depuis python3 (et
+  python2.7) pour effectuer l'[interpolation de
+  chaîne](https://en.wikipedia.org/wiki/String_interpolation)
 
 ```python
 words = "bonjour ça va ?".split(' ')
@@ -324,11 +338,14 @@ words = "bonjour ça va ?".split(' ')
 
 ### Formatage de chaînes
 
-« There should be one-- and preferably only one --obvious way to do it. » _Zen of Python_  
-Sauf que : 
-* concaténation avec `+` **à éviter**
-* interpolation avec `format()`
-* [f-string](https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings) depuis python3.6
+> There should be one — and preferably only one — obvious way to do it.  ([PEP 20 : *Zen of
+> Python*](https://www.python.org/dev/peps/pep-0020/))
+
+Sauf que :
+
+- Concaténation avec `+` **à éviter**
+- Interpolation avec `format()`
+- [f-string](https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings) depuis python3.6
 
 ```python
 name = "Clément"
@@ -341,7 +358,8 @@ print("Tiens salut {}. T'aurais pas {} euros pour 2 cafés ?".format(name, coffe
 print(f"Tiens salut {name}. T'aurais pas {coffee_price*2} euros pour 2 cafés ?")
 ```
 
-On évite de faire ça avec `+` parce que c'est moins lisible et que c'est **lent**. De fait on créé une chaîne intermédiaire à chaque étape.
+On évite de faire ça avec `+` parce que c'est moins lisible et que c'est **lent**. De fait on créé
+une chaîne intermédiaire à chaque étape.
 
 ```python
 s1 = "Tiens salut " + name
@@ -350,7 +368,8 @@ s3 = s2 + + str(coffee_price*2)
 s4 = s3 + + " euros pour 2 cafés ?"
 ```
 
-Sur l'exemple ci-dessus ça va, mais on se retrouve vite à additionner des centaines de chaînes et c'est la galère.
+Sur l'exemple ci-dessus ça va, mais on se retrouve vite à additionner des centaines de chaînes et
+c'est la galère.
 
 
 Pour concaténer beaucoup de chaînes il vaut mieux utiliser `join`
@@ -359,7 +378,16 @@ Pour concaténer beaucoup de chaînes il vaut mieux utiliser `join`
 print(" 👏 ".join(["On", "ne", "concatène", "pas", "des", "chaînes", "de", "caractères", "avec", "+"]))
 ```
 
-### ✍️  Exo ✍️
+Attention aussi à la concaténation implicite
+
+```python
+spam = ("Hello, " "there")
+ham = ("General ", "Kenobi")
+print(spam)
+print(ham)
+```
+
+### ✍️ Exo 4 ✍️
 
 ```python
 def say_hello(firstname, lastname):
@@ -372,7 +400,8 @@ def say_hello(firstname, lastname):
 assert say_hello("Lucky", "Luke") == "Hello Lucky Luke !"
 ```
 
-Un objet de type `str` (string, chaîne de caractères quoi) est *immutable*, on ne peut pas modifier sa valeur.
+Un objet de type `str` (string, chaîne de caractères quoi) est *immutable*, on ne peut pas modifier
+sa valeur.
 
 ```python
 chaine = "pithon"
@@ -404,7 +433,7 @@ stack[1] = 'y'
 stack
 ```
 
-### ✍️  Exo ✍️
+### ✍️ Exo 5 ✍️
 
 ```python
 def change_char(string, index):
@@ -421,12 +450,12 @@ assert change_char("maison", 0) == "zaison"
 ```
 
 ## Les dictionnaires
-			
-* Un dictionnaire est une structure de données associative de type 'clé' → 'valeur'
-* Les données ne sont pas ordonnées comme dans les listes
-* On accède à une valeur par sa clé
-* Les clés sont uniques : on ne peut pas associer deux valeurs à une même clé    
-* `keys()` renvoie la liste des clés, `values()` la liste des valeurs
+
+- Un dictionnaire est une structure de données associative de type 'clé' → 'valeur'
+- Les données ne sont pas ordonnées comme dans les listes
+- On accède à une valeur par sa clé
+- Les clés sont uniques : on ne peut pas associer deux valeurs à une même clé
+- `keys()` renvoie la liste des clés, `values()` la liste des valeurs
 
 ```python
 couleurs = {'a':'noir', 'e':'blanc', 'i':'rouge', 'u':'vert', 'o':'bleu'}
@@ -448,7 +477,8 @@ couleurs.items()
 
 # Les tuples
 
-- Les tuples (`tuple`) sont des *sequences* similaires aux listes sauf qu'elles ne peuvent pas être modifiées (*immutable*)
+- Les tuples (`tuple`) sont des *séquences* similaires aux listes sauf qu'elles ne peuvent pas être
+  modifiées (*immutable*)
 - Les tuples sont souvent utilisées comme valeur de retour d'une fonction
 - Les tuples peuvent être utilisées comme clé de dictionnaire
 
@@ -458,7 +488,6 @@ my_var = tuple('Perl')
 my_var
 ```
 
-<!-- #region -->
 ## Les structures conditionnelles
 
 ```python
@@ -471,27 +500,27 @@ else:  # si besoin
 ```
 
 ### Opérateurs booléens
+
 ``not`` négation  
 ``and`` conjonction (True si les deux opérandes sont vraies, False sinon)  
 ``or``  disjonction (True si une des deux opérandes est vraie)
-<!-- #endregion -->
 
-<!-- #region -->
-* Les valeurs ci-dessous sont toutes évaluées par l'interpréteur comme ayant la valeur booléenne *false*
+
+- Les valeurs ci-dessous sont toutes évaluées par l'interpréteur comme ayant la valeur booléenne *false* :
 
   `False` `None` `0` (et les nombres qui lui sont égaux) `""` `()` `[]` `{}`
 
-* Tout le reste<sup>1</sup> sera évalué comme _true_
+- Tout le reste<sup>1</sup> sera évalué comme _true_
 
   Vous pouvez écrire :
-```python
->>> if var: ou while my_list:  
-```
+  ```python
+  >>> if var: ou while my_list:  
+  ```
   plutôt que :  
 
-```python
->>> if var != "": ou while my_list != []:
-```
+  ```python
+  >>> if var != "": ou while my_list != []:
+  ```
 
 <sup>1</sup> <small>Sauf les objets dont vous avez construit les classes. Voir les diapos à venir sur Classes et objets.</small>
 <!-- #endregion -->
@@ -508,7 +537,8 @@ else:
 
 ## Les boucles
 
-* Les boucles `while` nécessitent que la valeur utilisée dans la condition d'arrêt soit modifiée dans le corps de la boucle.
+- Les boucles `while` nécessitent que la valeur utilisée dans la condition d'arrêt soit modifiée
+  dans le corps de la boucle.
 
 ```python
 i = 1
@@ -517,10 +547,12 @@ while i < 5:
     i = i + 1
 ```
 
-* Les boucles `for` s'appliquent sur les *séquences* (`list`, `str`, `tuple`) et plus généralement sur les *iterables* [voir doc](https://docs.python.org/3/glossary.html#term-iterable)
-* Les *iterables* sont des objets issus de classes qui implémentent la méthode `__iter__()` et/ou `__getitem__()`
-* L'instruction `continue` permet de passer à l'itération suivante
-* L'instruction `break` permet de quitter la boucle en cours
+- Les boucles `for` s'appliquent sur les *séquences* (`list`, `str`, `tuple`) et plus généralement
+  sur les *iterables* [voir doc](https://docs.python.org/3/glossary.html#term-iterable)
+- Les *iterables* sont des objets issus de classes qui implémentent la méthode `__iter__()` et/ou
+  `__getitem__()`
+- L'instruction `continue` permet de passer à l'itération suivante
+- L'instruction `break` permet de quitter la boucle en cours
 
 ```python
 for item in voyelles:
@@ -541,8 +573,8 @@ for key, value in couleurs.items():
         break
 ```
 
-* `zip` permet de boucler sur plusieurs séquences
-* Si les séquences sont de tailles différentes `zip` s'arrête à la longueur la plus petite
+- `zip` permet de boucler sur plusieurs séquences
+- Si les séquences sont de tailles différentes `zip` s'arrête à la longueur la plus petite
 
 ```python
 noms = ['einstein', 'planck', 'turing', 'curie', 'bohr', 'shannon']
@@ -552,7 +584,7 @@ for nom, fac, parcours in zip(noms, facs, parcours):
     print(f"{nom} est inscrit en {parcours} à {fac}")
 ```
 
-### ☕  Exos ☕
+### ☕ Exos 6 ☕
 
 ```python
 def fr_ar(string):
@@ -571,11 +603,18 @@ assert fr_ar("trop bizarre cet exercice") == []
 assert fr_ar("il nous a rien dit") == ['هو', 'نحن']
 ```
 
-1. Des triangles
-    1. écrire une fonction `la_plus_grande(longueur1, longueur2, longueur3)` qui renvoie la longueur du plus grand côté (une fonction de python fait peut-être déjà cela...).
-    2. écrire une fonction `est_equilateral(longueur1, longueur2, longueur3)` qui détermine si un triangle est équilatéral ou non (les trois côtés ont la même longueur).
-    2. écrire une fonction `est_isocele(longueur1, longueur2, longueur3)` qui détermine si un triangle est isocèle (deux côtés de même longueur mais pas trois) ou non.
-    3. Écrire une fonction `caracteristiques(longueur1, longueur2, longueur3)` qui renvoie la nature et la taille du plus grand côté d'un triangle. On dira qu'un triangle est `quelconque` s'il n'est ni équilatéral ni isocèle. Affiche `pas un triangle` si les longueurs données ne font pas un triangle (la longueur du plus grand côté est supérieure à celle des deux autres).
+#### 1. Des triangles
+
+1. Écrire une fonction `la_plus_grande(longueur1, longueur2, longueur3)` qui renvoie la longueur du
+   plus grand côté (une fonction de python fait peut-être déjà cela...).
+2. Écrire une fonction `est_equilateral(longueur1, longueur2, longueur3)` qui détermine si un
+   triangle est équilatéral ou non (les trois côtés ont la même longueur).
+3. Écrire une fonction `est_isocele(longueur1, longueur2, longueur3)` qui détermine si un triangle
+   est isocèle (deux côtés de même longueur mais pas trois) ou non.
+4. Écrire une fonction `caracteristiques(longueur1, longueur2, longueur3)` qui renvoie la nature et
+   la taille du plus grand côté d'un triangle. On dira qu'un triangle est `quelconque` s'il n'est ni
+   équilatéral ni isocèle. Affiche `pas un triangle` si les longueurs données ne font pas un
+   triangle (la longueur du plus grand côté est supérieure à celle des deux autres).
 
 ```python
 def la_plus_grande(longueur1, longueur2, longueur3):
@@ -619,9 +658,13 @@ assert caracteristiques(6, 3, 2) == "pas un triangle"
 assert caracteristiques(2, 6, 3) == "pas un triangle"
 ```
 
-2. Des heures
-    1. écrire une fonction `heures(secondes)` qui prend un nombre de secondes (entier) et le convertit en heures, minutes et secondes sous le format `H:M:S` où `H` est le nombre d'heures, `M` le nombre de minutes et `S` le nombre de secondes.
-    2. écrire une fonction `secondes(heure)` qui prend une heure au format `H:M:S` et renvoie le nombre de secondes correspondantes (entier).
+#### 2. Des heures
+
+1. Écrire une fonction `heures(secondes)` qui prend un nombre de secondes (entier) et le convertit
+   en heures, minutes et secondes sous le format `H:M:S` où `H` est le nombre d'heures, `M` le
+   nombre de minutes et `S` le nombre de secondes.
+2. Écrire une fonction `secondes(heure)` qui prend une heure au format `H:M:S` et renvoie le nombre
+   de secondes correspondantes (entier).
 
 On ne gèrera ici pas les cas incohérents comme un nombre de secondes négatif ou une heure mal formatée.
 
@@ -660,7 +703,14 @@ assert(heures(secondes('24:1:1'))) == "24:1:1"
 
 3. Des cartes
 
-Nous jouons aux cartes à quatre personnes. On appelle un pli l'ensemble des cartes jouées dans un tour (ici, quatre cartes). Chaque carte a une valeur (un entier de 1 à 13). Chaque carte a également une couleur : carreau, trèfle, cœur ou pic. Ces couleurs sont notés avec une lettre: carreau=`D`, trèfle=`C`, cœur=`H` et pic=`S`. Une carte est alors une chaîne avec sa couleur et sa valeur, par exemple l'as de pic est noté `S1`, la dame de cœur `H12`. La carte du premier joueur `carte1` donne la couleur attendue. Une carte qui n'est pas à la bonne couleur perd automatiquement. Écrire une fonction `gagne_couleur(carte1, carte2, carte3, carte4)` qui renvoie la carte qui remporte le pli en faisant attention aux couleurs.  
+Nous jouons aux cartes à quatre personnes. On appelle un pli l'ensemble des cartes jouées dans un
+tour (ici, quatre cartes). Chaque carte a une valeur (un entier de 1 à 13). Chaque carte a également
+une couleur : carreau, trèfle, cœur ou pic. Ces couleurs sont notés avec une lettre: carreau=`D`,
+trèfle=`C`, cœur=`H` et pic=`S`. Une carte est alors une chaîne avec sa couleur et sa valeur, par
+exemple l'as de pic est noté `S1`, la dame de cœur `H12`. La carte du premier joueur `carte1` donne
+la couleur attendue. Une carte qui n'est pas à la bonne couleur perd automatiquement. Écrire une
+fonction `gagne_couleur(carte1, carte2, carte3, carte4)` qui renvoie la carte qui remporte le pli en
+faisant attention aux couleurs.  
 
 On ne gèrera pas certains cas incohérents comme une carte ou un pli invalide.
 
@@ -682,4 +732,4 @@ assert(gagne_couleur('S1', 'D2', 'C3', 'H4')) == 'S1'
 assert(gagne_couleur('S1', 'D2', 'S13', 'S10')) == 'S13'
 ```
 
-Faire l'exercice ASCII ART de codingame: https://www.codingame.com/ide/puzzle/ascii-art
+Faire l'exercice ASCII ART de codingame: <https://www.codingame.com/ide/puzzle/ascii-art>
