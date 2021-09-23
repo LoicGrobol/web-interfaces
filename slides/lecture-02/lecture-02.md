@@ -284,6 +284,10 @@ d['Ruby']
 ```
 
 ```python
+d.get('Ruby', 'je sais pas')
+```
+
+```python
 d.setdefault('Ruby', 'je sais pas')
 d
 ```
@@ -350,8 +354,8 @@ Les modes sont :
 - `w` : écriture
 - `x` : création et écriture (échec si le fichier existe déjà)
 - `a` : concaténation (append)
-  
-  
+
+
 - `b` : mode binaire
 - `t` : mode texte (défaut)
 - `+` : read/write (ex: r+b)
@@ -404,7 +408,38 @@ Les données viennent de [Wiktionary](https://en.wiktionary.org/wiki/Appendix:Au
 (Essayez de faire comme si vous ne connaissiez pas le module csv sinon la partie qui suit n'aura aucun intérêt.)
 
 ```python
-# c'est compliqué sans le module csv quand même
+def read_that_ugly_csv(p):
+    lines = []
+    with open(p) as in_stream:
+        next(in_stream)  # On saute la ligne d'en-tête
+        for l in in_stream:
+            if not l or l.isspace():
+                continue
+            if l[0].isdigit():
+                lines.append(l.strip())
+            else:
+                lines.append(lines.pop()+l.strip())
+    return lines
+
+def get_malagasy_ilocano(lst):
+    mal = []
+    ilo = []
+    for line in lst:
+        row = line.split(',"', maxsplit=1)[1]
+        cols = row.split('","')
+        mal.append(cols[9])
+        ilo.append(cols[2])
+    return mal, ilo
+
+def write_list(lst, p):
+    with open(p, "w") as out_stream:
+        for elem in lst:
+            out_stream.write(f"{elem}\n")
+
+lines = read_that_ugly_csv("../../data/austronesian_swadesh.csv")
+mal, ilo = get_malagasy_ilocano(lines)
+write_list(mal, "mal.txt")
+write_list(ilo, "ilo.txt")
 ```
 
 ## Module csv
@@ -420,11 +455,11 @@ Pour le dire vite il y a deux façons de l'utiliser : reader/writer ou DictRead
 import csv
 
 swadesh_light = []
-with open('data/austronesian_swadesh.csv') as csvfile:
+with open('../../data/austronesian_swadesh.csv') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='"') # à l'ouverture je spécifie les séparateur de champ et de chaîne  
     for row in reader: # l'objet reader est un itérable
         swadesh_light.append(row[0:3])
-        print(' | '.join(row[0:3])) # row est une liste de chaînes de caractères
+        print(' \t| '.join([str(s) for s in row[0:3]])) # row est une liste de chaînes de caractères
 ```
 
 - `csv.writer`

@@ -16,6 +16,10 @@ jupyter:
 
 [comment]: <> "LTeX: language=fr"
 
+```python
+
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 4 : Modules
 =================

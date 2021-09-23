@@ -130,6 +130,10 @@ re.findall(pattern, text)
 <!-- #endregion -->
 
 ```python
+!pip install regex
+```
+
+```python
 import regex
 pattern = r"(?<!une\s+)omelette"
 regex.findall(pattern, text)
