@@ -407,40 +407,6 @@ Les données viennent de [Wiktionary](https://en.wiktionary.org/wiki/Appendix:Au
 
 (Essayez de faire comme si vous ne connaissiez pas le module csv sinon la partie qui suit n'aura aucun intérêt.)
 
-```python
-def read_that_ugly_csv(p):
-    lines = []
-    with open(p) as in_stream:
-        next(in_stream)  # On saute la ligne d'en-tête
-        for l in in_stream:
-            if not l or l.isspace():
-                continue
-            if l[0].isdigit():
-                lines.append(l.strip())
-            else:
-                lines.append(lines.pop()+l.strip())
-    return lines
-
-def get_malagasy_ilocano(lst):
-    mal = []
-    ilo = []
-    for line in lst:
-        row = line.split(',"', maxsplit=1)[1]
-        cols = row.split('","')
-        mal.append(cols[9])
-        ilo.append(cols[2])
-    return mal, ilo
-
-def write_list(lst, p):
-    with open(p, "w") as out_stream:
-        for elem in lst:
-            out_stream.write(f"{elem}\n")
-
-lines = read_that_ugly_csv("../../data/austronesian_swadesh.csv")
-mal, ilo = get_malagasy_ilocano(lines)
-write_list(mal, "mal.txt")
-write_list(ilo, "ilo.txt")
-```
 
 ## Module csv
 

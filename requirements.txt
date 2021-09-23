@@ -1,5 +1,7 @@
 jupyterlab
 jupytext
 nbconvert
+numpy
+matplotlib
 regex
 RISE
