@@ -16,25 +16,76 @@ title: Interfaces web pour le TAL — M2 PluriTAL 2021
 
 ## Séances
 
-Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), les liens vers
-les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilisation sans rien installer.
+Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), voir
+[Utilisation en local](#utilisation-en-local) pour les utiliser sur votre machine comme des
+notebooks. À défaut, ce sont des fichiers Markdown assez standards, qui devraient se visualiser
+correctement sur la plupart des plateformes (mais ne seront pas dynamiques).
+
+Les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilisation interactive
+sans rien installer. Les slides ont aussi des liens vers une version HTML statique utile si Binder
+est indisponible.
 
 ### 2021-09-22 — Introduction et *crash course* Python
 
-Slides :
+#### Slides
 
-- [Slides 1](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
-- [Slides 2](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/lecture-02.md)
-- [Slides 3](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-03/lecture-03.md)
-- [Slides 4](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-04/lecture-04.md)
-- [Slides 5](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+- [Slides 1](slides/lecture-01/lecture-01.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/lecture-01.md)
+- [Slides 2](slides/lecture-02/lecture-02.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/lecture-02.md)
+- [Slides 3](slides/lecture-03/lecture-03.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-03/lecture-03.md)
+- [Slides 4](slides/lecture-04/lecture-04.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-04/lecture-04.md)
+- [Slides 5](slides/lecture-05/lecture-05.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
 
-Exos :
+#### Exos
 
 - [Power of Thor E01](https://www.codingame.com/ide/puzzle/power-of-thor-episode-1)
 - [ASCII art](https://www.codingame.com/ide/puzzle/ascii-art)
 - [The descent](https://www.codingame.com/ide/puzzle/the-descent)
 - [Shadow of the knight E01](https://www.codingame.com/ide/puzzle/shadows-of-the-knight-episode-1)
+
+#### Corrections
+
+- [Exercices slides 1](slides/lecture-01/solutions-01.md) [![Launch in Binder
+- [Exercices slides 2](slides/lecture-02/solutions-02.md) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/solutions-02.md)
+
+## Utilisation en local
+
+Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec
+[Jupytext](https://github.com/mwouts/jupytext). C'est entre autres une façon d'avoir un historique
+git propre, malheureusement ça signifie que pour les ouvrir en local, il faut installer les
+extensions adéquates. Le plus simple est le suivant
+
+1. Récupérez le dossier du cours, soit en téléchargeant et décompressant
+   [l'archive](https://github.com/LoicGrobol/apprentissage-artificiel/archive/refs/heads/main.zip)
+   soit en le clonant avec git : `git clone
+   https://github.com/LoicGrobol/apprentissage-artificiel.git` et placez-vous dans ce dossier.
+2. Créez un environnement virtuel pour le cours (allez voir [le cours
+   5](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+   pour plus de détails sur ce que ça signifie)
+
+   ```console
+   python3 -m virtualenv .venv
+   source .venv/bin/activate
+   ```
+
+3. Installez les dépendances
+
+   ```console
+   pip install -U -r requirements.txt
+   ```
+
+4. Lancez Jupyter
+
+   ```console
+   jupyter notebook
+   ```
+
+   JupyterLab est aussi utilisable, mais la fonctionnalité slide n'y fonctionne pas pour l'instant.
 
 ## Outils
 
@@ -42,7 +93,7 @@ Vous aurez besoin d'un interpréteur Python et d'un éditeur de texte.
 
 ### Python & co
 
-On travaillera avec Python 3.8 et supérieur
+On travaillera avec Python 3.8 et supérieur.
 
 Les supports de cours sont essentiellement sous forme de notebooks [Jupyter](http://jupyter.org/),
 les diapos utilisant [RISE](https://github.com/damianavila/RISE). Pour utiliser les notebooks
