@@ -276,6 +276,7 @@ Vous pouvez aussi n'importer que ce que vous intéresse avec `from … import �
 from re import sub
 sub(r"[aeiou]", "💓", "Plurital")
 ```
+
 Ce qui concerne à la fois les membres des modules et les sous-modules.
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -287,7 +288,7 @@ from re import *
 sub(r"[aeiou]", "💓", "Plurital")
 ```
 
-On le trouve souvent dans la nature mais c'est en général une **très mauvaise idéé**:
+On le trouve souvent dans la nature, mais c'est en général une **très mauvaise idéé**:
 
 - Ça rend très difficile de savoir d'où viennent les objets dans votre module
 - En ajoutant les fonctions dans l'espace de nommage du script vous pouvez écraser des fonctions
@@ -308,7 +309,8 @@ print(ham.getvalue().splitlines()[3])
 ! tree operations_pack
 ```
 
-Un package python peut contenir des modules, des répertoires et sous-répertoires, et bien souvent du non-python : de la doc html, des données pour les tests, etc…
+Un package python peut contenir des modules, des répertoires et sous-répertoires, et bien souvent du
+non-python : de la doc html, des données pour les tests, etc… On en reparlera.
 
 Le répertoire principal et les répertoires contenant des modules python doivent contenir un fichier `__init__.py`
 
@@ -324,7 +326,7 @@ from operations_pack import simple
 simple.soustraction(4, 2)
 ```
 
-``__all__`` dans ``__init__.py`` définit quels seront les modules qui seront importés avec ``import *``
+`__all__` dans `__init__.py` définit quels seront les modules qui seront importés avec `import *`
 
 ```python
 from operations_pack.avance import *
@@ -370,7 +372,7 @@ import sys
 sys.path
 ```
 
-``sys.path`` est une liste, vous pouvez la modifier **mais évitez à moins d'avoir une très bonne
+`sys.path` est une liste, vous pouvez la modifier, **mais évitez à moins d'avoir une très bonne
 raison**.
 
 ```python
