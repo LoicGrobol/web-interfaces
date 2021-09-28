@@ -14951,8 +14951,8 @@ humain⋅e⋅s</li>
 <li>Sans mémoire (stateless) : chaque message est indépendant des précédents, ce qui signifie que deux
 messages identiques devraient avoir des effets identiques.</li>
 </ul>
-<p>Ces principes sont en pratique plus souple : il n'est pas inhabituel de transmettre des données
-non-textuelles en les représentant sous forme de chaîne de caractères et en pratique, il est très
+<p>Ces principes sont en pratique plus souple : si le format est basé sur du texte, il est tout à fait
+possible de l'utiliser pour transmettre d'autres types de données, et en pratique, il est très
 courant d'implémenter des protocoles à mémoire (<em>stateful</em>) en surcouche d'HTTP (par exemple au
 moyen de <a href="https://fr.wikipedia.org/wiki/Identificateur_de_session">jetons</a> et de
 <a href="https://fr.wikipedia.org/wiki/Cookie_\(informatique\">cookies</a>).</p>
@@ -15043,6 +15043,40 @@ résultat est censé être le même que si on ne l'avait envoyée qu'une seule f
 <p>→ Voir <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">la liste complète sur MDN</a>.</p>
 <p>La différence entre <code>POST</code> et <code>PUT</code> est un peu ésotérique et en pratique elles sont souvent
 utilisées l'une pour l'autre.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="%F0%9F%94%AE-Exos-%F0%9F%94%AE">&#128302; Exos &#128302;<a class="anchor-link" href="#%F0%9F%94%AE-Exos-%F0%9F%94%AE">&#182;</a></h2><p>(Tirés de <a href="https://jvns.ca/blog/2019/08/27/curl-exercises/">https://jvns.ca/blog/2019/08/27/curl-exercises/</a>)</p>
+<p>À l'aide <code>curl</code> et de <a href="https://curl.se/docs/">sa documentation</a>, faites les requêtes HTTP suivantes</p>
+<ol>
+<li>Une requête à <a href="https://httpbin.com">https://httpbin.com</a></li>
+<li>Une requête à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a>. Que vous revoie-t-on ?</li>
+<li>Une requête POST à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a></li>
+<li>Une requête GET à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a>, mais cette fois-ci avec le paramètre
+<code>value=panda</code></li>
+<li>Récupérez le fichier <code>robots.txt</code> de Google (<a href="http://www.google.com/robots.txt">http://www.google.com/robots.txt</a>)</li>
+<li>Faites une requête <code>GET</code> à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec le header <code>User-Agent: elephant</code></li>
+<li>Faites une requête à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> et affichez les <em>headers</em> de la réponse</li>
+<li>Faites une requête <code>POST</code> à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec comme corps <code>{"value": "panda"}</code></li>
+<li>Faites la même requête qu'en 8., mais cette fois-ci en précisant en <em>header</em> <code>Content-Type:
+application/json</code></li>
+<li>Une requête GET à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec le header <code>Accept-Encoding: gzip</code>. Que se
+passe-t-il ? Pourquoi ?</li>
+<li>Faites une requête à <a href="https://httpbin.com/image">https://httpbin.com/image</a> avec le <em>header</em> <code>Accept: image/png</code>.
+Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
+avec d'autres headers.</li>
+<li>Faites une requête PUT à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a></li>
+<li>Récupérez <a href="https://httpbin.com/image/jpeg">https://httpbin.com/image/jpeg</a>, sauvegardez le résultat dans un fichier et ouvrez le
+dans un éditeur d'images</li>
+<li>Requêtez <a href="https://www.twitter.com">https://www.twitter.com</a>. Essayez à l'aide des <em>headers</em> de comprendre pourquoi la
+réponse est vide.</li>
+<li>Faites une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> en précisant un login et un mot de passe
+avec l'option <code>-u login:password)</code></li>
+<li>Téléchargez la page d'accueil de Twitter <a href="https://twitter.com">https://twitter.com</a> en espagnol (ou une autre langue)
+avec une utilisation judicieuse des <em>headers</em>.</li>
+</ol>
 
 </div>
 </div></section></section>

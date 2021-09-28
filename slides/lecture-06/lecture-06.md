@@ -262,8 +262,8 @@ sont d'être :
 - Sans mémoire (stateless) : chaque message est indépendant des précédents, ce qui signifie que deux
   messages identiques devraient avoir des effets identiques.
 
-Ces principes sont en pratique plus souple : il n'est pas inhabituel de transmettre des données
-non-textuelles en les représentant sous forme de chaîne de caractères et en pratique, il est très
+Ces principes sont en pratique plus souple : si le format est basé sur du texte, il est tout à fait
+possible de l'utiliser pour transmettre d'autres types de données, et en pratique, il est très
 courant d'implémenter des protocoles à mémoire (*stateful*) en surcouche d'HTTP (par exemple au
 moyen de [jetons](https://fr.wikipedia.org/wiki/Identificateur_de_session) et de
 [cookies](https://fr.wikipedia.org/wiki/Cookie_\(informatique\)).
@@ -335,3 +335,35 @@ serveur. Les plus importantes pour nous sont :
 
 La différence entre `POST` et `PUT` est un peu ésotérique et en pratique elles sont souvent
 utilisées l'une pour l'autre.
+
+## 🔮 Exos 🔮
+
+(Tirés de <https://jvns.ca/blog/2019/08/27/curl-exercises/>)
+
+À l'aide `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP suivantes
+
+1. Une requête à <https://httpbin.com>
+2. Une requête à <https://httpbin.com/anything>. Que vous revoie-t-on ?
+3. Une requête POST à <https://httpbin.com/anything>
+4. Une requête GET à <https://httpbin.com/anything>, mais cette fois-ci avec le paramètre
+   `value=panda`
+5. Récupérez le fichier `robots.txt` de Google (<http://www.google.com/robots.txt>)
+6. Faites une requête `GET` à <https://httpbin.com/anything> avec le header `User-Agent: elephant`
+7. Faites une requête à <https://httpbin.com/anything> et affichez les *headers* de la réponse
+8. Faites une requête `POST` à <https://httpbin.com/anything> avec comme corps `{"value": "panda"}`
+9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
+   application/json`
+10. Une requête GET à <https://httpbin.com/anything> avec le header `Accept-Encoding: gzip`. Que se
+    passe-t-il ? Pourquoi ?
+11. Faites une requête à <https://httpbin.com/image> avec le *header* `Accept: image/png`.
+    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
+    avec d'autres headers.
+12. Faites une requête PUT à <https://httpbin.com/anything>
+13. Récupérez <https://httpbin.com/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
+    dans un éditeur d'images
+14. Requêtez <https://www.twitter.com>. Essayez à l'aide des *headers* de comprendre pourquoi la
+    réponse est vide.
+15. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
+    avec l'option `-u login:password)`
+16. Téléchargez la page d'accueil de Twitter <https://twitter.com> en espagnol (ou une autre langue)
+    avec une utilisation judicieuse des *headers*.
