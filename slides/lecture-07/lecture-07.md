@@ -279,6 +279,11 @@ Tiens, c'est marrant cette réponse. À quoi ça ressemble ?
 
 #### 2. Quelques paramètres
 
+Ajoutez quelques paramètres à votre commande, avec
+[`argparse`](https://docs.python.org/3/library/argparse.html) mais vous pouvez aussi regarder du
+côté de [`click`](https://click.palletsprojects.com/en/8.0.x/) si vous n'avez pas froid aux yeux
+(mais n'y passez pas tout votre temps).
+
 - Ajouter à `requrl` une option `-H`/`--header` qui comme celle de curl permet de passer des headers
   personnalisés
 - Ajouter à `requrl` une option `-o`/`--output` qui comme celle de curl permet d'écrire dans un
@@ -306,6 +311,6 @@ C'est plus compliqué qu'on pourrait le penser, mais on verra la fois prochaine 
 le faire (et celleux qui suivront le cours *documents structuré…* au semestre suivant en
 réentendront parler).
 
-- 3. Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
-     produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de
-     chaque page et ce jusqu'à retomber sur une page déjà visitée.
+- Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
+  produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de
+  chaque page, et ce jusqu'à retomber sur une page déjà visitée.
