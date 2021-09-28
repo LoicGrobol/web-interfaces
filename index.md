@@ -53,6 +53,16 @@ est indisponible.
   Binder](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/solutions-01.md)
 - [Exercices slides 2](slides/lecture-02/solutions-02.md) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/solutions-02.md)
+- Exercices Codingame : voir
+  [Github](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections)
+
+### 2021-09-29 — Internet, Web, HTTP et bibliothèque `requests`
+
+- [Slides 6](slides/lecture-06/lecture-06.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-06/lecture-06.md)
+- [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-07/lecture-07.md)
+
 
 ## Utilisation en local
 
