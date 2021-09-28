@@ -24,6 +24,7 @@ Pour travailler au développement de ce cours :
    ```console
    pip install -U -r requirements.txt
    ```
+
 3. Démarrer jupyter
 
    ```console
@@ -55,3 +56,17 @@ Un résumé simplifié de cette licence est disponible à <https://creativecommo
 
 Le texte intégral de cette licence est disponible à
 <https://creativecommons.org/licenses/by/4.0/legalcode>
+
+## Exceptions à la licence
+
+Les fichiers suivants ne sont pas distribués selon les termes de la licence Creative Commons
+Attribution 4.0 International
+
+### CC-BY-SA
+
+[![CC-BY-SA Licence badge](https://i.creativecommons.org/l/by-sa/2.5/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+- Les images `internet-schema-*.png` et `simple-client-server.png` du dossier
+  [`slides/lecture-06/pics`](slides/lecture-06/pics) sont issues [de la documentation web du
+  MDN](https://github.com/mdn/content) sont soumises à la licence [CC-BY-SA
+  2.5](https://creativecommons.org/licenses/by-sa/2.5/).
