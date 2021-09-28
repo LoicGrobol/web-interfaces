@@ -1,3 +1,4 @@
+ipympl
 jupyterlab
 jupytext
 nbconvert
@@ -5,3 +6,4 @@ numpy
 matplotlib
 regex
 RISE
+scipy

@@ -18,7 +18,7 @@ jupyter:
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 5 : Pip et Virtualenv
-=================
+==========================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
