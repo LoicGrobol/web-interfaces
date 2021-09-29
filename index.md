@@ -30,15 +30,15 @@ est indisponible.
 #### Slides
 
 - [Slides 1](slides/lecture-01/lecture-01.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/lecture-01.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
 - [Slides 2](slides/lecture-02/lecture-02.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/lecture-02.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/lecture-02.md)
 - [Slides 3](slides/lecture-03/lecture-03.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-03/lecture-03.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-03/lecture-03.md)
 - [Slides 4](slides/lecture-04/lecture-04.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-04/lecture-04.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-04/lecture-04.md)
 - [Slides 5](slides/lecture-05/lecture-05.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
 
 #### Exos
 
@@ -50,18 +50,18 @@ est indisponible.
 #### Corrections
 
 - [Exercices slides 1](slides/lecture-01/solutions-01.md) [![Launch in
-  Binder](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/solutions-01.md)
+  Binder](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/solutions-01.md)
 - [Exercices slides 2](slides/lecture-02/solutions-02.md) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/solutions-02.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/solutions-02.md)
 - Exercices Codingame : voir
   [Github](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections)
 
 ### 2021-09-29 — Internet, Web, HTTP et bibliothèque `requests`
 
 - [Slides 6](slides/lecture-06/lecture-06.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-06/lecture-06.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-06/lecture-06.md)
 - [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-07/lecture-07.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-07/lecture-07.md)
 
 
 ## Utilisation en local
@@ -72,11 +72,11 @@ git propre, malheureusement ça signifie que pour les ouvrir en local, il faut i
 extensions adéquates. Le plus simple est le suivant
 
 1. Récupérez le dossier du cours, soit en téléchargeant et décompressant
-   [l'archive](https://github.com/LoicGrobol/apprentissage-artificiel/archive/refs/heads/main.zip)
+   [l'archive](https://github.com/LoicGrobol/web-interfaces/archive/refs/heads/main.zip)
    soit en le clonant avec git : `git clone
-   https://github.com/LoicGrobol/apprentissage-artificiel.git` et placez-vous dans ce dossier.
+   https://github.com/LoicGrobol/web-interfaces.git` et placez-vous dans ce dossier.
 2. Créez un environnement virtuel pour le cours (allez voir [le cours
-   5](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+   5](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
    pour plus de détails sur ce que ça signifie)
 
    ```console
