@@ -14664,7 +14664,7 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="HTTP-en-Python">HTTP en Python<a class="anchor-link" href="#HTTP-en-Python">&#182;</a></h2><p>Python est « <em>batteries included</em> », il comprend donc <strong>en théorie</strong> déjà tout ce qu'il faut pour
-communiquer en HTTP, aussi bien du point de vue client que serveur. ON pourra regarder par exemple
+communiquer en HTTP, aussi bien du point de vue client que serveur. On pourra regarder par exemple
 les modules suivants :</p>
 <ul>
 <li><a href="https://docs.python.org/3/library/http.html"><code>http</code></a></li>
@@ -14862,7 +14862,7 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Contenu">Contenu<a class="anchor-link" href="#Contenu">&#182;</a></h3><p>Une requête de type <code>GET</code> attend en général une réponse, qui se trouve en cas de succès dans le contenu ou <em>payload</em> de la réponse.</p>
+<h3 id="Contenu">Contenu<a class="anchor-link" href="#Contenu">&#182;</a></h3><p>Une requête de type <code>GET</code> attend en général une ressource, qui se trouve en cas de succès dans le contenu ou <em>payload</em> de la réponse.</p>
 <p>S'il s'agit d'un texte, on le trouvera dans lattribut <code>text</code></p>
 
 </div>
@@ -15167,22 +15167,22 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Une-batterie-de-requ%C3%AAtes">Une batterie de requ&#234;tes<a class="anchor-link" href="#Une-batterie-de-requ%C3%AAtes">&#182;</a></h3><p>À l'aide de <code>requests</code>, faites les requêtes HTTP suivantes (elles devraient vous dire quelque chose) :</p>
 <ol>
-<li>Une requête à <a href="https://httpbin.com">https://httpbin.com</a></li>
-<li>Une requête à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a>. Que vous revoie-t-on ?</li>
-<li>Une requête POST à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a></li>
-<li>Une requête GET à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a>, mais cette fois-ci avec le paramètre
+<li>Une requête à <a href="https://httpbin.org">https://httpbin.org</a></li>
+<li>Une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a>. Que vous renvoie-t-on ?</li>
+<li>Une requête POST à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a></li>
+<li>Une requête GET à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a>, mais cette fois-ci avec le paramètre
 <code>value=panda</code></li>
-<li>Récupérez le fichier <code>robots.txt</code> de Google (<a href="http://www.google.com/robots.txt">http://www.google.com/robots.txt</a>)</li>
-<li>Faites une requête <code>GET</code> à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec le <em>header</em> <code>User-Agent: elephant</code></li>
-<li>Faites une requête à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> et affichez les <em>headers</em> de la réponse</li>
-<li>Faites une requête <code>POST</code> à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec comme corps <code>{"value": "panda"}</code></li>
+<li>Récupérez le fichier <code>robots.txt</code> de Google (<a href="http://google.com/robots.txt">http://google.com/robots.txt</a>)</li>
+<li>Faites une requête <code>GET</code> à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> avec le <em>header</em> <code>User-Agent: elephant</code></li>
+<li>Faites une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> et affichez les <em>headers</em> de la réponse</li>
+<li>Faites une requête <code>POST</code> à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> avec comme corps <code>{"value": "panda"}</code></li>
 <li>Faites la même requête qu'en 8., mais cette fois-ci en précisant en <em>header</em> <code>Content-Type:
 application/json</code></li>
-<li>Une requête GET à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a> avec le <em>header</em> <code>Accept-Encoding: gzip</code>.</li>
-<li>Faites une requête à <a href="https://httpbin.com/image">https://httpbin.com/image</a> avec le <em>header</em> <code>Accept: image/png</code>.
+<li>Une requête GET à <a href="https://www.google.com">https://www.google.com</a> avec le <em>header</em> <code>Accept-Encoding: gzip</code>.</li>
+<li>Faites une requête à <a href="https://httpbin.org/image">https://httpbin.org/image</a> avec le <em>header</em> <code>Accept: image/png</code>.
 Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. </li>
-<li>Faites une requête PUT à <a href="https://httpbin.com/anything">https://httpbin.com/anything</a></li>
-<li>Récupérez <a href="https://httpbin.com/image/jpeg">https://httpbin.com/image/jpeg</a>, sauvegardez le résultat dans un fichier et ouvrez le
+<li>Faites une requête PUT à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a></li>
+<li>Récupérez <a href="https://httpbin.org/image/jpeg">https://httpbin.org/image/jpeg</a>, sauvegardez le résultat dans un fichier et ouvrez le
 dans un éditeur d'images</li>
 <li>Faites une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> en précisant un login et un mot de passe</li>
 <li>Téléchargez la page d'accueil de Twitter <a href="https://twitter.com">https://twitter.com</a> en espagnol (ou une autre langue)

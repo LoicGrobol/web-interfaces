@@ -32,7 +32,7 @@ from IPython.display import display
 ## HTTP en Python
 
 Python est « *batteries included* », il comprend donc **en théorie** déjà tout ce qu'il faut pour
-communiquer en HTTP, aussi bien du point de vue client que serveur. ON pourra regarder par exemple
+communiquer en HTTP, aussi bien du point de vue client que serveur. On pourra regarder par exemple
 les modules suivants :
 
 - [`http`](https://docs.python.org/3/library/http.html)
@@ -132,7 +132,7 @@ for url in (
 
 ### Contenu
 
-Une requête de type `GET` attend en général une réponse, qui se trouve en cas de succès dans le contenu ou *payload* de la réponse.
+Une requête de type `GET` attend en général une ressource, qui se trouve en cas de succès dans le contenu ou *payload* de la réponse.
 
 S'il s'agit d'un texte, on le trouvera dans lattribut `text`
 
@@ -250,22 +250,22 @@ Tiens, c'est marrant cette réponse. À quoi ça ressemble ?
 
 À l'aide de `requests`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque chose) :
 
-1. Une requête à <https://httpbin.com>
-2. Une requête à <https://httpbin.com/anything>. Que vous revoie-t-on ?
-3. Une requête POST à <https://httpbin.com/anything>
-4. Une requête GET à <https://httpbin.com/anything>, mais cette fois-ci avec le paramètre
+1. Une requête à <https://httpbin.org>
+2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?
+3. Une requête POST à <https://httpbin.org/anything>
+4. Une requête GET à <https://httpbin.org/anything>, mais cette fois-ci avec le paramètre
    `value=panda`
-5. Récupérez le fichier `robots.txt` de Google (<http://www.google.com/robots.txt>)
-6. Faites une requête `GET` à <https://httpbin.com/anything> avec le *header* `User-Agent: elephant`
-7. Faites une requête à <https://httpbin.com/anything> et affichez les *headers* de la réponse
-8. Faites une requête `POST` à <https://httpbin.com/anything> avec comme corps `{"value": "panda"}`
+5. Récupérez le fichier `robots.txt` de Google (<http://google.com/robots.txt>)
+6. Faites une requête `GET` à <https://httpbin.org/anything> avec le *header* `User-Agent: elephant`
+7. Faites une requête à <https://httpbin.org/anything> et affichez les *headers* de la réponse
+8. Faites une requête `POST` à <https://httpbin.org/anything> avec comme corps `{"value": "panda"}`
 9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
    application/json`
-10. Une requête GET à <https://httpbin.com/anything> avec le *header* `Accept-Encoding: gzip`.
-11. Faites une requête à <https://httpbin.com/image> avec le *header* `Accept: image/png`.
+10. Une requête GET à <https://www.google.com> avec le *header* `Accept-Encoding: gzip`.
+11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. 
-12. Faites une requête PUT à <https://httpbin.com/anything>
-13. Récupérez <https://httpbin.com/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
+12. Faites une requête PUT à <https://httpbin.org/anything>
+13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
 14. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
 15. Téléchargez la page d'accueil de Twitter <https://twitter.com> en espagnol (ou une autre langue)

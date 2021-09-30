@@ -63,6 +63,10 @@ est indisponible.
 - [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-07/lecture-07.md)
 
+#### Corrections
+
+- [Exercices curl](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/curl.sh)
+
 
 ## Utilisation en local
 

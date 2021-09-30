@@ -164,7 +164,7 @@ Chaque machine est identifiée sur le réseau Internet de manière unique par so
 trouver la vôtre avec la commande `ip`
 
 ```python
-! ip addr
+!ip addr
 ```
 
 Votre adresse IP (v4) se lit dans `inet` et votre adresse IP (v6) dans `inet6`. Comparez vos
@@ -255,7 +255,7 @@ HTTP/3.
 Ses caractéristiques principales, liées à son objectif initial de relier des pages d'hypertextes
 sont d'être :
 
-- Textuel : les données et métadonnées sont transmises sous forme de données en texte, donc en
+- Textuel : les métadonnées sont transmises sous forme de données en texte, donc en
   chaînes de caractères.
 - Simple : les messages passés via HTTP sont censés pouvoir être lu et facilement compris par des
   humain⋅e⋅s
@@ -340,26 +340,26 @@ utilisées l'une pour l'autre.
 
 (Tirés de <https://jvns.ca/blog/2019/08/27/curl-exercises/>)
 
-À l'aide `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP suivantes
+À l'aide de `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP suivantes
 
-1. Une requête à <https://httpbin.com>
-2. Une requête à <https://httpbin.com/anything>. Que vous revoie-t-on ?
-3. Une requête POST à <https://httpbin.com/anything>
-4. Une requête GET à <https://httpbin.com/anything>, mais cette fois-ci avec le paramètre
+1. Une requête à <https://httpbin.org>
+2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?
+3. Une requête POST à <https://httpbin.org/anything>
+4. Une requête GET à <https://httpbin.org/anything>, mais cette fois-ci avec le paramètre
    `value=panda`
-5. Récupérez le fichier `robots.txt` de Google (<http://www.google.com/robots.txt>)
-6. Faites une requête `GET` à <https://httpbin.com/anything> avec le header `User-Agent: elephant`
-7. Faites une requête à <https://httpbin.com/anything> et affichez les *headers* de la réponse
-8. Faites une requête `POST` à <https://httpbin.com/anything> avec comme corps `{"value": "panda"}`
+5. Téléchargez le fichier `robots.txt` de Google (<http://www.google.com/robots.txt>)
+6. Faites une requête `GET` à <https://httpbin.org/anything> avec le header `User-Agent: elephant`
+7. Faites une requête à <https://httpbin.org/anything> et affichez les *headers* de la réponse
+8. Faites une requête `POST` à <https://httpbin.org/anything> avec comme corps `{"value": "panda"}`
 9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
    application/json`
-10. Une requête GET à <https://httpbin.com/anything> avec le header `Accept-Encoding: gzip`. Que se
+10. Une requête GET à <https://www.google.com> avec le header `Accept-Encoding: gzip`. Que se
     passe-t-il ? Pourquoi ?
-11. Faites une requête à <https://httpbin.com/image> avec le *header* `Accept: image/png`.
+11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
     avec d'autres headers.
-12. Faites une requête PUT à <https://httpbin.com/anything>
-13. Récupérez <https://httpbin.com/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
+12. Faites une requête PUT à <https://httpbin.org/anything>
+13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
 14. Requêtez <https://www.twitter.com>. Essayez à l'aide des *headers* de comprendre pourquoi la
     réponse est vide.
