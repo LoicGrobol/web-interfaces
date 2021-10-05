@@ -294,23 +294,4 @@ côté de [`click`](https://click.palletsprojects.com/en/8.0.x/) si vous n'avez 
 
 Utilisez [httpbin](https://httpbin.com) pour tester votre commande avec ses différentes options.
 
-Vous pouvez aussi essayer d'implémenter les autre options de curl, certaines sont plus faciles que d'autres.
-
-### Philosophie
-
-> Wikipedia trivia: if you take any article, click on the first link in the article text not in
-> parentheses or italics, **and then repeat**, you will eventually end up at "Philosophy". ([xkcd
-> #903](https://xkcd.com/903/))
-
-- Vérifier sur une page ou deux si c'est vrai
-- Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia et donne le
-  temps nécessaire pour arriver à la page *Philosophy* ou une erreur si la page en question n'existe
-  pas
-
-C'est plus compliqué qu'on pourrait le penser, mais on verra la fois prochaine des outils pour mieux
-le faire (et celleux qui suivront le cours *documents structuré…* au semestre suivant en
-réentendront parler).
-
-- Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
-  produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de
-  chaque page, et ce jusqu'à retomber sur une page déjà visitée.
+Vous pouvez aussi essayer d'implémenter les autres options de curl, certaines sont plus faciles que d'autres.
