@@ -14738,7 +14738,8 @@ se passe par exemple avec une requête <code>GET</code> sur le point d'accès (<
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/users/loicgrobol&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/users/loicgrobol&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14806,7 +14807,7 @@ passe par des <em>proxy</em>.</li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/comments/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 
      </div>
@@ -14827,7 +14828,8 @@ passe par des <em>proxy</em>.</li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ast</span>
+<span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/comments/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14847,7 +14849,7 @@ passe par des <em>proxy</em>.</li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/users/loicgrobol&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14858,8 +14860,166 @@ passe par des <em>proxy</em>.</li>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="JSON">JSON<a class="anchor-link" href="#JSON">&#182;</a></h2><p><em><strong>J</strong>ava<strong>s</strong>cript <strong>O</strong>bject <strong>N</strong>otation</em>. Comme son nom l'indique c'est la syntaxe pour noter des objets en Javascript.</p>
+<p>Tiens, d'ailleurs, est-ce que vous voyez le problème ?</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos/1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="JSON">JSON<a class="anchor-link" href="#JSON">&#182;</a></h2><p><em><strong>J</strong>ava<strong>s</strong>cript <strong>O</strong>bject <strong>N</strong>otation</em>. Comme son nom l'indique, c'est (à de tout, tout petits
+détails près) la syntaxe pour noter des objets en Javascript.</p>
 <p>C'est très très très proche de la syntaxe des <code>dict</code> litéraux en Python. Sauf quand c'est différent.</p>
+<p>Comme d'habitude <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">MDN</a> est
+notre meilleur⋅e ami⋅e. Il a aussi <a href="https://www.rfc-editor.org/info/std90">une description formelle
+standard</a>.</p>
+<p>Sa (relative) simplicité de lecture et d'écriture en a fait le format privilégié d'échange de
+données pour les API web, puis petit à petit aussi le format standard <em>de facto</em> pour énormément
+d'usages.</p>
+<p>C'est facile de le parser en Python et de récupérer un <code>dict</code> avec le module natif <a href="https://docs.python.org/fr/3/library/json.html">json</a></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">data_as_a_str</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/users/loicgrobol&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="n">data_as_a_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data_as_a_str</span><span class="p">)</span>
+<span class="n">data_as_a_dict</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et la conversion dans l'autre sens n'est pas compliquée non plus</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Launcelot&quot;</span><span class="p">,</span> <span class="s2">&quot;quest&quot;</span><span class="p">:</span> <span class="s2">&quot;Seek the Holy Grail&quot;</span><span class="p">,</span> <span class="s2">&quot;sparrows seen&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;fears&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;married&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En plus <code>requests</code> le fait pour nous</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_as_a_dict</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/users/loicgrobol&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Même pas besoin de se fatiguer.</p>
+<p>Si on veut <em>envoyer</em> du JSON, il y a une subtilité :</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+  <span class="s2">&quot;https://jsonplaceholder.typicode.com/todos&quot;</span><span class="p">,</span>
+  <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Buy milk&quot;</span><span class="p">,</span> <span class="s2">&quot;completed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Il faut passer les données au paramètre <code>json</code> de <code>requests.post</code> et non <code>data</code> (ou alors il faut
+lui passer sous forme de chaîne de caractère et avoir dans les headers <code>"Content-Type"</code> qui vaut
+<code>"application/json"</code>).</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="%F0%9F%8C%90-Exo-%F0%9F%8C%90">&#127760; Exo &#127760;<a class="anchor-link" href="#%F0%9F%8C%90-Exo-%F0%9F%8C%90">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Philosophie,-le-retour">Philosophie, le retour<a class="anchor-link" href="#Philosophie,-le-retour">&#182;</a></h3><blockquote><p>Wikipedia trivia: if you take any article, click on the first link in the article text not in
+parentheses or italics, <strong>and then repeat</strong>, you will eventually end up at "Philosophy". ([xkcd</p>
+<h1 id="903%5D(https://xkcd.com/903/))">903](<a href="https://xkcd.com/903/">https://xkcd.com/903/</a>))<a class="anchor-link" href="#903%5D(https://xkcd.com/903/))">&#182;</a></h1>
+</blockquote>
+<p>Ça vous rappelle <a href="../lecture-08/lecture-08.md">quelque chose</a> ?</p>
+<ul>
+<li>Vérifiez sur une page ou deux si c'est vrai</li>
+<li>Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
+sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
+<em>Philosophy</em> ou une erreur si la page en question n'existe pas</li>
+<li>Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
+produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
+page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
+<a href="https://networkx.org/documentation/latest/reference/drawing.html">NetworkX</a>, un visualiseur
+interactif comme <a href="https://pyvis.readthedocs.io/en/latest/tutorial.html">pyvis</a>, <a href="https://graphviz.readthedocs.io">un wrapper de
+graphviz</a> ou encore générer directement des fichiers dot.</li>
+</ul>
+<p><strong>MAIS CETTE FOIS-CI ON NE VA PAS SE FARCIR DE PARSER DU HTML</strong> (on va parser du wikitexte à la
+place, mais vous pouvez le faire salement).</p>
+<p>Utilisez ça <a href="https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page">https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page</a>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Un-parseur-comme-on-les-aime">Un parseur comme on les aime<a class="anchor-link" href="#Un-parseur-comme-on-les-aime">&#182;</a></h3><p>À l'aide de l'<a href="https://lindat.mff.cuni.cz/services/udpipe/api-reference.php">API de UDPipe</a>,
+extraire la liste de tous les sujets (seulement la tête nominale) dans <a href="https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/zola_ventre-de-paris.txt">Le Ventre de
+Paris</a>.</p>
 
 </div>
 </div></section></section>

@@ -78,6 +78,7 @@ se passe par exemple avec une requête `GET` sur le point d'accès (*endpoint*)
 ```
 
 ```python
+import requests
 requests.get("https://api.github.com/users/loicgrobol")
 ```
 
@@ -125,7 +126,7 @@ On l'a déjà fait [plein](../lecture-06/lecture-06.md) de [fois](../lecture-07/
 On a dit qu'il suffisait de faire des requêtes HTTP et ça on sait déjà faire :
 
 ```python
-requests.get("https://jsonplaceholder.typicode.com/todos/1").text
+requests.get("https://jsonplaceholder.typicode.com/comments/1").text
 ```
 
 Par contre, on a pas reparlé de ce format étrange.
@@ -134,17 +135,105 @@ Par contre, on a pas reparlé de ce format étrange.
 
 
 ```python
-dict(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
+import ast
+ast.literal_eval(requests.get("https://jsonplaceholder.typicode.com/comments/1").text)
 ```
 
 Mais ce n'est pas tout à fait ça
 
 ```python
-dict(requests.get("https://api.github.com/users/loicgrobol").text)
+ast.literal_eval(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
+```
+
+Tiens, d'ailleurs, est-ce que vous voyez le problème ?
+
+```python
+print(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
 ```
 
 ## JSON
 
-_**J**ava**s**cript **O**bject **N**otation_. Comme son nom l'indique c'est la syntaxe pour noter des objets en Javascript.
+_**J**ava**s**cript **O**bject **N**otation_. Comme son nom l'indique, c'est (à de tout, tout petits
+détails près) la syntaxe pour noter des objets en Javascript.
 
 C'est très très très proche de la syntaxe des `dict` litéraux en Python. Sauf quand c'est différent.
+
+Comme d'habitude [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) est
+notre meilleur⋅e ami⋅e. Il a aussi [une description formelle
+standard](https://www.rfc-editor.org/info/std90).
+
+Sa (relative) simplicité de lecture et d'écriture en a fait le format privilégié d'échange de
+données pour les API web, puis petit à petit aussi le format standard *de facto* pour énormément
+d'usages.
+
+C'est facile de le parser en Python et de récupérer un `dict` avec le module natif [json](https://docs.python.org/fr/3/library/json.html)
+
+```python
+import json
+data_as_a_str = requests.get("https://api.github.com/users/loicgrobol").text
+data_as_a_dict = json.loads(data_as_a_str)
+data_as_a_dict
+```
+
+Et la conversion dans l'autre sens n'est pas compliquée non plus
+
+```python
+d = {"name": "Launcelot", "quest": "Seek the Holy Grail", "sparrows seen": 2, "fears": [], "married": False, 0: None}
+s = json.dumps(d)
+s
+```
+
+En plus `requests` le fait pour nous
+
+```python
+data_as_a_dict = requests.get("https://api.github.com/users/loicgrobol").json()
+```
+
+Même pas besoin de se fatiguer.
+
+Si on veut *envoyer* du JSON, il y a une subtilité :
+
+```python
+response = requests.post(
+  "https://jsonplaceholder.typicode.com/todos",
+  json={"userId": 1, "title": "Buy milk", "completed": False}
+)
+response.json()
+```
+
+Il faut passer les données au paramètre `json` de `requests.post` et non `data` (ou alors il faut
+lui passer sous forme de chaîne de caractère et avoir dans les headers `"Content-Type"` qui vaut
+`"application/json"`).
+
+
+## 🌐 Exo 🌐
+
+### Philosophie, le retour
+
+> Wikipedia trivia: if you take any article, click on the first link in the article text not in
+> parentheses or italics, **and then repeat**, you will eventually end up at "Philosophy". ([xkcd
+> #903](https://xkcd.com/903/))
+
+Ça vous rappelle [quelque chose](../lecture-08/lecture-08.md) ?
+
+- Vérifiez sur une page ou deux si c'est vrai
+- Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
+  sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
+  *Philosophy* ou une erreur si la page en question n'existe pas
+- Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
+  produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
+  page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
+  [NetworkX](https://networkx.org/documentation/latest/reference/drawing.html), un visualiseur
+  interactif comme [pyvis](https://pyvis.readthedocs.io/en/latest/tutorial.html), [un wrapper de
+  graphviz](https://graphviz.readthedocs.io) ou encore générer directement des fichiers dot.
+
+**MAIS CETTE FOIS-CI ON NE VA PAS SE FARCIR DE PARSER DU HTML** (on va parser du wikitexte à la
+place, mais vous pouvez le faire salement).
+
+Utilisez ça <https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page>.
+
+### Un parseur comme on les aime
+
+À l'aide de l'[API de UDPipe](https://lindat.mff.cuni.cz/services/udpipe/api-reference.php),
+extraire la liste de tous les sujets (seulement la tête nominale) dans [Le Ventre de
+Paris](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/zola_ventre-de-paris.txt).
