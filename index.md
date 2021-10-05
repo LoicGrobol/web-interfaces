@@ -67,6 +67,8 @@ est indisponible.
 
 - [Exercices curl](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/curl.sh)
 
+### 2021-10-05 — Parser des documents balisés, JSON et les 
+
 
 ## Utilisation en local
 
