@@ -67,7 +67,12 @@ est indisponible.
 
 - [Exercices curl](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/curl.sh)
 
-### 2021-10-05 — Parser des documents balisés, JSON et les 
+### 2021-10-05 — Documents balisés et APIs web
+
+- [Slides 8](slides/lecture-08/lecture-08.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/lecture-08.md)
+- [Slides 9](slides/lecture-09/lecture-09.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-09/lecture-09.md)
 
 
 ## Utilisation en local

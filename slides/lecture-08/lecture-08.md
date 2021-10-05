@@ -62,6 +62,14 @@ import requests
 
 ## Parser du HTML
 
+[On ne parse pas du HTML avec de regex](https://stackoverflow.com/a/1732454)
+
+(sauf quand on le fait quand même)
+
+(mais pas ici)
+
+(non mais)
+
 Beautiful Soup permet de parser simplement du contenu HTML. Même si le contenu est mal formé, le
 module reconstitue un arbre et offre des fonctions faciles à utiliser pour le parcourir ou y
 rechercher des éléments.
@@ -191,7 +199,7 @@ B, C, D, E, F et G) !
 Nous allons travailler sur un fichier au format [TEI](http://www.tei-c.org/) extrait du corpus
 [*Corpus 14*](https://hdl.handle.net/11403/corpus14/v1).
 
-Le fichier se nomme [`josephine-1-150119.xml`](../data/josephine-1-150119.xml). Il s'agit d'une
+Le fichier se nomme [`josephine-1-150119.xml`](../../data/josephine-1-150119.xml). Il s'agit d'une
 lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
 pour bosser en local, vous pouvez le récupérer sur
 [GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml)
@@ -217,7 +225,7 @@ est propre à `libxml`.
 
 ```python
 from lxml import etree
-tree = etree.parse('../data/josephine-1-150119.xml')
+tree = etree.parse('../../data/josephine-1-150119.xml')
 root = tree.getroot()
 
 # Parcours des enfants de la racine (commentaires et éléments)
@@ -236,7 +244,8 @@ récupérer le *header* TEI dont le chemin est `/TEI/teiHeader`
 la méthode `find` renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non `xpath`)
 
 ```python
-header = root.find("./tei:teiHeader", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})header)
+header = root.find("./tei:teiHeader", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+header
 ```
 
 ### 🧭 Exo 🧭
@@ -331,13 +340,14 @@ plupart des langages de programmation modernes.
 
 ```python
 from xml.dom import minidom
-dom = minidom.parse("../data/josephine-1-150119.xml")
+dom = minidom.parse("../../data/josephine-1-150119.xml")
 dom
 ```
 
 ```python
 # un seul élément 'title' dans le document
 title = dom.getElementsByTagNameNS("http://www.tei-c.org/ns/1.0", 'title')[0]
+title
 ```
 
 `title` est un objet `Element`, pour accéder au contenu textuel il faut récupérer le nœud texte
@@ -378,7 +388,7 @@ for node in body.childNodes:
 ```python
 from bs4 import BeautifulSoup
 
-with open("../data/josephine-1-150119.xml") as fp:
+with open("../../data/josephine-1-150119.xml") as fp:
     soup = BeautifulSoup(fp, 'lxml')
 ```
 
@@ -416,9 +426,9 @@ automatiquement les interfaces web que vous développez
 > #903](https://xkcd.com/903/))
 
 - Vérifiez sur une page ou deux si c'est vrai
-- Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia et donne le
-  temps nécessaire pour arriver à la page *Philosophy* ou une erreur si la page en question n'existe
-  pas
+- Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
+  sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
+  *Philosophy* ou une erreur si la page en question n'existe pas
 - Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
   produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
   page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
