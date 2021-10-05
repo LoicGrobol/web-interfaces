@@ -1,6 +1,8 @@
+beautifulsoup4
 ipympl
 jupyterlab
 jupytext
+lxml
 nbconvert
 numpy
 matplotlib
