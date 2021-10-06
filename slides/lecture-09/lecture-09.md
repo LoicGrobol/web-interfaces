@@ -38,7 +38,7 @@ APIs](https://realpython.com/api-integration-in-python/) de Real Python.
 
 ## API ?
 
-_**A**plication **P**reogramming **I**nterface_, en français parfois « interface de programmation
+_**A**plication **P**rogramming **I**nterface_, en français parfois « interface de programmation
 d’applications » mais surtout API \[eɪpiˈaɪ\]. À ne pas confondre avec
 l'[API](https://www.internationalphoneticalphabet.org) des phonéticiens (puisqu'en anglais, c'est
 l'IPA, à ne pas confondre avec les bières enrichies en houblon \[vous suivez ?\]).
