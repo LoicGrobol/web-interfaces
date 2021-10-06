@@ -145,18 +145,18 @@ for item in soup.find_all([...]):
     print(item.[...], item.[...])
 ```
 
-2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning
+2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`).
 
 ```python
-from typing import Dict
-tunings: Dict[str, str] = dict()
+from typing import Dict, List
+tunings: Dict[str, List[str]] = dict()
 for item in soup.find_all([...]):
     song_title = item.[...]
     tuning = item.[...]
     [...]
 ```
 
-(`typing` c'est quoi ? Qu'est-ce que ça veut dire `Dict[str, str]` ? On en reparlera si on a le
+(`typing` c'est quoi ? Qu'est-ce que ça veut dire `Dict[str, List[str]]` ? On en reparlera si on a le
 temps mais vous pouvez prendre de l'avance [sur Real
 Python](https://realpython.com/python-type-checking/))
 
