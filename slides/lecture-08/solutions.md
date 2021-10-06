@@ -17,7 +17,7 @@ jupyter:
 [comment]: <> "LTeX: language=fr"
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 8 : Parser des documents balisés avec `lxml` et BeautifulSoup
+Solutions 8 : Parser des documents balisés avec `lxml` et BeautifulSoup
 ==================================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
@@ -29,27 +29,6 @@ Cours 8 : Parser des documents balisés avec `lxml` et BeautifulSoup
 from IPython.display import display
 ```
 
-## Documents balisés
-
-## `lxml` ? Beautiful Soup ?
-
-`lxml`. Beautiful Soup.
-
-[`lxml`](http://lxml.de/) est un parseur de documents balisés, fonctionnant via un *binding* de la
-bibliothèque [`libxml2`](http://xmlsoft.org/). Il est conçu pour être rapide (*très* rapide) et très
-près du standard. [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) est une
-*interface* d'accès pour HTML (et XML) conçu pour être la plus souple et facile d'utilisation
-possible (un peu la même philosophie que `requests`) et pour rendre facile le travail sur des
-documents potentiellement mal formés.
-
-Installons ces modules, soit dans votre terminal avec `pip`, soit en exécutant la cellule de code
-suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce cours dans un
-[environnement virtuel](../lecture-05/lecture-05.md) et si vous avez installé le
-[requirements.txt](../../requirements.txt) de ce cours, ces modules sont déjà installés. Nous aurons
-également besoin de `requests` [que nous avons déjà utilisé](../lecture-07/lecture-07.md) et plus
-anecdotiquement de `matplotlib`.
-
-
 ```python
 %pip install -U beautifulsoup4 lxml matplotlib requests
 ```
@@ -60,33 +39,6 @@ import lxml
 import requests
 ```
 
-## Parser du HTML
-
-[On ne parse pas du HTML avec de regex](https://stackoverflow.com/a/1732454)
-
-(sauf quand on le fait quand même)
-
-(mais pas ici)
-
-(non mais)
-
-Beautiful Soup permet de parser simplement du contenu HTML. Même si le contenu est mal formé, le
-module reconstitue un arbre et offre des fonctions faciles à utiliser pour le parcourir ou y
-rechercher des éléments.
-
-Beautiful Soup n'est pas un parseur, mais *utilise* des parseurs.
-
-Nous travaillerons directement avec du contenu en ligne. Fini les exercices bidons, cette fois nous
-allons nous confronter à une question essentielle : combien d'accordages *open tuning* Neil Young
-utilise et comment sont-ils répartis dans son œuvre ?  
-On trouve les infos sur les chansons de Neil Young et les accordages sur le fabuleux site
-[songx.se](http://songx.se/index.php) (le site ayant changé d'interface, nous utiliserons une
-archive de [Wayback Machine](http://web.archive.org/))
-
-
-Avec `requests` pour récupérer les données, nous allons pouvoir instancier un objet Beautiful Soup
-sans trop d'efforts
-
 ```python
 import requests
 from bs4 import BeautifulSoup
@@ -96,64 +48,34 @@ html = requests.get(url) # on récupère le contenu
 soup = BeautifulSoup(html.text, 'lxml') # on crée un objet pour traiter la page
 ```
 
-Voilà nous avons maintenant un objet `soup` de classe [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#beautifulsoup).
-
-La [doc](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) est très claire.
-
-Chercher un élément avec le tag `title`
-
-```python
-e = soup.title
-e
-```
-
-Récupérer son tag
-
-```python
-e.name
-```
-
-Récupérer son contenu textuel
-
-```python
-e.string
-```
-
-<!-- #region -->
-Les informations qui nous intéressent sont contenues dans des éléments comme celui-ci (formaté pour
-une meilleure lisibilité) :
-
-```html
-<div class="songrow">
-    <a href="?song=505">Clementine</a>
-    <small>(cover)</small>
-    <div style="float:right;">EADGBE</div>
-</div>
-```
-
-Où on trouve le nom de la chanson (`Clementine`) et l'accord utilisé (`EADGBE`)
-<!-- #endregion -->
-
-### 🎶 Exo 1 🎶
+## 🎶 Exo 1 🎶
 
 1\. Affichez les titres et les tunings des 10 premières chansons en utilisant la méthode
 [`find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all). La méthode renvoie un
 itérable.
 
 ```python
-for item in soup.find_all([...]):
-    print(item.[...], item.[...])
+for item in soup.find_all('div', attrs={'class':'songrow'})[:10]:
+    print(item.a.string, item.div.string)
 ```
 
-2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`). Lisez bien [la doc de `find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all).
+On peut aussi utiliser la notation suivante
 
 ```python
-from typing import Dict, List
-tunings: Dict[str, List[str]] = dict()
-for item in soup.find_all([...]):
-    song_title = item.[...]
-    tuning = item.[...]
-    [...]
+for item in soup.find_all('div', class_="songrow")[:10]:
+    print(item.a.string, item.div.string)
+```
+
+2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`). Lisez bien la doc de [`find_all`](
+
+```python
+from collections import defaultdict
+tunings = defaultdict(list)
+for item in soup.find_all('div', class_="songrow"):
+    song_title = item.a.string
+    tuning = item.div.string
+    tunings[tuning].append(song_title)
+tunings = dict(tunings)
 ```
 
 (`typing` c'est quoi ? Qu'est-ce que ça veut dire `Dict[str, List[str]]` ? On en reparlera si on a le
@@ -163,7 +85,7 @@ Python](https://realpython.com/python-type-checking/))
 3\. 'Harvest Moon' utilise l'accordage DADGBE, y en a-t'il d'autres ?
 
 ```python
-print([...])
+tunings["DADGBE"]
 ```
 
 4\. Affichez les accordages et le nombre de chansons pour chaque accordage, le tout trié par nombre de
@@ -171,8 +93,17 @@ chansons décroissant. Pour cela, cous utiliserez la méthode `sorted` ainsi que
 `key` (des exemples [ici](https://wiki.python.org/moin/HowTo/Sorting#Key_Functions)) :
 
 ```python
-for tuning in sorted(tunings.keys(), key=[...]):
-    print([...])
+n_songs = ((tuning, len(songs)) for tuning, songs in tunings.items())
+for tuning, n in sorted(n_songs, key=lambda x: -x[1]):
+    print(f"{tuning}: {n}")
+```
+
+Ou alors
+
+```python
+n_songs = ((tuning, len(songs)) for tuning, songs in tunings.items())
+for tuning, n in sorted(n_songs, key=lambda x: x[1], reverse=True):
+    print(f"{tuning}: {n}")
 ```
 
 Allez hop un histogramme
@@ -192,6 +123,10 @@ plt.show()
 taille). Trouvez le tuning qui est différent des autres et donnez la chanson qui lui correspond.
 _Attention_, "b" signifie "bémol", il ne s'agit pas d'une note pour l'accordage (contrairement à A,
 B, C, D, E, F et G) !
+
+```python
+[t for t in tunings.keys() if len([c for c in t if c.isupper()]) != 6]
+```
 
 
 ## Parser du XML
@@ -252,18 +187,20 @@ header
 
 1\. Récupérez le titre et affichez son tag XML ainsi que son contenu textuel (`/TEI/teiHeader/fileDesc/titleStmt/title`)
 
+La méthode find renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non Xpath)
+
 ```python
-title = root.find("[...]", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
-print("Tag : {}".format(title.tag))
-print("Texte : {}".format(title.text))
+title = root.find("./tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+print(f"Tag : {title.tag}")
+print(f"Texte : {title.text}")
 ```
 
 2\. Idem pour la source (élément `sourceDesc`) :
 
 ```python
-source = root.find("[...]", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
-print("Tag : {}".format(source.tag))
-print("Texte : {}".format(source.text))
+source = root.find("./tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:p", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+print(f"Tag : {title.tag}")
+print(f"Texte : {title.text}")
 ```
 
 ### Avec des requêtes xpath
@@ -311,25 +248,32 @@ anais de maime pour nous<lb/>
 renvoie une liste avec tous les éléments correspondant au chemin argument.
 
 ```python
-body = root.findall("./[...]", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+body = root.findall("./tei:text/tei:body/tei:p", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
 for elem in body: # tout le texte ne s'affichera pas, c'est normal !
     print(elem.text)
 ```
 
 Ici on ne récupère que les nœuds `text` précédant les éléments `<lb/>`.
 
-2\. Utilisez la fonction `xpath` pour récupérer tous les nœuds text du corps de la lettre. Vous
+2\. Utilisez la fonction `xpath` pour récupérer tous les nœuds texte du corps de la lettre. Vous
 intégrerez dans votre requête la fonction `text` (vue un peu plus haut) dans votre chemin xpath
-(vous pouvez _aussi_ fouiller [par ici](https://lxml.de/xpathxslt.html) pour avoir de la
+(vous pouvez *aussi* fouiller [par ici](https://lxml.de/xpathxslt.html) pour avoir de la
 documentation supplémentaire).
 
 ```python
-body = root.xpath("[...]", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+body = root.xpath("//tei:text/tei:body//text()", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
 for text in body:
     print(text, end="")
 ```
 
 3\. Écrivez une requête xpath pour récupérer tous les éléments raturés de la lettre de Joséphine.
+
+```python
+body = root.xpath("//tei:text/tei:body//tei:del", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
+for text in body:
+    print(text, end="")
+```
+
 
 ## avec DOM
 
@@ -381,6 +325,23 @@ for node in body.childNodes:
         for in_node in node.childNodes:
             if in_node.nodeName == "#text":
                 print(in_node.nodeValue, end="")
+```
+
+```python
+body = dom.getElementsByTagNameNS("http://www.tei-c.org/ns/1.0", 'body')[0]
+texts = [
+    in_node.nodeValue
+    for node in body.childNodes
+    if node.localName in ("p", "opener")
+    for in_node in node.childNodes
+    if in_node.nodeName == "#text"
+]
+for t in texts:
+    print(t, end="")
+```
+
+```python
+
 ```
 
 ## Avec lxml et Beautiful Soup
