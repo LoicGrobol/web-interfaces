@@ -47,7 +47,7 @@ est indisponible.
 - [The descent](https://www.codingame.com/ide/puzzle/the-descent)
 - [Shadow of the knight E01](https://www.codingame.com/ide/puzzle/shadows-of-the-knight-episode-1)
 
-#### Corrections
+#### Corrections 2021-09-22
 
 - [Exercices slides 1](slides/lecture-01/solutions-01.md) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/solutions-01.md)
@@ -63,9 +63,11 @@ est indisponible.
 - [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-07/lecture-07.md)
 
-#### Corrections
+#### Corrections 2021-09-29
 
 - [Exercices curl](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/curl.sh)
+- [`requrl` version de
+  base](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/requrl.py)
 
 ### 2021-10-05 — Documents balisés et APIs web
 
