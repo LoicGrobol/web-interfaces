@@ -1,5 +1,5 @@
 beautifulsoup4
-ipycyotscape
+ipycytoscape
 ipympl
 jupyterlab
 jupytext

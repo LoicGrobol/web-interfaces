@@ -76,7 +76,6 @@ est indisponible.
 - [Slides 9](slides/lecture-09/lecture-09.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-09/lecture-09.md)
 
-
 #### Corrections 2021-10-06
 
 - [Solutions slides 8](slides/lecture-08/solutions.html) [![Launch in Binder
@@ -86,7 +85,6 @@ est indisponible.
     badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/wikipedia.md)
   - [Script version
     HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.md)
-
 
 
 ## Utilisation en local
