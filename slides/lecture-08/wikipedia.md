@@ -203,10 +203,10 @@ first_a
 
 Ça marche !
 
-## I vecchi tag
+## I vecchi tag
 
 Un dernier point ce sont les italiques. En examinant le code on trouve l'horreur suivante (qui se
-trouve être entre parenthèses donc ici ça ne gêne pas mais ça pourrait l'être dans une autre page.
+trouve être entre parenthèses donc ici ça ne gêne pas mais ça pourrait l'être dans une autre page).
 
 
 <!-- #region -->
@@ -229,6 +229,22 @@ first_a = next(
 first_a
 ```
 
+On trouve aussi dans des pages comme <https://en.wikipedia.org/wiki/United_States_Congress> des
+petites infoboîtes en haut à droite (ici avec des coordonnées géographiques) qui peuvent poser
+problème. Il n'y pas vraiment de solution élégante pour les ignorer (en tout cas juste en fouillant
+dans le code de la page, mais on va voir dans le TP suivant comment faire mieux). Le mieux que j'ai
+trouvé, c'est d'exploiter le fait qu'elles soient mises dans de `<span>`s pour pouvoir gérer leur
+position, mais ça fait une solution peut-être trop drastique.
+
+```python
+first_a = next(
+    a
+    for a in first_p.find_all("a")
+    if not a.find_parents("span") and not a.find_parents("i") and not is_between_parentheses(a, first_p)
+)
+first_a
+```
+
 On remet tout ça dans notre fonction
 
 ```python
@@ -240,7 +256,9 @@ def get_next_url(url):
     first_link = next(
         a
         for a in first_p.find_all("a")
-        if not a.find_parents("i") and not is_between_parentheses(a, first_p)
+        if not a.find_parents("span")
+        and not a.find_parents("i")
+        and not is_between_parentheses(a, first_p)
     )
     return urljoin(url, first_link["href"])
 ```
@@ -272,7 +290,10 @@ def get_next_url(url):
     first_link = next(
         a
         for a in first_p.find_all("a")
-        if not a["href"].startswith("#") and not a.find_parents("i") and not is_between_parentheses(a, first_p)
+        if not a["href"].startswith("#")
+        and not a.find_parents("span")
+        and not a.find_parents("i")
+        and not is_between_parentheses(a, first_p)
     )
     return urljoin(url, first_link["href"])
 ```
@@ -332,6 +353,7 @@ def get_next_url(url):
         a
         for a in first_p.find_all("a")
         if not a["href"].startswith("#")
+        and not a.find_parents("span")
         and not a.find_parents("i")
         and not is_between_parentheses(a, first_p)
     )
@@ -371,6 +393,7 @@ def get_next_url(url):
                 a
                 for a in p.find_all("a")
                 if not a["href"].startswith("#")
+                and not a.find_parents("span")
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
@@ -416,6 +439,7 @@ def get_first_url(soup):
                 a
                 for a in p.find_all("a")
                 if not a["href"].startswith("#")
+                and not a.find_parents("span")
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
@@ -491,9 +515,107 @@ Il s'agit d'un paquet pour visualiser interactivement des graphes dans des noteb
 avec [NetworkX](networkx.org) (qu'on peut utiliser en standalone pour des scripts)
 
 ```python
-G = nx.complete_graph(5)
 directed = ipycytoscape.CytoscapeWidget()
-directed.graph.add_graph_from_networkx(G, directed=True)
+data = {
+    'nodes': [
+        { 'data': { 'id': 'a'} },
+        { 'data': { 'id': 'b'} },
+        { 'data': { 'id': 'c'} },
+    ],
+    'edges': [
+        {'data': { 'source': 'a', 'target': 'b' }},
+        {'data': { 'source': 'a', 'target': 'c' }},
+        {'data': { 'source': 'b', 'target': 'c' }},
+    ]
+}
+directed.graph.add_graph_from_json(data, directed=True)
+# Afficher les ids
+directed.set_style([*directed.cytoscape_style, {'selector': 'node', 'css': {'content': 'data(id)'}}])
+# Layout interactif mobile mais ne marche pas pour l'instant cf <https://github.com/cytoscape/ipycytoscape/issues/276>
+# directed.set_layout(name="d3-force")
+directed
+```
+
+Essayons de générer un graphe à partir d'un parcours
+
+```python
+def walk(start_url, target_title="Philosophy"):
+    next_url = start_url
+  
+    title = None
+    graph_dict = dict()
+    while title != target_title:
+        response = requests.get(next_url)
+        soup = BeautifulSoup(response.text, "lxml")
+        new_title = soup.title.string.split(" - ")[0]
+        graph_dict[title] = new_title
+        title = new_title
+        print(title, file=sys.stderr)
+        if title in graph_dict:
+            return graph_dict
+        next_url = urljoin(next_url, get_first_url(soup))
+    # Le premier saut nous faisait partir de None
+    del graph_dict[None]
+    return graph_dict
+
+def gen_graph(walk):
+    return {
+        'nodes': [{"data": {"id": title}} for title in walk.keys()],
+        'edges': [{"data": {"source": source, "target": target }} for source, target in walk.items()]
+    }
+
+data = gen_graph(walk("https://en.wikipedia.org/wiki/Special:Random"))
+directed = ipycytoscape.CytoscapeWidget()
+directed.graph.add_graph_from_json(data, directed=True)
+directed.set_style([*directed.cytoscape_style, {'selector': 'node', 'css': {'content': 'data(id)'}}])
+directed
+```
+
+Après, ça serait plus rigolo de pas se restreindre à philosophie et de voir une structure de graph
+plus large
+
+```python
+def walk(min_pages=128):
+    next_url = "https://en.wikipedia.org/wiki/Special:Random"
+    graph_dict = dict()
+    title = None
+    while len(graph_dict) < min_pages:
+        response = requests.get(next_url)
+        soup = BeautifulSoup(response.text, "lxml")
+        new_title = soup.title.string.split(" - ")[0]
+        if title is not None:
+            graph_dict[title] = new_title
+        title = new_title
+        if title in graph_dict:
+            title = None
+            next_url = "https://en.wikipedia.org/wiki/Special:Random"
+        else:
+            print(title, file=sys.stderr)
+            try:
+                next_url = urljoin(next_url, get_first_url(soup))
+            except IndexError:
+                print(f"Something is wrong in {next_url}", file=sys.stderr)
+                title = None
+                next_url = "https://en.wikipedia.org/wiki/Special:Random"
+    return graph_dict
+
+def gen_graph(walk):
+    return {
+        'nodes': [{"data": {"id": title}} for title in walk.keys()],
+        'edges': [{"data": {"source": source, "target": target }} for source, target in walk.items()]
+    }
+
+data = gen_graph(walk(128))
+```
+
+```python
+from ipywidgets import Layout
+directed = ipycytoscape.CytoscapeWidget(layout=Layout(height="100%"))
+directed.graph.add_graph_from_json(data, directed=True)
+directed.set_style([*directed.cytoscape_style, {'selector': 'node', 'css': {'content': 'data(id)'}}])
+directed.set_layout(name="dagre")
+# Aussi pas mal mais foire les étiquettes
+# directed.set_layout(name="klay")
 directed
 ```
 
@@ -508,3 +630,14 @@ directed
     the 12th International Symposium on Open Collaboration, 1–10. OpenSym ’16. New York, NY, USA:
     Association for Computing Machinery, 2016. <https://doi.org/10.1145/2957792.2957813>.
 
+
+## Les pages à problème
+
+Premier lien rouge :
+
+- <https://en.wikipedia.org/wiki/Cathedral_of_the_Nativity_of_the_Blessed_Virgin_Mary,_Novosibirsk> 
+- <https://en.wikipedia.org/wiki/CARBAP> (et en fait il n'y a pas de lien bleu)
+
+Le premier lien est externe :
+
+- <https://en.wikipedia.org/wiki/Gayatri_Sinha>
