@@ -32,6 +32,7 @@ def get_first_url(soup):
                 a
                 for a in p.find_all("a")
                 if not a["href"].startswith("#")
+                and not a.find_parents("span")
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
