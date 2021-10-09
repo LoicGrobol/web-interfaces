@@ -145,7 +145,9 @@ for item in soup.find_all([...]):
     print(item.[...], item.[...])
 ```
 
-2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`). Lisez bien [la doc de `find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all).
+2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à
+un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`).
+Lisez bien [la doc de `find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all).
 
 ```python
 from typing import Dict, List
@@ -241,7 +243,8 @@ xmlns="http://www.tei-c.org/ns/1.0">`, nous devrons l'indiquer dans nos instruct
 Nous pouvons récupérer un élément particulier qui correspond à un chemin : par exemple, pour
 récupérer le *header* TEI dont le chemin est `/TEI/teiHeader`
 
-la méthode `find` renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non `xpath`)
+la méthode `find` renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non
+`xpath`)
 
 ```python
 header = root.find("./tei:teiHeader", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
@@ -331,7 +334,7 @@ for text in body:
 
 3\. Écrivez une requête xpath pour récupérer tous les éléments raturés de la lettre de Joséphine.
 
-## avec DOM
+## Avec DOM
 
 L'API `ElementTree` est propre à Python, `DOM` ([le site officiel](https://www.w3.org/DOM/) et [des
 informations en français](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model)) est

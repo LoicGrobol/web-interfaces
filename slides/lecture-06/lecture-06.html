@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>lecture-06</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
-<title>lecture-08 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-</script>
 
 <style type="text/css">
     pre { line-height: 125%; }
@@ -14474,122 +14460,20 @@ a.anchor-link {
 .highlight  {
     margin: 0.4em;
 }
-.jp-Notebook {
-    padding: 0;
+
+/* Input area styling */
+.jp-InputArea {
+    overflow: hidden;
 }
-:root {
-    --jp-ui-font-size1: 20px;       /* instead of 14px */
-    --jp-content-font-size1: 20px;  /* instead of 14px */
-    --jp-code-font-size: 19px;      /* instead of 13px */
-    --jp-cell-prompt-width: 110px;  /* instead of 64px */
+
+.jp-InputArea-editor {
+    overflow: hidden;
 }
+
 @media print {
   body {
     margin: 0;
   }
-}
-</style>
-
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-}
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-
-div.jp-InputArea-editor {
-  padding: 0.06em;
-}
-
-div.code_cell {
-  background-color: transparent;
-}
-
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-
-div.jp-OutputPrompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-
-/* Reveal navigation controls */
-
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-
-/* Scrollbars */
-
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
 }
 </style>
 
@@ -14626,24 +14510,18 @@ div.jp-OutputPrompt {
     }
     init_mathjax();
     </script>
-    <!-- End of mathjax configuration --><!-- Reveal Theme -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
-
-</head>
-
+    <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="reveal">
-<div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Cours-8%E2%80%AF:-Parser-des-documents-balis%C3%A9s-avec-lxml-et-BeautifulSoup">Cours 8&#8239;: Parser des documents balis&#233;s avec <code>lxml</code> et BeautifulSoup<a class="anchor-link" href="#Cours-8%E2%80%AF:-Parser-des-documents-balis%C3%A9s-avec-lxml-et-BeautifulSoup">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
-<p>2021-10-06</p>
+<h1 id="Cours-6%E2%80%AF:-Internet,-Web-et-HTTP">Cours 6&#8239;: Internet, Web et HTTP<a class="anchor-link" href="#Cours-6%E2%80%AF:-Internet,-Web-et-HTTP">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
+<p>2021-09-29</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14652,305 +14530,14 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
 
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Documents-balis%C3%A9s">Documents balis&#233;s<a class="anchor-link" href="#Documents-balis%C3%A9s">&#182;</a></h2>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="lxml%E2%80%AF?-Beautiful-Soup%E2%80%AF?"><code>lxml</code>&#8239;? Beautiful Soup&#8239;?<a class="anchor-link" href="#lxml%E2%80%AF?-Beautiful-Soup%E2%80%AF?">&#182;</a></h2><p><code>lxml</code>. Beautiful Soup.</p>
-<p><a href="http://lxml.de/"><code>lxml</code></a> est un parseur de documents balisés, fonctionnant via un <em>binding</em> de la
-bibliothèque <a href="http://xmlsoft.org/"><code>libxml2</code></a>. Il est conçu pour être rapide (<em>très</em> rapide) et très
-près du standard. <a href="https://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> est une
-<em>interface</em> d'accès pour HTML (et XML) conçu pour être la plus souple et facile d'utilisation
-possible (un peu la même philosophie que <code>requests</code>) et pour rendre facile le travail sur des
-documents potentiellement mal formés.</p>
-<p>Installons ces modules, soit dans votre terminal avec <code>pip</code>, soit en exécutant la cellule de code
-suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce cours dans un
-<a href="../lecture-05/lecture-05.md">environnement virtuel</a> et si vous avez installé le
-<a href="../../requirements.txt">requirements.txt</a> de ce cours, ces modules sont déjà installés. Nous aurons
-également besoin de <code>requests</code> <a href="../lecture-07/lecture-07.md">que nous avons déjà utilisé</a> et plus
-anecdotiquement de <code>matplotlib</code>.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pip</span> install -U beautifulsoup4 lxml matplotlib requests
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">lxml</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Parser-du-HTML">Parser du HTML<a class="anchor-link" href="#Parser-du-HTML">&#182;</a></h2><p><a href="https://stackoverflow.com/a/1732454">On ne parse pas du HTML avec de regex</a></p>
-<p>(sauf quand on le fait quand même)</p>
-<p>(mais pas ici)</p>
-<p>(non mais)</p>
-<p>Beautiful Soup permet de parser simplement du contenu HTML. Même si le contenu est mal formé, le
-module reconstitue un arbre et offre des fonctions faciles à utiliser pour le parcourir ou y
-rechercher des éléments.</p>
-<p>Beautiful Soup n'est pas un parseur, mais <em>utilise</em> des parseurs.</p>
-<p>Nous travaillerons directement avec du contenu en ligne. Fini les exercices bidons, cette fois nous
-allons nous confronter à une question essentielle : combien d'accordages <em>open tuning</em> Neil Young
-utilise et comment sont-ils répartis dans son œuvre ?<br>
-On trouve les infos sur les chansons de Neil Young et les accordages sur le fabuleux site
-<a href="http://songx.se/index.php">songx.se</a> (le site ayant changé d'interface, nous utiliserons une
-archive de <a href="http://web.archive.org/">Wayback Machine</a>)</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Avec <code>requests</code> pour récupérer les données, nous allons pouvoir instancier un objet Beautiful Soup
-sans trop d'efforts</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://web.archive.org/web/20180430090903/http://songx.se/index.php&quot;</span> <span class="c1"># le lien vers le site</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># on récupère le contenu</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span> <span class="c1"># on crée un objet pour traiter la page</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Voilà nous avons maintenant un objet <code>soup</code> de classe <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#beautifulsoup">Beautiful Soup</a>.</p>
-<p>La <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">doc</a> est très claire.</p>
-<p>Chercher un élément avec le tag <code>title</code></p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span>
-<span class="n">e</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Récupérer son tag</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e</span><span class="o">.</span><span class="n">name</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Récupérer son contenu textuel</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e</span><span class="o">.</span><span class="n">string</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Les informations qui nous intéressent sont contenues dans des éléments comme celui-ci (formaté pour
-une meilleure lisibilité) :</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;songrow&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?song=505&quot;</span><span class="p">&gt;</span>Clementine<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">small</span><span class="p">&gt;</span>(cover)<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;float:right;&quot;</span><span class="p">&gt;</span>EADGBE<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</pre></div>
-<p>Où on trouve le nom de la chanson (<code>Clementine</code>) et l'accord utilisé (<code>EADGBE</code>)</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%F0%9F%8E%B6-Exo-1-%F0%9F%8E%B6">&#127926; Exo 1 &#127926;<a class="anchor-link" href="#%F0%9F%8E%B6-Exo-1-%F0%9F%8E%B6">&#182;</a></h3><p>1. Affichez les titres et les tunings des 10 premières chansons en utilisant la méthode
-<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all"><code>find_all</code></a>. La méthode renvoie un
-itérable.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">([</span><span class="o">...</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="n">item</span><span class="o">.</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>2. Créez un <code>dict</code> appelé <code>tunings</code> qui classe les chansons par tuning (autrement dit qui associe à
-un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête <code>dict</code>).
-Lisez bien <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all">la doc de <code>find_all</code></a>.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
-<span class="n">tunings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">([</span><span class="o">...</span><span class="p">]):</span>
-    <span class="n">song_title</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
-    <span class="n">tuning</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
-    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>(<code>typing</code> c'est quoi ? Qu'est-ce que ça veut dire <code>Dict[str, List[str]]</code> ? On en reparlera si on a le
-temps mais vous pouvez prendre de l'avance <a href="https://realpython.com/python-type-checking/">sur Real
-Python</a>)</p>
-<p>3. 'Harvest Moon' utilise l'accordage DADGBE, y en a-t'il d'autres ?</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>4. Affichez les accordages et le nombre de chansons pour chaque accordage, le tout trié par nombre de
-chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code> ainsi que l'argument mot-clé
-<code>key</code> (des exemples <a href="https://wiki.python.org/moin/HowTo/Sorting#Key_Functions">ici</a>) :</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">tuning</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tunings</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Allez hop un histogramme</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tunings</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tunings</span><span class="p">]</span>
-<span class="n">values</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)),</span> <span class="n">values</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)),</span> <span class="n">tunings</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
 </pre></div>
 
      </div>
@@ -14961,490 +14548,414 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>5. Une chanson a un tuning un peu particulier comparé aux autres (indice, c'est une question de
-taille). Trouvez le tuning qui est différent des autres et donnez la chanson qui lui correspond.
-<em>Attention</em>, "b" signifie "bémol", il ne s'agit pas d'une note pour l'accordage (contrairement à A,
-B, C, D, E, F et G) !</p>
+<p>Dans ce cours, on va faire une très, très rapide introduction aux concepts réseaux et web qui
+sous-tendent le reste de ce qu'on va faire dans ce cours. Par nécessité on ne fera que gratter la
+surface de la partie émergée de l'iceberg et il vous restera après beaucoup de choses à apprendre ou
+à préciser sur le fonctionnement d'Internet et du Web. N'hésitez surtout pas à vous documenter de
+votre côté.</p>
+<p>Les ressources de la <a href="https://developer.mozilla.org">MDN web doc</a>, communautaires et de très grande
+qualité sont un bon point de départ.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Parser-du-XML">Parser du XML<a class="anchor-link" href="#Parser-du-XML">&#182;</a></h2><p>Nous allons travailler sur un fichier au format <a href="http://www.tei-c.org/">TEI</a> extrait du corpus
-<a href="https://hdl.handle.net/11403/corpus14/v1"><em>Corpus 14</em></a>.</p>
-<p>Le fichier se nomme <a href="../../data/josephine-1-150119.xml"><code>josephine-1-150119.xml</code></a>. Il s'agit d'une
-lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
-pour bosser en local, vous pouvez le récupérer sur
-<a href="https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml">GitHub</a></p>
-<p>Nous allons extraire du fichier TEI les informations suivantes :</p>
-<ul>
-<li>titre (<code>/TEI/teiHeader/fileDesc/titleStmt/title</code>)</li>
-<li>source (<code>/TEI/teiHeader/fileDesc/sourceDesc/p</code>)</li>
-<li>contenu de la lettre (<code>/TEI/text/body</code>)</li>
+<h2 id="Une-vid%C3%A9o-pour-se-r%C3%A9veiller">Une vid&#233;o pour se r&#233;veiller<a class="anchor-link" href="#Une-vid%C3%A9o-pour-se-r%C3%A9veiller">&#182;</a></h2><p><a href="https://youtu.be/x3c1ih2NJEg"><img src="https://img.youtube.com/vi/x3c1ih2NJEg/hqdefault.jpg" alt="L&#39;hémisphère nord de la terre vu de l&#39;espace, parcouru par des câbles reliant différent types de
+serveurs et sur lesquels transitent des blocs de 0 et de 1. Une antenne relais transmet un signal au
+smartphone d&#39;une personne qui porte une robe rouge et on voit une image corrompue de la page
+d&#39;accueil de Google et une représentation d&#39;un de leurs
+datacenters."></a></p>
+<p>Clique sur l'image, c'est un lien.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Internet,-c'est-quoi%E2%80%AF?">Internet, c'est quoi&#8239;?<a class="anchor-link" href="#Internet,-c'est-quoi%E2%80%AF?">&#182;</a></h2><p>Adapté de <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work">la documentation web du
+MDN</a>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Historique-tr%C3%A8s-rapide-d'Internet">Historique tr&#232;s rapide d'Internet<a class="anchor-link" href="#Historique-tr%C3%A8s-rapide-d'Internet">&#182;</a></h3><ul>
+<li>Années 1940 — 1950 : les ordinateurs sont <strong>massifs</strong> et peu nombreux. Pour des raisons de
+facilités on y accède donc depuis des terminaux distants<ul>
+<li>De plus en plus distants</li>
+<li>On développe petit à petit des technologies pour augmenter la vitesse et la fiabilité des
+communications numériques à longue distance</li>
 </ul>
-<p>Vous pouvez trouver des indications sur les éléments de la TEI
-<a href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/">ici</a> (ça pourra être utile pour les
-questions)</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Avec-lxml">Avec lxml<a class="anchor-link" href="#Avec-lxml">&#182;</a></h3><p>Pourquoi <code>lxml</code> et pas <code>xml.etree.ElementTree</code> ? Parce que : <a href="http://lxml.de/intro.html">1</a> et
-surtout <a href="http://lxml.de/performance.html">2</a>.</p>
-<p>La bonne nouvelle, c'est que votre code sera aussi compatible avec <code>xml.etree.ElementTree</code> ou
-<code>xml.etree.cElementTree</code> parce que xml utilise l'API ElementTree. Sauf pour la méthode <code>xpath</code> qui
-est propre à <code>libxml</code>.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;../../data/josephine-1-150119.xml&#39;</span><span class="p">)</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
-
-<span class="c1"># Parcours des enfants de la racine (commentaires et éléments)</span>
-<span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Avec-des-requ%C3%AAtes-ElementPath">Avec des requ&#234;tes <code>ElementPath</code><a class="anchor-link" href="#Avec-des-requ%C3%AAtes-ElementPath">&#182;</a></h3><p>Le fichier utilise l'<a href="https://fr.wikipedia.org/wiki/Espace_de_noms_XML">espace de nom</a> TEI : <code>&lt;TEI
-xmlns="http://www.tei-c.org/ns/1.0"&gt;</code>, nous devrons l'indiquer dans nos instructions de recherche.</p>
-<p>Nous pouvons récupérer un élément particulier qui correspond à un chemin : par exemple, pour
-récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code></p>
-<p>la méthode <code>find</code> renvoie le premier élément qui correspond au chemin argument (<code>ElementPath</code> et non
-<code>xpath</code>)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">header</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;./tei:teiHeader&quot;</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">})</span>
-<span class="n">header</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%F0%9F%A7%AD-Exo-%F0%9F%A7%AD">&#129517; Exo &#129517;<a class="anchor-link" href="#%F0%9F%A7%AD-Exo-%F0%9F%A7%AD">&#182;</a></h3><p>1. Récupérez le titre et affichez son tag XML ainsi que son contenu textuel (<code>/TEI/teiHeader/fileDesc/titleStmt/title</code>)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;[...]&quot;</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tag : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">tag</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Texte : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>2. Idem pour la source (élément <code>sourceDesc</code>) :</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;[...]&quot;</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tag : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">tag</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Texte : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Avec-des-requ%C3%AAtes-xpath">Avec des requ&#234;tes xpath<a class="anchor-link" href="#Avec-des-requ%C3%AAtes-xpath">&#182;</a></h3><p><code>lxml</code> a aussi une méthode <a href="https://lxml.de/xpathxslt.html">xpath</a> qui permet d'utiliser directement
-des <a href="https://www.w3schools.com/xml/xpath_syntax.asp">expressions xpath</a> (sans oublier les espaces de
-noms pour notre fichier) :</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span>
-    <span class="s2">&quot;/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:p&quot;</span><span class="p">,</span>
-    <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s1">&#39;http://www.tei-c.org/ns/1.0&#39;</span><span class="p">},</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;xpath retourne un objet de type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Ou comme ceci</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span>
-    <span class="s2">&quot;/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:p/text()&quot;</span><span class="p">,</span>
-    <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s1">&#39;http://www.tei-c.org/ns/1.0&#39;</span><span class="p">},</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Pour le contenu il faut ruser. La difficulté ici tient à l'utilisation d'élements <code>&lt;lb/&gt;</code> de type
-<a href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/CO.html#CORS5">milestones</a> pour noter les
-retours à la ligne :</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;</span>
-je reponse a ton aimableux lettres<span class="nt">&lt;lb/&gt;</span>
-que nous a fait plaisir en naprenas<span class="nt">&lt;lb/&gt;</span>
-que tu et enbonne santes car il<span class="nt">&lt;lb/&gt;</span>
-anais de maime pour nous<span class="nt">&lt;lb/&gt;</span>
-<span class="nt">&lt;/p&gt;</span>
-</pre></div>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%F0%9F%A5%B2-Exo-%F0%9F%A5%B2">&#129394; Exo &#129394;<a class="anchor-link" href="#%F0%9F%A5%B2-Exo-%F0%9F%A5%B2">&#182;</a></h3><p>1. Récupérez dans un premier temps l'ensemble des balises <code>&lt;p&gt;</code> en utilisant la méthode
-<a href="http://effbot.org/zone/element.htm#searching-for-subelements">findall</a>. la méthode <code>findall</code>
-renvoie une liste avec tous les éléments correspondant au chemin argument.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./[...]&quot;</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">})</span>
-<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">body</span><span class="p">:</span> <span class="c1"># tout le texte ne s&#39;affichera pas, c&#39;est normal !</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Ici on ne récupère que les nœuds <code>text</code> précédant les éléments <code>&lt;lb/&gt;</code>.</p>
-<p>2. Utilisez la fonction <code>xpath</code> pour récupérer tous les nœuds text du corps de la lettre. Vous
-intégrerez dans votre requête la fonction <code>text</code> (vue un peu plus haut) dans votre chemin xpath
-(vous pouvez <em>aussi</em> fouiller <a href="https://lxml.de/xpathxslt.html">par ici</a> pour avoir de la
-documentation supplémentaire).</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;[...]&quot;</span><span class="p">,</span> <span class="n">namespaces</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tei&#39;</span><span class="p">:</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">})</span>
-<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">body</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3. Écrivez une requête xpath pour récupérer tous les éléments raturés de la lettre de Joséphine.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Avec-DOM">Avec DOM<a class="anchor-link" href="#Avec-DOM">&#182;</a></h2><p>L'API <code>ElementTree</code> est propre à Python, <code>DOM</code> (<a href="https://www.w3.org/DOM/">le site officiel</a> et <a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model">des
-informations en français</a>) est
-une API indépendante d'un langage de programmation. Il existe des implémentations <code>DOM</code> dans la
-plupart des langages de programmation modernes.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
-<span class="n">dom</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../data/josephine-1-150119.xml&quot;</span><span class="p">)</span>
-<span class="n">dom</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># un seul élément &#39;title&#39; dans le document</span>
-<span class="n">title</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">getElementsByTagNameNS</span><span class="p">(</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">title</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>title</code> est un objet <code>Element</code>, pour accéder au contenu textuel il faut récupérer le nœud texte</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">lastChild</span><span class="o">.</span><span class="n">nodeName</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">lastChild</span><span class="o">.</span><span class="n">nodeValue</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Idem pour la source, sauf qu'on ne peut pas se permettre de rechercher tous les éléments <code>p</code>.<br>
-Il faut trouver l'élément <code>p</code> fils de <code>sourceDesc</code></p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sourceDesc</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">getElementsByTagNameNS</span><span class="p">(</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">,</span> <span class="s1">&#39;sourceDesc&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">sourceDesc</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">localName</span> <span class="o">==</span> <span class="s2">&quot;p&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">lastChild</span><span class="o">.</span><span class="n">nodeValue</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Et maintenant le contenu et ses éléments milestones</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#128524; Exo &#128524;<a class="anchor-link" href="#%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#182;</a></h3><p>Pour garder la forme, vous réécrirez les boucles <code>for</code> suivies de <code>if</code> en listes en intension.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">getElementsByTagNameNS</span><span class="p">(</span><span class="s2">&quot;http://www.tei-c.org/ns/1.0&quot;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">localName</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;opener&quot;</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">in_node</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">childNodes</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">in_node</span><span class="o">.</span><span class="n">nodeName</span> <span class="o">==</span> <span class="s2">&quot;#text&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">in_node</span><span class="o">.</span><span class="n">nodeValue</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Avec-lxml-et-Beautiful-Soup">Avec lxml et Beautiful Soup<a class="anchor-link" href="#Avec-lxml-et-Beautiful-Soup">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/josephine-1-150119.xml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">sourcedesc</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Pour le contenu de la lettre il y a la merveilleuse fonction <code>get_text()</code></p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span>soup.get_text<span class="o">?</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">getText</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>lxml</code> est rapide, Beautiful Soup simple à utiliser. Le combo diablement efficace.</p>
-<p>Il y a un autre module super pour le web que nous ne verrons pas dans cette séance mais que je me
-dois de vous indiquer : <a href="https://selenium-python.readthedocs.io/">Selenium</a> Selenium va vous
-permettre d'automatiser des actions sur un navigateur. Je vous conseille d'essayer, c'est assez
-plaisant de voir votre navigateur piloté par un script. C'est aussi génial pour tester
-automatiquement les interfaces web que vous développez</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#129300; Exo d'application &#129300;<a class="anchor-link" href="#%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#182;</a></h2><blockquote><p>Wikipedia trivia: if you take any article, click on the first link in the article text not in
-parentheses or italics, <strong>and then repeat</strong>, you will eventually end up at "Philosophy". ([xkcd</p>
-<h1 id="903%5D(https://xkcd.com/903/))">903](<a href="https://xkcd.com/903/">https://xkcd.com/903/</a>))<a class="anchor-link" href="#903%5D(https://xkcd.com/903/))">&#182;</a></h1>
-</blockquote>
-<ul>
-<li>Vérifiez sur une page ou deux si c'est vrai</li>
-<li>Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
-sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
-<em>Philosophy</em> ou une erreur si la page en question n'existe pas</li>
-<li>Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
-produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
-page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
-<a href="https://networkx.org/documentation/latest/reference/drawing.html">NetworkX</a>, un visualiseur
-interactif comme <a href="https://pyvis.readthedocs.io/en/latest/tutorial.html">pyvis</a>, <a href="https://graphviz.readthedocs.io">un wrapper de
-graphviz</a> ou encore générer directement des fichiers dot.</li>
+</li>
+<li>Années 1960 : l'idée d'interconnecter des ordinateurs entre eux pour le partage d'informations
+apparait graduellement</li>
+<li>1969 : premier réseau effectif entre machines, ARPANET, financé par l'Agence pour les projets de
+recherche avancée de défense (DARPA) du département de la Défense des États-Unis<ul>
+<li>Rapidement suivi par d'autres initiatives ailleurs dans le monde</li>
 </ul>
+</li>
+<li>1970 – 2000 : émergence de nouveaux réseaux locaux et régionaux, progressivement fusionnés pour
+donner un réseau global, Internet.</li>
+</ul>
+<p>Pour plus de détails, la source la plus riche que j'ai trouvée est <a href="https://en.wikipedia.org/wiki/History_of_the_Internet">l'article <em>History of Internet</em>
+de Wikipédia en anglais</a>.</p>
 
 </div>
-</div></section></section>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="R%C3%A9seaux-de-machines">R&#233;seaux de machines<a class="anchor-link" href="#R%C3%A9seaux-de-machines">&#182;</a></h3><p>Mettre deux machines en réseau, c'est (conceptuellement) simple, on appelle ça une connexion
+point-à-point.</p>
+<p><img src="pics/internet-schema-1.png" alt="Deux ordinateurs, nommés A et B reliés par un câble"></p>
+<p>Et théoriquement, c'est possible de le faire pour autant de machines qu'on veut</p>
+<p><img src="pics/internet-schema-2.png" alt="Dix ordinateurs, nommés A, …, J, disposés en cercle et reliés chacun à tous les autres par un réseau de câbles"></p>
+<p>Mais ça fait beaucoup de câbles et de prises. Combien d'ailleurs ?</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;o&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Nombre de machines dans le réseau&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Nombre de câbles nécessaires&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour éviter ça, on peut plutôt avoir une machine qui sert de centre (ou <em>hub</em>). Le plus souvent ce
+sera une machine spécialisée, qu'on appelle <em>routeur</em>. Chaque machine du réseau est alors reliée
+seulement au hub.</p>
+<p><img src="pics/internet-schema-3.png" alt="Dix ordinateurs, nommés A, …, J, disposés en cercle et tous reliés à une machine centrale"></p>
+<p>On parle alors de réseau <em>en étoile</em>. Ça permet de simplifier considérablement le réseau. Dans ce
+cas, quand A passe un message à B, il le passe d'abord au hub (en lui disant que le destinataire est
+B) et le routeur le passe à B.</p>
+<p>Il existe d'autres types de réseaux (on parle de <em>topologie</em>), le plus important étant les réseaux
+en anneau, qui ne nécessitent pas de centre mais sont moins efficaces.</p>
+<p>On peut aussi connecter entre eux des réseaux de ce type, en formant des arbres</p>
+<p><img src="pics/internet-schema-5.png" alt="Dix ordinateurs, nommés A, …, O, disposés en arbres avec A, …, E connectés à un routeur, F, …, J à
+un autre et K, …, O à un troisième et ces routeurs connectés à un routeur
+central"></p>
+<p>Cette idée de réseaux locaux interconnectés en arborescence pour former un réseau global est le
+principe de base d'internet, qui en pratique est plus complexe que ça, avec notamment des liens
+redondants qui le rendent plus modulable en fonction du trafic et plus robuste en cas
+d'interruption.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Protocoles-de-communication">Protocoles de communication<a class="anchor-link" href="#Protocoles-de-communication">&#182;</a></h2><p>La topologie d'un réseau nous donne la façon dont les machines sont connectées entre elles, mais pas
+comment elles communiquent.</p>
+<p>Dans une optique de <em>séparation des préoccupations</em>, la façon dont ces communications opèrent est
+divisée en une pile de protocole, du plus près du matériel au plus près des utilisateurices. Chaque
+couche de protocole traite d'un aspect bien déterminé, sans se préoccuper du fonctionnement interne
+des couches inférieures et supérieures.</p>
+<p>Dans le modèle TCP/IP, on distingue en général quatre couches</p>
+<ul>
+<li>La couche <em>applicative</em> concerne la façon dont une application sur une machine A communique avec
+une application sur une machine B. On y suppose que chacune des deux applications a accès à une
+interface sur laquelle elle peut envoyer et recevoir des données en sachant qu'elles seront
+correctement transmises à l'autre application. C'est surtout ce niveau qui va nous intéresser.</li>
+<li>La couche <em>de transport</em> définie la façon dont deux machines sur un réseau communiquent. On y
+suppose que chaque machine a accès à une interface permettant de passer des message à l'autre
+machine.</li>
+<li>La couche <em>internet</em> concerne la façon dont des réseaux déjà existants peuvent établir des
+communications entre eux et les utiliser pour se passer des messages via leurs routeurs.</li>
+<li>La couche <em>de lien</em> concerne la façon dont les données transitent sur un réseau entre les machines
+de ce réseau et leur routeur ou entre deux routeurs.</li>
+</ul>
+<p>Imaginons (en simplifiant) qu'une application a sur une machine A veuillent passer un message à une
+application b sur une machine B. Elle place ce message dans un paquet HTTP (applicatif), et le
+confie à l'interface réseau de A, qui va le placer dans un paquet TCP (transport) et la transmettre
+à son routeur (avec lequel elle communique sur la couche de lien). Le routeur va alors déterminer le
+trajet que doit effectuer le paquet pour aller jusqu'à B et le transmettre (couche internet). Le
+paquet arrive au routeur de B qui le transmet à b en suivant les étapes en sens inverse.</p>
+<p>D'autres couches peuvent venir s'y intercaler. Par exemple pour des communications sécurisées, le
+protocole TLS vient s'intercaler entre la couche transport (TCP) et la couche applicative (HTTP).</p>
+<p><img src="pics/http-layers.png" alt=""></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Adresse-IP-et-noms-de-domaine">Adresse IP et noms de domaine<a class="anchor-link" href="#Adresse-IP-et-noms-de-domaine">&#182;</a></h3><p>Chaque machine est identifiée sur le réseau Internet de manière unique par son IP. Vous pouvez
+trouver la vôtre avec la commande <code>ip</code></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ip addr
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Votre adresse IP (v4) se lit dans <code>inet</code> et votre adresse IP (v6) dans <code>inet6</code>. Comparez vos
+adresses entre vous et avec l'adresse que vous donne par exemple <a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a>,
+que constatez-vous ?</p>
+<p>Quel site se trouve à l'adresse suivante :</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mysterious_ip</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="o">!</span>dig +short <span class="o">{</span>codecs.decode<span class="o">(</span><span class="s2">&quot;jjj.gny.havi-cnevf3.se&quot;</span>, <span class="s2">&quot;rot13&quot;</span><span class="o">)}</span> <span class="p">|</span> tail -n <span class="m">1</span>
+<span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;http://</span><span class="si">{</span><span class="n">mysterious_ip</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Il n'est évidemment pas pratique de travailler directement avec les adresses IP pour accéder à des
+machines publiques.</p>
+<ul>
+<li>Compliquées à retenir</li>
+<li>Ne permet pas d'héberger plusieurs services sur une même machine ou un même service sur plusieurs
+machines.</li>
+</ul>
+<p>On fonctionne donc avec un système de <em>noms de domaines</em> qui ajoute une couche d'indirection : pour
+accéder à une machine on demande à un serveur de noms de domaines (DNS) l'adresse qui correspond à
+une chaîne de caractères : son nom de domaine. Comme :</p>
+<ul>
+<li><a href="http://python.net">http://python.net</a></li>
+<li><a href="http://plurital.org">http://plurital.org</a></li>
+<li><a href="http://w3c.org">http://w3c.org</a></li>
+</ul>
+<p>Voir par exemple <a href="pour plus d&#39;infos sur les noms de domaine">la doc du MDN</a>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Routage">Routage<a class="anchor-link" href="#Routage">&#182;</a></h3><p>On ne va pas rentrer dans les détails de fonctionnement du routage, mais on peut se faire une idée
+du trajet que suivent les données pour aller de votre machine à une autre avec la commande
+<code>traceroute</code> (il vous faudra peut-être l'installer)</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>traceroute python.net
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Paquets">Paquets<a class="anchor-link" href="#Paquets">&#182;</a></h3><p>La sortie de <code>traceroute</code> parlait de « <em>packets</em> », de quoi s'agit-il ?</p>
+<p>Une des idées qui a permis l'établissement d'Internet est celle de découper les données à passer
+d'une machine à une autre en séries de paquets au niveau de la couche de transport (typiquement dans
+les protocoles TCP et UDP). Ça rend les communications plus robustes :</p>
+<ul>
+<li>Tous les paquets n'ont pas besoin de passer par le même chemin.</li>
+<li>Si un paquet est perdu ou corrompu, il suffit de renvoyer <strong>ce</strong> paquet.</li>
+</ul>
+<p>Un paquet est composé de :</p>
+<ul>
+<li>Un <em>header</em> qui contient une série de métadonnées qui dépende du protocole mais indique au moins
+la destination et un identifiant du paquet.</li>
+<li>Un <em>payload</em> qui contient les données ou le fragment de données à transmettre.</li>
+</ul>
+<p>Cette division va se retrouver dans d'autres couches, par exemples elle concerne également les
+requêtes et réponses en HTTP.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Le-Web">Le Web<a class="anchor-link" href="#Le-Web">&#182;</a></h2><p>Le World Wide Web, ou web, est un système d'information reposant sur Internet, constitué de
+documents et de ressources, possédant des <em>Universal Resource Locators</em> (URL), des chaînes de
+caractères qui permettent d'y accéder de façon stable depuis n'importe quel point d'accès.</p>
+<p>Une URL est habituellement de la forme <code>http://www.example.com/path/page.html</code>, où <code>http</code> désigne le
+protocole applicatif suivant lequel la ressource est mise à disposition, <code>www.example.com</code> est le
+nom de domaine associé à une machine qui met la ressource à disposition et <code>path/page.html</code> est un
+chemin interne à cette machine, qui peut correspondre ou non à un chemin dans son système de
+fichiers.</p>
+<p>→ Voir aussi le concept d'<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI</a>.</p>
+<p>Une des particularités du Web est sa construction sur le concept d'hypertextualité : les documents
+auquel il permet d'accéder sont prévus pour être des documents textuels — habituellement structurés
+et décrits en langage HTML — mais surtout liés par des <em>liens hypertexte</em> : des URL de documents ou
+de ressources liées. Ainsi, ce qu'on appelle un <em>site web</em> ou <em>site Internet</em> est conceptuellement
+simplement un ensemble cohérent de documents textuels (ou <em>pages web</em>) liées par des liens
+hypertextes</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="HTTP">HTTP<a class="anchor-link" href="#HTTP">&#182;</a></h2><p>Le <em>HyperText Transfer Protocol</em> est un protocole de la couche applicatif qui a été créé pour le
+Web. Comme la plupart des autres protocoles, il a connu plusieurs versions, la plus récente étant
+HTTP/3.</p>
+<p>Ses caractéristiques principales, liées à son objectif initial de relier des pages d'hypertextes
+sont d'être :</p>
+<ul>
+<li>Textuel : les métadonnées sont transmises sous forme de données en texte, donc en
+chaînes de caractères.</li>
+<li>Simple : les messages passés via HTTP sont censés pouvoir être lu et facilement compris par des
+humain⋅e⋅s</li>
+<li>Sans mémoire (stateless) : chaque message est indépendant des précédents, ce qui signifie que deux
+messages identiques devraient avoir des effets identiques.</li>
+</ul>
+<p>Ces principes sont en pratique plus souple : si le format est basé sur du texte, il est tout à fait
+possible de l'utiliser pour transmettre d'autres types de données, et en pratique, il est très
+courant d'implémenter des protocoles à mémoire (<em>stateful</em>) en surcouche d'HTTP (par exemple au
+moyen de <a href="https://fr.wikipedia.org/wiki/Identificateur_de_session">jetons</a> et de
+<a href="https://fr.wikipedia.org/wiki/Cookie_\(informatique\">cookies</a>).</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Un-exemple">Un exemple<a class="anchor-link" href="#Un-exemple">&#182;</a></h3><p>Un exemple avec la commande cURL (qu'il vous faudra peut-être installer)</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>curl -v https://kde.org
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On peut y voir</p>
+<ul>
+<li>Une résolution de nom de domaine</li>
+<li>Une négociation de protocole de communication</li>
+<li>Une négociation de protocole de sécurité<ul>
+<li>Vérification de l'identité du site</li>
+<li>Échange de clés pour une communication chiffrée</li>
+</ul>
+</li>
+<li>L'envoi d'une requête <code>GET</code> : demande de page</li>
+<li>La réponse du serveur, contenant des <em>headers</em> et un <em>payload</em> : une page en HTML, qui contient
+elle-même des métadonnées, du contenu, des informations de style et du code JavaSCript qui permet
+de la rendre interactive en local (le code étant prévu pour être exécuté sur les machines des
+destinataires de la page).</li>
+</ul>
+<p>Si on accède habituellement à des pages web à partir d'un navigateur qui propose une interface
+graphique, ce n'est pas en soi une obligation (puisque tout ce qui compte ce sont les message
+passés), et des outils comme cURL ou les scripts que nous allons écrire peuvent très bien
+fonctionner sans.</p>
+<p>→ Voir <a href="https://curl.se/docs/httpscripting.html">le tutoriel de cURL</a>. Voir aussi
+<a href="https://www.gnu.org/software/wget/">wget</a>, un autre outil qui permet de formuler des requêtes HTTP.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Requ%C3%AAtes-et-r%C3%A9ponses">Requ&#234;tes et r&#233;ponses<a class="anchor-link" href="#Requ%C3%AAtes-et-r%C3%A9ponses">&#182;</a></h3><p>Le protocole HTTP est construit sur la notion qu'il existe deux rôles pour les machines connectées :</p>
+<ul>
+<li>Les serveurs sont les machines où les documents et les ressources sont mises à disposition</li>
+<li>Les clients sont les machines des utilisateurices qui désirent accéder à ces documents et
+ressources</li>
+</ul>
+<p>Le rôle d'une machine donnée n'est pas constant (même si certaines machines sont plus adaptées pour
+un rôle que pour l'autre), mais est pris de façon <em>ad-hoc</em> pour chaque connexion.</p>
+<p>De ce fait, dans une communication HTTP, les messages passés entre les machines sont asymétriques</p>
+<ul>
+<li>Le client envoie des <em>requêtes</em> au serveur</li>
+<li>Le serveur envoie des <em>réponses</em> au client</li>
+</ul>
+<p><img src="pics/simple-client-server.png" alt="Un schéma de la relation client-serveur : un cercle représente le client, un autre le serveur. Une
+flèche étiquetée « requests » va du client vers le serveur et une flèche étiquetée « responses » va
+du serveur vers le client."></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Types-de-requ%C3%AAtes">Types de requ&#234;tes<a class="anchor-link" href="#Types-de-requ%C3%AAtes">&#182;</a></h3><p>Les requêtes HTTP sont regroupées par type, en fonction du type d'action qu'elles demandent au
+serveur. Les plus importantes pour nous sont :</p>
+<ul>
+<li><code>GET</code> demande une ressource au serveur, c'est la requête utilisée pour récupérer une page web par
+exemple.</li>
+<li><code>POST</code> envoie des données au serveur sous forme d'une modification cumulative. C'est la requête
+utilisée par exemple pour envoyer des formulaires. Si on envoie plusieurs fois la même requête
+<code>POST</code> au serveur, il est censé exécuter autant de fois la même action.</li>
+<li><code>PUT</code> envoie des données au serveur sous forme d'un état. C'est la requête habituellement utilisée
+pour envoyer des ressources. Si on envoie plusieurs fois la même requête <code>PUT</code> au serveur, le
+résultat est censé être le même que si on ne l'avait envoyée qu'une seule fois.</li>
+</ul>
+<p>→ Voir <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">la liste complète sur MDN</a>.</p>
+<p>La différence entre <code>POST</code> et <code>PUT</code> est un peu ésotérique et en pratique elles sont souvent
+utilisées l'une pour l'autre.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="%F0%9F%94%AE-Exos-%F0%9F%94%AE">&#128302; Exos &#128302;<a class="anchor-link" href="#%F0%9F%94%AE-Exos-%F0%9F%94%AE">&#182;</a></h2><p>(Tirés de <a href="https://jvns.ca/blog/2019/08/27/curl-exercises/">https://jvns.ca/blog/2019/08/27/curl-exercises/</a>)</p>
+<p>À l'aide de <code>curl</code> et de <a href="https://curl.se/docs/">sa documentation</a>, faites les requêtes HTTP suivantes</p>
+<ol>
+<li>Une requête à <a href="https://httpbin.org">https://httpbin.org</a></li>
+<li>Une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a>. Que vous renvoie-t-on ?</li>
+<li>Une requête POST à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a></li>
+<li>Une requête GET à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a>, mais cette fois-ci avec le paramètre
+<code>value=panda</code></li>
+<li>Téléchargez le fichier <code>robots.txt</code> de Google (<a href="http://www.google.com/robots.txt">http://www.google.com/robots.txt</a>)</li>
+<li>Faites une requête <code>GET</code> à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> avec le header <code>User-Agent: elephant</code></li>
+<li>Faites une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> et affichez les <em>headers</em> de la réponse</li>
+<li>Faites une requête <code>POST</code> à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> avec comme corps <code>{"value": "panda"}</code></li>
+<li>Faites la même requête qu'en 8., mais cette fois-ci en précisant en <em>header</em> <code>Content-Type:
+application/json</code></li>
+<li>Une requête GET à <a href="https://www.google.com">https://www.google.com</a> avec le header <code>Accept-Encoding: gzip</code>. Que se
+passe-t-il ? Pourquoi ?</li>
+<li>Faites une requête à <a href="https://httpbin.org/image">https://httpbin.org/image</a> avec le <em>header</em> <code>Accept: image/png</code>.
+Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
+avec d'autres headers.</li>
+<li>Faites une requête PUT à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a></li>
+<li>Récupérez <a href="https://httpbin.org/image/jpeg">https://httpbin.org/image/jpeg</a>, sauvegardez le résultat dans un fichier et ouvrez le
+dans un éditeur d'images</li>
+<li>Requêtez <a href="https://www.twitter.com">https://www.twitter.com</a>. Essayez à l'aide des <em>headers</em> de comprendre pourquoi la
+réponse est vide.</li>
+<li>Faites une requête à <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> en précisant un login et un mot de passe
+avec l'option <code>-u login:password)</code></li>
+<li>Téléchargez la page d'accueil de Twitter <a href="https://twitter.com">https://twitter.com</a> en espagnol (ou une autre langue)
+avec une utilisation judicieuse des <em>headers</em>.</li>
+</ol>
+
 </div>
 </div>
 </body>
@@ -15454,55 +14965,5 @@ graphviz</a> ou encore générer directement des fichiers dot.</li>
 
 
 
-
-<script>
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js",
-      "https://unpkg.com/reveal.js@4.0.2/plugin/notes/notes.js"
-    ],
-
-    function(Reveal, RevealNotes){
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            transition: "slide",
-            plugins: [RevealNotes]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
-
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
-    }
-);
-</script>
 
 </html>

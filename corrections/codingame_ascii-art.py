@@ -16,8 +16,9 @@ for i in range(h):
     for character in t:
         if character in alphabet:
             j = alphabet.index(character)
-            res += "".join(row[j*l:j*l+l])
+            res += "".join(row[j * l : j * l + l])
         else:
             res += "".join(row[-l:])
     res += "\n"
 print(res)
+

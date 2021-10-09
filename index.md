@@ -49,9 +49,9 @@ est indisponible.
 
 #### Corrections 2021-09-22
 
-- [Exercices slides 1](slides/lecture-01/solutions-01.md) [![Launch in Binder
+- [Exercices slides 1](slides/lecture-01/solutions-01.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/solutions-01.md)
-- [Exercices slides 2](slides/lecture-02/solutions-02.md) [![Launch in Binder
+- [Exercices slides 2](slides/lecture-02/solutions-02.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/solutions-02.md)
 - Exercices Codingame : voir
   [Github](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections)
@@ -76,11 +76,15 @@ est indisponible.
 - [Slides 9](slides/lecture-09/lecture-09.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-09/lecture-09.md)
 
-
 #### Corrections 2021-10-06
 
-- [Solutions slides 8](slides/lecture-08/solutions.slides.html) [![Launch in Binder
+- [Solutions slides 8](slides/lecture-08/solutions.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/solutions.md)
+- Exercice Wikipédia
+  - [Notebook exploratoire](slides/lecture-08/wikipedia.html) [![Launch in Binder
+    badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/wikipedia.md)
+  - [Script version
+    HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.md)
 
 
 ## Utilisation en local
