@@ -44,8 +44,7 @@ jobs:
       - name: Build slides
         run: |
           jupytext --to ipynb ${{ github.workspace }}/slides/lecture-*/*.md
-          jupyter nbconvert --execute --allow-errors
- --to html ${{ github.workspace }}/slides/lecture-*/*.ipynb
+          jupyter nbconvert --execute --allow-errors --to html ${{ github.workspace }}/slides/lecture-*/*.ipynb
           jupyter nbconvert --to slides ${{ github.workspace }}/slides/lecture-*/lecture-*.ipynb
 
       - name: Deploy to GitHub Pages
