@@ -14569,12 +14569,12 @@ Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.9.7/x64/lib
 Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (3.4.3)
 Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (2.26.0)
 Requirement already satisfied: soupsieve&gt;1.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from beautifulsoup4) (2.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (2.8.0)
+Requirement already satisfied: numpy&gt;=1.16 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (1.21.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (8.3.2)
 Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (1.3.2)
 Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (2.4.7)
-Requirement already satisfied: numpy&gt;=1.16 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (1.21.2)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (0.10.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (8.3.2)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from matplotlib) (2.8.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests) (1.25.11)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
 Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests) (2.0.6)
@@ -14731,7 +14731,10 @@ After The Gold Rush EADGBE
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>2. Créez un <code>dict</code> appelé <code>tunings</code> qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête <code>dict</code>). Lisez bien la doc de [<code>find_all</code>](</p>
+<p>2. Créez un <code>dict</code> appelé <code>tunings</code> qui classe les chansons par tuning (autrement dit qui associe à
+un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête <code>dict</code>).
+Lisez bien la doc de
+<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all"><code>find_all</code></a></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15086,9 +15089,9 @@ est propre à <code>libxml</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;cyfunction Comment at 0x7fdd049351e0&gt;
+<pre>&lt;cyfunction Comment at 0x7fd3f08c51e0&gt;
 {http://www.tei-c.org/ns/1.0}teiHeader
-&lt;cyfunction Comment at 0x7fdd049351e0&gt;
+&lt;cyfunction Comment at 0x7fd3f08c51e0&gt;
 {http://www.tei-c.org/ns/1.0}facsimile
 {http://www.tei-c.org/ns/1.0}text
 </pre>
@@ -15106,7 +15109,8 @@ est propre à <code>libxml</code>.</p>
 xmlns="http://www.tei-c.org/ns/1.0"&gt;</code>, nous devrons l'indiquer dans nos instructions de recherche.</p>
 <p>Nous pouvons récupérer un élément particulier qui correspond à un chemin : par exemple, pour
 récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code></p>
-<p>la méthode <code>find</code> renvoie le premier élément qui correspond au chemin argument (<code>ElementPath</code> et non <code>xpath</code>)</p>
+<p>la méthode <code>find</code> renvoie le premier élément qui correspond au chemin argument (<code>ElementPath</code> et non
+<code>xpath</code>)</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15138,7 +15142,7 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7fdcd4823200&gt;</pre>
+<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7fd3e8ba8b00&gt;</pre>
 </div>
 
 </div>
@@ -15521,7 +15525,7 @@ et amie et de marie la perdigailles
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;Element {http://www.tei-c.org/ns/1.0}del at 0x7fdcd3eda440&gt;&lt;Element {http://www.tei-c.org/ns/1.0}del at 0x7fdcd1e72b40&gt;</pre>
+<pre>&lt;Element {http://www.tei-c.org/ns/1.0}del at 0x7fd3beffde40&gt;&lt;Element {http://www.tei-c.org/ns/1.0}del at 0x7fd3bde99dc0&gt;</pre>
 </div>
 </div>
 
@@ -15532,7 +15536,7 @@ et amie et de marie la perdigailles
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="avec-DOM">avec DOM<a class="anchor-link" href="#avec-DOM">&#182;</a></h2><p>L'API <code>ElementTree</code> est propre à Python, <code>DOM</code> (<a href="https://www.w3.org/DOM/">le site officiel</a> et <a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model">des
+<h2 id="Avec-DOM">Avec DOM<a class="anchor-link" href="#Avec-DOM">&#182;</a></h2><p>L'API <code>ElementTree</code> est propre à Python, <code>DOM</code> (<a href="https://www.w3.org/DOM/">le site officiel</a> et <a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model">des
 informations en français</a>) est
 une API indépendante d'un langage de programmation. Il existe des implémentations <code>DOM</code> dans la
 plupart des langages de programmation modernes.</p>
@@ -15568,7 +15572,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;xml.dom.minidom.Document at 0x7fdcd1dc7e80&gt;</pre>
+<pre>&lt;xml.dom.minidom.Document at 0x7fd3bbd1ff40&gt;</pre>
 </div>
 
 </div>
@@ -15607,7 +15611,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7fdcd1ddf8b0&gt;</pre>
+<pre>&lt;DOM Element: title at 0x7fd3bbd348b0&gt;</pre>
 </div>
 
 </div>
@@ -15650,7 +15654,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7fdcd1ddf8b0&gt;
+<pre>&lt;DOM Element: title at 0x7fd3bbd348b0&gt;
 #text
 Joséphine Pouchet à son époux le 19-01-1915 depuis Baillargues
 </pre>
@@ -15882,24 +15886,10 @@ et amie et de marie la perdigailles
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Avec-lxml-et-Beautiful-Soup">Avec lxml et Beautiful Soup<a class="anchor-link" href="#Avec-lxml-et-Beautiful-Soup">&#182;</a></h2>
+<h2 id="Avec-lxml-et-Beautiful-Soup">Avec <code>lxml</code> et Beautiful Soup<a class="anchor-link" href="#Avec-lxml-et-Beautiful-Soup">&#182;</a></h2>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -16112,8 +16102,8 @@ automatiquement les interfaces web que vous développez</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#129300; Exo d'application &#129300;<a class="anchor-link" href="#%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#182;</a></h2><blockquote><p>Wikipedia trivia: if you take any article, click on the first link in the article text not in
-parentheses or italics, <strong>and then repeat</strong>, you will eventually end up at "Philosophy". ([xkcd</p>
-<h1 id="903%5D(https://xkcd.com/903/))">903](<a href="https://xkcd.com/903/">https://xkcd.com/903/</a>))<a class="anchor-link" href="#903%5D(https://xkcd.com/903/))">&#182;</a></h1>
+parentheses or italics, <strong>and then repeat</strong>, you will eventually end up at "Philosophy".<br>
+(<a href="https://xkcd.com/903/">xkcd #903</a>)</p>
 </blockquote>
 <ul>
 <li>Vérifiez sur une page ou deux si c'est vrai</li>

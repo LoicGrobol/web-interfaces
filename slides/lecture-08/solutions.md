@@ -66,7 +66,10 @@ for item in soup.find_all('div', class_="songrow")[:10]:
     print(item.a.string, item.div.string)
 ```
 
-2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`). Lisez bien la doc de [`find_all`](
+2\. Créez un `dict` appelé `tunings` qui classe les chansons par tuning (autrement dit qui associe à
+un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête `dict`).
+Lisez bien la doc de
+[`find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all)
 
 ```python
 from collections import defaultdict
@@ -176,7 +179,8 @@ xmlns="http://www.tei-c.org/ns/1.0">`, nous devrons l'indiquer dans nos instruct
 Nous pouvons récupérer un élément particulier qui correspond à un chemin : par exemple, pour
 récupérer le *header* TEI dont le chemin est `/TEI/teiHeader`
 
-la méthode `find` renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non `xpath`)
+la méthode `find` renvoie le premier élément qui correspond au chemin argument (`ElementPath` et non
+`xpath`)
 
 ```python
 header = root.find("./tei:teiHeader", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
@@ -275,7 +279,7 @@ for text in body:
 ```
 
 
-## avec DOM
+## Avec DOM
 
 L'API `ElementTree` est propre à Python, `DOM` ([le site officiel](https://www.w3.org/DOM/) et [des
 informations en français](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model)) est
@@ -340,11 +344,7 @@ for t in texts:
     print(t, end="")
 ```
 
-```python
-
-```
-
-## Avec lxml et Beautiful Soup
+## Avec `lxml` et Beautiful Soup
 
 ```python
 from bs4 import BeautifulSoup
@@ -383,8 +383,8 @@ automatiquement les interfaces web que vous développez
 ## 🤔 Exo d'application 🤔
 
 > Wikipedia trivia: if you take any article, click on the first link in the article text not in
-> parentheses or italics, **and then repeat**, you will eventually end up at "Philosophy". ([xkcd
-> #903](https://xkcd.com/903/))
+> parentheses or italics, **and then repeat**, you will eventually end up at "Philosophy".  
+> ([xkcd #903](https://xkcd.com/903/))
 
 - Vérifiez sur une page ou deux si c'est vrai
 - Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
