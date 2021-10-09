@@ -84,7 +84,7 @@ est indisponible.
   - [Notebook exploratoire](slides/lecture-08/wikipedia.html) [![Launch in Binder
     badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/wikipedia.md)
   - [Script version
-    HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.md)
+    HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.py)
 
 
 ## Utilisation en local
