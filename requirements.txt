@@ -1,4 +1,5 @@
 beautifulsoup4
+fastapi[all]
 ipycytoscape
 ipympl
 jupyterlab
@@ -10,3 +11,4 @@ matplotlib
 regex
 RISE
 scipy
+spacy

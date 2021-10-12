@@ -86,6 +86,14 @@ est indisponible.
   - [Script version
     HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.py)
 
+### 2021-10-13 — Wikipédia, git et FastAPI
+
+- Voir [les corrections de la semaine dernière](#corrections-2021-10-06)
+- [Slides 10](slides/lecture-10/lecture-10.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-10/lecture-10.md)
+- [Slides 11](slides/lecture-11/lecture-11.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
+
 
 ## Utilisation en local
 

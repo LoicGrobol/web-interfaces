@@ -14638,110 +14638,118 @@ The matplotlib.compat module was deprecated in Matplotlib 3.3 and will be remove
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>IPython             ast                 jedi                rise
-PIL                 asynchat            jinja2              rlcompleter
-__future__          asyncio             json                rmagic
-_abc                asyncore            json5               runpy
-_aix_support        atexit              jsonschema          sched
-_ast                attr                jupyter             scipy
-_asyncio            audioop             jupyter_client      secrets
-_bisect             autoreload          jupyter_core        select
-_blake2             babel               jupyter_server      selectors
-_bootlocale         backcall            jupyterlab          send2trash
-_bootsubprocess     base64              jupyterlab_pygments setuptools
-_bz2                bdb                 jupyterlab_server   shelve
-_cffi_backend       binascii            jupyterlab_widgets  shlex
-_codecs             binhex              jupytext            shutil
-_codecs_cn          bisect              keyword             signal
-_codecs_hk          bleach              kiwisolver          site
-_codecs_iso2022     bs4                 lib2to3             six
-_codecs_jp          builtins            linecache           smtpd
-_codecs_kr          bz2                 locale              smtplib
-_codecs_tw          cProfile            logging             sndhdr
-_collections        calendar            lxml                sniffio
-_collections_abc    certifi             lzma                socket
-_compat_pickle      cffi                mailbox             socketserver
-_compression        cgi                 mailcap             soupsieve
-_contextvars        cgitb               markdown_it         spectate
-_crypt              charset_normalizer  markupsafe          spwd
-_csv                chunk               marshal             sqlite3
-_ctypes             cmath               math                sre_compile
-_ctypes_test        cmd                 matplotlib          sre_constants
-_curses             code                matplotlib_inline   sre_parse
-_curses_panel       codecs              mdit_py_plugins     ssl
-_datetime           codeop              mimetypes           stat
-_dbm                collections         mistune             statistics
-_decimal            colorsys            mmap                storemagic
-_distutils_hack     compileall          modulefinder        string
-_elementtree        concurrent          multiprocessing     stringprep
-_functools          configparser        nbclassic           struct
-_gdbm               contextlib          nbclient            subprocess
-_hashlib            contextvars         nbconvert           sunau
-_heapq              copy                nbformat            symbol
-_imp                copyreg             nest_asyncio        sympyprinting
-_io                 crypt               netrc               symtable
-_json               csv                 networkx            sys
-_locale             ctypes              nis                 sysconfig
-_lsprof             curses              nntplib             syslog
-_lzma               cycler              notebook            tabnanny
-_markupbase         cythonmagic         ntpath              tarfile
-_md5                dataclasses         nturl2path          telnetlib
-_multibytecodec     datetime            numbers             tempfile
-_multiprocessing    dateutil            numpy               terminado
-_opcode             dbm                 opcode              termios
-_operator           debugpy             operator            test
-_osx_support        decimal             optparse            testpath
-_peg_parser         decorator           os                  tests
-_pickle             defusedxml          ossaudiodev         textwrap
-_posixshmem         difflib             packaging           this
-_posixsubprocess    dis                 pandocfilters       threading
-_py_abc             distutils           parser              time
-_pydecimal          doctest             parso               timeit
-_pyio               email               pathlib             tkinter
+<pre>IPython             autoreload          jsonschema          secrets
+PIL                 babel               jupyter             select
+__future__          backcall            jupyter_client      selectors
+_abc                base64              jupyter_core        send2trash
+_aix_support        bdb                 jupyter_server      setuptools
+_ast                binascii            jupyterlab          shelve
+_asyncio            binhex              jupyterlab_pygments shlex
+_bisect             bisect              jupyterlab_server   shutil
+_blake2             bleach              jupyterlab_widgets  signal
+_bootlocale         blis                jupytext            site
+_bootsubprocess     bs4                 keyword             six
+_bz2                builtins            kiwisolver          smart_open
+_cffi_backend       bz2                 lib2to3             smtpd
+_codecs             cProfile            linecache           smtplib
+_codecs_cn          calendar            locale              sndhdr
+_codecs_hk          catalogue           logging             sniffio
+_codecs_iso2022     certifi             lxml                socket
+_codecs_jp          cffi                lzma                socketserver
+_codecs_kr          cgi                 mailbox             soupsieve
+_codecs_tw          cgitb               mailcap             spacy
+_collections        charset_normalizer  markdown_it         spacy_legacy
+_collections_abc    chunk               markupsafe          spectate
+_compat_pickle      click               marshal             spwd
+_compression        cmath               math                sqlite3
+_contextvars        cmd                 matplotlib          sre_compile
+_crypt              code                matplotlib_inline   sre_constants
+_csv                codecs              mdit_py_plugins     sre_parse
+_ctypes             codeop              mimetypes           srsly
+_ctypes_test        collections         mistune             ssl
+_curses             colorsys            mmap                starlette
+_curses_panel       compileall          modulefinder        stat
+_datetime           concurrent          multipart           statistics
+_dbm                configparser        multiprocessing     storemagic
+_decimal            contextlib          murmurhash          string
+_distutils_hack     contextvars         nbclassic           stringprep
+_elementtree        copy                nbclient            struct
+_functools          copyreg             nbconvert           subprocess
+_gdbm               crypt               nbformat            sunau
+_hashlib            csv                 nest_asyncio        symbol
+_heapq              ctypes              netrc               sympyprinting
+_imp                curses              networkx            symtable
+_io                 cycler              nis                 sys
+_json               cymem               nntplib             sysconfig
+_locale             cythonmagic         notebook            syslog
+_lsprof             dataclasses         ntpath              tabnanny
+_lzma               datetime            nturl2path          tarfile
+_markupbase         dateutil            numbers             telnetlib
+_md5                dbm                 numpy               tempfile
+_multibytecodec     debugpy             opcode              terminado
+_multiprocessing    decimal             operator            termios
+_opcode             decorator           optparse            test
+_operator           defusedxml          orjson              testpath
+_osx_support        difflib             os                  tests
+_peg_parser         dis                 ossaudiodev         textwrap
+_pickle             distutils           packaging           thinc
+_posixshmem         dns                 pandocfilters       this
+_posixsubprocess    doctest             parser              threading
+_py_abc             dotenv              parso               time
+_pydecimal          email               pathlib             timeit
+_pyio               email_validator     pathy               tkinter
 _pyrsistent_version encodings           pdb                 token
 _queue              ensurepip           pexpect             tokenize
 _random             entrypoints         pickle              toml
 _sha1               enum                pickleshare         tornado
-_sha256             errno               pickletools         trace
-_sha3               faulthandler        pip                 traceback
-_sha512             fcntl               pipes               tracemalloc
-_signal             filecmp             pkg_resources       traitlets
-_sitebuiltins       fileinput           pkgutil             tty
-_socket             fnmatch             platform            turtle
-_sqlite3            formatter           plistlib            turtledemo
-_sre                fractions           poplib              types
-_ssl                ftplib              posix               typing
-_stat               functools           posixpath           unicodedata
-_statistics         gc                  pprint              unittest
-_string             genericpath         profile             urllib
-_strptime           getopt              prometheus_client   urllib3
-_struct             getpass             prompt_toolkit      uu
-_symtable           gettext             pstats              uuid
-_sysconfigdata__linux_x86_64-linux-gnu glob                pty                 venv
-_testbuffer         graphlib            ptyprocess          warnings
-_testcapi           grp                 pvectorc            wave
-_testimportmultiple gzip                pwd                 wcwidth
-_testinternalcapi   hashlib             py_compile          weakref
-_testmultiphase     heapq               pyclbr              webbrowser
-_thread             hmac                pycparser           webencodings
-_threading_local    html                pydoc               websocket
-_tkinter            http                pydoc_data          widgetsnbextension
-_tracemalloc        idlelib             pyexpat             wsgiref
-_uuid               idna                pygments            xdrlib
-_warnings           imaplib             pylab               xml
-_weakref            imghdr              pyparsing           xmlrpc
-_weakrefset         imp                 pyrsistent          xxlimited
-_xxsubinterpreters  importlib           pytz                xxsubtype
-_xxtestfuzz         inspect             queue               yaml
-_yaml               io                  quopri              zipapp
-_zoneinfo           ipaddress           random              zipfile
-abc                 ipycytoscape        re                  zipimport
-aifc                ipykernel           readline            zlib
-antigravity         ipykernel_launcher  regex               zmq
-anyio               ipympl              reprlib             zoneinfo
-argon2              ipython_genutils    requests            
-argparse            ipywidgets          requests_unixsocket 
-array               itertools           resource            
+_sha256             errno               pickletools         tqdm
+_sha3               fastapi             pip                 trace
+_sha512             faulthandler        pipes               traceback
+_signal             fcntl               pkg_resources       tracemalloc
+_sitebuiltins       filecmp             pkgutil             traitlets
+_socket             fileinput           platform            tty
+_sqlite3            fnmatch             plistlib            turtle
+_sre                formatter           poplib              turtledemo
+_ssl                fractions           posix               typer
+_stat               ftplib              posixpath           types
+_statistics         functools           pprint              typing
+_string             gc                  preshed             typing_extensions
+_strptime           genericpath         profile             ujson
+_struct             getopt              prometheus_client   unicodedata
+_symtable           getpass             prompt_toolkit      unittest
+_sysconfigdata__linux_x86_64-linux-gnu gettext             pstats              urllib
+_testbuffer         glob                pty                 urllib3
+_testcapi           graphlib            ptyprocess          uu
+_testimportmultiple grp                 pvectorc            uuid
+_testinternalcapi   gzip                pwd                 uvicorn
+_testmultiphase     h11                 py_compile          uvloop
+_thread             hashlib             pyclbr              venv
+_threading_local    heapq               pycparser           warnings
+_tkinter            hmac                pydantic            wasabi
+_tracemalloc        html                pydoc               watchgod
+_uuid               http                pydoc_data          wave
+_warnings           httptools           pyexpat             wcwidth
+_weakref            idlelib             pygments            weakref
+_weakrefset         idna                pylab               webbrowser
+_xxsubinterpreters  imaplib             pyparsing           webencodings
+_xxtestfuzz         imghdr              pyrsistent          websocket
+_yaml               imp                 pytz                websockets
+_zoneinfo           importlib           queue               widgetsnbextension
+abc                 inspect             quopri              wsgiref
+aifc                io                  random              xdrlib
+antigravity         ipaddress           re                  xml
+anyio               ipycytoscape        readline            xmlrpc
+argon2              ipykernel           regex               xxlimited
+argparse            ipykernel_launcher  reprlib             xxsubtype
+array               ipympl              requests            yaml
+asgiref             ipython_genutils    requests_unixsocket zipapp
+ast                 ipywidgets          resource            zipfile
+asynchat            itertools           rise                zipimport
+asyncio             itsdangerous        rlcompleter         zlib
+asyncore            jedi                rmagic              zmq
+atexit              jinja2              runpy               zoneinfo
+attr                json                sched               
+audioop             json5               scipy               
 
 Enter any module name to get more help.  Or, type &#34;modules spam&#34; to search
 for modules whose name or summary contain the string &#34;spam&#34;.
@@ -14837,7 +14845,7 @@ for modules whose name or summary contain the string &#34;spam&#34;.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1991/1821779469.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2154/1821779469.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> display<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>p<span class="ansi-blue-fg">.</span>glob<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;*.ipynb&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> projet <span class="ansi-blue-fg">=</span> p<span class="ansi-blue-fg">.</span>parent <span class="ansi-blue-fg">/</span> <span class="ansi-blue-fg">&#34;assignments&#34;</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>display<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>exos<span class="ansi-blue-fg">.</span>glob<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;*&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -14956,7 +14964,7 @@ for modules whose name or summary contain the string &#34;spam&#34;.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">error</span>                                     Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1991/3766294327.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2154/3766294327.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> pattern <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">r&#34;(?&lt;!une\s+)omelette&#34;</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>re<span class="ansi-blue-fg">.</span>findall<span class="ansi-blue-fg">(</span>pattern<span class="ansi-blue-fg">,</span> text<span class="ansi-blue-fg">)</span>
 
@@ -15148,15 +15156,15 @@ git</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Collecting git+https://github.com/psf/requests.git
-  Cloning https://github.com/psf/requests.git to /tmp/pip-req-build-9c9aug9b
-  Running command git clone -q https://github.com/psf/requests.git /tmp/pip-req-build-9c9aug9b
+  Cloning https://github.com/psf/requests.git to /tmp/pip-req-build-fk9qxgd3
+  Running command git clone -q https://github.com/psf/requests.git /tmp/pip-req-build-fk9qxgd3
   Resolved https://github.com/psf/requests.git to commit 9dd6e47b5b4d25ee34701a1a0111a3332b1478d7
 Collecting urllib3&lt;1.27,&gt;=1.21.1
   Using cached urllib3-1.26.7-py2.py3-none-any.whl (138 kB)
 Collecting certifi&gt;=2017.4.17
   Using cached certifi-2021.10.8-py2.py3-none-any.whl (149 kB)
 Collecting charset_normalizer~=2.0.0
-  Using cached charset_normalizer-2.0.6-py3-none-any.whl (37 kB)
+  Using cached charset_normalizer-2.0.7-py3-none-any.whl (38 kB)
 Collecting idna&lt;4,&gt;=2.5
   Using cached idna-3.2-py3-none-any.whl (59 kB)
 Using legacy &#39;setup.py install&#39; for requests, since package &#39;wheel&#39; is not installed.
@@ -15170,9 +15178,9 @@ Installing collected packages: urllib3, idna, charset-normalizer, certifi, reque
     Uninstalling idna-3.2:
       Successfully uninstalled idna-3.2
   Attempting uninstall: charset-normalizer
-    Found existing installation: charset-normalizer 2.0.6
-    Uninstalling charset-normalizer-2.0.6:
-      Successfully uninstalled charset-normalizer-2.0.6
+    Found existing installation: charset-normalizer 2.0.7
+    Uninstalling charset-normalizer-2.0.7:
+      Successfully uninstalled charset-normalizer-2.0.7
   Attempting uninstall: certifi
     Found existing installation: certifi 2021.10.8
     Uninstalling certifi-2021.10.8:
@@ -15181,8 +15189,10 @@ Installing collected packages: urllib3, idna, charset-normalizer, certifi, reque
     Found existing installation: requests 2.26.0
     Uninstalling requests-2.26.0:
       Successfully uninstalled requests-2.26.0
-    Running setup.py install for requests ... - \ done
-Successfully installed certifi-2021.10.8 charset-normalizer-2.0.6 idna-3.2 requests-2.26.0 urllib3-1.26.7
+    Running setup.py install for requests ... - done
+Successfully installed certifi-2021.10.8 charset-normalizer-2.0.7 idna-3.2 requests-2.26.0 urllib3-1.26.7
+<span class="ansi-yellow-fg">WARNING: You are using pip version 21.2.4; however, version 21.3 is available.
+You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
 </pre>
 </div>
 </div>
@@ -15209,7 +15219,7 @@ Successfully installed certifi-2021.10.8 charset-normalizer-2.0.6 idna-3.2 reque
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="R%C3%A9soudre-des-conflits-de-d%C3%A9pendances">R&#233;soudre des conflits de d&#233;pendances<a class="anchor-link" href="#R%C3%A9soudre-des-conflits-de-d%C3%A9pendances">&#182;</a></h2>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
@@ -15221,6 +15231,28 @@ Successfully installed certifi-2021.10.8 charset-normalizer-2.0.6 idna-3.2 reque
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre><span class="ansi-yellow-fg">WARNING: You are using pip version 21.2.4; however, version 21.3 is available.
+You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15311,23 +15343,33 @@ les restaurer</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>anyio==3.3.2
+<pre>anyio==3.3.3
 argon2-cffi==21.1.0
+asgiref==3.4.1
 attrs==21.2.0
 Babel==2.9.1
 backcall==0.2.0
 beautifulsoup4==4.10.0
 bleach==4.1.0
+blis==0.7.4
 botocore==1.13.9
+catalogue==2.0.6
 certifi==2021.10.8
 cffi==1.14.6
-charset-normalizer==2.0.6
+charset-normalizer==2.0.7
+click==8.0.3
 cycler==0.10.0
+cymem==2.0.5
 debugpy==1.5.0
 decorator==5.1.0
 defusedxml==0.7.1
+dnspython==2.1.0
 docutils==0.15.2
+email-validator==1.1.3
 entrypoints==0.3
+fastapi==0.70.0
+h11==0.12.0
+httptools==0.2.0
 idna==3.2
 ipycytoscape==1.2.2
 ipykernel==6.4.1
@@ -15335,6 +15377,7 @@ ipympl==0.8.0
 ipython==7.28.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.5
+itsdangerous==2.0.1
 jedi==0.18.0
 Jinja2==3.0.2
 jmespath==0.10.0
@@ -15356,6 +15399,7 @@ matplotlib==3.4.3
 matplotlib-inline==0.1.3
 mdit-py-plugins==0.2.8
 mistune==0.8.4
+murmurhash==1.0.5
 nbclassic==0.3.2
 nbclient==0.5.4
 nbconvert==6.2.0
@@ -15364,20 +15408,26 @@ nest-asyncio==1.5.1
 networkx==2.6.3
 notebook==6.4.4
 numpy==1.21.2
+orjson==3.6.4
 packaging==21.0
 pandocfilters==1.5.0
 parso==0.8.2
+pathy==0.6.0
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.3.2
+preshed==3.0.5
 prometheus-client==0.11.0
 prompt-toolkit==3.0.20
 ptyprocess==0.7.0
 pycparser==2.20
+pydantic==1.8.2
 Pygments==2.10.0
 pyparsing==2.4.7
 pyrsistent==0.18.0
 python-dateutil==2.8.0
+python-dotenv==0.19.1
+python-multipart==0.0.5
 pytz==2021.3
 PyYAML==5.4.1
 pyzmq==22.3.0
@@ -15388,18 +15438,33 @@ rise==5.7.1
 scipy==1.7.1
 Send2Trash==1.8.0
 six==1.16.0
+smart-open==5.2.1
 sniffio==1.2.0
 soupsieve==2.2.1
+spacy==3.1.3
+spacy-legacy==3.0.8
 spectate==1.0.1
+srsly==2.4.1
+starlette==0.16.0
 terminado==0.12.1
 testpath==0.5.0
+thinc==8.0.10
 toml==0.10.2
 tornado==6.1
+tqdm==4.62.3
 traitlets==5.1.0
+typer==0.4.0
+typing-extensions==3.10.0.2
+ujson==4.2.0
 urllib3==1.25.11
+uvicorn==0.15.0
+uvloop==0.16.0
+wasabi==0.8.2
+watchgod==0.7
 wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.2.1
+websockets==10.0
 widgetsnbextension==3.5.1
 </pre>
 </div>
@@ -15514,19 +15579,21 @@ dans les mêmes conditions si besoin.</p>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Collecting virtualenv
   Downloading virtualenv-20.8.1-py2.py3-none-any.whl (5.3 MB)
-     |████████████████████████████████| 5.3 MB 11.7 MB/s 
-Collecting filelock&lt;4,&gt;=3.0.0
-  Downloading filelock-3.3.0-py3-none-any.whl (9.7 kB)
-Collecting platformdirs&lt;3,&gt;=2
-  Downloading platformdirs-2.4.0-py3-none-any.whl (14 kB)
+     |████████████████████████████████| 5.3 MB 5.8 MB/s 
+Requirement already satisfied: six&lt;2,&gt;=1.9.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from virtualenv) (1.16.0)
 Collecting backports.entry-points-selectable&gt;=1.0.4
   Downloading backports.entry_points_selectable-1.1.0-py2.py3-none-any.whl (6.2 kB)
-Requirement already satisfied: six&lt;2,&gt;=1.9.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from virtualenv) (1.16.0)
+Collecting platformdirs&lt;3,&gt;=2
+  Downloading platformdirs-2.4.0-py3-none-any.whl (14 kB)
+Collecting filelock&lt;4,&gt;=3.0.0
+  Downloading filelock-3.3.0-py3-none-any.whl (9.7 kB)
 Collecting distlib&lt;1,&gt;=0.3.1
   Downloading distlib-0.3.3-py2.py3-none-any.whl (496 kB)
-     |████████████████████████████████| 496 kB 63.1 MB/s 
+     |████████████████████████████████| 496 kB 60.4 MB/s 
 Installing collected packages: platformdirs, filelock, distlib, backports.entry-points-selectable, virtualenv
 Successfully installed backports.entry-points-selectable-1.1.0 distlib-0.3.3 filelock-3.3.0 platformdirs-2.4.0 virtualenv-20.8.1
+<span class="ansi-yellow-fg">WARNING: You are using pip version 21.2.4; however, version 21.3 is available.
+You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.7/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
 </pre>
 </div>
 </div>
