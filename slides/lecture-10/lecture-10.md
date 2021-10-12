@@ -53,7 +53,7 @@ Note: ceci est une introduction, elle est un peu sale, ne pas se limiter à ces 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-![image.png](attachment:image.png)
+![image.png](slides/lecture-10/images/psdrevisioning.jpg)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
