@@ -82,7 +82,7 @@ On s'intéresse au corps de page
 soup.body
 ```
 
-Et dans le corps de page au premier parragraphe qui contient du texte
+Et dans le corps de page au premier paragraphe qui contient du texte
 
 ```python
 first_p = [p for p in soup.body.find_all("p") if p.text and not p.text.isspace()][0]
@@ -135,7 +135,7 @@ Plutôt que de refaire la même sauce à la mano, on va écrire une fonction
 
 ```python
 def get_next_url(url):
-    """Récupère la page à `url` et revoie l'addresse du premier lien du premier paragraphe"""
+    """Récupère la page à `url` et renvoie l'addresse du premier lien du premier paragraphe"""
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
     # Plutôt que de créer une liste et de jeter tout sauf son premier élément,

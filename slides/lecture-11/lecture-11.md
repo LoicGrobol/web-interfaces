@@ -70,10 +70,10 @@ compliqué. On va donc utiliser la star du jour : FastAPI.
 
 [FastAPI](https://fastapi.tiangolo.com).
 
-FastAPI est une bibliothèque conçue par [Sebastián Ramírez](https://tiangolo.com), un développeur de
-chez [Explosion.ai](https://explosion.ai/), une charmante entreprise qui développe des outils libre
-de TAL. Vous avez sans doute déjà entendu parler de [spaCy](https://spacy.io/). À l'heure ou j'écris
-ces lignes, il a également une moustache fabuleuse.
+FastAPI est une bibliothèque conçue par [Sebastián Ramírez](https://tiangolo.com), un ancien
+développeur de chez [Explosion.ai](https://explosion.ai/), une charmante entreprise qui développe
+des outils libres de TAL. Vous avez sans doute déjà entendu parler de [spaCy](https://spacy.io/). À
+l'heure ou j'écris ces lignes, il a également une moustache fabuleuse.
 
 Le principe de FastAPI est d'être *rapide* (duh), aussi bien à l'écriture qu'à l'usage. De fait,
 c'est probablement la bibliothèque la plus compacte du genre. Elle se repose assez lourdement sur
