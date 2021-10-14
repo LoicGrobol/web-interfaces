@@ -48,7 +48,7 @@ Note: ceci est une introduction, elle est un peu sale, ne pas se limiter à ces 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ![Une vue de six fichiers dont les icônes indiquent qu'il s'agit de PSD. Les noms des fichiers sont
 « new.psd », « newfinal.psd », « newfinalfinal.psd », « newfinalestfinal.psd », «
-newfinalforsure.psd » et « newfinalf*ckthissh*t.psd »](images/psdrevisioning.jpg)
+newfinalforsure.psd » et « newfinalf\*ckthissh\*t.psd »](images/psdrevisioning.jpg)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
