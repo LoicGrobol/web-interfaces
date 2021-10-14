@@ -14642,38 +14642,10 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Cours-9%E2%80%AF:-consommer-des-API-web">Cours 9&#8239;: consommer des API web<a class="anchor-link" href="#Cours-9%E2%80%AF:-consommer-des-API-web">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
+<h1 id="Cours-10%E2%80%AF:-git">Cours 10&#8239;: git<a class="anchor-link" href="#Cours-10%E2%80%AF:-git">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
 <p>2021-10-06</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pip</span> install -U requests
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14697,8 +14669,9 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Pourquoi-des-versions">Pourquoi des versions<a class="anchor-link" href="#Pourquoi-des-versions">&#182;</a></h2><ul>
 <li>Pour faire des sauvegardes en cas de grosse boulette</li>
-<li>Pour garder trace des états intermédaires (avant relecture, après relecture, version à rendre…)</li>
-<li>Pour pouvoir travailler sur plusieurs chose en parallèle (ajouter une fonction et corrigere un bug) sans conflit</li>
+<li>Pour garder trace des états intermédiaires (avant relecture, après relecture, version à rendre…)</li>
+<li>Pour pouvoir travailler sur plusieurs choses en parallèle (ajouter une fonction et corriger un
+bug) sans conflit</li>
 </ul>
 
 </div>
@@ -14721,7 +14694,8 @@ div.jp-OutputPrompt {
 </div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>On peut faire un peu mieux avec un historique en continu, par exemple <a href="https://mensuel.framapad.org/p/I7bgWlDpVS">etherpad</a> le fait tout seul.</p>
+<p>On peut faire un peu mieux avec un historique en continu, par exemple
+<a href="https://mensuel.framapad.org/p/I7bgWlDpVS">etherpad</a> le fait tout seul.</p>
 <p>Certains systèmes d'exploitation ou éditeurs le font aussi pour vous.</p>
 
 </div>
@@ -14743,7 +14717,7 @@ div.jp-OutputPrompt {
 <li>Il y a en général une limite au nombre de versions sauvegardées</li>
 <li>Vous ne contrôlez pas la granularité des sauvegardes : trop fréquentes, trop éloignées, vous ne
 pouvez pas choisir</li>
-<li>Si deux personnes travaillent en parallèle sur des version différentes, on ne peut pas garder les
+<li>Si deux personnes travaillent en parallèle sur des versions différentes, on ne peut pas garder les
 deux historiques</li>
 </ul>
 
@@ -14847,8 +14821,8 @@ diffs.</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Abort-mission-!">Abort mission !<a class="anchor-link" href="#Abort-mission-!">&#182;</a></h2><p>Ajoutons un peu de code à <code>projet.py</code></p>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;print(&#39;hello, world&#39;)&quot;</span> &gt; projet.py
-python3 projet.py
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;print(&#39;hello, world&#39;)&quot;</span> &gt; project.py
+python3 project.py
 git commit -am <span class="s2">&quot;make it do something&quot;</span>
 </pre></div>
 
@@ -14857,7 +14831,7 @@ git commit -am <span class="s2">&quot;make it do something&quot;</span>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Puis faisons une bêtise</p>
-<div class="highlight"><pre><span></span>rm projet.py
+<div class="highlight"><pre><span></span>rm project.py
 ls
 </pre></div>
 
@@ -14871,7 +14845,7 @@ ls
 </div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span>git checkout <span class="s2">&quot;projet.py&quot;</span>
+<div class="highlight"><pre><span></span>git checkout <span class="s2">&quot;project.py&quot;</span>
 ls
 </pre></div>
 
@@ -14880,7 +14854,7 @@ ls
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Retour-vers-le-pass%C3%A9">Retour vers le pass&#233;<a class="anchor-link" href="#Retour-vers-le-pass%C3%A9">&#182;</a></h2><p>Faisons en vitesse quelques autres changements</p>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;print(&#39;spam&#39;)&quot;</span> &gt; projet.py <span class="o">&amp;&amp;</span> git commit -am <span class="s2">&quot;add spam&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;print(&#39;ham&#39;)&quot;</span> &gt; projet.py <span class="o">&amp;&amp;</span> git commit -am <span class="s2">&quot;change to ham&quot;</span>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;print(&#39;spam&#39;)&quot;</span> &gt; project.py <span class="o">&amp;&amp;</span> git commit -am <span class="s2">&quot;add spam&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;print(&#39;ham&#39;)&quot;</span> &gt; project.py <span class="o">&amp;&amp;</span> git commit -am <span class="s2">&quot;change to ham&quot;</span>
 </pre></div>
 <p>Vérifiez l'historique avec <code>git log</code></p>
 
@@ -14912,10 +14886,10 @@ Date:   Tue Nov 5 21:19:15 2019 +0100
 </pre></div>
 <p>(on peut se contenter de premiers caractères du hash)</p>
 <p>et pour revenir à la dernière version</p>
-<div class="highlight"><pre><span></span>git checkout master
+<div class="highlight"><pre><span></span>git checkout main
 </pre></div>
 <p>On peut aussi combiner les deux versions de <code>checkout</code></p>
-<div class="highlight"><pre><span></span>git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- projet.py
+<div class="highlight"><pre><span></span>git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- project.py
 </pre></div>
 
 </div>

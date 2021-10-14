@@ -17,21 +17,13 @@ jupyter:
 [comment]: <> "LTeX: language=fr"
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 9 : consommer des API web
+Cours 10 : git
 ================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 2021-10-06
 <!-- #endregion -->
-
-```python
-from IPython.display import display
-```
-
-```python
-%pip install -U requests
-```
 
 Note: ceci est une introduction, elle est un peu sale, ne pas se limiter à ces slides
 <!-- #endregion -->
@@ -48,8 +40,9 @@ Note: ceci est une introduction, elle est un peu sale, ne pas se limiter à ces 
 ## Pourquoi des versions
 
 - Pour faire des sauvegardes en cas de grosse boulette
-- Pour garder trace des états intermédaires (avant relecture, après relecture, version à rendre…)
-- Pour pouvoir travailler sur plusieurs chose en parallèle (ajouter une fonction et corrigere un bug) sans conflit
+- Pour garder trace des états intermédiaires (avant relecture, après relecture, version à rendre…)
+- Pour pouvoir travailler sur plusieurs choses en parallèle (ajouter une fonction et corriger un
+  bug) sans conflit
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -67,7 +60,8 @@ Garder plein de versions en parallèle comme ça c'est
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 
-On peut faire un peu mieux avec un historique en continu, par exemple [etherpad](https://mensuel.framapad.org/p/I7bgWlDpVS) le fait tout seul.
+On peut faire un peu mieux avec un historique en continu, par exemple
+[etherpad](https://mensuel.framapad.org/p/I7bgWlDpVS) le fait tout seul.
 
 Certains systèmes d'exploitation ou éditeurs le font aussi pour vous.
 <!-- #endregion -->
@@ -84,7 +78,7 @@ Vous n'avez pas le contrôle sur les sauvegardes et vous dépendez du bon vouloi
 - Il y a en général une limite au nombre de versions sauvegardées
 - Vous ne contrôlez pas la granularité des sauvegardes : trop fréquentes, trop éloignées, vous ne
   pouvez pas choisir
-- Si deux personnes travaillent en parallèle sur des version différentes, on ne peut pas garder les
+- Si deux personnes travaillent en parallèle sur des versions différentes, on ne peut pas garder les
   deux historiques
 <!-- #endregion -->
 
@@ -187,8 +181,8 @@ diffs.
 Ajoutons un peu de code à `projet.py`
 
 ```bash
-echo "print('hello, world')" > projet.py
-python3 projet.py
+echo "print('hello, world')" > project.py
+python3 project.py
 git commit -am "make it do something"
 ```
 <!-- #endregion -->
@@ -197,7 +191,7 @@ git commit -am "make it do something"
 Puis faisons une bêtise
 
 ```bash
-rm projet.py
+rm project.py
 ls
 ```
 <!-- #endregion -->
@@ -208,7 +202,7 @@ Malheur ! On a détruit le projet. Comment on le récupère ?
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 ```bash
-git checkout "projet.py"
+git checkout "project.py"
 ls
 ```
 <!-- #endregion -->
@@ -219,7 +213,7 @@ ls
 Faisons en vitesse quelques autres changements
 
 ```bash
-echo "print('spam')" > projet.py && git commit -am "add spam" && echo "print('ham')" > projet.py && git commit -am "change to ham"
+echo "print('spam')" > project.py && git commit -am "add spam" && echo "print('ham')" > project.py && git commit -am "change to ham"
 ```
 
 Vérifiez l'historique avec `git log`
@@ -255,13 +249,13 @@ git checkout a7b576b62accff1cec652f6a313e37ce784c8254
 et pour revenir à la dernière version
 
 ```bash
-git checkout master
+git checkout main
 ```
 
 On peut aussi combiner les deux versions de `checkout`
 
 ```bash
-git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- projet.py
+git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- project.py
 ```
 <!-- #endregion -->
 
