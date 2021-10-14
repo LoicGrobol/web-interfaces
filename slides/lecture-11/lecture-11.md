@@ -101,7 +101,12 @@ Python*](https://realpython.com/fastapi-python-web-apis).
 ## Une première API
 
 
-**Note**: On peut [techniquement](https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb) faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des scripts, où les récupérer depuis le dossier [`examples`](examples/). Par exemple, voici un script pour faire une API très basique.
+**Note**: On peut
+[techniquement](https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb)
+faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a
+pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
+scripts, où les récupérer depuis le dossier [`examples`](examples/). Par exemple, voici un script
+pour faire une API très basique.
 
 ```python
 # %load examples/hello_api.py
@@ -115,7 +120,11 @@ async def root():
     return {"message": "Hello World"}
 ```
 
-Vous pouvez le lancer avec [Uvicorn](https://www.uvicorn.org/), qui est le serveur [ASGI](https://asgi.readthedocs.io) recommandé pour utiliser FastAPI (même si n'importe quel serveur ASGI, comme [Hypercorn](https://pgjones.gitlab.io/hypercorn) convient). On ne va pas plus rentrer dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit comment marche une API et que Uvicorn l'exécute et la rend disponible.
+Vous pouvez le lancer avec [Uvicorn](https://www.uvicorn.org/), qui est le serveur
+[ASGI](https://asgi.readthedocs.io) recommandé pour utiliser FastAPI (même si n'importe quel serveur
+ASGI, comme [Hypercorn](https://pgjones.gitlab.io/hypercorn) convient). On ne va pas plus rentrer
+dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit comment marche une
+API et que Uvicorn l'exécute et la rend disponible.
 
 <!-- #region -->
 ```bash
@@ -128,13 +137,16 @@ Allez à <http://localhost:8000> et contemplez le résultat de votre première A
 
 ## 😌 Exo 😌
 
-1\. Requêtez votre API avec curl. Bravo ! Vous savez maintenant faire des clients **et** des serveurs. Prenez une minute pour vous auto-congratuler.
+1\. Requêtez votre API avec curl. Bravo ! Vous savez maintenant faire des clients **et** des
+serveurs. Prenez une minute pour vous auto-congratuler.
 
-2\. Faites plutôt renvoyer un truc utile à votre API, comme le nom de votre prof préféré⋅e ou la date du jour.
+2\. Faites plutôt renvoyer un truc utile à votre API, comme le nom de votre prof préféré⋅e ou la
+date du jour.
 
 ## Des questions ?
 
-Relisez le premier exemple. Est-ce qu'il y a des choses que vous voyez pour la première fois ? Est-ce que vous avez des questions ? C'est le moment.
+Relisez le premier exemple. Est-ce qu'il y a des choses que vous voyez pour la première fois ?
+Est-ce que vous avez des questions ? C'est le moment.
 
 ## De la doc ???
 
@@ -144,16 +156,21 @@ Allez à <http://localhost/docs>
 C'est beau, hein ?
 
 
-Parmis les trucs chouette que FastAPI fait pour nous, il y a un truc très chouette, c'est qu'il génère automatiquement de la documentation pour nos API.
+Parmi les trucs chouettes que FastAPI fait pour nous, il y a un truc très chouette, c'est qu'il
+génère automatiquement de la documentation pour nos API.
 
 
-Pour être précis : il génère une doc au format standard [OpenAPI](https://spec.openapis.org/oas/latest.html) (dispo à <http://localhost:8000/openapi.json>) et il lance une interface qui la représente sous le point d'accès `/docs`. Dans cette interface il y a également un outil pour *tester* vos API, ce qui est **très** pratique. *Try it out* !
+Pour être précis : il génère une doc au format standard
+[OpenAPI](https://spec.openapis.org/oas/latest.html) (dispo à <http://localhost:8000/openapi.json>)
+et il lance une interface qui la représente sous le point d'accès `/docs`. Dans cette interface il y
+a également un outil pour *tester* vos API, ce qui est **très** pratique. *Try it out* !
 
 
-(Il y a ausssi une interface alternative à [`/redoc`](http://localhost:8000/redoc))
+(Il y a aussi une interface alternative à [`/redoc`](http://localhost:8000/redoc))
 
 
-Par défaut la doc est minimaliste (FastAPI ne lisant pas encore dans vos pensées) mais il est très facile de l'enrichir.
+Par défaut la doc est minimaliste (FastAPI ne lisant pas encore dans vos pensées) mais il est très
+facile de l'enrichir.
 
 ## Et les autres méthodes ?
 
@@ -193,7 +210,9 @@ import requests
 requests.post("http://localhost:8000").json()
 ```
 
-Vous remarquerez que quand on renvoie un `dict`, FastAPI en fait du JSON tout seul comme un grand. On peut aussi renvoyer d'autres choses (comme du HTML pour faire des pages web 👀) mais ceci est une autre histoire.
+Vous remarquerez que quand on renvoie un `dict`, FastAPI en fait du JSON tout seul comme un grand.
+On peut aussi renvoyer d'autres choses (comme du HTML pour faire des pages web 👀) mais ceci est une
+autre histoire.
 
 ## Est-ce que je peux avoir plusieurs chemins ?
 
@@ -236,7 +255,7 @@ app = FastAPI()
 
 
 SURNAMES = {
-    "launcelot": "the brave",
+    "lancelot": "the brave",
     "bedevere": "the wise",
     "galahad": "the chaste",
     "tim": "the enchanter (not a knight)"
@@ -253,7 +272,7 @@ async def surname(knight_name):
 ```
 
 ```python
-requests.get("http://localhost:8000/knights/launcelot").json()
+requests.get("http://localhost:8000/knights/lancelot").json()
 ```
 
 ```python
@@ -270,7 +289,7 @@ app = FastAPI()
 
 
 SURNAMES = {
-    "launcelot": "the brave",
+    "lancelot": "the brave",
     "bedevere": "the wise",
     "galahad": "the chaste",
     "tim": "the enchanter (not a knight)"
@@ -287,12 +306,14 @@ async def surname(name):
 ```
 
 ```bash
-curl -X GET "localhost:8000/knights/?name=launcelot"
+curl -X GET "localhost:8000/knights/?name=lancelot"
 ```
 
 ## 💫 Exo 💫
 
-Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue austronésienne et renvoie le mot correspondant dans cette langue à partir de [`austronesian_swadesh.csv`](../../data/austronesian_swadesh.csv).
+Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue
+austronésienne et renvoie le mot correspondant dans cette langue à partir de
+[`austronesian_swadesh.csv`](../../data/austronesian_swadesh.csv).
 
 ## Conversion de types
 
@@ -339,7 +360,7 @@ TypeError: list indices must be integers or slices, not str
 Aïe aïe
 
 
-Heureusement c'est bien fait, regardez
+Heureusement, c'est bien fait, regardez
 
 ```python
 # %load examples/param_types.py
@@ -373,9 +394,12 @@ async def surname(number: int):
 !curl -X GET "localhost:8000/knights/?number=1"
 ```
 
-`: int` ici est une *annotation de type* qui signale que `number` devrait être un `int`. En Python, par défaut, elle n'a pas vraiment d'effet et on pourrait très bien passer autre chose à cette fonction (c'est surtout initialement prévu pour être lu par vos camarades développeureuses et votre IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le type demandé.
+`: int` ici est une *annotation de type* qui signale que `number` devrait être un `int`. En Python,
+par défaut, elle n'a pas vraiment d'effet et on pourrait très bien passer autre chose à cette
+fonction (c'est surtout initialement prévu pour être lu par vos camarades développeureuses et votre
+IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le type demandé.
 
-(on aurait aussi évidemment pû faire la conversion à la mais mais c'est bien pratique comme ça).
+(on aurait aussi évidemment pu faire la conversion à la main, mais c'est bien pratique comme ça).
 
 ```python
 !curl -X GET "localhost:8000/knights/?number=spam"
@@ -383,4 +407,5 @@ async def surname(number: int):
 
 ## 🪐 Exo 🪐
 
-Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et une phrase et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
+Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et une phrase
+et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.

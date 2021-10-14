@@ -14763,7 +14763,12 @@ Python</em></a>.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Note</strong>: On peut <a href="https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb">techniquement</a> faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des scripts, où les récupérer depuis le dossier <a href="examples/"><code>examples</code></a>. Par exemple, voici un script pour faire une API très basique.</p>
+<p><strong>Note</strong>: On peut
+<a href="https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb">techniquement</a>
+faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a
+pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
+scripts, où les récupérer depuis le dossier <a href="examples/"><code>examples</code></a>. Par exemple, voici un script
+pour faire une API très basique.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14791,7 +14796,11 @@ Python</em></a>.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Vous pouvez le lancer avec <a href="https://www.uvicorn.org/">Uvicorn</a>, qui est le serveur <a href="https://asgi.readthedocs.io">ASGI</a> recommandé pour utiliser FastAPI (même si n'importe quel serveur ASGI, comme <a href="https://pgjones.gitlab.io/hypercorn">Hypercorn</a> convient). On ne va pas plus rentrer dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit comment marche une API et que Uvicorn l'exécute et la rend disponible.</p>
+<p>Vous pouvez le lancer avec <a href="https://www.uvicorn.org/">Uvicorn</a>, qui est le serveur
+<a href="https://asgi.readthedocs.io">ASGI</a> recommandé pour utiliser FastAPI (même si n'importe quel serveur
+ASGI, comme <a href="https://pgjones.gitlab.io/hypercorn">Hypercorn</a> convient). On ne va pas plus rentrer
+dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit comment marche une
+API et que Uvicorn l'exécute et la rend disponible.</p>
 
 </div>
 </div>
@@ -14811,14 +14820,17 @@ uvicorn hello_api:app
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#128524; Exo &#128524;<a class="anchor-link" href="#%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#182;</a></h2><p>1. Requêtez votre API avec curl. Bravo ! Vous savez maintenant faire des clients <strong>et</strong> des serveurs. Prenez une minute pour vous auto-congratuler.</p>
-<p>2. Faites plutôt renvoyer un truc utile à votre API, comme le nom de votre prof préféré⋅e ou la date du jour.</p>
+<h2 id="%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#128524; Exo &#128524;<a class="anchor-link" href="#%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#182;</a></h2><p>1. Requêtez votre API avec curl. Bravo ! Vous savez maintenant faire des clients <strong>et</strong> des
+serveurs. Prenez une minute pour vous auto-congratuler.</p>
+<p>2. Faites plutôt renvoyer un truc utile à votre API, comme le nom de votre prof préféré⋅e ou la
+date du jour.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Des-questions%E2%80%AF?">Des questions&#8239;?<a class="anchor-link" href="#Des-questions%E2%80%AF?">&#182;</a></h2><p>Relisez le premier exemple. Est-ce qu'il y a des choses que vous voyez pour la première fois ? Est-ce que vous avez des questions ? C'est le moment.</p>
+<h2 id="Des-questions%E2%80%AF?">Des questions&#8239;?<a class="anchor-link" href="#Des-questions%E2%80%AF?">&#182;</a></h2><p>Relisez le premier exemple. Est-ce qu'il y a des choses que vous voyez pour la première fois ?
+Est-ce que vous avez des questions ? C'est le moment.</p>
 
 </div>
 </div>
@@ -14836,25 +14848,30 @@ uvicorn hello_api:app
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Parmis les trucs chouette que FastAPI fait pour nous, il y a un truc très chouette, c'est qu'il génère automatiquement de la documentation pour nos API.</p>
+<p>Parmi les trucs chouettes que FastAPI fait pour nous, il y a un truc très chouette, c'est qu'il
+génère automatiquement de la documentation pour nos API.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Pour être précis : il génère une doc au format standard <a href="https://spec.openapis.org/oas/latest.html">OpenAPI</a> (dispo à <a href="http://localhost:8000/openapi.json">http://localhost:8000/openapi.json</a>) et il lance une interface qui la représente sous le point d'accès <code>/docs</code>. Dans cette interface il y a également un outil pour <em>tester</em> vos API, ce qui est <strong>très</strong> pratique. <em>Try it out</em> !</p>
+<p>Pour être précis : il génère une doc au format standard
+<a href="https://spec.openapis.org/oas/latest.html">OpenAPI</a> (dispo à <a href="http://localhost:8000/openapi.json">http://localhost:8000/openapi.json</a>)
+et il lance une interface qui la représente sous le point d'accès <code>/docs</code>. Dans cette interface il y
+a également un outil pour <em>tester</em> vos API, ce qui est <strong>très</strong> pratique. <em>Try it out</em> !</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>(Il y a ausssi une interface alternative à <a href="http://localhost:8000/redoc"><code>/redoc</code></a>)</p>
+<p>(Il y a aussi une interface alternative à <a href="http://localhost:8000/redoc"><code>/redoc</code></a>)</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Par défaut la doc est minimaliste (FastAPI ne lisant pas encore dans vos pensées) mais il est très facile de l'enrichir.</p>
+<p>Par défaut la doc est minimaliste (FastAPI ne lisant pas encore dans vos pensées) mais il est très
+facile de l'enrichir.</p>
 
 </div>
 </div>
@@ -14921,7 +14938,9 @@ uvicorn hello_post:app
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Vous remarquerez que quand on renvoie un <code>dict</code>, FastAPI en fait du JSON tout seul comme un grand. On peut aussi renvoyer d'autres choses (comme du HTML pour faire des pages web 👀) mais ceci est une autre histoire.</p>
+<p>Vous remarquerez que quand on renvoie un <code>dict</code>, FastAPI en fait du JSON tout seul comme un grand.
+On peut aussi renvoyer d'autres choses (comme du HTML pour faire des pages web 👀) mais ceci est une
+autre histoire.</p>
 
 </div>
 </div>
@@ -15004,7 +15023,7 @@ uvicorn hello_post:app
 
 
 <span class="n">SURNAMES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;launcelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lancelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
     <span class="s2">&quot;bedevere&quot;</span><span class="p">:</span> <span class="s2">&quot;the wise&quot;</span><span class="p">,</span>
     <span class="s2">&quot;galahad&quot;</span><span class="p">:</span> <span class="s2">&quot;the chaste&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tim&quot;</span><span class="p">:</span> <span class="s2">&quot;the enchanter (not a knight)&quot;</span>
@@ -15030,7 +15049,7 @@ uvicorn hello_post:app
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/knights/launcelot&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/knights/lancelot&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15071,7 +15090,7 @@ uvicorn hello_post:app
 
 
 <span class="n">SURNAMES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;launcelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lancelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
     <span class="s2">&quot;bedevere&quot;</span><span class="p">:</span> <span class="s2">&quot;the wise&quot;</span><span class="p">,</span>
     <span class="s2">&quot;galahad&quot;</span><span class="p">:</span> <span class="s2">&quot;the chaste&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tim&quot;</span><span class="p">:</span> <span class="s2">&quot;the enchanter (not a knight)&quot;</span>
@@ -15098,7 +15117,7 @@ uvicorn hello_post:app
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-curl -X GET <span class="s2">&quot;localhost:8000/knights/?name=launcelot&quot;</span>
+curl -X GET <span class="s2">&quot;localhost:8000/knights/?name=lancelot&quot;</span>
 </pre></div>
 
      </div>
@@ -15109,7 +15128,9 @@ curl -X GET <span class="s2">&quot;localhost:8000/knights/?name=launcelot&quot;<
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%F0%9F%92%AB-Exo-%F0%9F%92%AB">&#128171; Exo &#128171;<a class="anchor-link" href="#%F0%9F%92%AB-Exo-%F0%9F%92%AB">&#182;</a></h2><p>Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue austronésienne et renvoie le mot correspondant dans cette langue à partir de <a href="../../data/austronesian_swadesh.csv"><code>austronesian_swadesh.csv</code></a>.</p>
+<h2 id="%F0%9F%92%AB-Exo-%F0%9F%92%AB">&#128171; Exo &#128171;<a class="anchor-link" href="#%F0%9F%92%AB-Exo-%F0%9F%92%AB">&#182;</a></h2><p>Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue
+austronésienne et renvoie le mot correspondant dans cette langue à partir de
+<a href="../../data/austronesian_swadesh.csv"><code>austronesian_swadesh.csv</code></a>.</p>
 
 </div>
 </div>
@@ -15187,7 +15208,7 @@ TypeError: list indices must be integers or slices, not str</code></pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Heureusement c'est bien fait, regardez</p>
+<p>Heureusement, c'est bien fait, regardez</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15244,8 +15265,11 @@ TypeError: list indices must be integers or slices, not str</code></pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>: int</code> ici est une <em>annotation de type</em> qui signale que <code>number</code> devrait être un <code>int</code>. En Python, par défaut, elle n'a pas vraiment d'effet et on pourrait très bien passer autre chose à cette fonction (c'est surtout initialement prévu pour être lu par vos camarades développeureuses et votre IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le type demandé.</p>
-<p>(on aurait aussi évidemment pû faire la conversion à la mais mais c'est bien pratique comme ça).</p>
+<p><code>: int</code> ici est une <em>annotation de type</em> qui signale que <code>number</code> devrait être un <code>int</code>. En Python,
+par défaut, elle n'a pas vraiment d'effet et on pourrait très bien passer autre chose à cette
+fonction (c'est surtout initialement prévu pour être lu par vos camarades développeureuses et votre
+IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le type demandé.</p>
+<p>(on aurait aussi évidemment pu faire la conversion à la main, mais c'est bien pratique comme ça).</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15265,7 +15289,8 @@ TypeError: list indices must be integers or slices, not str</code></pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%F0%9F%AA%90-Exo-%F0%9F%AA%90">&#129680; Exo &#129680;<a class="anchor-link" href="#%F0%9F%AA%90-Exo-%F0%9F%AA%90">&#182;</a></h2><p>Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et une phrase et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.</p>
+<h2 id="%F0%9F%AA%90-Exo-%F0%9F%AA%90">&#129680; Exo &#129680;<a class="anchor-link" href="#%F0%9F%AA%90-Exo-%F0%9F%AA%90">&#182;</a></h2><p>Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et une phrase
+et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.</p>
 
 </div>
 </div></section></section>
