@@ -149,7 +149,7 @@ for i in count():
     # print(i)  # Décommentez pour le voir en action
     if i**2 > 18701871:
         break
-print(f"Le premier nombre dont le carré dépasse 1870171 est {i}")
+print(f"Le premier nombre dont le carré dépasse 18701871 est {i}")
 ```
 
 ## Les générateurs
@@ -320,12 +320,14 @@ s
 ## Encore un peu de fonctionnel : fonctions lambda, `map` et `filter`
 
 
-`map`et `filter` sont typiquement des fonctions qui viennent des langages fonctionnels. Elles renvoien toutes les deux des itérateurs.
+`map`et `filter` sont typiquement des fonctions qui viennent des langages fonctionnels. Elles
+renvoient toutes les deux des itérateurs.
 
-  - `map` permet d'appliquer un traitement sur chaque élément d'un itérable
-  - `filter` filtre les éléments d'un itérable en fonction d'une condition
+- `map` permet d'appliquer un traitement sur chaque élément d'un itérable
+- `filter` filtre les éléments d'un itérable en fonction d'une condition
 
-Oui on peut faire tout ça avec les listes en compréhension. C'est même plus pythonique, vous allez donc continuer à utiliser les listes en compréhension plutôt que `map` et `filter`.
+Oui on peut faire tout ça avec les listes en compréhension. C'est même plus pythonique, vous allez
+donc continuer à utiliser les listes en compréhension plutôt que `map` et `filter`.
 
 ```python
 def carre(x):
@@ -356,14 +358,20 @@ list(filter(is_even, numbers))
 [not(it % 2) for it in numbers]
 ```
 
-C'est un peu fastidieux d'écrire ces petites fonctions pour utiliser `map` et `filter`. Avec les fonctions lambda, Python offre un moyen d'écrire des petites fonctions, de leur passer des paramètres et d'en faire des fonctions anonymes. Oui des fonctions anonymes, elles n'ont pas de nom quoi. Encore un truc qui vient de la programmation fonctionnelle, on en utilise plein en Javascript par exemple.
+C'est un peu fastidieux d'écrire ces petites fonctions pour utiliser `map` et `filter`. Avec les
+fonctions lambda, Python offre un moyen d'écrire des petites fonctions, de leur passer des
+paramètres et d'en faire des fonctions anonymes. Oui des fonctions anonymes, elles n'ont pas de nom
+quoi. Encore un truc qui vient de la programmation fonctionnelle, on en utilise plein en JavaScript
+par exemple.
 
 ```python
 for it in map(lambda x: x**2, numbers):
     print(it)
 ```
 
-Ici on a bien une fonction qui est paramètre d'une autre fonction (`map`). On utilise souvent des fonctions lambda avec `sorted`, typiquement pour trier un dictionnaire par valeur comme vous le savez.
+Ici on a bien une fonction qui est paramètre d'une autre fonction (`map`). On utilise souvent des
+fonctions lambda avec `sorted`, typiquement pour trier un dictionnaire par valeur comme vous le
+savez.
 
 ```python
 letters = {'a': 5, 'b': 2, 'c': 7, 'd':1, 'e':12}
@@ -371,12 +379,15 @@ for it, val in sorted(letters.items(), key=lambda item: item[1]):
     print(it, val)
 ```
 
-# Les décorateurs
+## Les décorateurs
 
 
-Les décorateurs ont été introduit avec la [PEP 318](https://www.python.org/dev/peps/pep-0318/) en 2003 dans la version 2.4 de Python.
+Les décorateurs ont été introduits avec la [PEP 318](https://www.python.org/dev/peps/pep-0318/) en
+2003 dans la version 2.4 de Python.
 
-Une fonction est un objet. Vous savez : en Python tout est objet. On peut passer une fonction en paramètre d'une fonction. Une fonction peut renvoyer une fonction en valeur de retour.
+
+Une fonction est un objet. Vous savez : en Python tout est objet. On peut passer une fonction en
+paramètre d'une fonction. Une fonction peut renvoyer une fonction en valeur de retour.
 
 ```python
 def salut():
@@ -386,7 +397,8 @@ bonjour = salut # passage de la référence de l'objet (remember le cours sur l
 bonjour()
 ```
 
-Avec un décorateur on va emballer une fonction pour ajouter des fonctionnalités. Un décorateur reçoit en paramètre une fonction et l'emballe dans une autre.
+Avec un décorateur on va emballer une fonction pour ajouter des fonctionnalités. Un décorateur
+reçoit en paramètre une fonction et l'emballe dans une autre.
 
 ```python
 def deco(func):
@@ -396,24 +408,26 @@ def deco(func):
     return wrapper
 
 def name():
-    print("jean-michel")
+    print("Frédéric")
 
 obj = deco(name)
 obj()
 ```
 
-La PEP 318 a introduit le symbole '@'. Ça permet d'avoir une syntaxe plus simple, du code plus propre.
+La PEP 318 a introduit le symbole '@'. Ça permet d'avoir une syntaxe plus simple, du code plus
+propre.
 
 ```python
 @deco
 def name():
-    print("jean-michel")
+    print("Frédéric")
     
 obj = name
 obj()
 ```
 
-Ce décorateur ne sert à rien, on est d'accord. Voici un exemple plus parlant avec un décorateur pour mesurer le temps d'exécution d'une fonction :
+Ce décorateur ne sert à rien, on est d'accord. Voici un exemple plus parlant avec un décorateur pour
+mesurer le temps d'exécution d'une fonction :
 
 ```python
 import time
@@ -442,3 +456,8 @@ doubled_and_add(100000)
 ```python
 doubled_and_add(1000000)
 ```
+
+Pour la plupart des gens, *écrire* des décorateurs est assez rare. En revanche, il devient de plus
+en plus courant d'avoir à en écrire pour utiliser certaines bibliothèques (comme FastAPI), n'hésitez
+donc pas à explorer davantage comment ils fonctionnent et ce qu'on peut faire avec (**beaucoup** de
+choses).
