@@ -1,5 +1,5 @@
 beautifulsoup4
-fastapi[all]
+fastapi
 ipycytoscape
 ipympl
 jupyterlab
@@ -12,3 +12,4 @@ regex
 RISE
 scipy
 spacy
+uvicorn
