@@ -94,6 +94,12 @@ est indisponible.
 - [Slides 11](slides/lecture-11/lecture-11.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
 
+### 2021-10-20 — Itérateurs, décorateurs, FastAPI et Jinja
+
+- [Slides 11](slides/lecture-11/lecture-11.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
+- [Slides 12](slides/lecture-12/lecture-12.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-12/lecture-12.md)
 
 ## Utilisation en local
 

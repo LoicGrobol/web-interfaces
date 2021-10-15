@@ -14766,9 +14766,11 @@ Python</em></a>.</p>
 <p><strong>Note</strong>: On peut
 <a href="https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb">techniquement</a>
 faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a
-pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
-scripts, où les récupérer depuis le dossier <a href="examples/"><code>examples</code></a>. Par exemple, voici un script
-pour faire une API très basique.</p>
+pas grand sens.</p>
+<p><strong>Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
+scripts, où les récupérer depuis le dossier <a href="examples/"><code>examples</code></a></strong>.</p>
+<p>Je répète <strong>ça ne sert à rien d'exécuter les cellules qui commencent par <code># %load</code> dans la suite de ce notebook</strong>.</p>
+<p>Par exemple, voici un script pour faire une API très basique.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14962,12 +14964,12 @@ autre histoire.</p>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/en&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">root_en</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">}</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/fr&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">root_fr</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Wesh les individus&quot;</span><span class="p">}</span>
 </pre></div>
 
@@ -15026,6 +15028,7 @@ autre histoire.</p>
     <span class="s2">&quot;lancelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
     <span class="s2">&quot;bedevere&quot;</span><span class="p">:</span> <span class="s2">&quot;the wise&quot;</span><span class="p">,</span>
     <span class="s2">&quot;galahad&quot;</span><span class="p">:</span> <span class="s2">&quot;the chaste&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;robin&quot;</span><span class="p">:</span> <span class="s2">&quot;the not-quite-so-brave-as-sir-lancelot&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tim&quot;</span><span class="p">:</span> <span class="s2">&quot;the enchanter (not a knight)&quot;</span>
 <span class="p">}</span>
 
@@ -15093,6 +15096,7 @@ autre histoire.</p>
     <span class="s2">&quot;lancelot&quot;</span><span class="p">:</span> <span class="s2">&quot;the brave&quot;</span><span class="p">,</span>
     <span class="s2">&quot;bedevere&quot;</span><span class="p">:</span> <span class="s2">&quot;the wise&quot;</span><span class="p">,</span>
     <span class="s2">&quot;galahad&quot;</span><span class="p">:</span> <span class="s2">&quot;the chaste&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;robin&quot;</span><span class="p">:</span> <span class="s2">&quot;the not-quite-so-brave-as-sir-lancelot&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tim&quot;</span><span class="p">:</span> <span class="s2">&quot;the enchanter (not a knight)&quot;</span>
 <span class="p">}</span>
 

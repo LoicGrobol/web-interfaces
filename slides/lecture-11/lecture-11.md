@@ -104,9 +104,14 @@ Python*](https://realpython.com/fastapi-python-web-apis).
 **Note**: On peut
 [techniquement](https://github.com/David-Lor/FastAPI_LightningTalk-Notebook/blob/master/FastAPI.ipynb)
 faire tourner FastAPI dans un notebook, mais ce n'est ni très pratique ni très intéressant et ça n'a
-pas grand sens. Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
-scripts, où les récupérer depuis le dossier [`examples`](examples/). Par exemple, voici un script
-pour faire une API très basique.
+pas grand sens.
+
+**Pour exécuter les exemples suivants, il vous faudra les copier-coller dans des
+scripts, où les récupérer depuis le dossier [`examples`](examples/)**.
+
+Je répète **ça ne sert à rien d'exécuter les cellules qui commencent par `# %load` dans la suite de ce notebook**.
+
+Par exemple, voici un script pour faire une API très basique.
 
 ```python
 # %load examples/hello_api.py
@@ -226,12 +231,12 @@ app = FastAPI()
 
 
 @app.get("/en")
-async def root():
+async def root_en():
     return {"message": "Hello World"}
 
 
 @app.get("/fr")
-async def root():
+async def root_fr():
     return {"message": "Wesh les individus"}
 ```
 
@@ -258,6 +263,7 @@ SURNAMES = {
     "lancelot": "the brave",
     "bedevere": "the wise",
     "galahad": "the chaste",
+    "robin": "the not-quite-so-brave-as-sir-lancelot",
     "tim": "the enchanter (not a knight)"
 }
 
@@ -292,6 +298,7 @@ SURNAMES = {
     "lancelot": "the brave",
     "bedevere": "the wise",
     "galahad": "the chaste",
+    "robin": "the not-quite-so-brave-as-sir-lancelot",
     "tim": "the enchanter (not a knight)"
 }
 
