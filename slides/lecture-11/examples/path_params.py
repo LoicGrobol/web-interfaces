@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 app = FastAPI()
 
 
-knights = {
+SURNAMES = {
     "lancelot": "the brave",
     "bedevere": "the wise",
     "galahad": "the chaste",
