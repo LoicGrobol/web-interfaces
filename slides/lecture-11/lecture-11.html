@@ -14521,7 +14521,7 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Cours-11%E2%80%AF:-Faire-des-API-web-avec-FastAPI">Cours 11&#8239;: Faire des API web avec FastAPI<a class="anchor-link" href="#Cours-11%E2%80%AF:-Faire-des-API-web-avec-FastAPI">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
-<p>2021-10-06</p>
+<p>2021-10-13</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14646,53 +14646,53 @@ Python</em></a>.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Requirement already satisfied: fastapi[all] in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (0.70.0)
-Requirement already satisfied: pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,&lt;2.0.0,&gt;=1.6.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (1.8.2)
 Requirement already satisfied: starlette==0.16.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.16.0)
+Requirement already satisfied: pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,&lt;2.0.0,&gt;=1.6.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (1.8.2)
 Collecting python-multipart&lt;0.0.6,&gt;=0.0.5
   Downloading python-multipart-0.0.5.tar.gz (32 kB)
-Collecting orjson&lt;4.0.0,&gt;=3.2.1
-  Downloading orjson-3.6.4-cp39-cp39-manylinux_2_24_x86_64.whl (250 kB)
-     |████████████████████████████████| 250 kB 17.5 MB/s 
-Collecting pyyaml&lt;6.0.0,&gt;=5.3.1
-  Using cached PyYAML-5.4.1-cp39-cp39-manylinux1_x86_64.whl (630 kB)
 Requirement already satisfied: jinja2&lt;4.0.0,&gt;=2.11.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (3.0.2)
+Collecting itsdangerous&lt;3.0.0,&gt;=1.1.0
+  Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.24.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (2.26.0)
 Requirement already satisfied: uvicorn[standard]&lt;0.16.0,&gt;=0.12.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.15.0)
 Collecting email_validator&lt;2.0.0,&gt;=1.1.1
   Downloading email_validator-1.1.3-py2.py3-none-any.whl (18 kB)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.24.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (2.26.0)
+Collecting orjson&lt;4.0.0,&gt;=3.2.1
+  Downloading orjson-3.6.4-cp39-cp39-manylinux_2_24_x86_64.whl (250 kB)
+     |████████████████████████████████| 250 kB 74.4 MB/s 
+Collecting pyyaml&lt;6.0.0,&gt;=5.3.1
+  Using cached PyYAML-5.4.1-cp39-cp39-manylinux1_x86_64.whl (630 kB)
 Collecting ujson&lt;5.0.0,&gt;=4.0.1
   Downloading ujson-4.2.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (218 kB)
-     |████████████████████████████████| 218 kB 99.4 MB/s 
-Collecting itsdangerous&lt;3.0.0,&gt;=1.1.0
-  Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
-Requirement already satisfied: anyio&lt;4,&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from starlette==0.16.0-&gt;fastapi[all]) (3.3.3)
-Requirement already satisfied: sniffio&gt;=1.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from anyio&lt;4,&gt;=3.0.0-&gt;starlette==0.16.0-&gt;fastapi[all]) (1.2.0)
+     |████████████████████████████████| 218 kB 77.8 MB/s 
+Requirement already satisfied: anyio&lt;4,&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from starlette==0.16.0-&gt;fastapi[all]) (3.3.4)
 Requirement already satisfied: idna&gt;=2.8 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from anyio&lt;4,&gt;=3.0.0-&gt;starlette==0.16.0-&gt;fastapi[all]) (3.3)
+Requirement already satisfied: sniffio&gt;=1.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from anyio&lt;4,&gt;=3.0.0-&gt;starlette==0.16.0-&gt;fastapi[all]) (1.2.0)
 Collecting dnspython&gt;=1.15.0
   Downloading dnspython-2.1.0-py3-none-any.whl (241 kB)
-     |████████████████████████████████| 241 kB 106.6 MB/s 
+     |████████████████████████████████| 241 kB 84.9 MB/s 
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from jinja2&lt;4.0.0,&gt;=2.11.2-&gt;fastapi[all]) (2.0.1)
 Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,&lt;2.0.0,&gt;=1.6.2-&gt;fastapi[all]) (3.10.0.2)
 Requirement already satisfied: six&gt;=1.4.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from python-multipart&lt;0.0.6,&gt;=0.0.5-&gt;fastapi[all]) (1.16.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (1.25.11)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (2021.10.8)
 Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (2.0.7)
-Requirement already satisfied: asgiref&gt;=3.4.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (3.4.1)
 Requirement already satisfied: h11&gt;=0.8 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (0.12.0)
+Requirement already satisfied: asgiref&gt;=3.4.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (3.4.1)
 Requirement already satisfied: click&gt;=7.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (8.0.3)
 Collecting watchgod&gt;=0.6
   Downloading watchgod-0.7-py3-none-any.whl (11 kB)
-Collecting python-dotenv&gt;=0.13
-  Downloading python_dotenv-0.19.1-py2.py3-none-any.whl (17 kB)
-Collecting httptools==0.2.*
-  Downloading httptools-0.2.0-cp39-cp39-manylinux1_x86_64.whl (343 kB)
-     |████████████████████████████████| 343 kB 91.8 MB/s 
 Collecting websockets&gt;=9.1
   Downloading websockets-10.0-cp39-cp39-manylinux2010_x86_64.whl (107 kB)
-     |████████████████████████████████| 107 kB 100.2 MB/s 
+     |████████████████████████████████| 107 kB 71.6 MB/s 
+Collecting httptools==0.2.*
+  Downloading httptools-0.2.0-cp39-cp39-manylinux1_x86_64.whl (343 kB)
+     |████████████████████████████████| 343 kB 83.3 MB/s 
+Collecting python-dotenv&gt;=0.13
+  Downloading python_dotenv-0.19.1-py2.py3-none-any.whl (17 kB)
 Collecting uvloop!=0.15.0,!=0.15.1,&gt;=0.14.0
   Downloading uvloop-0.16.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (4.3 MB)
-     |████████████████████████████████| 4.3 MB 70.4 MB/s 
+     |████████████████████████████████| 4.3 MB 64.8 MB/s 
 Using legacy &#39;setup.py install&#39; for python-multipart, since package &#39;wheel&#39; is not installed.
 Installing collected packages: websockets, watchgod, uvloop, pyyaml, python-dotenv, httptools, dnspython, ujson, python-multipart, orjson, itsdangerous, email-validator
   Attempting uninstall: pyyaml
@@ -14879,7 +14879,7 @@ uvicorn hello_post:app
 </pre></div>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
@@ -14974,7 +14974,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7fe7a04ab910&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -14994,12 +14994,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a04ab910&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/2338224772.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/2338224772.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> requests
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
@@ -15038,7 +15038,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a04ab910&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15087,7 +15087,7 @@ autre histoire.</p>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
@@ -15181,7 +15181,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7fe7a015c3d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15201,12 +15201,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a015c3d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/41479891.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/41479891.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/en&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15244,7 +15244,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a015c3d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15252,7 +15252,7 @@ During handling of the above exception, another exception occurred:
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
@@ -15346,7 +15346,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7fe7a012cbe0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15366,12 +15366,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a012cbe0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/3004248111.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/3004248111.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/fr&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15409,7 +15409,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a012cbe0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15457,7 +15457,13 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Remarquez aussi l'utilisation de <code>HTTPException</code> qui permet de renvoyer des codes d'erreur HTTP de façon pythonique</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
@@ -15551,7 +15557,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7fe7a015cc10&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15571,12 +15577,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a015cc10&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/1524071990.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/1524071990.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/knights/lancelot&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15614,7 +15620,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a015cc10&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15622,7 +15628,7 @@ During handling of the above exception, another exception occurred:
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
@@ -15716,7 +15722,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7fe7a04abfd0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15736,12 +15742,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a04abfd0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/1696157434.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/1696157434.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/knights/mordred&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15779,7 +15785,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7fe7a04abfd0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15827,7 +15833,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
@@ -15872,7 +15878,7 @@ curl: (7) Failed to connect to localhost port 8000: Connection refused
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">CalledProcessError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2112/3871744629.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2320/3871744629.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;bash&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;curl -X GET &#34;localhost:8000/knights/?name=lancelot&#34;\n&#39;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
@@ -15969,7 +15975,7 @@ austronésienne et renvoie le mot correspondant dans cette langue à partir de
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
@@ -16062,7 +16068,7 @@ TypeError: list indices must be integers or slices, not str</code></pre>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
@@ -16107,7 +16113,7 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 <p>(on aurait aussi évidemment pu faire la conversion à la main, mais c'est bien pratique comme ça).</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
@@ -16142,6 +16148,617 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="R%C3%A9cup%C3%A9rer-le-corps-de-la-requ%C3%AAte">R&#233;cup&#233;rer le corps de la requ&#234;te<a class="anchor-link" href="#R%C3%A9cup%C3%A9rer-le-corps-de-la-requ%C3%AAte">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des données envoyées dans le corps de la requête ?</p>
+<p>Rappellez vous</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;We are the knights who say “Ni”!&quot;</span><span class="p">})</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;args&#39;: {},
+ &#39;data&#39;: &#39;{&#34;message&#34;: &#34;We are the knights who say \\u201cNi\\u201d!&#34;}&#39;,
+ &#39;files&#39;: {},
+ &#39;form&#39;: {},
+ &#39;headers&#39;: {&#39;Accept&#39;: &#39;*/*&#39;,
+  &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;,
+  &#39;Content-Length&#39;: &#39;57&#39;,
+  &#39;Content-Type&#39;: &#39;application/json&#39;,
+  &#39;Host&#39;: &#39;httpbin.org&#39;,
+  &#39;User-Agent&#39;: &#39;python-requests/2.26.0&#39;,
+  &#39;X-Amzn-Trace-Id&#39;: &#39;Root=1-616f2cfe-6421f7f84b001d865ddb8ded&#39;},
+ &#39;json&#39;: {&#39;message&#39;: &#39;We are the knights who say “Ni”!&#39;},
+ &#39;origin&#39;: &#39;40.117.234.205&#39;,
+ &#39;url&#39;: &#39;https://httpbin.org/post&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour récupére les corps d'une requête dans FastAPI, il faut passer par un modèle <a href="https://pydantic-docs.helpmanual.io/"><code>pydantic</code></a>.</p>
+<p><small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça simplifie les choses, promis</small></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load examples/body_api.py</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="c1"># On déclare le format que doivent suivre le corps des requêtes sur notre endpoint</span>
+<span class="k">class</span> <span class="nc">EchoData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/echo&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">surname</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">EchoData</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Vous avez envoyé le message </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">message</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">}</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/echo&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;We are the knights who say “Ni”!&quot;</span><span class="p">})</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ConnectionRefusedError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">_new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 159</span><span class="ansi-red-fg">             conn = connection.create_connection(
+</span><span class="ansi-green-intense-fg ansi-bold">    160</span>                 <span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_dns_host<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>port<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>timeout<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>extra_kw
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/connection.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">if</span> err <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 84</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> err
+<span class="ansi-green-intense-fg ansi-bold">     85</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/connection.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span>                 sock<span class="ansi-blue-fg">.</span>bind<span class="ansi-blue-fg">(</span>source_address<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 74</span><span class="ansi-red-fg">             </span>sock<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span>sa<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span>             <span class="ansi-green-fg">return</span> sock
+
+<span class="ansi-red-fg">ConnectionRefusedError</span>: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">NewConnectionError</span>                        Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    669</span>             <span class="ansi-red-fg"># Make the request on the httplib connection object.</span>
+<span class="ansi-green-fg">--&gt; 670</span><span class="ansi-red-fg">             httplib_response = self._make_request(
+</span><span class="ansi-green-intense-fg ansi-bold">    671</span>                 conn<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">_make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    391</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 392</span><span class="ansi-red-fg">             </span>conn<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>httplib_request_kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    393</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1278</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Send a complete request to the server.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">-&gt; 1279</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> body<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1280</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_send_request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1324</span>             body <span class="ansi-blue-fg">=</span> _encode<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;body&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1325</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>endheaders<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1326</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">endheaders</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1273</span>             <span class="ansi-green-fg">raise</span> CannotSendHeader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1274</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_output<span class="ansi-blue-fg">(</span>message_body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1275</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_send_output</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1033</span>         <span class="ansi-green-fg">del</span> self<span class="ansi-blue-fg">.</span>_buffer<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 1034</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1035</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    973</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>auto_open<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 974</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    975</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> connect<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>conn <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_new_conn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span>         self<span class="ansi-blue-fg">.</span>_prepare_conn<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">_new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         <span class="ansi-green-fg">except</span> SocketError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
+</span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
+
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">MaxRetryError</span>                             Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    439</span>             <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> chunked<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 440</span><span class="ansi-red-fg">                 resp = conn.urlopen(
+</span><span class="ansi-green-intense-fg ansi-bold">    441</span>                     method<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">.</span>method<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    725</span> 
+<span class="ansi-green-fg">--&gt; 726</span><span class="ansi-red-fg">             retries = retries.increment(
+</span><span class="ansi-green-intense-fg ansi-bold">    727</span>                 method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error<span class="ansi-blue-fg">=</span>e<span class="ansi-blue-fg">,</span> _pool<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">,</span> _stacktrace<span class="ansi-blue-fg">=</span>sys<span class="ansi-blue-fg">.</span>exc_info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/retry.py</span> in <span class="ansi-cyan-fg">increment</span><span class="ansi-blue-fg">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    445</span>         <span class="ansi-green-fg">if</span> new_retry<span class="ansi-blue-fg">.</span>is_exhausted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    447</span> 
+
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_2320/1635390501.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/echo&#34;</span><span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#34;message&#34;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;We are the knights who say “Ni”!&#34;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> response<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">post</span><span class="ansi-blue-fg">(url, data, json, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    116</span> 
+<span class="ansi-green-fg">--&gt; 117</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> request<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;post&#39;</span><span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">=</span>data<span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span>json<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    118</span> 
+<span class="ansi-green-intense-fg ansi-bold">    119</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span>     <span class="ansi-red-fg"># cases, and look like a memory leak in others.</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span>     <span class="ansi-green-fg">with</span> sessions<span class="ansi-blue-fg">.</span>Session<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> session<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 61</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> session<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">=</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span> 
+<span class="ansi-green-intense-fg ansi-bold">     63</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="ansi-green-intense-fg ansi-bold">    540</span>         }
+<span class="ansi-green-intense-fg ansi-bold">    541</span>         send_kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>settings<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 542</span><span class="ansi-red-fg">         </span>resp <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>prep<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>send_kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    543</span> 
+<span class="ansi-green-intense-fg ansi-bold">    544</span>         <span class="ansi-green-fg">return</span> resp
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    653</span> 
+<span class="ansi-green-intense-fg ansi-bold">    654</span>         <span class="ansi-red-fg"># Send the request</span>
+<span class="ansi-green-fg">--&gt; 655</span><span class="ansi-red-fg">         </span>r <span class="ansi-blue-fg">=</span> adapter<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>request<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    656</span> 
+<span class="ansi-green-intense-fg ansi-bold">    657</span>         <span class="ansi-red-fg"># Total elapsed time of the request (approximately)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    515</span>                 <span class="ansi-green-fg">raise</span> SSLError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    516</span> 
+<span class="ansi-green-fg">--&gt; 517</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> ConnectionError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    518</span> 
+<span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pas si compliqué n'est-ce pas ?</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et si on ne suit pas le format ?</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/echo&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;speech&quot;</span><span class="p">:</span> <span class="s2">&quot;We are the knights who say “Ni”!&quot;</span><span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ConnectionRefusedError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">_new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 159</span><span class="ansi-red-fg">             conn = connection.create_connection(
+</span><span class="ansi-green-intense-fg ansi-bold">    160</span>                 <span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_dns_host<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>port<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>timeout<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>extra_kw
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/connection.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">if</span> err <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 84</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> err
+<span class="ansi-green-intense-fg ansi-bold">     85</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/connection.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span>                 sock<span class="ansi-blue-fg">.</span>bind<span class="ansi-blue-fg">(</span>source_address<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 74</span><span class="ansi-red-fg">             </span>sock<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span>sa<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span>             <span class="ansi-green-fg">return</span> sock
+
+<span class="ansi-red-fg">ConnectionRefusedError</span>: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">NewConnectionError</span>                        Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    669</span>             <span class="ansi-red-fg"># Make the request on the httplib connection object.</span>
+<span class="ansi-green-fg">--&gt; 670</span><span class="ansi-red-fg">             httplib_response = self._make_request(
+</span><span class="ansi-green-intense-fg ansi-bold">    671</span>                 conn<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">_make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    391</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 392</span><span class="ansi-red-fg">             </span>conn<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>httplib_request_kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    393</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1278</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Send a complete request to the server.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">-&gt; 1279</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> body<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1280</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_send_request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1324</span>             body <span class="ansi-blue-fg">=</span> _encode<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;body&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1325</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>endheaders<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1326</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">endheaders</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1273</span>             <span class="ansi-green-fg">raise</span> CannotSendHeader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1274</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_output<span class="ansi-blue-fg">(</span>message_body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1275</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_send_output</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1033</span>         <span class="ansi-green-fg">del</span> self<span class="ansi-blue-fg">.</span>_buffer<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 1034</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1035</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    973</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>auto_open<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 974</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    975</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> connect<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>conn <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_new_conn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span>         self<span class="ansi-blue-fg">.</span>_prepare_conn<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">_new_conn</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         <span class="ansi-green-fg">except</span> SocketError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
+</span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
+
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">MaxRetryError</span>                             Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    439</span>             <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> chunked<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 440</span><span class="ansi-red-fg">                 resp = conn.urlopen(
+</span><span class="ansi-green-intense-fg ansi-bold">    441</span>                     method<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">.</span>method<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    725</span> 
+<span class="ansi-green-fg">--&gt; 726</span><span class="ansi-red-fg">             retries = retries.increment(
+</span><span class="ansi-green-intense-fg ansi-bold">    727</span>                 method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error<span class="ansi-blue-fg">=</span>e<span class="ansi-blue-fg">,</span> _pool<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">,</span> _stacktrace<span class="ansi-blue-fg">=</span>sys<span class="ansi-blue-fg">.</span>exc_info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/urllib3/util/retry.py</span> in <span class="ansi-cyan-fg">increment</span><span class="ansi-blue-fg">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    445</span>         <span class="ansi-green-fg">if</span> new_retry<span class="ansi-blue-fg">.</span>is_exhausted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    447</span> 
+
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_2320/834331188.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/echo&#34;</span><span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#34;speech&#34;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;We are the knights who say “Ni”!&#34;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> display<span class="ansi-blue-fg">(</span>response<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> display<span class="ansi-blue-fg">(</span>response<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">post</span><span class="ansi-blue-fg">(url, data, json, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    116</span> 
+<span class="ansi-green-fg">--&gt; 117</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> request<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;post&#39;</span><span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">=</span>data<span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span>json<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    118</span> 
+<span class="ansi-green-intense-fg ansi-bold">    119</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span>     <span class="ansi-red-fg"># cases, and look like a memory leak in others.</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span>     <span class="ansi-green-fg">with</span> sessions<span class="ansi-blue-fg">.</span>Session<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> session<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 61</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> session<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">=</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span> 
+<span class="ansi-green-intense-fg ansi-bold">     63</span> 
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="ansi-green-intense-fg ansi-bold">    540</span>         }
+<span class="ansi-green-intense-fg ansi-bold">    541</span>         send_kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>settings<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 542</span><span class="ansi-red-fg">         </span>resp <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>prep<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>send_kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    543</span> 
+<span class="ansi-green-intense-fg ansi-bold">    544</span>         <span class="ansi-green-fg">return</span> resp
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    653</span> 
+<span class="ansi-green-intense-fg ansi-bold">    654</span>         <span class="ansi-red-fg"># Send the request</span>
+<span class="ansi-green-fg">--&gt; 655</span><span class="ansi-red-fg">         </span>r <span class="ansi-blue-fg">=</span> adapter<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>request<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    656</span> 
+<span class="ansi-green-intense-fg ansi-bold">    657</span>         <span class="ansi-red-fg"># Total elapsed time of the request (approximately)</span>
+
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    515</span>                 <span class="ansi-green-fg">raise</span> SSLError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    516</span> 
+<span class="ansi-green-fg">--&gt; 517</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> ConnectionError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    518</span> 
+<span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ça nous répond bien qu'il y a une erreur.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Pydantic-et-les-dataclasses">Pydantic et les dataclasses<a class="anchor-link" href="#Pydantic-et-les-dataclasses">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Les classes comme <code>EchoData</code> sont ce qu'on appelle des <em>dataclasses</em>, ce sont des nouvelles
+arrivantes en Python (3.7+), où elle servent à modéliser des objets qui sont principalement des
+conteneurs de données structurées et pour lesquelles le constructeur (<code>__init__</code>) peut être
+construit automatiquement. Le module natif
+<a href="https://docs.python.org/3/library/dataclasses.html"><code>dataclass</code></a> en propose une implémentation
+basique</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">DataClassCard</span><span class="p">:</span>
+    <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">suit</span><span class="p">:</span> <span class="nb">str</span>
+        
+<span class="n">c</span> <span class="o">=</span> <span class="n">DataClassCard</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="s2">&quot;roi&quot;</span><span class="p">,</span> <span class="n">suit</span><span class="o">=</span><span class="s2">&quot;💗&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">suit</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>DataClassCard(rank=&#39;roi&#39;, suit=&#39;💗&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>&#39;💗&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>C'est plus agréable à écrire et utiliser que</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">RegularCard</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">suit</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suit</span> <span class="o">=</span> <span class="n">suit</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">RegularCard</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="s2">&quot;roi&quot;</span><span class="p">,</span> <span class="n">suit</span><span class="o">=</span><span class="s2">&quot;💗&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">suit</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>&lt;__main__.RegularCard at 0x7effb02e9f10&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>&#39;💗&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On ne rentrera pas dans beaucoup plus de détails sur les dataclasses, mais il y a <a href="https://realpython.com/python-data-classes">des bons
+tutos</a>, n'hésitez pas à aller les voir, ça rendra votre
+code Python plus doux.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ce que propose Pydantic c'est une implémentation alternative des dataclasses, qui offre plus de
+possibilités, en se reposant par sur des annotations de type plus riche. FastAPI est capable d'en
+tirer parti pour rendre l'écriture d'API plus agréable et pour gérer automatiquement la validation
+des données. Là encore on ira pas beaucoup plus loin, mais lisez la doc, suivez le tuto, vous
+connaissez la chanson.</p>
+
+</div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
