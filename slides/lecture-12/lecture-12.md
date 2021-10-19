@@ -22,7 +22,7 @@ Cours 12 : Itérateurs, générateurs et décorateurs
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-06
+2021-10-20
 <!-- #endregion -->
 
 ```python

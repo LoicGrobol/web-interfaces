@@ -22,7 +22,7 @@ Cours 11 : Faire des API web avec FastAPI
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-06
+2021-10-13
 <!-- #endregion -->
 
 ```python
@@ -210,7 +210,7 @@ uvicorn hello_post:app
 ```
 <!-- #endregion -->
 
-```python
+```python tags=["raises-exception"]
 import requests
 requests.post("http://localhost:8000").json()
 ```
@@ -240,11 +240,11 @@ async def root_fr():
     return {"message": "Wesh les individus"}
 ```
 
-```python
+```python tags=["raises-exception"]
 requests.get("http://localhost:8000/en").json()
 ```
 
-```python
+```python tags=["raises-exception"]
 requests.get("http://localhost:8000/fr").json()
 ```
 
@@ -277,11 +277,13 @@ async def surname(knight_name):
 
 ```
 
-```python
+Remarquez aussi l'utilisation de `HTTPException` qui permet de renvoyer des codes d'erreur HTTP de façon pythonique
+
+```python tags=["raises-exception"]
 requests.get("http://localhost:8000/knights/lancelot").json()
 ```
 
-```python
+```python tags=["raises-exception"]
 requests.get("http://localhost:8000/knights/mordred").json()
 ```
 
@@ -312,7 +314,7 @@ async def surname(name):
 
 ```
 
-```bash
+```bash tags=["raises-exception"]
 curl -X GET "localhost:8000/knights/?name=lancelot"
 ```
 
@@ -354,7 +356,7 @@ async def surname(number):
 
 ```
 
-```python
+```python tags=["raises-exception"]
 !curl -X GET "localhost:8000/knights/?number=1"
 ```
 
@@ -397,7 +399,7 @@ async def surname(number: int):
 
 ```
 
-```python
+```python tags=["raises-exception"]
 !curl -X GET "localhost:8000/knights/?number=1"
 ```
 
@@ -408,9 +410,109 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 
 (on aurait aussi évidemment pu faire la conversion à la main, mais c'est bien pratique comme ça).
 
-```python
+```python tags=["raises-exception"]
 !curl -X GET "localhost:8000/knights/?number=spam"
 ```
+
+## Récupérer le corps de la requête
+
+
+OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des données envoyées dans le corps de la requête ?
+
+Rappellez vous
+
+```python
+response = requests.post("https://httpbin.org/post", json={"message": "We are the knights who say “Ni”!"})
+response.json()
+```
+
+Pour récupére les corps d'une requête dans FastAPI, il faut passer par un modèle [`pydantic`](https://pydantic-docs.helpmanual.io/).
+
+<small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça simplifie les choses, promis</small>
+
+```python
+# %load examples/body_api.py
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+
+app = FastAPI()
+
+
+# On déclare le format que doivent suivre le corps des requêtes sur notre endpoint
+class EchoData(BaseModel):
+    message: str
+
+
+@app.post("/echo")
+async def surname(data: EchoData):
+    return {"answer": f"Vous avez envoyé le message {data.message!r}"}
+```
+
+```python
+response = requests.post("http://localhost:8000/echo", json={"message": "We are the knights who say “Ni”!"})
+response.json()
+```
+
+Pas si compliqué n'est-ce pas ?
+
+
+Et si on ne suit pas le format ?
+
+```python
+response = requests.post("http://localhost:8000/echo", json={"speech": "We are the knights who say “Ni”!"})
+display(response)
+display(response.json())
+```
+
+Ça nous répond bien qu'il y a une erreur. 
+
+## Pydantic et les dataclasses
+
+
+Les classes comme `EchoData` sont ce qu'on appelle des *dataclasses*, ce sont des nouvelles
+arrivantes en Python (3.7+), où elle servent à modéliser des objets qui sont principalement des
+conteneurs de données structurées et pour lesquelles le constructeur (`__init__`) peut être
+construit automatiquement. Le module natif
+[`dataclass`](https://docs.python.org/3/library/dataclasses.html) en propose une implémentation
+basique
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class DataClassCard:
+    rank: str
+    suit: str
+        
+c = DataClassCard(rank="roi", suit="💗")
+display(c)
+display(c.suit)
+```
+
+C'est plus agréable à écrire et utiliser que
+
+```python
+class RegularCard:
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+
+c = RegularCard(rank="roi", suit="💗")
+display(c)
+display(c.suit)
+```
+
+On ne rentrera pas dans beaucoup plus de détails sur les dataclasses, mais il y a [des bons
+tutos](https://realpython.com/python-data-classes), n'hésitez pas à aller les voir, ça rendra votre
+code Python plus doux. 
+
+
+Ce que propose Pydantic c'est une implémentation alternative des dataclasses, qui offre plus de
+possibilités, en se reposant par sur des annotations de type plus riche. FastAPI est capable d'en
+tirer parti pour rendre l'écriture d'API plus agréable et pour gérer automatiquement la validation
+des données. Là encore on ira pas beaucoup plus loin, mais lisez la doc, suivez le tuto, vous
+connaissez la chanson.
 
 ## 🪐 Exo 🪐
 
