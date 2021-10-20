@@ -1,3 +1,3 @@
 jupyter lab build --minimize=False
-pacy download en_core_web_sm
+spacy download en_core_web_sm
 spacy download fr_core_news_sm
