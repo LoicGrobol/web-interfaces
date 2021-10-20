@@ -52,6 +52,12 @@ si vous voulez, aller plus loin avec les modules
 [functools](https://docs.python.org/3/library/functools.html#module-functools)
 
 
+```python
+def fun(x):
+    return 2*x
+fun
+```
+
 ## Les itérateurs
 
 Les itérateurs, vous connaissez, vous en utilisez tous les jours avec les itérables que sont les
@@ -61,6 +67,11 @@ chaînes, les listes ou les dictionnaires.
 numbers = [1, 2, 3, 4, 5]
 for it in numbers:
     print(it)
+```
+
+```python
+for i in 5:
+    print(i)
 ```
 
 Mais alors on peut utiliser des itérateurs avec tous les objets ?
@@ -107,6 +118,10 @@ Encore
 next(itr)
 ```
 
+```python
+next(itr)
+```
+
 Ah oui, on a fini.
 
 La fonction `iter()` permet de récupérer un **itérateur** à partir d'un **itérable**, c'est à dire
@@ -114,7 +129,11 @@ un objet qui implémente la méthode `__iter()__`. Les listes, les dictionnaires
 d'autres objets en Python sont des itérables.
 
 ```python
-[0].__iter__?
+help([0].__iter__)
+```
+
+```python
+[0].__iter__
 ```
 
 Quand vous écrivez
@@ -146,7 +165,7 @@ Quel intérêt ? Et bien par exemple on peut avoir des itérateurs infinis, co
 ```python
 from itertools import count
 for i in count():
-    # print(i)  # Décommentez pour le voir en action
+    print(i)  # Décommentez pour le voir en action
     if i**2 > 18701871:
         break
 print(f"Le premier nombre dont le carré dépasse 18701871 est {i}")
@@ -213,11 +232,24 @@ def gen_with_a(words):
     """
     for word in words:
         if 'a' in word:
-            yield(word)
+            yield word
 ```
 
 ```python
-mots_big = mots * 100
+mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
+mots_a = gen_with_a(mots)
+print("\n".join(mots_a))
+```
+
+```python
+mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
+mots_a = gen_with_a(mots)
+for w in mots_a:
+    print(w)
+```
+
+```python
+mots_big = mots * 1000000
 %time mots_a = with_a(mots_big)
 %time mots_a_gen = gen_with_a(mots_big)
 ```
@@ -260,6 +292,22 @@ Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voul
 
 ```python
 %time mots_a_gen = list(gen_with_a(mots_big))
+```
+
+```python
+import os
+```
+
+```python
+%%timeit
+for w in gen_with_a(mots_big):
+    print(w, file=open(os.devnull, "w"))
+```
+
+```python
+%%timeit
+for w in with_a(mots_big):
+    print(w, file=open(os.devnull, "w"))
 ```
 
 Mais même sans tricher les générateurs demeurent très efficaces. Vous aurez compris qu'il vous est
@@ -346,7 +394,7 @@ list(map(carre, numbers))
 
 ```python
 def is_even(x):
-    return not(x%2)
+    return not x%2
 
 for it in filter(is_even, numbers):
     print(it)
@@ -355,7 +403,7 @@ list(filter(is_even, numbers))
 ```
 
 ```python
-[not(it % 2) for it in numbers]
+[it for it in numbers if is_even(it)]
 ```
 
 C'est un peu fastidieux d'écrire ces petites fonctions pour utiliser `map` et `filter`. Avec les
@@ -438,7 +486,7 @@ def timer(func):
         value = func(*args, **kwargs)
         end = time.perf_counter()
         run_time = end - start
-        print(f"Finished {func.__name__} in {run_time} secs"
+        print(f"Finished {func.__name__} in {run_time} secs")
         return value
 
     return wrapper
@@ -458,6 +506,6 @@ doubled_and_add(1000000)
 ```
 
 Pour la plupart des gens, *écrire* des décorateurs est assez rare. En revanche, il devient de plus
-en plus courant d'avoir à en écrire pour utiliser certaines bibliothèques (comme FastAPI), n'hésitez
+en plus courant d'avoir à en utiliser pour certaines bibliothèques (comme FastAPI), n'hésitez
 donc pas à explorer davantage comment ils fonctionnent et ce qu'on peut faire avec (**beaucoup** de
 choses).
