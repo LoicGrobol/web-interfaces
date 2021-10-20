@@ -60,8 +60,7 @@ fun
 
 ## Les itérateurs
 
-Les itérateurs, vous connaissez, vous en utilisez tous les jours avec les itérables que sont les
-chaînes, les listes ou les dictionnaires.
+Itérer vous connaissez déjà : c'est ce qu'on fait avec une boucle `for`, ici pour une liste
 
 ```python
 numbers = [1, 2, 3, 4, 5]
@@ -69,14 +68,25 @@ for it in numbers:
     print(it)
 ```
 
+On peut faire ça avec tous les objets ?
+
 ```python
-for i in 5:
+number = 5
+for i in numbers:
     print(i)
 ```
 
-Mais alors on peut utiliser des itérateurs avec tous les objets ?
-
 Non.
+
+
+Les objets sur lesquels on peut *itérer* sont des *itérables*. Ils doivent pour ça implémenter la
+méthode `__iter__`, qui renvoie un *itérateur*.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+itr = numbers.__iter__()
+type(itr)
+```
 
 Les itérateurs sont des objets qui représentent un flux de données. Pour être un itérateur un objet
 doit implémenter la fonction `__next()__`. Cette fonction peut aussi s'appeler avec `next()`, elle
@@ -85,7 +95,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 
 Voici un itérateur :
 
-```python tags=["raises-exception"]
+```python
 itr = iter([2, 7, 1, 3])
 display(type(itr))
 ```
@@ -97,7 +107,7 @@ a = next(itr)
 a
 ```
 
-À plus bas niveau, ce qui se passe c'est
+À plus bas niveau, ce qui se passe, c'est
 
 ```python
 a = itr.__next__()
@@ -114,27 +124,18 @@ next(itr)
 
 Encore
 
-```python tags=["raises-exception"]
+```python
 next(itr)
 ```
 
-```python
+Et encore
+
+```python tags=["raises-exception"]
 next(itr)
 ```
 
 Ah oui, on a fini.
 
-La fonction `iter()` permet de récupérer un **itérateur** à partir d'un **itérable**, c'est à dire
-un objet qui implémente la méthode `__iter()__`. Les listes, les dictionnaires, les tuples et plein
-d'autres objets en Python sont des itérables.
-
-```python
-help([0].__iter__)
-```
-
-```python
-[0].__iter__
-```
 
 Quand vous écrivez
 
@@ -146,7 +147,7 @@ for i in [1, 2, 3, 4]:
 Ce qui se passe en coulisse, c'est *grosso mode*
 
 ```python
-itr = iter([1, 2, 3, 4])  # Qui appelle `[1, 2, 3, 4].__iter__()`
+itr = [1, 2, 3, 4].__iter__()
 while True:
     try:
         a = next(itr)  # Qui appelle `itr.__next__()`
@@ -197,13 +198,14 @@ def with_a(words):
 ```python
 mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
 mots_a = with_a(mots)
-print("\n".join(mots_a))
+for w in mots_a:
+    print(w)
 ```
 
-Jusque là, rien de méchant.
+Rien de méchant.
 
 
-<small>On va mesurer le temps de traitement avec `time`. IPython est plein de magie, `%%timeit` supercalifragilisticexpialidocious et voilà.</small>
+On va mesurer le temps de traitement avec `%time`. <small>Jupyter est plein de magie, `%time` supercalifragilisticexpialidocious et voilà.</small>
 
 ```python
 %time mots_a = with_a(mots)
@@ -215,15 +217,7 @@ Comme on pouvait s'y attendre le temps d'exécution de la fonction augmente avec
 liste initiale.
 
 
-Voyons ce que ça donne avec un générateur. Construire un générateur, c'est simple : vous remplacez
-`return` par `yield` dans votre fonction.
-
-
-C'est tout ? C'est tout.  
-
-
-<small>Vous pouvez quand même en apprendre plus en lisant la [PEP
-255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
+Essayons maintenant comme ça
 
 ```python
 def gen_with_a(words):
@@ -238,15 +232,18 @@ def gen_with_a(words):
 ```python
 mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
 mots_a = gen_with_a(mots)
-print("\n".join(mots_a))
-```
-
-```python
-mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
-mots_a = gen_with_a(mots)
 for w in mots_a:
     print(w)
 ```
+
+Construire un générateur, c'est simple : vous remplacez `return` par `yield` dans votre fonction.
+
+C'est tout ? C'est tout.  
+
+<small>Vous pouvez quand même en apprendre plus en lisant la [PEP
+255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
+
+Est-ce que ça va vite ?
 
 ```python
 mots_big = mots * 1000000
@@ -266,48 +263,36 @@ print(f"Taille de mots_a : {sys.getsizeof(mots_a)}")
 print(f"Taille de mots_a_gen : {sys.getsizeof(mots_a_gen)}")
 ```
 
-`mots_a_gen` n'est pas une liste, c'est un objet `generator`.  
+`mots_a_gen` n'est pas une liste, c'est un objet `generator`.
+
 Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille
 
 ```python tags=["raises-exception"]
 len(mots_a_gen)
 ```
 
-Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut
-accéder à un élément d'index `i` comme pour une liste.
-
-Encore une différence d'avec les listes : vous ne pouvez parcourir un générateur qu'une seule fois.
+Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut pas
+accéder à un élément d'index `i` comme pour une liste, et on ne peut le parcourir qu'une seule fois.
 
 
 Ça rappelle les itérateurs !
 
 
-Oui.
+C'est parce que c'en est un cas particuleir.
 
 Les générateurs permettent de créer des itérateurs sans se fatiguer. Une fonction classique reçoit
 des paramètres, calcule un truc avec et renvoie le résultat. Un générateur renvoie un itérateur qui
 donne accès à un flux de données.
 
+Concrètement, tant que vous n'appelez pas `next()`, aucun code n'est exécuté. Quand vous appelez
+`next()`, le code est exécuté jusqu'à arriver à un `yield <bidule>`. À ce moment, l'itérateur
+renvoie la valeur <bidule> et se met en pause jusqu'au prochain `next(), où il reprendra l'exécution
+là où il s'est arrêté.
+
 Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voulez.
 
 ```python
 %time mots_a_gen = list(gen_with_a(mots_big))
-```
-
-```python
-import os
-```
-
-```python
-%%timeit
-for w in gen_with_a(mots_big):
-    print(w, file=open(os.devnull, "w"))
-```
-
-```python
-%%timeit
-for w in with_a(mots_big):
-    print(w, file=open(os.devnull, "w"))
 ```
 
 Mais même sans tricher les générateurs demeurent très efficaces. Vous aurez compris qu'il vous est
@@ -335,7 +320,7 @@ print(next(mots_a_gen))
 inspect.getgeneratorstate(mots_a_gen)
 ```
 
-Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension : 
+Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension : 
 
 ```python
 [mot for mot in mots if 'a' in mot]
@@ -364,6 +349,20 @@ for s in squares:
         break
 s
 ```
+
+Ah, et je peux faire ça aussi
+
+```python
+%%timeit
+squares = (i**2 for i in count())
+for s in squares:
+    if s > 18701871:
+        break
+s
+```
+
+Il se passerait quoi si j'essayais avec une liste en compréhension ?
+
 
 ## Encore un peu de fonctionnel : fonctions lambda, `map` et `filter`
 

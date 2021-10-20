@@ -14701,8 +14701,7 @@ si vous voulez, aller plus loin avec les modules
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-it%C3%A9rateurs">Les it&#233;rateurs<a class="anchor-link" href="#Les-it%C3%A9rateurs">&#182;</a></h2><p>Les itérateurs, vous connaissez, vous en utilisez tous les jours avec les itérables que sont les
-chaînes, les listes ou les dictionnaires.</p>
+<h2 id="Les-it%C3%A9rateurs">Les it&#233;rateurs<a class="anchor-link" href="#Les-it%C3%A9rateurs">&#182;</a></h2><p>Itérer vous connaissez déjà : c'est ce qu'on fait avec une boucle <code>for</code>, ici pour une liste</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14721,13 +14720,20 @@ chaînes, les listes ou les dictionnaires.</p>
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On peut faire ça avec tous les objets ?</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">5</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 
@@ -14739,8 +14745,35 @@ chaînes, les listes ou les dictionnaires.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Mais alors on peut utiliser des itérateurs avec tous les objets ?</p>
 <p>Non.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Les objets sur lesquels on peut <em>itérer</em> sont des <em>itérables</em>. Ils doivent pour ça implémenter la
+méthode <code>__iter__</code>, qui renvoie un <em>itérateur</em>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">itr</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">itr</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Les itérateurs sont des objets qui représentent un flux de données. Pour être un itérateur un objet
 doit implémenter la fonction <code>__next()__</code>. Cette fonction peut aussi s'appeler avec <code>next()</code>, elle
 ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément renvoie l'exception
@@ -14748,7 +14781,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 <p>Voici un itérateur :</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_raises-exception">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
@@ -14787,7 +14820,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>À plus bas niveau, ce qui se passe c'est</p>
+<p>À plus bas niveau, ce qui se passe, c'est</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14832,20 +14865,6 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 <p>Encore</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_raises-exception">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">itr</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14863,40 +14882,29 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et encore</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_raises-exception">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">itr</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Ah oui, on a fini.</p>
-<p>La fonction <code>iter()</code> permet de récupérer un <strong>itérateur</strong> à partir d'un <strong>itérable</strong>, c'est à dire
-un objet qui implémente la méthode <code>__iter()__</code>. Les listes, les dictionnaires, les tuples et plein
-d'autres objets en Python sont des itérables.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="fm">__iter__</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14930,7 +14938,7 @@ d'autres objets en Python sont des itérables.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># Qui appelle `[1, 2, 3, 4].__iter__()`</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">itr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">a</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">itr</span><span class="p">)</span>  <span class="c1"># Qui appelle `itr.__next__()`</span>
@@ -15023,7 +15031,8 @@ votre code à moindre frais. Alors pourquoi se priver ?</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mots</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;petit&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="s2">&quot;est&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;ce&quot;</span><span class="p">,</span> <span class="s2">&quot;matin&quot;</span><span class="p">]</span>
 <span class="n">mots_a</span> <span class="o">=</span> <span class="n">with_a</span><span class="p">(</span><span class="n">mots</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mots_a</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">mots_a</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15034,13 +15043,13 @@ votre code à moindre frais. Alors pourquoi se priver ?</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Jusque là, rien de méchant.</p>
+<p>Rien de méchant.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><small>On va mesurer le temps de traitement avec `time`. IPython est plein de magie, `%%timeit` supercalifragilisticexpialidocious et voilà.</small></p>
+<p>On va mesurer le temps de traitement avec <code>%time</code>. <small>Jupyter est plein de magie, `%time` supercalifragilisticexpialidocious et voilà.</small></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15069,21 +15078,7 @@ liste initiale.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Voyons ce que ça donne avec un générateur. Construire un générateur, c'est simple : vous remplacez
-<code>return</code> par <code>yield</code> dans votre fonction.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>C'est tout ? C'est tout.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><small>Vous pouvez quand même en apprendre plus en lisant la [PEP
-255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small></p>
+<p>Essayons maintenant comme ça</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15114,22 +15109,6 @@ liste initiale.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mots</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;petit&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="s2">&quot;est&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;ce&quot;</span><span class="p">,</span> <span class="s2">&quot;matin&quot;</span><span class="p">]</span>
 <span class="n">mots_a</span> <span class="o">=</span> <span class="n">gen_with_a</span><span class="p">(</span><span class="n">mots</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mots_a</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mots</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;petit&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="s2">&quot;est&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;ce&quot;</span><span class="p">,</span> <span class="s2">&quot;matin&quot;</span><span class="p">]</span>
-<span class="n">mots_a</span> <span class="o">=</span> <span class="n">gen_with_a</span><span class="p">(</span><span class="n">mots</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">mots_a</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
@@ -15139,6 +15118,16 @@ liste initiale.</p>
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Construire un générateur, c'est simple : vous remplacez <code>return</code> par <code>yield</code> dans votre fonction.</p>
+<p>C'est tout ? C'est tout.</p>
+<p><small>Vous pouvez quand même en apprendre plus en lisant la [PEP
+255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small></p>
+<p>Est-ce que ça va vite ?</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15183,8 +15172,8 @@ liste initiale.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>mots_a_gen</code> n'est pas une liste, c'est un objet <code>generator</code>.<br>
-Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille</p>
+<p><code>mots_a_gen</code> n'est pas une liste, c'est un objet <code>generator</code>.</p>
+<p>Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_raises-exception">
@@ -15204,9 +15193,8 @@ Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille</p
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut
-accéder à un élément d'index <code>i</code> comme pour une liste.</p>
-<p>Encore une différence d'avec les listes : vous ne pouvez parcourir un générateur qu'une seule fois.</p>
+<p>Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut pas
+accéder à un élément d'index <code>i</code> comme pour une liste, et on ne peut le parcourir qu'une seule fois.</p>
 
 </div>
 </div>
@@ -15218,10 +15206,14 @@ accéder à un élément d'index <code>i</code> comme pour une liste.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Oui.</p>
+<p>C'est parce que c'en est un cas particuleir.</p>
 <p>Les générateurs permettent de créer des itérateurs sans se fatiguer. Une fonction classique reçoit
 des paramètres, calcule un truc avec et renvoie le résultat. Un générateur renvoie un itérateur qui
 donne accès à un flux de données.</p>
+<p>Concrètement, tant que vous n'appelez pas <code>next()</code>, aucun code n'est exécuté. Quand vous appelez
+<code>next()</code>, le code est exécuté jusqu'à arriver à un <code>yield &lt;bidule&gt;</code>. À ce moment, l'itérateur
+renvoie la valeur <bidule> et se met en pause jusqu'au prochain `next(), où il reprendra l'exécution
+là où il s'est arrêté.</p>
 <p>Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voulez.</p>
 
 </div>
@@ -15232,52 +15224,6 @@ donne accès à un flux de données.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> mots_a_gen = list(gen_with_a(mots_big))
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">gen_with_a</span><span class="p">(</span><span class="n">mots_big</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
-<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">with_a</span><span class="p">(</span><span class="n">mots_big</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15340,7 +15286,7 @@ vous conseille d'en lire la doc d'ailleurs
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension :</p>
+<p>Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension :</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15415,6 +15361,37 @@ vous conseille d'en lire la doc d'ailleurs
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ah, et je peux faire ça aussi</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
+<span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">count</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">18701871</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="n">s</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Il se passerait quoi si j'essayais avec une liste en compréhension ?</p>
+
+</div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
