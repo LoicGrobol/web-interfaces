@@ -60,8 +60,7 @@ fun
 
 ## Les itérateurs
 
-Les itérateurs, vous connaissez, vous en utilisez tous les jours avec les itérables que sont les
-chaînes, les listes ou les dictionnaires.
+Itérer vous connaissez déjà : c'est ce qu'on fait avec une boucle `for`, ici pour une liste
 
 ```python
 numbers = [1, 2, 3, 4, 5]
@@ -69,14 +68,25 @@ for it in numbers:
     print(it)
 ```
 
+On peut faire ça avec tous les objets ?
+
 ```python
-for i in 5:
+number = 5
+for i in numbers:
     print(i)
 ```
 
-Mais alors on peut utiliser des itérateurs avec tous les objets ?
-
 Non.
+
+
+Les objets sur lesquels on peut *itérer* sont des *itérables*. Ils doivent pour ça implémenter la
+méthode `__iter__`, qui renvoie un *itérateur*.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+itr = numbers.__iter__()
+type(itr)
+```
 
 Les itérateurs sont des objets qui représentent un flux de données. Pour être un itérateur un objet
 doit implémenter la fonction `__next()__`. Cette fonction peut aussi s'appeler avec `next()`, elle
@@ -85,7 +95,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 
 Voici un itérateur :
 
-```python tags=["raises-exception"]
+```python
 itr = iter([2, 7, 1, 3])
 display(type(itr))
 ```
@@ -97,7 +107,7 @@ a = next(itr)
 a
 ```
 
-À plus bas niveau, ce qui se passe c'est
+À plus bas niveau, ce qui se passe, c'est
 
 ```python
 a = itr.__next__()
@@ -114,27 +124,18 @@ next(itr)
 
 Encore
 
-```python tags=["raises-exception"]
+```python
 next(itr)
 ```
 
-```python
+Et encore
+
+```python tags=["raises-exception"]
 next(itr)
 ```
 
 Ah oui, on a fini.
 
-La fonction `iter()` permet de récupérer un **itérateur** à partir d'un **itérable**, c'est à dire
-un objet qui implémente la méthode `__iter()__`. Les listes, les dictionnaires, les tuples et plein
-d'autres objets en Python sont des itérables.
-
-```python
-help([0].__iter__)
-```
-
-```python
-[0].__iter__
-```
 
 Quand vous écrivez
 
@@ -146,7 +147,7 @@ for i in [1, 2, 3, 4]:
 Ce qui se passe en coulisse, c'est *grosso mode*
 
 ```python
-itr = iter([1, 2, 3, 4])  # Qui appelle `[1, 2, 3, 4].__iter__()`
+itr = [1, 2, 3, 4].__iter__()
 while True:
     try:
         a = next(itr)  # Qui appelle `itr.__next__()`
@@ -294,22 +295,6 @@ Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voul
 %time mots_a_gen = list(gen_with_a(mots_big))
 ```
 
-```python
-import os
-```
-
-```python
-%%timeit
-for w in gen_with_a(mots_big):
-    print(w, file=open(os.devnull, "w"))
-```
-
-```python
-%%timeit
-for w in with_a(mots_big):
-    print(w, file=open(os.devnull, "w"))
-```
-
 Mais même sans tricher les générateurs demeurent très efficaces. Vous aurez compris qu'il vous est
 désormais chaudement recommandé de les utiliser.
 
@@ -335,7 +320,7 @@ print(next(mots_a_gen))
 inspect.getgeneratorstate(mots_a_gen)
 ```
 
-Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension : 
+Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension : 
 
 ```python
 [mot for mot in mots if 'a' in mot]
@@ -364,6 +349,20 @@ for s in squares:
         break
 s
 ```
+
+Ah, et je peux faire ça aussi
+
+```python
+%%timeit
+squares = (i**2 for i in count())
+for s in squares:
+    if s > 18701871:
+        break
+s
+```
+
+Il se passerait quoi si j'essayais avec une liste en compréhension ?
+
 
 ## Encore un peu de fonctionnel : fonctions lambda, `map` et `filter`
 
