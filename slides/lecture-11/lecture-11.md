@@ -122,7 +122,8 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "vive le TAL"}
+
 ```
 
 Vous pouvez le lancer avec [Uvicorn](https://www.uvicorn.org/), qui est le serveur
@@ -155,7 +156,7 @@ Est-ce que vous avez des questions ? C'est le moment.
 
 ## De la doc ???
 
-Allez à <http://localhost/docs>
+Allez à <http://localhost:8000/docs>
 
 
 C'est beau, hein ?
@@ -323,6 +324,36 @@ curl -X GET "localhost:8000/knights/?name=lancelot"
 Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue
 austronésienne et renvoie le mot correspondant dans cette langue à partir de
 [`austronesian_swadesh.csv`](../../data/austronesian_swadesh.csv).
+
+```python
+# %load examples/swadesh_api.py
+import csv
+
+from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+
+with open("../../../data/austronesian_swadesh.csv") as csvfile:
+    reader = csv.DictReader(csvfile, delimiter=",", quotechar='"')
+    swadesh_dict = {
+        row["English"]: {k: v for k, v in row.items() if k != "N°"} for row in reader
+    }
+
+
+@app.get("/")
+async def swadesh(word, lang="English"):
+    try:
+        word_translations = swadesh_dict[word]
+    except KeyError:
+        raise HTTPException(status_code=404, detail=f"Word {word!r} not found")
+
+    try:
+        return word_translations[lang]
+    except KeyError:
+        raise HTTPException(status_code=404, detail=f"Language {lang!r} not found")
+
+```
 
 ## Conversion de types
 
@@ -518,5 +549,44 @@ connaissez la chanson.
 
 ## 🪐 Exo 🪐
 
-Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et une phrase
+Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et comme données une phrase
 et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
+
+```python
+%pip install spacy
+```
+
+```python
+# %load examples/spacy_api.py
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import spacy
+
+app = FastAPI()
+
+
+class InputData(BaseModel):
+    sentence: str
+
+
+@app.post("/postag")
+async def postag(inpt: InputData, model="fr_core_news_sm"):
+    if model not in spacy.util.get_installed_models():
+        raise HTTPException(status_code=422, detail=f"Model {model!r} unavailable")
+    nlp = spacy.load(model)
+    doc = nlp(inpt.sentence)
+    return {"tags": [w.pos_ for w in doc]}
+
+
+@app.get("/list")
+async def list_models():
+    return {"models": spacy.util.get_installed_models()}
+```
+
+```python
+requests.get("http://localhost:8000/list").json()
+```
+
+```python
+requests.post("http://localhost:8000/postag", params={"model": "fr_core_news_sm"}, json={"sentence": "je reconnais l'existence du kiwi!"}).json()
+```
