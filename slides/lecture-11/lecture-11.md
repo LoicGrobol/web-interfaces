@@ -417,9 +417,10 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 ## Récupérer le corps de la requête
 
 
-OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des données envoyées dans le corps de la requête ?
+OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des
+données envoyées dans le corps de la requête ?
 
-Rappellez vous
+Rappelez vous
 
 ```python
 response = requests.post("https://httpbin.org/post", json={"message": "We are the knights who say “Ni”!"})
@@ -428,7 +429,8 @@ response.json()
 
 Pour récupére les corps d'une requête dans FastAPI, il faut passer par un modèle [`pydantic`](https://pydantic-docs.helpmanual.io/).
 
-<small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça simplifie les choses, promis</small>
+<small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça
+simplifie les choses, promis</small>
 
 ```python
 # %load examples/body_api.py

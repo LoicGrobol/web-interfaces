@@ -14530,7 +14530,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 </pre></div>
 
      </div>
@@ -14541,42 +14541,337 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="HTML">HTML<a class="anchor-link" href="#HTML">&#182;</a></h2>
+<h2 id="HTML">HTML<a class="anchor-link" href="#HTML">&#182;</a></h2><p>Tutoriels interactifs sur <a href="https://developer.mozilla.org/en-US/docs/Learn">MDN Learn</a> (ils sont
+aussi disponibles en français)</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started"><em>Getting started with
+HTML</em></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms"><em>Web forms</em></a><ul>
+<li>Il n'est pas forcément nécessaire de s'attarder trop longtemps sur les questions de style ou les
+contrôles avancé, l'objectif est d'arriver jusqu'à <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data"><em>Sending and retrieving form
+data</em></a></li>
+</ul>
+</li>
+<li>Ne pas hésiter à fouiller dans les autres parties du tutoriel (notamment CSS et JavaScript) pour
+mieux les comprendre. À faire selon vos goûts.</li>
+</ul>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="G%C3%A9n%C3%A9rer-du-HTML-en-Python">G&#233;n&#233;rer du HTML en Python<a class="anchor-link" href="#G%C3%A9n%C3%A9rer-du-HTML-en-Python">&#182;</a></h2>
+<h2 id="%F0%9F%A5%8B-Exo-%F0%9F%A5%8B">&#129355; Exo &#129355;<a class="anchor-link" href="#%F0%9F%A5%8B-Exo-%F0%9F%A5%8B">&#182;</a></h2><p>Concevoir</p>
+<ul>
+<li>Une page HTML avec un formulaire comprenant un champ de texte et un bouton de soumission.
+Assurez-vous qu'elle passe au <a href="https://validator.w3.org">valideur du W3C</a></li>
+<li>Une API avec FastAPI qui reçoit des requêtes de type POST venant de la page que vous avez créé et
+qui crée pour chacune un nouveau fichier texte sur votre machine dont le contenu est le contenu du
+champ de texte.</li>
+</ul>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%C3%80-la-main">&#192; la main<a class="anchor-link" href="#%C3%80-la-main">&#182;</a></h3>
+<h2 id="G%C3%A9n%C3%A9rer-du-HTML-en-Python">G&#233;n&#233;rer du HTML en Python<a class="anchor-link" href="#G%C3%A9n%C3%A9rer-du-HTML-en-Python">&#182;</a></h2><p><strong>En général</strong> quand on crée un service web, on a envie de lui donner une <strong>interface web</strong> lisible
+par des humain⋅e⋅s. Autrement dit une page web.</p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Avec-lxml">Avec <code>lxml</code><a class="anchor-link" href="#Avec-lxml">&#182;</a></h3>
+<p>C'est bien gentil de lire du JSON dans un navigateur mais au bout d'un moment ça va bien.</p>
+<p>On a vu comment récupérer des informations envoyées par l'utilisateur avec des formulaires,
+maintenant on va voir comment lui répondre en affichant des données générées par notre programme.</p>
+<p>Il va donc nous falloir <em>générer du HTML en Python</em></p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Jinja">Jinja<a class="anchor-link" href="#Jinja">&#182;</a></h2>
+<h3 id="%C3%80-la-main">&#192; la main<a class="anchor-link" href="#%C3%80-la-main">&#182;</a></h3><p>C'est-à-dire que HTML c'est du texte. Des chaînes de caractères donc.</p>
+<p>Du coup vous pouvez en générer en Python, ça va, on sait faire.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">  &lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="s2">    &lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;</span>
+<span class="s2">  &lt;/head&gt;</span>
+<span class="s2">  &lt;body&gt;</span>
+<span class="s2">    &lt;h1&gt;What is the Average Flying Speed of an African Sparrow?&lt;/h1&gt;</span>
+<span class="s2">    &lt;p&gt;The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second&lt;/p&gt;</span>
+<span class="s2">  &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34; /&gt;
+    &lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;What is the Average Flying Speed of an African Sparrow?&lt;/h1&gt;
+    &lt;p&gt;The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En plus dans un notebook ça se fait bien avec
+<a href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.HTML"><code>IPython.display.HTML</code></a></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>What is the Average Flying Speed of an African Sparrow?</title>
+  </head>
+  <body>
+    <h1>What is the Average Flying Speed of an African Sparrow?</h1>
+    <p>The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second</p>
+  </body>
+</html>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et vous savez comment écrire dans un fichier</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spam.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_stream</span><span class="p">:</span>
+    <span class="n">out_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et voilà on a écrit <a href="spam.html">du HTML</a>.</p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Bases">Bases<a class="anchor-link" href="#Bases">&#182;</a></h3>
+<h3 id="%F0%9F%8E%88-Exo-%F0%9F%8E%88">&#127880; Exo &#127880;<a class="anchor-link" href="#%F0%9F%8E%88-Exo-%F0%9F%8E%88">&#182;</a></h3><p>Écrire une fonction qui prend en argument une liste de chaines de caractères et un chemin vers un
+fichier et qui écrit dans ce fichier une page HTML qui contient une liste non-ordonnée dont les
+éléments sont les chaînes passées en argument.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">def</span> <span class="nf">make_ul</span><span class="p">(</span><span class="n">elems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># À vous de jouer</span>
+
+<span class="c1"># Pour tester</span>
+<span class="n">make_ul</span><span class="p">([</span><span class="s2">&quot;AronChupa&quot;</span><span class="p">,</span> <span class="s2">&quot;The Sidh&quot;</span><span class="p">,</span> <span class="s2">&quot;Måneskin&quot;</span><span class="p">],</span> <span class="s2">&quot;earworms_producers.html&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Bien entendu, vérifiez que votre HTML passe au <a href="https://validator.w3.org">valideur du W3C</a>.</p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="HTML-avec-Jinja">HTML avec Jinja<a class="anchor-link" href="#HTML-avec-Jinja">&#182;</a></h3>
+<h3 id="Avec-lxml">Avec <code>lxml</code><a class="anchor-link" href="#Avec-lxml">&#182;</a></h3><p>lxml propose une interface sympa pour générer du HTML en étant sûr⋅e de ne pas faire d'erreurs de syntaxe</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">lxml</span>
+<span class="kn">from</span> <span class="nn">lxml.html</span> <span class="kn">import</span> <span class="n">builder</span> <span class="k">as</span> <span class="n">E</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">E</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span>
+    <span class="n">E</span><span class="o">.</span><span class="n">HEAD</span><span class="p">(</span>
+        <span class="n">E</span><span class="o">.</span><span class="n">META</span><span class="p">(</span><span class="n">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
+        <span class="n">E</span><span class="o">.</span><span class="n">TITLE</span><span class="p">(</span><span class="s2">&quot;What is the Average Flying Speed of an African Sparrow?&quot;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">E</span><span class="o">.</span><span class="n">BODY</span><span class="p">(</span>
+        <span class="n">E</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;What is the Average Flying Speed of an African Sparrow?&quot;</span><span class="p">),</span>
+        <span class="n">E</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lxml</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="nb">str</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>&lt;html&gt;&lt;head&gt;&lt;meta charset=&#34;utf-8&#34;&gt;&lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;What is the Average Flying Speed of an African Sparrow?&lt;/h1&gt;&lt;p&gt;The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Avec-FastAPI">Avec FastAPI<a class="anchor-link" href="#Avec-FastAPI">&#182;</a></h2><p>Pour afficher du HTML quand on accède à votre point d'accès FastAPI, vous pouvez utiliser <code>fastapi.responses.HTMLResponse</code>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load examples/html_api.py</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">response_class</span><span class="o">=</span><span class="n">HTMLResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
+    <span class="n">html_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;html&gt;</span>
+<span class="s2">        &lt;head&gt;</span>
+<span class="s2">            &lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;</span>
+<span class="s2">        &lt;/head&gt;</span>
+<span class="s2">        &lt;body&gt;</span>
+<span class="s2">            &lt;h1&gt;What is the Average Flying Speed of an African Sparrow?&lt;/h1&gt;</span>
+<span class="s2">            &lt;p&gt;The airspeed velocity of an unladen swallow is something like 20.1 miles per hour or 9 meters per second&lt;/p&gt;</span>
+<span class="s2">        &lt;/body&gt;</span>
+<span class="s2">    &lt;/html&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">html_content</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Exo">Exo<a class="anchor-link" href="#Exo">&#182;</a></h2>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Jinja-et-FastAPI">Jinja et FastAPI<a class="anchor-link" href="#Jinja-et-FastAPI">&#182;</a></h3>
+<p>Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de chaînes de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les chaînes de caractères reçus.</p>
+<p>Bien entendu, vérifiez que votre HTML passe au <a href="https://validator.w3.org">valideur du W3C</a>.</p>
+
 </div>
 </div>
 </body>

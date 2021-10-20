@@ -15142,10 +15142,10 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 4 µs, sys: 1e+03 ns, total: 5 µs
-Wall time: 9.06 µs
-CPU times: user 298 ms, sys: 15.7 ms, total: 314 ms
-Wall time: 312 ms
+<pre>CPU times: user 4 µs, sys: 1 µs, total: 5 µs
+Wall time: 7.39 µs
+CPU times: user 230 ms, sys: 12.2 ms, total: 242 ms
+Wall time: 243 ms
 </pre>
 </div>
 </div>
@@ -15229,10 +15229,10 @@ liste initiale.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 3.84 ms, sys: 0 ns, total: 3.84 ms
-Wall time: 3.85 ms
-CPU times: user 20 µs, sys: 0 ns, total: 20 µs
-Wall time: 22.6 µs
+<pre>CPU times: user 3.7 ms, sys: 0 ns, total: 3.7 ms
+Wall time: 3.71 ms
+CPU times: user 3 µs, sys: 1 µs, total: 4 µs
+Wall time: 5.72 µs
 </pre>
 </div>
 </div>
@@ -15326,7 +15326,7 @@ Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille</p
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2365/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2186/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>len<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: object of type &#39;generator&#39; has no len()</pre>
@@ -15387,8 +15387,8 @@ donne accès à un flux de données.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 30 µs, sys: 5 µs, total: 35 µs
-Wall time: 38.6 µs
+<pre>CPU times: user 26 µs, sys: 4 µs, total: 30 µs
+Wall time: 32.7 µs
 </pre>
 </div>
 </div>
@@ -15447,7 +15447,7 @@ vous conseille d'en lire la doc d'ailleurs
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;generator object gen_with_a at 0x7f477044fd60&gt;
+<pre>&lt;generator object gen_with_a at 0x7f90b48e3cf0&gt;
 GEN_CREATED
 chat
 GEN_SUSPENDED
@@ -15467,7 +15467,7 @@ GEN_SUSPENDED
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2365/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2186/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span>inspect<span class="ansi-blue-fg">.</span>getgeneratorstate<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -15588,7 +15588,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;generator object &lt;genexpr&gt; at 0x7f477046e0b0&gt;</pre>
+<pre>&lt;generator object &lt;genexpr&gt; at 0x7f90b4903040&gt;</pre>
 </div>
 
 </div>
@@ -15634,7 +15634,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>34.9 ms ± 2.21 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre>28.6 ms ± 32.1 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre>
 </div>
 </div>
@@ -15674,7 +15674,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.53 ms ± 42.5 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre>1.27 ms ± 760 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </pre>
 </div>
 </div>
@@ -16192,7 +16192,7 @@ mesurer le temps d'exécution d'une fonction :</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_2365/2153399126.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">10</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_2186/2153399126.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">10</span>
 <span class="ansi-red-fg">    return value</span>
     ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -16238,7 +16238,7 @@ mesurer le temps d'exécution d'une fonction :</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2365/659653950.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2186/659653950.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">@</span>timer
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">def</span> doubled_and_add<span class="ansi-blue-fg">(</span>num<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span>     res <span class="ansi-blue-fg">=</span> sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">*</span><span class="ansi-cyan-fg">2</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>num<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
@@ -16282,7 +16282,7 @@ mesurer le temps d'exécution d'une fonction :</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2365/2289256951.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2186/2289256951.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>doubled_and_add<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1000000</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;doubled_and_add&#39; is not defined</pre>

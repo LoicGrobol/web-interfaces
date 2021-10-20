@@ -14646,53 +14646,53 @@ Python</em></a>.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Requirement already satisfied: fastapi[all] in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (0.70.0)
-Requirement already satisfied: starlette==0.16.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.16.0)
 Requirement already satisfied: pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,&lt;2.0.0,&gt;=1.6.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (1.8.2)
+Requirement already satisfied: starlette==0.16.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.16.0)
+Requirement already satisfied: uvicorn[standard]&lt;0.16.0,&gt;=0.12.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.15.0)
 Collecting python-multipart&lt;0.0.6,&gt;=0.0.5
   Downloading python-multipart-0.0.5.tar.gz (32 kB)
 Requirement already satisfied: jinja2&lt;4.0.0,&gt;=2.11.2 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (3.0.2)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.24.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (2.26.0)
 Collecting itsdangerous&lt;3.0.0,&gt;=1.1.0
   Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.24.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (2.26.0)
-Requirement already satisfied: uvicorn[standard]&lt;0.16.0,&gt;=0.12.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from fastapi[all]) (0.15.0)
-Collecting email_validator&lt;2.0.0,&gt;=1.1.1
-  Downloading email_validator-1.1.3-py2.py3-none-any.whl (18 kB)
-Collecting orjson&lt;4.0.0,&gt;=3.2.1
-  Downloading orjson-3.6.4-cp39-cp39-manylinux_2_24_x86_64.whl (250 kB)
-     |████████████████████████████████| 250 kB 74.4 MB/s 
-Collecting pyyaml&lt;6.0.0,&gt;=5.3.1
-  Using cached PyYAML-5.4.1-cp39-cp39-manylinux1_x86_64.whl (630 kB)
 Collecting ujson&lt;5.0.0,&gt;=4.0.1
   Downloading ujson-4.2.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (218 kB)
-     |████████████████████████████████| 218 kB 77.8 MB/s 
+     |████████████████████████████████| 218 kB 14.4 MB/s 
+Collecting email_validator&lt;2.0.0,&gt;=1.1.1
+  Downloading email_validator-1.1.3-py2.py3-none-any.whl (18 kB)
+Collecting pyyaml&lt;6.0.0,&gt;=5.3.1
+  Using cached PyYAML-5.4.1-cp39-cp39-manylinux1_x86_64.whl (630 kB)
+Collecting orjson&lt;4.0.0,&gt;=3.2.1
+  Downloading orjson-3.6.4-cp39-cp39-manylinux_2_24_x86_64.whl (250 kB)
+     |████████████████████████████████| 250 kB 101.3 MB/s 
 Requirement already satisfied: anyio&lt;4,&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from starlette==0.16.0-&gt;fastapi[all]) (3.3.4)
 Requirement already satisfied: idna&gt;=2.8 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from anyio&lt;4,&gt;=3.0.0-&gt;starlette==0.16.0-&gt;fastapi[all]) (3.3)
 Requirement already satisfied: sniffio&gt;=1.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from anyio&lt;4,&gt;=3.0.0-&gt;starlette==0.16.0-&gt;fastapi[all]) (1.2.0)
 Collecting dnspython&gt;=1.15.0
   Downloading dnspython-2.1.0-py3-none-any.whl (241 kB)
-     |████████████████████████████████| 241 kB 84.9 MB/s 
+     |████████████████████████████████| 241 kB 105.5 MB/s 
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from jinja2&lt;4.0.0,&gt;=2.11.2-&gt;fastapi[all]) (2.0.1)
 Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,&lt;2.0.0,&gt;=1.6.2-&gt;fastapi[all]) (3.10.0.2)
 Requirement already satisfied: six&gt;=1.4.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from python-multipart&lt;0.0.6,&gt;=0.0.5-&gt;fastapi[all]) (1.16.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (1.25.11)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (2021.10.8)
 Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.24.0-&gt;fastapi[all]) (2.0.7)
+Requirement already satisfied: click&gt;=7.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (8.0.3)
 Requirement already satisfied: h11&gt;=0.8 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (0.12.0)
 Requirement already satisfied: asgiref&gt;=3.4.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (3.4.1)
-Requirement already satisfied: click&gt;=7.0 in /opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages (from uvicorn[standard]&lt;0.16.0,&gt;=0.12.0-&gt;fastapi[all]) (8.0.3)
-Collecting watchgod&gt;=0.6
-  Downloading watchgod-0.7-py3-none-any.whl (11 kB)
 Collecting websockets&gt;=9.1
   Downloading websockets-10.0-cp39-cp39-manylinux2010_x86_64.whl (107 kB)
-     |████████████████████████████████| 107 kB 71.6 MB/s 
+     |████████████████████████████████| 107 kB 105.4 MB/s 
+Collecting watchgod&gt;=0.6
+  Downloading watchgod-0.7-py3-none-any.whl (11 kB)
 Collecting httptools==0.2.*
   Downloading httptools-0.2.0-cp39-cp39-manylinux1_x86_64.whl (343 kB)
-     |████████████████████████████████| 343 kB 83.3 MB/s 
+     |████████████████████████████████| 343 kB 99.7 MB/s 
 Collecting python-dotenv&gt;=0.13
   Downloading python_dotenv-0.19.1-py2.py3-none-any.whl (17 kB)
 Collecting uvloop!=0.15.0,!=0.15.1,&gt;=0.14.0
   Downloading uvloop-0.16.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (4.3 MB)
-     |████████████████████████████████| 4.3 MB 64.8 MB/s 
+     |████████████████████████████████| 4.3 MB 99.0 MB/s 
 Using legacy &#39;setup.py install&#39; for python-multipart, since package &#39;wheel&#39; is not installed.
 Installing collected packages: websockets, watchgod, uvloop, pyyaml, python-dotenv, httptools, dnspython, ujson, python-multipart, orjson, itsdangerous, email-validator
   Attempting uninstall: pyyaml
@@ -14974,7 +14974,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f0434feefa0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -14994,12 +14994,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f0434feefa0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/2338224772.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/2338224772.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> requests
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
@@ -15038,7 +15038,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb06c9e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f0434feefa0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15181,7 +15181,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f04344d1a90&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15201,12 +15201,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04344d1a90&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/41479891.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/41479891.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/en&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15244,7 +15244,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /en (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04344d1a90&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15346,7 +15346,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f0434145c40&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15366,12 +15366,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f0434145c40&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/3004248111.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/3004248111.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/fr&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15409,7 +15409,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348d00&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /fr (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f0434145c40&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15557,7 +15557,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f04460708e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15577,12 +15577,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04460708e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/1524071990.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/1524071990.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/knights/lancelot&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15620,7 +15620,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0348be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/lancelot (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04460708e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15722,7 +15722,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f04344bda30&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -15742,12 +15742,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04344bda30&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/1696157434.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/1696157434.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/knights/mordred&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
@@ -15785,7 +15785,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb0379490&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /knights/mordred (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04344bda30&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -15878,7 +15878,7 @@ curl: (7) Failed to connect to localhost port 8000: Connection refused
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">CalledProcessError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/3871744629.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/3871744629.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;bash&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;curl -X GET &#34;localhost:8000/knights/?name=lancelot&#34;\n&#39;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
@@ -16156,8 +16156,9 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des données envoyées dans le corps de la requête ?</p>
-<p>Rappellez vous</p>
+<p>OK, on a vu comment travailler avec les paramètres, mais comment on fait si on veut récupérer des
+données envoyées dans le corps de la requête ?</p>
+<p>Rappelez vous</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16199,9 +16200,9 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
   &#39;Content-Type&#39;: &#39;application/json&#39;,
   &#39;Host&#39;: &#39;httpbin.org&#39;,
   &#39;User-Agent&#39;: &#39;python-requests/2.26.0&#39;,
-  &#39;X-Amzn-Trace-Id&#39;: &#39;Root=1-616f2cfe-6421f7f84b001d865ddb8ded&#39;},
+  &#39;X-Amzn-Trace-Id&#39;: &#39;Root=1-616ffdec-6bac7e9b0b4b3ae8732d1065&#39;},
  &#39;json&#39;: {&#39;message&#39;: &#39;We are the knights who say “Ni”!&#39;},
- &#39;origin&#39;: &#39;40.117.234.205&#39;,
+ &#39;origin&#39;: &#39;20.62.107.111&#39;,
  &#39;url&#39;: &#39;https://httpbin.org/post&#39;}</pre>
 </div>
 
@@ -16215,7 +16216,8 @@ IDE). Mais FastAPI s'en sert en interne pour convertir automatiquement vers le t
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Pour récupére les corps d'une requête dans FastAPI, il faut passer par un modèle <a href="https://pydantic-docs.helpmanual.io/"><code>pydantic</code></a>.</p>
-<p><small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça simplifie les choses, promis</small></p>
+<p><small>Ça fait une dépendance de plus par rapport à d'autres bibliothèques, mais à la longue ça
+simplifie les choses, promis</small></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -16342,7 +16344,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f04340ea0a0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -16362,12 +16364,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04340ea0a0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/1635390501.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/1635390501.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/echo&#34;</span><span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#34;message&#34;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;We are the knights who say “Ni”!&#34;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> response<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
@@ -16406,7 +16408,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02ee130&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04340ea0a0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -16522,7 +16524,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 171</span><span class="ansi-red-fg">             raise NewConnectionError(
 </span><span class="ansi-green-intense-fg ansi-bold">    172</span>                 self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Failed to establish a new connection: %s&#34;</span> <span class="ansi-blue-fg">%</span> e
 
-<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ansi-red-fg">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f04340eadf0&gt;: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -16542,12 +16544,12 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-fg">--&gt; 446</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> MaxRetryError<span class="ansi-blue-fg">(</span>_pool<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> error <span class="ansi-green-fg">or</span> ResponseError<span class="ansi-blue-fg">(</span>cause<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    447</span> 
 
-<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
+<span class="ansi-red-fg">MaxRetryError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04340eadf0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2320/834331188.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2144/834331188.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>post<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;http://localhost:8000/echo&#34;</span><span class="ansi-blue-fg">,</span> json<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#34;speech&#34;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;We are the knights who say “Ni”!&#34;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> display<span class="ansi-blue-fg">(</span>response<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> display<span class="ansi-blue-fg">(</span>response<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -16587,7 +16589,7 @@ During handling of the above exception, another exception occurred:
 <span class="ansi-green-intense-fg ansi-bold">    518</span> 
 <span class="ansi-green-intense-fg ansi-bold">    519</span>         <span class="ansi-green-fg">except</span> ClosedPoolError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7effb02eeeb0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
+<span class="ansi-red-fg">ConnectionError</span>: HTTPConnectionPool(host=&#39;localhost&#39;, port=8000): Max retries exceeded with url: /echo (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f04340eadf0&gt;: Failed to establish a new connection: [Errno 111] Connection refused&#39;))</pre>
 </div>
 </div>
 
@@ -16718,7 +16720,7 @@ basique</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>&lt;__main__.RegularCard at 0x7effb02e9f10&gt;</pre>
+<pre>&lt;__main__.RegularCard at 0x7f0434157dc0&gt;</pre>
 </div>
 
 </div>
