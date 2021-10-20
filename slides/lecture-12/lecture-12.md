@@ -198,13 +198,14 @@ def with_a(words):
 ```python
 mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
 mots_a = with_a(mots)
-print("\n".join(mots_a))
+for w in mots_a:
+    print(w)
 ```
 
-Jusque là, rien de méchant.
+Rien de méchant.
 
 
-<small>On va mesurer le temps de traitement avec `time`. IPython est plein de magie, `%%timeit` supercalifragilisticexpialidocious et voilà.</small>
+On va mesurer le temps de traitement avec `%time`. <small>Jupyter est plein de magie, `%time` supercalifragilisticexpialidocious et voilà.</small>
 
 ```python
 %time mots_a = with_a(mots)
@@ -216,15 +217,7 @@ Comme on pouvait s'y attendre le temps d'exécution de la fonction augmente avec
 liste initiale.
 
 
-Voyons ce que ça donne avec un générateur. Construire un générateur, c'est simple : vous remplacez
-`return` par `yield` dans votre fonction.
-
-
-C'est tout ? C'est tout.  
-
-
-<small>Vous pouvez quand même en apprendre plus en lisant la [PEP
-255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
+Essayons maintenant comme ça
 
 ```python
 def gen_with_a(words):
@@ -239,15 +232,18 @@ def gen_with_a(words):
 ```python
 mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
 mots_a = gen_with_a(mots)
-print("\n".join(mots_a))
-```
-
-```python
-mots = ["le", "petit", "chat", "est", "content", "ce", "matin"]
-mots_a = gen_with_a(mots)
 for w in mots_a:
     print(w)
 ```
+
+Construire un générateur, c'est simple : vous remplacez `return` par `yield` dans votre fonction.
+
+C'est tout ? C'est tout.  
+
+<small>Vous pouvez quand même en apprendre plus en lisant la [PEP
+255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
+
+Est-ce que ça va vite ?
 
 ```python
 mots_big = mots * 1000000
@@ -267,27 +263,31 @@ print(f"Taille de mots_a : {sys.getsizeof(mots_a)}")
 print(f"Taille de mots_a_gen : {sys.getsizeof(mots_a_gen)}")
 ```
 
-`mots_a_gen` n'est pas une liste, c'est un objet `generator`.  
+`mots_a_gen` n'est pas une liste, c'est un objet `generator`.
+
 Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille
 
 ```python tags=["raises-exception"]
 len(mots_a_gen)
 ```
 
-Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut
-accéder à un élément d'index `i` comme pour une liste.
-
-Encore une différence d'avec les listes : vous ne pouvez parcourir un générateur qu'une seule fois.
+Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut pas
+accéder à un élément d'index `i` comme pour une liste, et on ne peut le parcourir qu'une seule fois.
 
 
 Ça rappelle les itérateurs !
 
 
-Oui.
+C'est parce que c'en est un cas particuleir.
 
 Les générateurs permettent de créer des itérateurs sans se fatiguer. Une fonction classique reçoit
 des paramètres, calcule un truc avec et renvoie le résultat. Un générateur renvoie un itérateur qui
 donne accès à un flux de données.
+
+Concrètement, tant que vous n'appelez pas `next()`, aucun code n'est exécuté. Quand vous appelez
+`next()`, le code est exécuté jusqu'à arriver à un `yield <bidule>`. À ce moment, l'itérateur
+renvoie la valeur <bidule> et se met en pause jusqu'au prochain `next(), où il reprendra l'exécution
+là où il s'est arrêté.
 
 Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voulez.
 
