@@ -14642,7 +14642,98 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Cours-14%E2%80%AF:-Exceptions,-Linters-et-d%C3%A9buggueurs">Cours 14&#8239;: Exceptions, Linters et d&#233;buggueurs<a class="anchor-link" href="#Cours-14%E2%80%AF:-Exceptions,-Linters-et-d%C3%A9buggueurs">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
+<h1 id="Cours-14%E2%80%AF:-D%C3%A9bugguer">Cours 14&#8239;: D&#233;bugguer<a class="anchor-link" href="#Cours-14%E2%80%AF:-D%C3%A9bugguer">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Traceback">Traceback<a class="anchor-link" href="#Traceback">&#182;</a></h2><p>Parfois rien ne marche, y a des jours comme ça</p>
+
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">catchy_song</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I got a </span><span class="si">{</span><span class="n">anmal</span><span class="si">}</span><span class="s2"> in my living room&quot;</span><span class="p">)</span>
+
+<span class="n">catchy_song</span><span class="p">(</span><span class="s2">&quot;llama&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Heureusement, notre ami Python nous dit où ça ne va pas : et affiche un <em>traceback</em></p>
+
+<pre><code>traceback
+NameError     Traceback (most recent call last)
+/tmp/ipykernel_74898/3387701961.py in &lt;module&gt;
+      2     print(f"There's a {anmal} in my living room")
+      3 
+----&gt; 4 catchy_song("llama")
+
+/tmp/ipykernel_74898/3387701961.py in catchy_song(animal)
+      1 def catchy_song(animal):
+----&gt; 2     print(f"There's a {anmal} in my living room")
+      3 
+      4 catchy_song("llama")
+
+NameError: name 'anmal' is not defined</code></pre>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>C'est bien pratique : on voit tout de suite le problème :</p>
+<ul>
+<li>La dernière ligne <code>NameError: name 'anmal' is not defined</code> nous dit exactement ce qui pose le problème</li>
+<li>Le reste nous dit où il se trouve et comment on est arrivé⋅e⋅s là. De haut en bas on a la fonction où se trouve le problème, puis la fonction qui l'appellée et ainsi de suite</li>
+<li>On parle de <em>pile d'appels</em></li>
+</ul>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Et on peut corriger</p>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">catchy_song</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There&#39;s a </span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="s2"> in my living room&quot;</span><span class="p">)</span>
+
+<span class="n">catchy_song</span><span class="p">(</span><span class="s2">&quot;llama&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pensez à aller voir <a href="https://docs.python.org/library/exceptions.html">la doc</a> si vous ne comprenez
+pas l'erreur que vous recevez.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Malheureusement, quand le code ne fait ce qu'on veut, il n'a pas toujours la décence de planter.</p>
 
 </div>
 </div></section></section><section><section>
@@ -14735,7 +14826,7 @@ pendant l'exécution.</p>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">res</span>
     <span class="k">return</span> <span class="n">res</span>
     
@@ -15084,6 +15175,12 @@ pendant l'exécution.</p>
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><small>Jeu : trouver comment j'ai fait pour que ça ne fasse pas de NameError</small></p>
+
+</div>
 </div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">

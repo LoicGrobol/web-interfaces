@@ -16,11 +16,72 @@ jupyter:
 
 <!-- LTeX: language=fr -->
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 14 : Exceptions, Linters et débuggueurs
-============================================
+Cours 14 : Débugguer
+==================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Traceback
+
+Parfois rien ne marche, y a des jours comme ça
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "subslide"}
+def catchy_song(animal):
+    print(f"I got a {anmal} in my living room")
+
+catchy_song("llama")
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Heureusement, notre ami Python nous dit où ça ne va pas : et affiche un *traceback*
+
+```traceback
+NameError     Traceback (most recent call last)
+/tmp/ipykernel_74898/3387701961.py in <module>
+      2     print(f"There's a {anmal} in my living room")
+      3 
+----> 4 catchy_song("llama")
+
+/tmp/ipykernel_74898/3387701961.py in catchy_song(animal)
+      1 def catchy_song(animal):
+----> 2     print(f"There's a {anmal} in my living room")
+      3 
+      4 catchy_song("llama")
+
+NameError: name 'anmal' is not defined
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+C'est bien pratique : on voit tout de suite le problème :
+
+- La dernière ligne `NameError: name 'anmal' is not defined` nous dit exactement ce qui pose le problème
+- Le reste nous dit où il se trouve et comment on est arrivé⋅e⋅s là. De haut en bas on a la fonction où se trouve le problème, puis la fonction qui l'appellée et ainsi de suite
+- On parle de *pile d'appels*
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Et on peut corriger
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "fragment"}
+def catchy_song(animal):
+    print(f"There's a {animal} in my living room")
+
+catchy_song("llama")
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Pensez à aller voir [la doc](https://docs.python.org/library/exceptions.html) si vous ne comprenez
+pas l'erreur que vous recevez.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Malheureusement, quand le code ne fait ce qu'on veut, il n'a pas toujours la décence de planter.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -72,7 +133,7 @@ def factorial(n):
         return 1
     res = 1
     for i in range(1, n):
-        print(res, i)
+        print(i, res)
         res = i * res
     return res
     
@@ -257,6 +318,8 @@ ord("n")
 ```python slideshow={"slide_type": "fragment"}
 ord("ո")
 ```
+
+<small>Jeu : trouver comment j'ai fait pour que ça ne fasse pas de NameError</small>
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Voilà la bonne version
