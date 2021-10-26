@@ -175,6 +175,8 @@ async def read_items():
 ## Exo
 
 
-Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de chaînes de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les chaînes de caractères reçus.
+Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de chaînes
+de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les
+chaînes de caractères reçus.
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
