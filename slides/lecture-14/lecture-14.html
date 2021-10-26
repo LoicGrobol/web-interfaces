@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>lecture-02</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>lecture-14</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14516,18 +14516,27 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <!-- LTeX: language=fr -->
-
-<h1 id="Cours-2%E2%80%AF:-Structures-de-donn%C3%A9es">Cours 2&#8239;: Structures de donn&#233;es<a class="anchor-link" href="#Cours-2%E2%80%AF:-Structures-de-donn%C3%A9es">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
-<p>2021-09-22</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Cours-14%E2%80%AF:-Exceptions,-Linters-et-d%C3%A9buggueurs">Cours 14&#8239;: Exceptions, Linters et d&#233;buggueurs<a class="anchor-link" href="#Cours-14%E2%80%AF:-Exceptions,-Linters-et-d%C3%A9buggueurs">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Factorielle">Factorielle<a class="anchor-link" href="#Factorielle">&#182;</a></h2><p><strong>Rappel</strong> la fonction « factorielle » est définie par</p>
+$$\text{factorielle}(n) = 1×2×…×n$$
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14535,11 +14544,33 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>362880</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-listes-:-fonctions">Les listes : fonctions<a class="anchor-link" href="#Les-listes-:-fonctions">&#182;</a></h2><p>Les listes héritent des fonctions des <em>sequences</em>, elles ont également des <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">méthodes
-propres</a></p>
+<p><strong>Exercice</strong> écrire une fonction <code>factorial</code> qui calcule la factorielle d'un nombre</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14548,7 +14579,10 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">pass</span>  <span class="c1"># À vous !</span>
 </pre></div>
 
      </div>
@@ -14556,28 +14590,21 @@ propres</a></p>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Parmi ces fonctions, nous utiliserons principalement :</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>append(x)</code> : ajoute un élément <code>x</code> à la fin de la liste (haut de la pile*)</li>
-</ul>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14593,13 +14620,13 @@ propres</a></p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[12, 15, 12, 7, 18, 3]</pre>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>40320</pre>
 </div>
 
 </div>
@@ -14611,9 +14638,14 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>extend(lst)</code> : ajoute tous les éléments de <code>lst</code> à la fin de la liste</li>
-</ul>
+<p>On a clairement un problème, mais où ?</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour le savoir on peut par exemple insérer un <code>print</code> dans la boucle pour voir ce qui se passe
+pendant l'exécution.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14622,8 +14654,16 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span>
+    
+<span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14642,10 +14682,29 @@ propres</a></p>
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>1 1
+1 2
+2 3
+6 4
+24 5
+120 6
+720 7
+5040 8
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[12, 15, 12, 7, 18, 3, 10, 11]</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>40320</pre>
 </div>
 
 </div>
@@ -14657,9 +14716,7 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>pop(index=-1)</code> : supprime et renvoie l'élément de la liste à la position <code>index</code></li>
-</ul>
+<p>Alors, quel est le problème ? Comment on corrige ?</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14668,9 +14725,8 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">display</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14689,26 +14745,19 @@ propres</a></p>
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>11</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>0 1
+1 1
+2 2
+3 6
+4 24
+5 120
+6 720
+7 5040
+8 40320
+9 362880
+</pre>
 </div>
-
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[12, 15, 12, 7, 18, 3, 10]</pre>
-</div>
-
 </div>
 
 </div>
@@ -14718,9 +14767,7 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>index(x)</code> : renvoie l'index du premier élément de valeur x</li>
-</ul>
+<p>Voilà la bonne version</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14729,7 +14776,15 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span>
+    
+<span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14751,7 +14806,7 @@ propres</a></p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0</pre>
+<pre>362880</pre>
 </div>
 
 </div>
@@ -14763,12 +14818,8 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><p><code>count(x)</code> : renvoie le nombre de fois où x apparaît</p>
-<p><strong>Attention</strong> : si vous avez plusieurs éléments à compter, utilisez plutôt
-<a href="https://docs.python.org/3/library/collections.html#collections.Counter"><code>collections.Counter</code></a></p>
-</li>
-</ul>
+<h2 id="Un-peu-de-textom%C3%A9trie">Un peu de textom&#233;trie<a class="anchor-link" href="#Un-peu-de-textom%C3%A9trie">&#182;</a></h2><p><strong>Hypothèse</strong> on veut savoir étant donné un mot, quels sont les mots qui apparaissent le plus souvent dans la même phrase.</p>
+<p>On travaille sur un « gros » corpus</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14777,55 +14828,7 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>2</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>sort(key=None, reverse=False)</code> : trie et modifie la liste, lire la
-  <a href="https://docs.python.org/3/howto/sorting.html#sortinghowto">doc</a> pour en savoir plus sur les
-  ordres de tri.</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>head ancor.txt
 </pre></div>
 
      </div>
@@ -14844,12 +14847,19 @@ propres</a></p>
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[3, 7, 10, 12, 12, 15, 18]</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>la toute première est bien simple je voudrais savoir depuis combien de temps vous habitez à Orléans
+alors depuis toujours
+hm ?
+et toujours je suis né à Orléans ça c&#39; est pour me faire raconter ma vie euh en quarante et un mille neuf cent quarante et un et j&#39; ai fait mes études au lycée Pothier jusqu&#39; en classe préparatoire des grandes écoles
+hm hm
+en cinquante-huit en cinquante-neuf je suis rentré à l&#39; école Nationale d&#39; Aviation Civile à Orly en octobre mille neuf cent soixante donc je suis parti d&#39; Orléans à ce moment -là après j&#39; ai fait mes trois ans d&#39; études mon service militaire et euh j&#39; ai encore fait euh une année de en faculté à Paris et puis j&#39; ai travaillé à Paris également à Argenteuil dans la banlieue et je suis revenu à Orléans au moment où je me suis marié en juillet soixante-sept
+est -ce que c&#39; est surtout votre mariage qui vous a ramené à Orléans ou est -ce que c&#39; est une autre chose ?
+y a eu de y a eu plusieurs euh plusieurs raisons euh je travaillais chez Simca enfin j&#39; ai mon école est une école d&#39; ingénieurs électroniciens
+hm hm
+j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avait aucun rapport parce que je voulais euh me lancer dans l&#39; automobile ça n&#39; a pas marché pour différentes raisons et euh sur ce je me suis marié alors comme euh j&#39; ét- je n&#39; avais pas une place qui correspondait à à ce que j&#39; aurais pu avoir chez Simca que j&#39; avais essayé de chercher une situation à Paris enfin dans différentes branches et puis ça n&#39; a pas marché et j&#39; ai décidé de revenir à Orléans pour de- pour me mettre professeur de maths chose que j&#39; avais toujours euh voulu faire mais enfin je faisais j&#39; avais fait autre chose
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -14859,17 +14869,48 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Attention à ne pas confondre <code>append</code> et <code>extend</code></p>
+<p>Extrayons son vocabulaire</p>
+<p><strong>Exercice</strong> écrire une fonction <code>vocab</code> qui prend en argument un chemin vers un fichier texte et qui renvoie</p>
+<ul>
+<li>Une liste contenant les mots de ce texte</li>
+<li>Un <code>dict</code> qui mappe les mots vers leur position dans la liste</li>
+</ul>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">vocab</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">vocab</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span>
+    <span class="n">i2t</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">t2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_stream</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">in_stream</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">t2i</span><span class="p">:</span>
+                    <span class="n">t2i</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i2t</span><span class="p">)</span>
+                    <span class="n">i2t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">t2i</span><span class="p">,</span> <span class="n">i2t</span>
+
+<span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span> <span class="o">=</span> <span class="n">vocab</span><span class="p">(</span><span class="s2">&quot;ancor.txt&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ancor_i2t</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14891,83 +14932,1007 @@ propres</a></p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[3, 7, 10, 12, 12, 15, 18, 23]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">46</span><span class="p">])</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[3, 7, 10, 12, 12, 15, 18, 23, [35, 46]]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">])</span>
-<span class="n">display</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[3, 7, 10, 12, 12, 15, 18, 23, [35, 46], 51, 52]</pre>
+<pre>[&#39;la&#39;,
+ &#39;toute&#39;,
+ &#39;première&#39;,
+ &#39;est&#39;,
+ &#39;bien&#39;,
+ &#39;simple&#39;,
+ &#39;je&#39;,
+ &#39;voudrais&#39;,
+ &#39;savoir&#39;,
+ &#39;depuis&#39;,
+ &#39;combien&#39;,
+ &#39;de&#39;,
+ &#39;temps&#39;,
+ &#39;vous&#39;,
+ &#39;habitez&#39;,
+ &#39;à&#39;,
+ &#39;Orléans&#39;,
+ &#39;alors&#39;,
+ &#39;toujours&#39;,
+ &#39;hm&#39;,
+ &#39;?&#39;,
+ &#39;et&#39;,
+ &#39;suis&#39;,
+ &#39;né&#39;,
+ &#39;ça&#39;,
+ &#34;c&#39;&#34;,
+ &#39;pour&#39;,
+ &#39;me&#39;,
+ &#39;faire&#39;,
+ &#39;raconter&#39;,
+ &#39;ma&#39;,
+ &#39;vie&#39;,
+ &#39;euh&#39;,
+ &#39;en&#39;,
+ &#39;quarante&#39;,
+ &#39;un&#39;,
+ &#39;mille&#39;,
+ &#39;neuf&#39;,
+ &#39;cent&#39;,
+ &#34;j&#39;&#34;,
+ &#39;ai&#39;,
+ &#39;fait&#39;,
+ &#39;mes&#39;,
+ &#39;études&#39;,
+ &#39;au&#39;,
+ &#39;lycée&#39;,
+ &#39;Pothier&#39;,
+ &#34;jusqu&#39;&#34;,
+ &#39;classe&#39;,
+ &#39;préparatoire&#39;,
+ &#39;des&#39;,
+ &#39;grandes&#39;,
+ &#39;écoles&#39;,
+ &#39;cinquante-huit&#39;,
+ &#39;cinquante-neuf&#39;,
+ &#39;rentré&#39;,
+ &#34;l&#39;&#34;,
+ &#39;école&#39;,
+ &#39;Nationale&#39;,
+ &#34;d&#39;&#34;,
+ &#39;Aviation&#39;,
+ &#39;Civile&#39;,
+ &#39;Orly&#39;,
+ &#39;octobre&#39;,
+ &#39;soixante&#39;,
+ &#39;donc&#39;,
+ &#39;parti&#39;,
+ &#39;ce&#39;,
+ &#39;moment&#39;,
+ &#39;-là&#39;,
+ &#39;après&#39;,
+ &#39;trois&#39;,
+ &#39;ans&#39;,
+ &#39;mon&#39;,
+ &#39;service&#39;,
+ &#39;militaire&#39;,
+ &#39;encore&#39;,
+ &#39;une&#39;,
+ &#39;année&#39;,
+ &#39;faculté&#39;,
+ &#39;Paris&#39;,
+ &#39;puis&#39;,
+ &#39;travaillé&#39;,
+ &#39;également&#39;,
+ &#39;Argenteuil&#39;,
+ &#39;dans&#39;,
+ &#39;banlieue&#39;,
+ &#39;revenu&#39;,
+ &#39;où&#39;,
+ &#39;marié&#39;,
+ &#39;juillet&#39;,
+ &#39;soixante-sept&#39;,
+ &#39;-ce&#39;,
+ &#39;que&#39;,
+ &#39;surtout&#39;,
+ &#39;votre&#39;,
+ &#39;mariage&#39;,
+ &#39;qui&#39;,
+ &#39;a&#39;,
+ &#39;ramené&#39;,
+ &#39;ou&#39;,
+ &#39;autre&#39;,
+ &#39;chose&#39;,
+ &#39;y&#39;,
+ &#39;eu&#39;,
+ &#39;plusieurs&#39;,
+ &#39;raisons&#39;,
+ &#39;travaillais&#39;,
+ &#39;chez&#39;,
+ &#39;Simca&#39;,
+ &#39;enfin&#39;,
+ &#39;ingénieurs&#39;,
+ &#39;électroniciens&#39;,
+ &#39;industrie&#39;,
+ &#39;automobile&#39;,
+ &#34;n&#39;&#34;,
+ &#39;avait&#39;,
+ &#39;aucun&#39;,
+ &#39;rapport&#39;,
+ &#39;parce&#39;,
+ &#39;voulais&#39;,
+ &#39;lancer&#39;,
+ &#39;pas&#39;,
+ &#39;marché&#39;,
+ &#39;différentes&#39;,
+ &#39;sur&#39;,
+ &#39;comme&#39;,
+ &#39;ét-&#39;,
+ &#39;avais&#39;,
+ &#39;place&#39;,
+ &#39;correspondait&#39;,
+ &#39;aurais&#39;,
+ &#39;pu&#39;,
+ &#39;avoir&#39;,
+ &#39;essayé&#39;,
+ &#39;chercher&#39;,
+ &#39;situation&#39;,
+ &#39;branches&#39;,
+ &#39;décidé&#39;,
+ &#39;revenir&#39;,
+ &#39;de-&#39;,
+ &#39;mettre&#39;,
+ &#39;professeur&#39;,
+ &#39;maths&#39;,
+ &#39;voulu&#39;,
+ &#39;mais&#39;,
+ &#39;faisais&#39;,
+ &#39;cette&#39;,
+ &#39;raison-là&#39;,
+ &#39;femme&#39;,
+ &#39;faisait&#39;,
+ &#39;ses&#39;,
+ &#39;ici&#39;,
+ &#39;elle&#39;,
+ &#39;aurait&#39;,
+ &#39;les&#39;,
+ &#39;continuer&#39;,
+ &#39;cause&#39;,
+ &#39;déplacements&#39;,
+ &#39;ah&#39;,
+ &#39;bon&#39;,
+ &#39;étais&#39;,
+ &#39;oui&#39;,
+ &#39;êtes&#39;,
+ &#39;Source&#39;,
+ &#39;même&#39;,
+ &#39;rentrée&#39;,
+ &#39;on&#39;,
+ &#34;m&#39;&#34;,
+ &#39;proposé&#39;,
+ &#39;maintenant&#39;,
+ &#39;ingénieur&#39;,
+ &#39;gestionnaire&#39;,
+ &#39;campus&#39;,
+ &#39;d&#39;,
+ &#39;e&#39;,
+ &#39;université&#39;,
+ &#39;Tours&#39;,
+ &#34;qu&#39;&#34;,
+ &#39;ils&#39;,
+ &#39;cherchaient&#39;,
+ &#34;quelqu&#39;un&#34;,
+ &#39;jeune&#39;,
+ &#39;dynamique&#39;,
+ &#39;ont&#39;,
+ &#39;recruter&#39;,
+ &#39;certainement&#39;,
+ &#39;par&#39;,
+ &#39;petites&#39;,
+ &#39;annonces&#39;,
+ &#39;laquelle&#39;,
+ &#39;il&#39;,
+ &#39;été&#39;,
+ &#39;difficile&#39;,
+ &#39;refuser&#39;,
+ &#39;différence&#39;,
+ &#39;salaire&#39;,
+ &#39;considérable&#39;,
+ &#39;entre&#39;,
+ &#39;le&#39;,
+ &#39;abord&#39;,
+ &#39;rectorat&#39;,
+ &#39;mois&#39;,
+ &#39;août&#39;,
+ &#39;soixante-huit&#39;,
+ &#39;faites&#39;,
+ &#39;juste&#39;,
+ &#39;là&#39;,
+ &#39;chargé&#39;,
+ &#34;s&#39;&#34;,
+ &#39;appelle&#39;,
+ &#39;exactement&#39;,
+ &#39;gestion&#39;,
+ &#39;technique&#39;,
+ &#39;installations&#39;,
+ &#39;faut&#39;,
+ &#39;laisser&#39;,
+ &#39;sorte&#39;,
+ &#39;extérieures&#39;,
+ &#39;aux&#39;,
+ &#39;bâtiments&#39;,
+ &#39;soient&#39;,
+ &#39;état&#39;,
+ &#39;dire&#39;,
+ &#39;routes&#39;,
+ &#39;espaces&#39;,
+ &#39;verts&#39;,
+ &#39;sous-bois&#39;,
+ &#39;éclairage&#39;,
+ &#39;public&#39;,
+ &#39;téléphone&#39;,
+ &#39;eau&#39;,
+ &#39;plus&#39;,
+ &#39;questions&#39;,
+ &#39;gardiennage&#39;,
+ &#39;circulation&#39;,
+ &#39;discipline&#39;,
+ &#39;tant&#39;,
+ &#39;beaucoup&#39;,
+ &#39;choses&#39;,
+ &#39;réalité&#39;,
+ &#39;ne&#39;,
+ &#39;sont&#39;,
+ &#39;part&#39;,
+ &#39;point&#39;,
+ &#39;réforme&#39;,
+ &#39;universitaire&#39;,
+ &#39;existence&#39;,
+ &#39;financière&#39;,
+ &#39;permet&#39;,
+ &#39;guère&#39;,
+ &#39;quelque&#39;,
+ &#39;étudiants&#39;,
+ &#39;exemple&#39;,
+ &#39;vaut&#39;,
+ &#39;mieux&#39;,
+ &#39;marcher&#39;,
+ &#39;oeufs&#39;,
+ &#39;non&#39;,
+ &#39;loin&#39;,
+ &#39;moins&#39;,
+ &#39;possible&#39;,
+ &#39;finalement&#39;,
+ &#39;côté&#39;,
+ &#39;rôle&#39;,
+ &#39;assez&#39;,
+ &#39;ambigu&#39;,
+ &#39;petit&#39;,
+ &#39;peu&#39;,
+ &#39;avec&#39;,
+ &#39;moi&#39;,
+ &#39;pense&#39;,
+ &#39;va&#39;,
+ &#39;se&#39;,
+ &#39;remous&#39;,
+ &#39;dernière&#39;,
+ &#39;vont&#39;,
+ &#39;tasser&#39;,
+ &#39;peut-être&#39;,
+ &#39;prochaine&#39;,
+ &#39;retrouvera&#39;,
+ &#39;conditions&#39;,
+ &#39;normales&#39;,
+ &#39;étant&#39;,
+ &#39;donné&#39;,
+ &#39;vos&#39;,
+ &#39;autres&#39;,
+ &#39;fonctions&#39;,
+ &#39;élément&#39;,
+ &#39;devrait&#39;,
+ &#39;borner&#39;,
+ &#39;très&#39;,
+ &#39;faible&#39;,
+ &#39;puisque&#39;,
+ &#39;deux&#39;,
+ &#39;gardiens&#39;,
+ &#39;travaillent&#39;,
+ &#39;chargés&#39;,
+ &#39;normalement&#39;,
+ &#39;professeurs&#39;,
+ &#39;disciplinés&#39;,
+ &#39;tout&#39;,
+ &#39;monde&#39;,
+ &#39;ben&#39;,
+ &#39;gare&#39;,
+ &#39;parkings&#39;,
+ &#39;importe&#39;,
+ &#39;foi&#39;,
+ &#39;presque&#39;,
+ &#39;peut&#39;,
+ &#39;agent&#39;,
+ &#39;police&#39;,
+ &#39;eh&#39;,
+ &#39;bah&#39;,
+ &#39;roulez&#39;,
+ &#39;quatre-vingt-dix&#39;,
+ &#39;limité&#39;,
+ &#39;cinquante&#39;,
+ &#39;accident&#39;,
+ &#39;matériel&#39;,
+ &#39;pratiquement&#39;,
+ &#39;préférable&#39;,
+ &#39;sauf&#39;,
+ &#39;crédits&#39;,
+ &#39;heure&#39;,
+ &#39;viens&#39;,
+ &#39;voir&#39;,
+ &#39;mairie&#39;,
+ &#39;connais&#39;,
+ &#39;vais&#39;,
+ &#39;réussir&#39;,
+ &#39;réparer&#39;,
+ &#39;trous&#39;,
+ &#39;sans&#39;,
+ &#39;coûte&#39;,
+ &#39;rien&#39;,
+ &#39;système&#39;,
+ &#39;D&#39;,
+ &#39;sinon&#39;,
+ &#39;vue&#39;,
+ &#39;marche&#39;,
+ &#39;argent&#39;,
+ &#39;dettes&#39;,
+ &#39;EDF&#39;,
+ &#39;déjà&#39;,
+ &#39;quatre&#39;,
+ &#39;millions&#39;,
+ &#39;durera&#39;,
+ &#39;toutes&#39;,
+ &#39;façons&#39;,
+ &#39;éclairer&#39;,
+ &#39;quand&#39;,
+ &#39;éclaire&#39;,
+ &#39;textes&#39;,
+ &#39;font&#39;,
+ &#39;donnés&#39;,
+ &#39;reçoit&#39;,
+ &#39;lettres&#39;,
+ &#39;recommandées&#39;,
+ &#39;quoi&#39;,
+ &#39;doit&#39;,
+ &#39;répond&#39;,
+ &#39;disant&#39;,
+ &#39;viendra&#39;,
+ &#39;oh&#39;,
+ &#39;avez&#39;,
+ &#39;appareil&#39;,
+ &#39;coupe&#39;,
+ &#39;responsable&#39;,
+ &#39;gens&#39;,
+ &#39;connaissent&#39;,
+ &#39;parmi&#39;,
+ &#39;fais&#39;,
+ &#39;grand&#39;,
+ &#39;connaître&#39;,
+ &#39;pourrais&#39;,
+ &#39;réunions&#39;,
+ &#39;suffit&#39;,
+ &#39;imposer&#39;,
+ &#39;certaines&#39;,
+ &#39;règles&#39;,
+ &#39;plaisent&#39;,
+ &#39;serait&#39;,
+ &#39;vite&#39;,
+ &#39;dévier&#39;,
+ &#39;circuit&#39;,
+ &#39;car&#39;,
+ &#39;passe&#39;,
+ &#39;abîme&#39;,
+ &#39;provisoirement&#39;,
+ &#39;réfère&#39;,
+ &#39;décisions&#39;,
+ &#39;supérieures&#39;,
+ &#39;recteur&#39;,
+ &#39;doyen&#39;,
+ &#39;fac&#39;,
+ &#39;sciences&#39;,
+ &#39;préfèrent&#39;,
+ &#39;cars&#39;,
+ &#39;éviter&#39;,
+ &#39;explosions&#39;,
+ &#39;manifestations&#39;,
+ &#39;donner&#39;,
+ &#39;exciter&#39;,
+ &#39;laisse&#39;,
+ &#39;changera&#39;,
+ &#39;pendant&#39;,
+ &#39;vacances&#39;,
+ &#39;ouais&#39;,
+ &#39;question&#39;,
+ &#39;transport&#39;,
+ &#39;être&#39;,
+ &#39;si&#39;,
+ &#39;mal&#39;,
+ &#39;voyez&#39;,
+ &#39;bureau&#39;,
+ &#39;passent&#39;,
+ &#39;devant&#39;,
+ &#39;attend&#39;,
+ &#39;longtemps&#39;,
+ &#39;tous&#39;,
+ &#39;quarts&#39;,
+ &#39;habituel&#39;,
+ &#39;façon&#39;,
+ &#39;dont&#39;,
+ &#39;p-&#39;,
+ &#39;peux&#39;,
+ &#39;occuper&#39;,
+ &#39;trouve&#39;,
+ &#39;pourra&#39;,
+ &#39;demander&#39;,
+ &#39;Trec&#39;,
+ &#39;transporteur&#39;,
+ &#39;orléanais&#39;,
+ &#39;rajouter&#39;,
+ &#39;telles&#39;,
+ &#39;heures&#39;,
+ &#39;produit&#39;,
+ &#39;produire&#39;,
+ &#39;pointe&#39;,
+ &#39;général&#39;,
+ &#39;demi&#39;,
+ &#39;voitures&#39;,
+ &#39;évidemment&#39;,
+ &#39;hein&#39;,
+ &#39;crois&#39;,
+ &#39;problèmes&#39;,
+ &#39;isolement&#39;,
+ &#39;endroit&#39;,
+ &#39;réunir&#39;,
+ &#39;sympa&#39;,
+ &#39;café&#39;,
+ &#39;Beauchamp&#39;,
+ &#39;Orléans-deux&#39;,
+ &#39;du&#39;,
+ &#39;ferme&#39;,
+ &#39;ville&#39;,
+ &#39;nouvelle&#39;,
+ &#39;comment&#39;,
+ &#39;redevenue&#39;,
+ &#39;avis&#39;,
+ &#39;sais&#39;,
+ &#39;promené&#39;,
+ &#39;rues&#39;,
+ &#39;dix&#39;,
+ &#39;soir&#39;,
+ &#39;vide&#39;,
+ &#39;essaierez&#39;,
+ &#39;commode&#39;,
+ &#39;circuler&#39;,
+ &#39;personne&#39;,
+ &#39;seulement&#39;,
+ &#39;contrepartie&#39;,
+ &#39;sait&#39;,
+ &#39;aller&#39;,
+ &#39;rigueur&#39;,
+ &#39;cinéma&#39;,
+ &#39;sortie&#39;,
+ &#39;cafés&#39;,
+ &#39;ouverts&#39;,
+ &#39;ambiance&#39;,
+ &#39;étudiante&#39;,
+ &#39;importante&#39;,
+ &#39;implantée&#39;,
+ &#39;quelques&#39;,
+ &#39;boîtes&#39;,
+ &#39;tas&#39;,
+ &#39;di-&#39;,
+ &#39;occupe&#39;,
+ &#39;vois&#39;,
+ &#39;frappante&#39;,
+ &#39;habiller&#39;,
+ &#39;voit&#39;,
+ &#39;soit&#39;,
+ &#39;moyens&#39;,
+ &#39;financiers&#39;,
+ &#39;fasse&#39;,
+ &#39;goût&#39;,
+ &#39;milieu&#39;,
+ &#39;lequel&#39;,
+ &#39;vit&#39;,
+ &#39;habillés&#39;,
+ &#39;filles&#39;,
+ &#39;jolies&#39;,
+ &#39;arrangées&#39;,
+ &#39;efforts&#39;,
+ &#39;vraiment&#39;,
+ &#39;était&#39;,
+ &#39;étudiant&#39;,
+ &#39;fin&#39;,
+ &#39;impression&#39;,
+ &#39;sortaient&#39;,
+ &#39;leur&#39;,
+ &#39;campagne&#39;,
+ &#39;leurs&#39;,
+ &#39;sabots&#39;,
+ &#39;maquillées&#39;,
+ &#39;boutons&#39;,
+ &#39;figure&#39;,
+ &#39;soignées&#39;,
+ &#39;rapprocherait&#39;,
+ &#39;g-&#39;,
+ &#39;inhérent&#39;,
+ &#39;problème&#39;,
+ &#39;retrouve&#39;,
+ &#39;universités&#39;,
+ &#39;nouvelles&#39;,
+ &#39;Angleterre&#39;,
+ &#39;France&#39;,
+ &#39;début&#39;,
+ &#39;chantier&#39;,
+ &#39;boue&#39;,
+ &#39;remarquez&#39;,
+ &#39;effectivement&#39;,
+ &#39;reconnaître&#39;,
+ &#39;sûrement&#39;,
+ &#39;ailleurs&#39;,
+ &#39;progresse&#39;,
+ &#39;voulez&#39;,
+ &#39;spectaculaire&#39;,
+ &#39;spécialement&#39;,
+ &#39;attention&#39;,
+ &#39;chantiers&#39;,
+ &#39;tenue&#39;,
+ &#39;création&#39;,
+ &#39;boueux&#39;,
+ &#39;allait&#39;,
+ &#39;escarpins&#39;,
+ &#39;chaussures&#39;,
+ &#39;vernies&#39;,
+ &#39;fallait&#39;,
+ &#39;venir&#39;,
+ &#39;bottes&#39;,
+ &#39;salir&#39;,
+ &#39;mettait&#39;,
+ &#39;habits&#39;,
+ &#39;peinaient&#39;,
+ &#39;troisième&#39;,
+ &#39;dépaysés&#39;,
+ &#39;Orléanais&#39;,
+ &#39;population&#39;,
+ &#39;département&#39;,
+ &#39;environs&#39;,
+ &#39;persuadé&#39;,
+ &#39;mêmes&#39;,
+ &#39;auraient&#39;,
+ &#39;pareil&#39;,
+ &#39;parle&#39;,
+ &#39;cet&#39;,
+ &#39;événement&#39;,
+ &#39;marqué&#39;,
+ &#39;indices&#39;,
+ &#39;genre&#39;,
+ &#39;plan&#39;,
+ &#39;intellectuel&#39;,
+ &#39;poser&#39;,
+ &#39;avant&#39;,
+ &#39;prenez&#39;,
+ &#39;quel&#39;,
+ &#39;pourcentage&#39;,
+ &#39;région&#39;,
+ &#39;j-&#39;,
+ &#39;répondre&#39;,
+ &#39;scolarité&#39;,
+ &#39;partir&#39;,
+ &#39;envers&#39;,
+ &#39;près&#39;,
+ &#39;étrangers&#39;,
+ &#39;Vietnamiens&#39;,
+ &#39;Malgaches&#39;,
+ &#39;Noirs&#39;,
+ &#39;extérieur&#39;,
+ &#39;dizaine&#39;,
+ &#39;facilement&#39;,
+ &#39;compter&#39;,
+ &#39;soixante-dix&#39;,
+ &#39;quatre-vingt&#39;,
+ &#39;Centre&#39;,
+ &#39;peuvent&#39;,
+ &#39;Cher&#39;,
+ &#39;Chartes&#39;,
+ &#39;Eure-et-Loir&#39;,
+ &#39;Nièvre&#39;,
+ &#39;partout&#39;,
+ &#39;souvent&#39;,
+ &#39;viennent&#39;,
+ &#39;villes&#39;,
+ &#39;relever&#39;,
+ &#39;tendance&#39;,
+ &#39;générale&#39;,
+ &#39;aillent&#39;,
+ &#39;mis&#39;,
+ &#39;Pa-&#39;,
+ &#39;cas&#39;,
+ &#39;spécial&#39;,
+ &#39;phénomène&#39;,
+ &#39;centre&#39;,
+ &#39;eux&#39;,
+ &#39;plutôt&#39;,
+ &#39;obligatoire&#39;,
+ &#39;pistonner&#39;,
+ &#39;arriver&#39;,
+ &#39;prendre&#39;,
+ &#39;chambre&#39;,
+ &#39;habite&#39;,
+ &#39;sa&#39;,
+ &#39;tante&#39;,
+ &#39;trucs&#39;,
+ &#39;droit&#39;,
+ &#39;veut&#39;,
+ &#39;voulait&#39;,
+ &#39;Montpellier&#39;,
+ &#39;appelé&#39;,
+ &#39;admettons&#39;,
+ &#39;provinces&#39;,
+ &#39;pourrait&#39;,
+ &#39;tournant&#39;,
+ &#39;règlement&#39;,
+ &#39;suivant&#39;,
+ &#39;crée&#39;,
+ &#39;celle-ci&#39;,
+ &#39;forcément&#39;,
+ &#39;bons&#39;,
+ &#39;quels&#39;,
+ &#39;veux&#39;,
+ &#39;mot&#39;,
+ &#39;réputation&#39;,
+ &#39;établie&#39;,
+ &#39;tel&#39;,
+ &#39;domaine&#39;,
+ &#39;parents&#39;,
+ &#39;fois&#39;,
+ &#39;disent&#39;,
+ &#39;préfère&#39;,
+ &#39;fils&#39;,
+ &#39;math&#39;,
+ &#39;élém-&#39;,
+ &#39;mention&#39;,
+ &#39;aille&#39;,
+ &#39;sera&#39;,
+ &#39;suivi&#39;,
+ &#39;cetera&#39;,
+ &#39;attirance&#39;,
+ &#39;médecine&#39;,
+ &#39;préférais&#39;,
+ &#39;moyen&#39;,
+ &#39;Faculté&#39;,
+ &#39;renommée&#39;,
+ &#39;concurrence&#39;,
+ &#39;envisagé&#39;,
+ &#39;auquel&#39;,
+ &#39;risquent&#39;,
+ &#39;risque&#39;,
+ &#39;construire&#39;,
+ &#39;oblige&#39;,
+ &#39;personnes&#39;,
+ &#39;élèves&#39;,
+ &#39;doués&#39;,
+ &#39;veulent&#39;,
+ &#39;nombreux&#39;,
+ &#39;moyenne&#39;,
+ &#39;dites&#39;,
+ &#39;tu&#39;,
+ &#39;vas&#39;,
+ &#39;ton&#39;,
+ &#39;certificat&#39;,
+ &#39;histoire&#39;,
+ &#39;ta&#39;,
+ &#39;licence&#39;,
+ &#39;j&#39;,
+ &#39;pourquoi&#39;,
+ &#39;irais&#39;,
+ &#39;faudra&#39;,
+ &#39;paye&#39;,
+ &#39;ceci&#39;,
+ &#39;transports&#39;,
+ &#39;seras&#39;,
+ &#39;nous&#39;,
+ &#39;coûtera&#39;,
+ &#39;cher&#39;,
+ &#39;compte&#39;,
+ &#39;aimerais&#39;,
+ &#39;bourses&#39;,
+ &#39;intéresse&#39;,
+ &#39;financières&#39;,
+ &#39;appris&#39;,
+ &#39;récemment&#39;,
+ &#39;connaissance&#39;,
+ &#39;chef&#39;,
+ &#39;changement&#39;,
+ &#39;auparavant&#39;,
+ &#39;comité&#39;,
+ &#39;réunissait&#39;,
+ &#39;commission&#39;,
+ &#39;décidait&#39;,
+ &#39;voyait&#39;,
+ &#39;dossier&#39;,
+ &#39;déposé&#39;,
+ &#39;aura&#39;,
+ &#39;bourse&#39;,
+ &#39;pif&#39;,
+ &#39;tenant&#39;,
+ &#39;certains&#39;,
+ &#39;correctifs&#39;,
+ &#39;savez&#39;,
+ &#39;lié&#39;,
+ &#39;impôts&#39;,
+ &#39;simplement&#39;,
+ &#39;catégories&#39;,
+ &#39;Français&#39;,
+ &#39;rendus&#39;,
+ &#39;non-salarié&#39;,
+ &#39;salariés&#39;,
+ &#39;touchent&#39;,
+ &#39;traitement&#39;,
+ &#39;déclaré&#39;,
+ &#39;intégralement&#39;,
+ &#39;direction&#39;,
+ &#39;déclarations&#39;,
+ &#39;retirer&#39;,
+ &#39;centime&#39;,
+ &#39;colonne&#39;,
+ &#39;imposable&#39;,
+ &#39;celui&#39;,
+ &#39;devez&#39;,
+ &#39;déclarer&#39;,
+ &#39;non-salariées&#39;,
+ &#39;commerçants&#39;,
+ &#39;artisans&#39;,
+ &#39;professions&#39;,
+ &#39;libérales&#39;,
+ &#39;contraire&#39;,
+ &#39;contrôler&#39;,
+ &#39;agriculteurs&#39;,
+ &#39;mettent&#39;,
+ &#39;exagérer&#39;,
+ &#39;agriculteur&#39;,
+ &#39;déclare&#39;,
+ &#39;gagné&#39;,
+ &#39;commerçant&#39;,
+ &#39;actuellement&#39;,
+ &#39;réformes&#39;,
+ &#39;dé-&#39;,
+ &#39;accordées&#39;,
+ &#39;différences&#39;,
+ &#39;considérables&#39;,
+ &#39;salarié&#39;,
+ &#39;taux&#39;,
+ &#39;égal&#39;,
+ &#39;représente&#39;,
+ &#39;absolument&#39;,
+ &#39;lui&#39;,
+ &#39;correction&#39;,
+ &#39;là-dessus&#39;,
+ &#39;disait&#39;,
+ &#39;connaît&#39;,
+ &#39;doute&#39;,
+ &#39;vient&#39;,
+ &#39;cours&#39;,
+ &#39;petite&#39;,
+ &#39;Triumph&#39;,
+ &#39;Morris&#39;,
+ &#39;chevaux&#39;,
+ &#39;contre&#39;,
+ &#39;barèmes&#39;,
+ &#39;au-dessus&#39;,
+ &#39;barème&#39;,
+ &#39;celui-là&#39;,
+ &#39;ce-&#39;,
+ &#39;étaient&#39;,
+ &#39;rendues&#39;,
+ &#39;publiques&#39;,
+ &#39;pouvait&#39;,
+ &#39;Edgard&#39;,
+ &#39;Faure&#39;,
+ &#39;obligé&#39;,
+ &#39;seule&#39;,
+ &#39;seul&#39;,
+ &#39;critère&#39;,
+ &#39;dispose&#39;,
+ &#39;revient&#39;,
+ &#39;non-salariés&#39;,
+ &#39;déclarent&#39;,
+ &#39;enfants&#39;,
+ &#39;grand-chose&#39;,
+ &#39;retrouver&#39;,
+ &#34;puisqu&#39;&#34;,
+ &#39;fameux&#39;,
+ &#39;correctif&#39;,
+ &#39;secret&#39;,
+ &#39;voilà&#39;,
+ &#39;expliqué&#39;,
+ &#39;cru&#39;,
+ &#39;bêtise&#39;,
+ &#39;rappelle&#39;,
+ &#39;six&#39;,
+ &#39;sept&#39;,
+ &#39;cents&#39;,
+ &#39;euhm&#39;,
+ &#39;prévoit&#39;,
+ &#39;huit&#39;,
+ &#39;quatre-vingt-neuf&#39;,
+ &#39;étonne&#39;,
+ &#39;gênant&#39;,
+ &#39;triplé&#39;,
+ &#39;nombre&#39;,
+ &#39;làen&#39;,
+ &#39;an&#39;,
+ &#39;chiffres&#39;,
+ &#39;vérifier&#39;,
+ &#39;pouvez&#39;,
+ &#39;montant&#39;,
+ &#39;aviation&#39;,
+ &#39;civile&#39;,
+ &#39;père&#39;,
+ &#39;décédé&#39;,
+ &#39;maximum&#39;,
+ &#39;environ&#39;,
+ &#39;francs&#39;,
+ &#39;divisé&#39;,
+ &#39;trente&#39;,
+ &#39;soixante-deux&#39;,
+ &#39;soixante-trois&#39;,
+ &#39;cinq&#39;,
+ &#39;époque&#39;,
+ &#39;comparaison&#39;,
+ &#39;logé&#39;,
+ &#39;ces&#39;,
+ &#39;touche&#39;,
+ &#39;moitié&#39;,
+ &#39;accepte&#39;,
+ &#39;chiffre&#39;,
+ &#39;participent&#39;,
+ &#39;débrouillent&#39;,
+ &#39;moi-même&#39;,
+ &#39;leçons&#39;,
+ &#39;corriger&#39;,
+ &#39;copies&#39;,
+ &#39;bricoler&#39;,
+ &#39;travailler&#39;,
+ &#39;mi-temps&#39;,
+ &#39;entreprisesquelconques&#39;,
+ &#39;manoeuvres&#39;,
+ &#39;débardeurs&#39;,
+ &#39;plein&#39;,
+ &#39;enseignement&#39;,
+ &#39;supérieur&#39;,
+ &#39;enfant&#39;,
+ &#39;entend&#39;,
+ &#39;envisagez&#39;,
+ &#39;changements&#39;,
+ &#39;éducation&#39;,
+ &#39;son&#39;,
+ &#39;tour&#39;,
+ &#39;parlé&#39;,
+ &#39;habitude&#39;,
+ &#39;demande&#39;,
+ &#39;demandé&#39;,
+ &#39;emmené&#39;,
+ &#39;jamais&#39;,
+ &#39;su&#39;,
+ &#39;attirait&#39;,
+ &#39;doué&#39;,
+ &#39;piano&#39;,
+ &#39;prof&#39;,
+ &#39;musique&#39;,
+ &#39;failli&#39;,
+ &#39;gym&#39;,
+ &#39;ensuite&#39;,
+ &#39;pharmacien&#39;,
+ &#39;travaux&#39;,
+ &#39;publics&#39;,
+ &#39;pilote&#39;,
+ &#39;ligne&#39;,
+ &#39;départ&#39;,
+ &#39;dû&#39;,
+ &#39;amener&#39;,
+ &#39;télécommunications&#39;,
+ &#39;plaisait&#39;,
+ &#39;explique&#39;,
+ &#39;reconvertir&#39;,
+ &#39;piston&#39;,
+ &#39;connaissances&#39;,
+ &#39;arrivé&#39;,
+ &#39;envisage&#39;,
+ &#39;reconversion&#39;,
+ &#39;métiers&#39;,
+ &#39;envisagés&#39;,
+ &#39;professorat&#39;,
+ &#39;métier&#39;,
+ &#39;libéral&#39;,
+ &#39;disons&#39;,
+ &#39;travaille&#39;,
+ &#39;donne&#39;,
+ &#39;rapporte&#39;,
+ &#39;automatiquement&#39;,
+ &#39;aussitôt&#39;,
+ &#39;longue&#39;,
+ &#39;échéance&#39;,
+ &#39;travail&#39;,
+ &#39;midi&#39;,
+ &#39;empêche&#39;,
+ &#39;courses&#39;,
+ &#39;promener&#39;,
+ &#39;bateau&#39;,
+ &#39;voile&#39;,
+ &#39;sportif&#39;,
+ &#39;différent&#39;,
+ &#39;deuxième&#39;,
+ &#39;justifie&#39;,
+ &#39;cert-&#39;,
+ &#39;belle&#39;,
+ &#39;directement&#39;,
+ &#39;intéressé&#39;,
+ &#39;suite&#39;,
+ &#39;convient&#39;,
+ &#39;l-&#39;,
+ &#39;supplémentaires&#39;,
+ &#39;serai&#39;,
+ &#39;augmenté&#39;,
+ &#39;pouvoir&#39;,
+ &#39;passer&#39;,
+ &#39;aléatoire&#39;,
+ &#39;fonctionnaire&#39;,
+ &#39;contractuel&#39;,
+ &#39;champ&#39;,
+ &#39;éventail&#39;,
+ &#39;salaires&#39;,
+ &#39;mont-&#39;,
+ &#39;montera&#39;,
+ &#39;pensé&#39;,
+ &#39;gagner&#39;,
+ &#39;monté&#39;,
+ &#39;affaire&#39;,
+ &#39;commerciale&#39;,
+ &#39;pressing&#39;,
+ &#39;cherché&#39;,
+ &#39;trouvé&#39;,
+ &#39;jour&#39;,
+ &#39;nom&#39;,
+ &#39;monsieur&#39;,
+ &#39;ressemble&#39;,
+ &#39;Peter&#39;,
+ &#39;Townsend&#39;,
+ &#39;mini&#39;,
+ &#39;libre&#39;,
+ &#39;kilos&#39;,
+ &#39;vêtements&#39;,
+ &#39;connaissez&#39;,
+ &#39;cherche&#39;,
+ &#39;arrivée&#39;,
+ &#39;donnerez&#39;,
+ &#39;adresse&#39;,
+ &#39;cherchez&#39;,
+ &#39;transmettrez&#39;,
+ &#39;Westinghouse&#39;,
+ &#39;pris&#39;,
+ &#39;risques&#39;,
+ &#39;capitaux&#39;,
+ &#39;dévaluation&#39;,
+ &#39;momen&#39;,
+ &#39;t&#39;,
+ &#39;précipité&#39;,
+ &#39;regrette&#39;,
+ &#39;coller&#39;,
+ &#39;éventuelle&#39;,
+ &#39;resterait&#39;,
+ &#39;supposant&#39;,
+ &#39;change&#39;,
+ &#39;veuille&#39;,
+ &#39;tenu&#39;,
+ &#39;expérience&#39;,
+ &#39;mets&#39;,
+ &#39;truc&#39;,
+ &#39;chute&#39;,
+ &#39;dynamisme&#39;,
+ &#39;choisit&#39;,
+ &#39;intelli-&#39;,
+ &#39;branche&#39;,
+ &#39;intelligente&#39;,
+ ...]</pre>
 </div>
 
 </div>
@@ -14979,7 +15944,57 @@ propres</a></p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%E2%9C%8D%EF%B8%8F-Exo-1-%E2%9C%8D%EF%B8%8F">&#9997;&#65039; Exo 1 &#9997;&#65039;<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-Exo-1-%E2%9C%8D%EF%B8%8F">&#182;</a></h3>
+<p>On construit sa matrice de cooccurrences</p>
+<p><strong>Exercice</strong> écrire une fonction <code>cooc</code> qui prend en argument un chemin vers un fichier texte et un dict <code>{mot: indices}</code> et qui renvoie la matrice de coocurrences : une liste de listes telle que <code>cooc[i][j]</code> est le nombre de fois que les mots <code>i</code> et <code>j</code> apparaissent dans une même phrase (on suppose que ligne == phrase).</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cooc</span><span class="p">(</span><span class="n">f_path</span><span class="p">,</span> <span class="n">t2i</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cooc</span><span class="p">(</span><span class="n">f_path</span><span class="p">,</span> <span class="n">t2i</span><span class="p">):</span>
+    <span class="n">cooc</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_stream</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">in_stream</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">word_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">t2i</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_indices</span><span class="p">:</span>
+                <span class="n">cooc_w</span> <span class="o">=</span> <span class="n">cooc</span><span class="p">[</span><span class="n">w</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">word_indices</span><span class="p">:</span>
+                    <span class="n">cooc_w</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cooc</span>
+
+<span class="n">ancor_cooc</span> <span class="o">=</span> <span class="n">cooc</span><span class="p">(</span><span class="s2">&quot;ancor.txt&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Où on peut par exemple récupérer les $k$ mots qui apparaissent le plus souvent dans le contexte d'un mot donné</p>
+<p><strong>Exercice</strong> écrire une fonction <code>arg_k_max</code> qui renvoie les indices des $k$ plus grands éléments d'une liste.</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14987,17 +16002,9 @@ propres</a></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Tokenize la phrase donnée en argument (sep = espace).</span>
-<span class="sd">    Renvoie une liste de mots. Les mots composés avec un tiret</span>
-<span class="sd">    sont décomposés dans des sous-listes.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        sentence (string): la phrase à tokenizer</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        list</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span> <span class="c1"># À vous</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renvoie les indices des k plus grands éléments de `lst`&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
 </pre></div>
 
      </div>
@@ -15005,16 +16012,24 @@ propres</a></p>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;je suis né dans le gris par accident&quot;</span><span class="p">)</span> <span class="o">==</span> \
-    <span class="p">[</span><span class="s1">&#39;je&#39;</span><span class="p">,</span> <span class="s1">&#39;suis&#39;</span><span class="p">,</span> <span class="s1">&#39;né&#39;</span><span class="p">,</span> <span class="s1">&#39;dans&#39;</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;gris&#39;</span><span class="p">,</span> <span class="s1">&#39;par&#39;</span><span class="p">,</span> <span class="s1">&#39;accident&#39;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;tout mon cœur est resté là-bas&quot;</span><span class="p">)</span> <span class="o">==</span> \
-    <span class="p">[</span><span class="s1">&#39;tout&#39;</span><span class="p">,</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span> <span class="s1">&#39;cœur&#39;</span><span class="p">,</span> <span class="s1">&#39;est&#39;</span><span class="p">,</span> <span class="s1">&#39;resté&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;là&#39;</span><span class="p">,</span> <span class="s1">&#39;bas&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renvoie les indices des k plus grands éléments de `lst`&quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">ո</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">res</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15022,45 +16037,10 @@ propres</a></p>
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/1103060789.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> tokenize<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;je suis né dans le gris par accident&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;je&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;suis&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;né&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;dans&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;le&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;gris&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;par&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;accident&#39;</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">assert</span> tokenize<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;tout mon cœur est resté là-bas&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;tout&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;mon&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;cœur&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;est&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;resté&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;là&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;bas&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">AssertionError</span>: </pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Les-listes-en-compr%C3%A9hension">Les listes en compr&#233;hension<a class="anchor-link" href="#Les-listes-en-compr%C3%A9hension">&#182;</a></h3><ul>
-<li>Elles permettent de définir des listes par filtrage ou opération sur les éléments d'une autre
-liste</li>
-<li>La <a href="http://www.python.org/dev/peps/pep-0202/">PEP 202</a> conseille de préférer les listes en
-compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
-<li>C'est puissant et concis, <em>so pythonic</em></li>
-</ul>
+<p><strong>Note</strong> Si les performances sont importantes, préférer <a href="https://docs.python.org/3/library/heapq.html#heapq.nlargest"><code>heapq.nlargest</code></a> pour sélectionner les $k$ plus grands éléments d'une liste.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15069,7 +16049,12 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">common_neighbours</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">t2i</span><span class="p">,</span> <span class="n">i2t</span><span class="p">,</span> <span class="n">cooc</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">cooc</span><span class="p">[</span><span class="n">t2i</span><span class="p">[</span><span class="n">word</span><span class="p">]]</span>
+    <span class="n">k_largest</span> <span class="o">=</span> <span class="n">arg_k_max</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i2t</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">k_largest</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;moi&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15085,13 +16070,22 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</pre>
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>[&#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;,
+ &#39;depuis&#39;]</pre>
 </div>
 
 </div>
@@ -15100,13 +16094,36 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Il y a l'air d'avoir un problème.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On pourrait faire des <code>print</code> mais il y a beaucoup de lignes, ça risque d'être long.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Pyflakes-%C3%A0-la-rescousse">Pyflakes &#224; la rescousse<a class="anchor-link" href="#Pyflakes-%C3%A0-la-rescousse">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On va utilise <a href="https://pypi.org/project/pyflakes/"><code>pyflakes</code></a>, pensez à l'installer avec <code>pip</code> avant de lancer la cellule suivante.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pyflakes lintme.py
 </pre></div>
 
      </div>
@@ -15122,13 +16139,14 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[0, 4, 16, 36, 64]</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>lintme.py:31:25 undefined name &#39;n&#39;
+lintme.py:35:25 undefined name &#39;n&#39;
+</pre>
+</div>
 </div>
 
 </div>
@@ -15136,14 +16154,41 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 </div>
 
 </div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a href="lintme.py"><code>lintme.py</code></a> contient les fonctions qu'on a défini précédemment, allez voir ce qu'il y a dans les lignes 31 et 35.</p>
 
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Est-ce que vous voyez le problème ?</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Le problème est là</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ո</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Juste ici</p>
+
+<pre><code>for ո, val in enumerate(lst):
+    ^</code></pre>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15165,7 +16210,7 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[(0, &#39;a&#39;), (0, &#39;b&#39;), (1, &#39;a&#39;), (1, &#39;b&#39;)]</pre>
+<pre>110</pre>
 </div>
 
 </div>
@@ -15174,22 +16219,13 @@ compréhension aux fonctions <code>map()</code> et <code>filter()</code>  </li>
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%E2%9C%8D%EF%B8%8F-Exo-2-%E2%9C%8D%EF%B8%8F">&#9997;&#65039; Exo 2 &#9997;&#65039;<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-Exo-2-%E2%9C%8D%EF%B8%8F">&#182;</a></h3><p>Utilisez une liste en compréhension sur la sortie de votre fonction tokenize de manière à ne retenir
-que les noms composés</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;De-ci de-là, cahin-caha, va trottine, va chemine, va petit âne&quot;</span><span class="p">)</span>
-<span class="n">compounds</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># ← modifiez ça</span>
-<span class="k">assert</span> <span class="n">compounds</span> <span class="o">==</span> <span class="p">[[</span><span class="s1">&#39;De&#39;</span><span class="p">,</span> <span class="s1">&#39;ci&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;là,&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;cahin&#39;</span><span class="p">,</span> <span class="s1">&#39;caha,&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;ո&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15205,20 +16241,15 @@ que les noms composés</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/2371851816.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> words <span class="ansi-blue-fg">=</span> tokenize<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;De-ci de-là, cahin-caha, va trottine, va chemine, va petit âne&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> compounds <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span> <span class="ansi-red-fg"># ← modifiez ça</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> compounds <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;De&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;ci&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;de&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;là,&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;cahin&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;caha,&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
 
-<span class="ansi-red-fg">AssertionError</span>: </pre>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>1400</pre>
 </div>
+
 </div>
 
 </div>
@@ -15228,18 +16259,27 @@ que les noms composés</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Parcours-de-liste">Parcours de liste<a class="anchor-link" href="#Parcours-de-liste">&#182;</a></h3><p>La boucle <code>for</code> est particulièrement adaptée pour parcourir les itérables et donc les listes</p>
+<p>Voilà la bonne version</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">voyelles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">voyelles</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renvoie les indices des k plus grands éléments de `lst`&quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">res</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15247,36 +16287,38 @@ que les noms composés</p>
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>a
-e
-i
-o
-u
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>La fonction <code>enumerate</code> peut être utile dans certains cas, elle renvoie un <code>tuple</code> contenant
-l'indice et la valeur de l'item à l'indice concerné</p>
+<h3 id="Nos-amis-les-linters">Nos amis les linters<a class="anchor-link" href="#Nos-amis-les-linters">&#182;</a></h3><p>Un <em>linter</em> c'est un outil d'analye <strong>statique</strong> du code.</p>
+<p>Ça signifie qu'il n'exécute pas (et ne compile pas) votre code, il se contente de le lire pour
+essayer de trouver vos erreurs.</p>
+<p>C'est particulièrement utile quand on a du code qui est long à compiler (coucou le C) : on a pas
+envie de perdre une heure pour apprendre qu'on a fait une faute de frappe.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En général un linter vérifie au moins</p>
+<ul>
+<li>Que votre code est syntaxiquement correct</li>
+<li>Que toutes les variables déclarées sont utilisées</li>
+<li>Que toutes les variables utilisées sont déclarées</li>
+<li>Que les fonctions sont appellées avec des paramètres cohérents (en nombre, en noms…)</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pylint se limite grosso modo à ces fonctions de base, mais il y en a d'autres plus complets.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="PEP8-style">PEP8 style<a class="anchor-link" href="#PEP8-style">&#182;</a></h3><p>Essayons de lancer <a href="http://flake8.pycqa.org"><code>flake8</code></a> sur <code>lintme.py</code></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15285,8 +16327,7 @@ l'indice et la valeur de l'item à l'indice concerné</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">voyelles</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>flake8 lintme.py
 </pre></div>
 
      </div>
@@ -15306,11 +16347,10 @@ l'indice et la valeur de l'item à l'indice concerné</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0 a
-1 e
-2 i
-3 o
-4 u
+<pre>lintme.py:5:13: E741 ambiguous variable name &#39;l&#39;
+lintme.py:16:13: E741 ambiguous variable name &#39;l&#39;
+lintme.py:31:25: F821 undefined name &#39;n&#39;
+lintme.py:35:25: F821 undefined name &#39;n&#39;
 </pre>
 </div>
 </div>
@@ -15322,25 +16362,49 @@ l'indice et la valeur de l'item à l'indice concerné</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>C'est de très loin préférable à itérer sur <code>range(len(voyelles))</code>.</p>
+<p><code>flake8</code> combine des fonctions de linter (en fait exactement celles de <code>pyflakes</code>) et de vérifieur
+de styles plus d'autres (allez lire la doc).</p>
+<p>En l'occurence il nous dit que la <a href="https://www.python.org/dev/peps/pep-0008">PEP 8</a> qui définit le
+style recommandé pour Python n'est pas respectée par la ligne suivante :</p>
+<div class="highlight"><pre><span></span><span class="n">cooc</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)</span>
+</pre></div>
+<p>qui devrait être</p>
+<div class="highlight"><pre><span></span><span class="n">cooc</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">t2i</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Copie">Copie<a class="anchor-link" href="#Copie">&#182;</a></h3><p>Dans <code>y = x</code>, <code>y</code> n'est pas une copie de x, les deux pointent vers le même objet. C'st
-particulièrement important pour les objets <em>mutables</em> comme les listes.</p>
+<h3 id="Black"><a href="https://www.youtube.com/watch?v=D_JxMb8RLEY">Black</a><a class="anchor-link" href="#Black">&#182;</a></h3><p>Au siècle dernier, je vous aurait fait corriger des lignes de code à la main jusqu'à ce que
+<code>flake8</code> cesse de se plaindre.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Mais on est en 2021 et on a inventé mieux.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Meet <a href="https://pypi.org/project/black"><code>black</code></a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Avant</strong></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat ugly.py
 </pre></div>
 
      </div>
@@ -15348,13 +16412,125 @@ particulièrement important pour les objets <em>mutables</em> comme les listes.<
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>def very_important_function(template, *variables, file_path=&#34;/dev/null&#34;, engine, header = True, debug = False, verbose = False):
+    &#34;&#34;&#34;Applies `variables` to the `template` and writes to `file`.&#34;&#34;&#34;
+    with open(file, &#39;w&#39;) as f:
+        pass
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Après</strong></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat ugly.py <span class="p">|</span> black -q -
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>/usr/bin/sh: 1: black: not found
+cat: write error: Broken pipe
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><code>black</code> reformate vos fichiers de sorte qu'ils respectent la PEP 8, tout en se conformant à des
+règles de style strictes.</p>
+<p>On dit que <code>black</code> est un <em>formatteur de code</em>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Par choix, <code>black</code> n'est presque pas configurable : ça évite d'avoir à tergiverser sur les
+conventions à adopter.</p>
+<p>Si vous n'avez pas d'opinion précise sur comment votre code doit être, utilisez <code>black</code>, si vous
+n'aimez pas les sorties de <code>black</code>, persévérez, on s'habitue.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Si <strong>vraiment</strong> vous avez des goûts sophistiqués, il existe beaucoup d'autre formatteurs: par
+exemple autopep8, yapf, rope…</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour une utilisation en console, lancez <code>black</code> comme</p>
+<div class="highlight"><pre><span></span>black monfichiermoche.py
+</pre></div>
+<p>Il le formatte en direct et sauvegarde. <strong>Il modifie votre fichier, attention</strong>.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Plus agréablement : <code>black</code> et <code>flake8</code> sont intégrés à la plupart des éditeurs et IDEs, n'hésitez
+pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Enfin-libres">Enfin libres<a class="anchor-link" href="#Enfin-libres">&#182;</a></h2><p>Ah, c'est bon d'avoir du code qui marche</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;moi&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15376,7 +16552,7 @@ particulièrement important pour les objets <em>mutables</em> comme les listes.<
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>[4, 2, 3]</pre>
+<pre>[&#39;de&#39;, &#39;est&#39;, &#39;euh&#39;, &#39;que&#39;, &#39;je&#39;, &#34;c&#39;&#34;, &#39;pas&#39;, &#39;à&#39;, &#39;les&#39;, &#39;et&#39;]</pre>
 </div>
 
 </div>
@@ -15388,28 +16564,7 @@ particulièrement important pour les objets <em>mutables</em> comme les listes.<
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Si ce qu'on veut copier est une liste, on peut utiliser</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>ou</p>
+<p>Enfin, on a fini, la fonction marche, on peut l'appliquer à ce qu'on veut</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15418,647 +16573,7 @@ particulièrement important pour les objets <em>mutables</em> comme les listes.<
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">x</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[1, 2, 3]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Il y a d'autres façons de faire. Pour les objets complexes on peut regarder du côté du module
-<a href="https://docs.python.org/3/library/copy.html"><code>copy</code></a> mais il n'y a pas de réponse universelle et
-copier c'est souvent coûteux. Le mieux à faire quand on a envie de faire une copie c'est de
-commencer par se demander si on en a vraiment besoin.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="D%C3%A9ballage-de-s%C3%A9quences">D&#233;ballage de s&#233;quences<a class="anchor-link" href="#D%C3%A9ballage-de-s%C3%A9quences">&#182;</a></h2><ul>
-<li>Le <em>sequence unpacking</em> permet d'effectuer plusieurs affectations simultanées</li>
-<li>L'<em>unpacking</em> s'applique souvent sur des tuples</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">y</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>2</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lexique</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;maison&quot;</span><span class="p">,</span> <span class="s2">&quot;mEz§&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;serpent&quot;</span><span class="p">,</span> <span class="s2">&quot;sERp@&quot;</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">ortho</span><span class="p">,</span> <span class="n">phon</span> <span class="ow">in</span> <span class="n">lexique</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">phon</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>mEz§
-sERp@
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>On peut aussi utiliser <code>*</code> pour déballer une séquence en argument de fonction</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bornes</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">bornes</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-ensembles">Les ensembles<a class="anchor-link" href="#Les-ensembles">&#182;</a></h2><p>Les ensembles (<code>set</code>) sont des collections non ordonnées d'élements sans doublons
-Les ensembles supportent les fonctions mathématiques d'union, d'intersection, de différence (<a href="https://docs.python.org/3.6/library/stdtypes.html#set">doc</a>)</p>
-<ul>
-<li><code>value in s</code> renvoie si <code>value</code> est un élément de <code>s</code></li>
-<li><code>union(*sets)</code> renvoie l'union de tous les <code>sets</code> (l'ensemble des valeurs contenues dans tous les
-sets).</li>
-<li><code>intersection(*sets)</code> renvoie l'intersection de tous les <code>sets</code> (l'ensemble des valeurs contenues
-dans au moins un set).</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ens0</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># on crée l&#39;ensemble vide</span>
-<span class="n">ens0</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>set()</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ens1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;guépard&#39;</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;poursuit&#39;</span><span class="p">}</span>
-<span class="n">ens1</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;guépard&#39;, &#39;le&#39;, &#39;poursuit&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ens2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;avec&quot;</span><span class="p">,</span> <span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;chandelier&quot;</span><span class="p">,</span> <span class="s2">&quot;dans&quot;</span><span class="p">,</span> <span class="s2">&quot;la&quot;</span><span class="p">,</span> <span class="s2">&quot;cuisine&quot;</span><span class="p">}</span>
-<span class="n">ens1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">ens2</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;le&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Attention il y a un piège</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>set</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>dict</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%E2%9C%8D%EF%B8%8F-Exo-3">&#9997;&#65039; Exo 3<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-Exo-3">&#182;</a></h2><p>Dans cet extrait de données tirées des <a href="https://en.wiktionary.org/wiki/Appendix:Austronesian_Swadesh_lists">listes de Swadesh de langues
-austronésiennes</a>, ici pour le
-tagalog et le cebuano, trouvez les mots en commun.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tagalog</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;i&#39;</span><span class="p">:</span><span class="s1">&#39;ako&#39;</span><span class="p">,</span> <span class="s1">&#39;you_sg&#39;</span><span class="p">:</span><span class="s1">&#39;ikaw&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">:</span><span class="s1">&#39;siya&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">:</span><span class="s1">&#39;tayo&#39;</span><span class="p">,</span> <span class="s1">&#39;you_pl&#39;</span><span class="p">:</span><span class="s1">&#39;kayo&#39;</span><span class="p">,</span> <span class="s1">&#39;they&#39;</span><span class="p">:</span><span class="s1">&#39;sila&#39;</span><span class="p">,</span>\
-           <span class="s1">&#39;this&#39;</span><span class="p">:</span><span class="s1">&#39;ito&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">:</span><span class="s1">&#39;iyan&#39;</span><span class="p">,</span> <span class="s1">&#39;here&#39;</span><span class="p">:</span><span class="s1">&#39;dito&#39;</span><span class="p">,</span> <span class="s1">&#39;there&#39;</span><span class="p">:</span><span class="s1">&#39;doon&#39;</span><span class="p">,</span> <span class="s1">&#39;who&#39;</span><span class="p">:</span><span class="s1">&#39;sino&#39;</span><span class="p">,</span>\
-           <span class="s1">&#39;what&#39;</span><span class="p">:</span><span class="s1">&#39;ano&#39;</span><span class="p">,</span> <span class="s1">&#39;where&#39;</span><span class="p">:</span><span class="s1">&#39;saan&#39;</span><span class="p">,</span> <span class="s1">&#39;when&#39;</span><span class="p">:</span><span class="s1">&#39;kailan&#39;</span><span class="p">,</span> <span class="s1">&#39;how&#39;</span><span class="p">:</span><span class="s1">&#39;paano&#39;</span><span class="p">}</span>
-<span class="n">cebuano</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;i&#39;</span><span class="p">:</span><span class="s1">&#39;ako&#39;</span><span class="p">,</span> <span class="s1">&#39;you_sg&#39;</span><span class="p">:</span><span class="s1">&#39;ikaw&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">:</span><span class="s1">&#39;siya&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">:</span><span class="s1">&#39;kita&#39;</span><span class="p">,</span> <span class="s1">&#39;you_pl&#39;</span><span class="p">:</span><span class="s1">&#39;kamo&#39;</span><span class="p">,</span> <span class="s1">&#39;they&#39;</span><span class="p">:</span><span class="s1">&#39;sila&#39;</span><span class="p">,</span>\
-           <span class="s1">&#39;this&#39;</span><span class="p">:</span><span class="s1">&#39;kiri&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">:</span><span class="s1">&#39;kana&#39;</span><span class="p">,</span> <span class="s1">&#39;here&#39;</span><span class="p">:</span><span class="s1">&#39;diri&#39;</span><span class="p">,</span> <span class="s1">&#39;there&#39;</span><span class="p">:</span><span class="s1">&#39;diha&#39;</span><span class="p">,</span> <span class="s1">&#39;who&#39;</span><span class="p">:</span><span class="s1">&#39;kinsa&#39;</span><span class="p">,</span>\
-           <span class="s1">&#39;what&#39;</span><span class="p">:</span><span class="s1">&#39;unsa&#39;</span><span class="p">,</span> <span class="s1">&#39;where&#39;</span><span class="p">:</span><span class="s1">&#39;asa&#39;</span><span class="p">,</span> <span class="s1">&#39;when&#39;</span><span class="p">:</span><span class="s1">&#39;kanus-a&#39;</span><span class="p">,</span> <span class="s1">&#39;how&#39;</span><span class="p">:</span><span class="s1">&#39;unsaon&#39;</span><span class="p">}</span>
-<span class="c1"># Votre code ici</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-dictionnaires">Les dictionnaires<a class="anchor-link" href="#Les-dictionnaires">&#182;</a></h2><ul>
-<li>Les dictionnaires (<code>dict</code>) sont des structures de données associatives de type clé: valeur</li>
-<li><p>Les clés d'un dictionnaire sont uniques, seuls les types <em>hashable</em> (<em>immutable</em> et objets que
-vous avez définis) peuvent être des clés
-(<a href="https://docs.python.org/3.6/library/stdtypes.html#mapping-types-dict">doc</a>)</p>
-<ul>
-<li><code>key in d</code> renvoie True si <code>key</code> est une clé de <code>d</code></li>
-<li><code>keys()</code> renvoie la liste des clés</li>
-<li><code>values()</code> renvoie la liste des valeurs</li>
-<li><code>items()</code> renvoie la liste des couples clé:valeur (tuple)</li>
-<li><code>get(key, default=None)</code> renvoie la valeur associée à <code>key</code>. Si <code>key</code> n'existe pas, renvoie
-l'argument <code>default</code>. Ne modifie pas le dictionnaire.</li>
-<li><code>setdefault(key, default=None)</code> si <code>key</code> n'existe pas, insère <code>key</code> avec la valeur <code>default</code>
-dans le dictionnaire puis renvoie la valeur associée à la clé.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Perl&#39;</span><span class="p">:</span><span class="s1">&#39;Larry Wall&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span><span class="s1">&#39;Guido Van Rossum&#39;</span><span class="p">,</span> <span class="s1">&#39;C++&#39;</span><span class="p">:</span><span class="s1">&#39;Bjarne Stroustrup&#39;</span><span class="p">}</span>
-<span class="n">d</span><span class="p">[</span><span class="s1">&#39;Perl&#39;</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;Larry Wall&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Ruby&#39;</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/4123156057.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>d<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;Ruby&#39;</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;Ruby&#39;</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;Ruby&#39;</span><span class="p">,</span> <span class="s1">&#39;je sais pas&#39;</span><span class="p">)</span>
-<span class="n">d</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;Perl&#39;: &#39;Larry Wall&#39;,
- &#39;Python&#39;: &#39;Guido Van Rossum&#39;,
- &#39;C++&#39;: &#39;Bjarne Stroustrup&#39;,
- &#39;Ruby&#39;: &#39;je sais pas&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Module-collections">Module collections<a class="anchor-link" href="#Module-collections">&#182;</a></h2><ul>
-<li>Le module <em>collections</em> propose des implémentations de structures de données supplémentaires</li>
-<li><p>Dans la liste (voir <a href="https://docs.python.org/3.6/library/collections.html">doc</a>), deux pourront
-nous intéresser :</p>
-<ul>
-<li><p><code>defaultdict</code></p>
-<p><code>defauldict</code> est similaire à un <code>dict</code> mais il permet l'autovivification</p>
-<p>Son implémentation le rend plus rapide qu'un dictionnaire utilisé avec la fonction
-  <code>setdefault</code></p>
-</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
-<span class="n">lexique</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;couvent&quot;</span><span class="p">,</span> <span class="s2">&quot;kuv&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;couvent&quot;</span><span class="p">,</span> <span class="s2">&quot;kuv@&quot;</span><span class="p">)]</span>
-<span class="n">dico</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ortho</span><span class="p">,</span> <span class="n">phon</span> <span class="ow">in</span> <span class="n">lexique</span><span class="p">:</span>
-    <span class="n">dico</span><span class="p">[</span><span class="n">ortho</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phon</span><span class="p">)</span>
-<span class="n">dico</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>defaultdict(list, {&#39;couvent&#39;: [&#39;kuv&#39;, &#39;kuv@&#39;]})</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>Counter</code></li>
-</ul>
-<p><code>Counter</code> est un dictionnaire où les valeurs attendues sont les nombres d'occurrences des clés</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="n">cnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
-<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;guépard&#39;</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;poursuit&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
-    <span class="n">cnt</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">display</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;bonjour&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -16080,7 +16595,44 @@ nous intéresser :</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>Counter({&#39;le&#39;: 2, &#39;guépard&#39;: 1, &#39;poursuit&#39;: 1})</pre>
+<pre>[&#39;de&#39;, &#39;est&#39;, &#39;euh&#39;, &#39;que&#39;, &#39;je&#39;, &#34;c&#39;&#34;, &#39;pas&#39;, &#39;à&#39;, &#39;les&#39;, &#39;et&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;Russie&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>[&#39;de&#39;, &#39;est&#39;, &#39;euh&#39;, &#39;que&#39;, &#39;je&#39;, &#34;c&#39;&#34;, &#39;pas&#39;, &#39;à&#39;, &#39;les&#39;, &#39;et&#39;]</pre>
 </div>
 
 </div>
@@ -16092,705 +16644,201 @@ nous intéresser :</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%E2%9C%8D%EF%B8%8F-Exo-4">&#9997;&#65039; Exo 4<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-Exo-4">&#182;</a></h3><p>Faites la même chose avec un dictionnaire</p>
+<p>Euh</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;Orléans&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>[&#39;de&#39;, &#39;est&#39;, &#39;euh&#39;, &#39;que&#39;, &#39;je&#39;, &#34;c&#39;&#34;, &#39;pas&#39;, &#39;à&#39;, &#39;les&#39;, &#39;et&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;médecin&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>[&#39;de&#39;, &#39;est&#39;, &#39;euh&#39;, &#39;que&#39;, &#39;je&#39;, &#34;c&#39;&#34;, &#39;pas&#39;, &#39;à&#39;, &#39;les&#39;, &#39;et&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Il y a <strong>encore</strong> un problème ?</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-fichiers">Les fichiers<a class="anchor-link" href="#Les-fichiers">&#182;</a></h2><ul>
-<li>Pour travailler avec les fichiers on doit procéder à trois opérations :<ol>
-<li>Ouverture avec la fonction <code>open</code> (lève l'exception <code>FileNotFoundError</code> en cas d'échec)</li>
-<li>Lecture (<code>read</code> ou <code>readline</code> ou <code>readlines</code>) et/ou écriture (<code>write</code>)</li>
-<li>Fermeture du fichier avec la fonction <code>close</code></li>
-</ol>
+<p>Oui</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Les-d%C3%A9buggeurs">Les d&#233;buggeurs<a class="anchor-link" href="#Les-d%C3%A9buggeurs">&#182;</a></h2><h3 id="Demo">Demo<a class="anchor-link" href="#Demo">&#182;</a></h3><p>Aller sur <a href="http://pythontutor.com/visualize.html">http://pythontutor.com/visualize.html</a> et y coller le code de la factorielle buggué</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On peut suivre l'exécution en détails \o/</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On appelle ce genre d'interface un <em>debugger</em> : on peut suivre l'exécution du programme ligne par
+ligne, en contrôlant les valeurs des variables et éventuellement en revenant en arrière pour
+comprendre ce qui se passe</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>C'est <em>très</em> pratique, mais la version de Python Tutor est (volontairement) assez limité. Pour notre
+code en particulier ça va être compliqué à gérer.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Pour-les-grand%E2%8B%85e%E2%8B%85s">Pour les grand&#8901;e&#8901;s<a class="anchor-link" href="#Pour-les-grand%E2%8B%85e%E2%8B%85s">&#182;</a></h3><p>On va débugger dans <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+<p>(On regarde le tableau, désolé pour celleux qui ne sont pas là)</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Pour-les-vraiment-tr%C3%A8s-grand%E2%8B%85e%E2%8B%85s">Pour les vraiment tr&#232;s grand&#8901;e&#8901;s<a class="anchor-link" href="#Pour-les-vraiment-tr%C3%A8s-grand%E2%8B%85e%E2%8B%85s">&#182;</a></h3><p>Pycharm c'est bien, mais même ça a ses limites</p>
+<ul>
+<li>Quand le code prend toute la RAM</li>
+<li>Quand on débuggue à distance</li>
+<li>Quand on a pas d'interface graphique</li>
+<li>Quand on a une aversion viscérale à Microsoft</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour ça il existe une alternative directement incluse dans la bibliothèque standard : <a href="https://docs.python.org/3/library/pdb.html"><code>pdb</code></a>.</p>
+<p>Pour le lancer, rien de plus simple (mais ça ne marche pas bien dans un notebook)</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span>python -m pdb debugme.py
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Là encore, on regarde le tableau. Pour référence future, tout est dans la doc mais les points
+importants sont</p>
+<ul>
+<li>Les commandes (il suffit de taper la première lettre<ul>
+<li><code>l[ist]</code>: affiche les lignes autour de l'instruction courante</li>
+<li><code>ll[ist]</code>: affiche tout la fonction courante</li>
+<li><code>n[ext]</code>: passer à l'instruction suivante dans la fonction en cours</li>
+<li><code>s[tep]</code>: passer à l'instruction suivante y compris dans une autre fonction</li>
+<li><code>u[p]</code>: passer dans le contexte un niveau au dessus (l'instruction qui appelle la fonction
+courante)</li>
+<li><code>d[own]</code>: l'inverse de <code>u[p]</code></li>
+</ul>
 </li>
-<li>Ouverture<ul>
-<li><code>open</code> est une fonction qui accepte de nombreux arguments : RTFM</li>
-<li><code>open</code> renvoie un objet de type <code>file</code></li>
-<li>Le plus souvent elle s'emploie de la manière suivante:<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="c1">#f = open(filename, mode)      </span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nom_fichier&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-</pre></div>
-</li>
+<li>Commencer une ligne par un <code>!</code> fait exécuter une instruction, bien pratique pour lire le contenu
+des variables</li>
+<li>Dans n'importe quel progamme, une instruction <code>breakpoint()</code> stoppe l'exécution et vous donne une
+session <code>pdb</code><!-- #endregion --></li>
 </ul>
-</li>
-</ul>
+<p><!-- #region slideshow={"slide_type": "subslide"} -->
+C'est globalement un peu moins sympa qu'un débuggeur graphique, notamment pour voir en direct les
+états des variables (mais il y a d'autres alternatives en console) mais ça marche vraiment bien.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Les modes sont :</p>
-<ul>
-<li><code>r</code> : lecture (défaut)</li>
-<li><code>w</code> : écriture</li>
-<li><code>x</code> : création et écriture (échec si le fichier existe déjà)</li>
-<li><code>a</code> : concaténation (append)</li>
-<li><code>b</code> : mode binaire</li>
-<li><code>t</code> : mode texte (défaut)</li>
-<li><code>+</code> : read/write (ex: r+b)</li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-fichiers-:-ouverture">Les fichiers : ouverture<a class="anchor-link" href="#Les-fichiers-:-ouverture">&#182;</a></h2><p>La documentation de Python conseille cette façon de faire :</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mon_fichier&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/1283998976.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;mon_fichier&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     read_data <span class="ansi-blue-fg">=</span> f<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;mon_fichier&#39;</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>L'utilisation du mot clé <code>with</code> garantit la fermeture du fichier même si une exception est soulevée.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-fichiers-:-lecture">Les fichiers : lecture<a class="anchor-link" href="#Les-fichiers-:-lecture">&#182;</a></h2><ul>
-<li><code>read(size=-1)</code> lit les <code>size</code> premiers octets (mode <code>b</code>) ou caractères (mode <code>t</code>). Si <code>size</code> &lt; 0,
-lit tout le fichier.</li>
-<li><code>readline(size=-1)</code> lit au plus <code>size</code> caractères ou jusqu'à la fin de ligne. Si <code>size</code> &lt; 0, lit
-toute la ligne. Il est conseillé de ne pas toucher à <code>size</code>.</li>
-<li><code>readlines(hint=-1)</code> lit <code>hint</code> lignes du fichier. Si <code>hint</code> &lt; 0, lit toutes les lignes du
-fichier.</li>
-<li>un objet <code>file</code> est un itérable ! (<em>the pythonic way</em>)</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">process</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/1259889868.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">for</span> line <span class="ansi-green-fg">in</span> f<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     process<span class="ansi-blue-fg">(</span>line<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;f&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Les-fichiers-:-%C3%A9criture-et-fermeture">Les fichiers : &#233;criture et fermeture<a class="anchor-link" href="#Les-fichiers-:-%C3%A9criture-et-fermeture">&#182;</a></h2><ul>
-<li><code>write(text)</code> écrit <code>texte</code> dans le fichier?</li>
-<li><code>close()</code> ferme le fichier.  </li>
-</ul>
-<p>En règle générale veillez à toujours fermer les objets fichiers.<br>
-En mode écriture oublier de fermer un fichier peut réserver des mauvaises surprises</p>
-<ul>
-<li>fonction <code>print</code></li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mon_fichier&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">output_f</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/239219285.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;mon_fichier&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;w&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> output_f<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">for</span> item <span class="ansi-green-fg">in</span> words<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>         print<span class="ansi-blue-fg">(</span>item<span class="ansi-blue-fg">,</span> file<span class="ansi-blue-fg">=</span>output_f<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: &#39;NoneType&#39; object is not iterable</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>sys.stdin</code>, <code>sys.stdout</code> et <code>sys.stderr</code> sont des objets de type <code>file</code></li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%E2%9C%8D%EF%B8%8F-Exo-5">&#9997;&#65039; Exo 5<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-Exo-5">&#182;</a></h3><p>Lisez le fichier <code>data/austronesian_swadesh.csv</code> et écrivez les mots des langues Ilocano et Malagasy dans deux fichiers distincts.<br>
-Les données viennent de <a href="https://en.wiktionary.org/wiki/Appendix:Austronesian_Swadesh_lists">Wiktionary</a>.</p>
-<p>(Essayez de faire comme si vous ne connaissiez pas le module csv sinon la partie qui suit n'aura aucun intérêt.)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># c&#39;est compliqué sans le module csv quand même</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Module-csv">Module csv<a class="anchor-link" href="#Module-csv">&#182;</a></h2><p>La documentation est ici : <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a><br>
-Parce que les données au format csv sont très répandues et parce qu'il peut être pénible de le lire correctement, le module csv est là pour vous aider.<br>
-Pour le dire vite il y a deux façons de l'utiliser : reader/writer ou DictReader/DictWriter.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>csv.reader</code></li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="n">swadesh_light</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/austronesian_swadesh.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span> <span class="c1"># à l&#39;ouverture je spécifie les séparateur de champ et de chaîne  </span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span> <span class="c1"># l&#39;objet reader est un itérable</span>
-        <span class="n">swadesh_light</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span> <span class="c1"># row est une liste de chaînes de caractères</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/4099057298.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-intense-fg ansi-bold">      3</span> swadesh_light <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;data/austronesian_swadesh.csv&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> csvfile<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     reader <span class="ansi-blue-fg">=</span> csv<span class="ansi-blue-fg">.</span>reader<span class="ansi-blue-fg">(</span>csvfile<span class="ansi-blue-fg">,</span> delimiter<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;,&#39;</span><span class="ansi-blue-fg">,</span> quotechar<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;&#34;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># à l&#39;ouverture je spécifie les séparateur de champ et de chaîne</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-green-fg">for</span> row <span class="ansi-green-fg">in</span> reader<span class="ansi-blue-fg">:</span> <span class="ansi-red-fg"># l&#39;objet reader est un itérable</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/austronesian_swadesh.csv&#39;</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><code>csv.writer</code></li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;swadesh_light.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="c1">#writer.writerows(swadesh_light) ici on écrit tout en une fois</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">swadesh_light</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c1"># writerow reçoit une liste de chaînes</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>csv.DictReader<br>
-Cette classe s'appuie sur la ligne d'en-tête pour créer une suite de dictionnaires.<br>
-S'il n'y a pas de ligne d'en-tête on peut utiliser une liste <code>fieldnames</code> en paramètre.</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/austronesian_swadesh.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span> <span class="c1"># ici row est un dictionnaire</span>
-         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Ilocano&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Malagasy&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/2265638038.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;data/austronesian_swadesh.csv&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> csvfile<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     reader <span class="ansi-blue-fg">=</span> csv<span class="ansi-blue-fg">.</span>DictReader<span class="ansi-blue-fg">(</span>csvfile<span class="ansi-blue-fg">,</span> delimiter<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;,&#39;</span><span class="ansi-blue-fg">,</span>quotechar<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;&#34;&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">for</span> row <span class="ansi-green-fg">in</span> reader<span class="ansi-blue-fg">:</span> <span class="ansi-red-fg"># ici row est un dictionnaire</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>          print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;{row[&#39;Ilocano&#39;]} | {row[&#39;Malagasy&#39;]}&#34;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/austronesian_swadesh.csv&#39;</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>csv.DictWriter<br>
-Cette fois il s'agit de générer un fichier csv à partir d'une séquence de dictionnaires. Le paramètre <code>fieldnames</code> est obligatoire.</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;swadesh_light.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;english&#39;</span><span class="p">,</span> <span class="s1">&#39;ilocano&#39;</span><span class="p">]</span>
-    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">)</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">ilo</span> <span class="ow">in</span> <span class="n">swadesh_light</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s1">&#39;english&#39;</span><span class="p">:</span> <span class="n">en</span><span class="p">,</span> <span class="s1">&#39;ilocano&#39;</span><span class="p">:</span> <span class="n">ilo</span><span class="p">})</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Module-re">Module <code>re</code><a class="anchor-link" href="#Module-re">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><p><code>re</code> est un module particulièrement important, vous devez lire la <a href="https://docs.python.org/3/library/re.html">doc</a>, absolument</p>
-</li>
-<li><p>La doc officielle est parfois aride, ce <a href="https://docs.python.org/3.6/howto/regex.html">howto</a> rédigé par A.M. Kuchling est plus digeste</p>
-</li>
-</ul>
-<p>a minima vous devez connaître les fonctions :</p>
-<ul>
-<li><code>findall</code> : trouve toutes les occurences du motif, retourne une liste de chaînes trouvées</li>
-<li><code>search</code> : trouve le motif, retourne un objet <code>Match</code>, <code>None</code> sinon</li>
-<li><code>match</code> : détermine si le motif est présent au début de la chaîne, retourne un objet <code>Match</code>,
-<code>None</code> sinon</li>
-<li><code>split</code> : découpe une chaîne selon un motif, retourne une liste de chaînes</li>
-<li><code>sub</code> : remplace les occurences d'un motif par une chaîne de remplacement</li>
-<li><code>compile</code> : compilation d'un motif (pattern), retourne un objet <code>Pattern</code></li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w|\s)+&quot;</span><span class="p">,</span> <span class="s2">&quot;Un léopard me pourchasse&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cours !&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Cours !
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;e|é&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;éléphanteau&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;iliphantiau&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%5Cw-et-Python3"><code>\w</code> et Python3<a class="anchor-link" href="#%5Cw-et-Python3">&#182;</a></h2><p><code>\w</code> est la classe prédéfinie des caractères alphanumériques :</p>
-<ul>
-<li>En Python 2 <code>\w</code> ~correspond~ correspondait à <code>[A-Za-z0-9_]</code>, avec les locales il est possible d'y
-ajouter d'autres caractères</li>
-<li>En Python 3 <code>\w</code> correspond à tous les caractères qui ont la propriété Unicode Letter d'après le
-module <code>unicodedata</code> (sauf si le motif est compilé en binaire ou si l'option <code>re.ASCII</code> est
-activée)</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot;馬青區團長成中央代表&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yeah !&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Yeah !
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w&quot;</span><span class="p">,</span> <span class="s2">&quot;هيلاري كلينتون&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yeah !&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Yeah !
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%E2%98%95-Exos-6-%E2%98%95">&#9749; Exos 6 &#9749;<a class="anchor-link" href="#%E2%98%95-Exos-6-%E2%98%95">&#182;</a></h3>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>1. Écrire une fonction qui reçoit deux noms de langue austronésiennes, une liste de mots en anglais
-et renvoie chacun des mots anglais avec leur traduction dans les deux langues.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_austro_words</span><span class="p">(</span><span class="n">langue1</span><span class="p">,</span> <span class="n">langue2</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Reçoit un couple de langues (langue1, langue2) et une liste de mots (words)</span>
-<span class="sd">    Cherche dans la liste Swadesh des langues austronésiennes les traductions des mots</span>
-<span class="sd">    dans ces deux langues.</span>
-<span class="sd">    Renvoie un dictionnaire {&#39;langue1&#39;: [w1, w2], &#39;langue2&#39;: [w1, w2]}</span>
-<span class="sd">    Liste vide si la langue n&#39;est pas répertoriée dans la liste</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># votre code</span>
-
-    
-<span class="k">assert</span> <span class="n">get_austro_words</span><span class="p">(</span><span class="s1">&#39;Malay&#39;</span><span class="p">,</span> <span class="s1">&#39;Malagasy&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">])</span> <span class="o">==</span> \
-    <span class="p">{</span>
-        <span class="s1">&#39;Malay&#39;</span><span class="p">:[</span><span class="s1">&#39;baharu&#39;</span><span class="p">,</span> <span class="s1">&#39;lama&#39;</span><span class="p">,</span> <span class="s1">&#39;bagus, baik&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Malagasy&#39;</span><span class="p">:[</span><span class="s1">&#39;vaovao&#39;</span><span class="p">,</span> <span class="s1">&#39;onta, hantitra&#39;</span><span class="p">,</span> <span class="s1">&#39;tsara&#39;</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="k">assert</span> <span class="n">get_austro_words</span><span class="p">(</span><span class="s1">&#39;Malay&#39;</span><span class="p">,</span> <span class="s1">&#39;Balinese&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">])</span> <span class="o">==</span> \
-    <span class="p">{</span>
-        <span class="s1">&#39;Malay&#39;</span><span class="p">:[</span><span class="s1">&#39;baharu&#39;</span><span class="p">,</span> <span class="s1">&#39;lama&#39;</span><span class="p">,</span> <span class="s1">&#39;bagus, baik&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Balinese&#39;</span><span class="p">:[]</span>
-    <span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1698/2837573742.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> 
-<span class="ansi-green-intense-fg ansi-bold">     11</span> 
-<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> get_austro_words<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Malay&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;Malagasy&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;new&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;old&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;good&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span>     {
-<span class="ansi-green-intense-fg ansi-bold">     14</span>         <span class="ansi-blue-fg">&#39;Malay&#39;</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;baharu&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;lama&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;bagus, baik&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>
-
-<span class="ansi-red-fg">AssertionError</span>: </pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>2. Pour chaque mot du Cebuano de la liste Swadesh austronésienne, trouvez les mots des autres
-   langues qui ont les deux ou trois premiers caractères en commun.<br>
-   (optionnel si vous voulez jouer avec les expressions régulières) Si le mot commence par une
-   voyelle, elle pourra différer dans les autres langues. Ex: isa / usa seront considérées comme
-   similaires (i/u) parce qu'à part la première lettre voyelle elles sont similaires.</p>
-<p>3. Sans rechercher de solution sur internet, essayez d'implémenter une fonction qui calcule la
-   distance de Levenshtein</p>
+<h2 id="Exercice">Exercice<a class="anchor-link" href="#Exercice">&#182;</a></h2><p>Débugger et formatter <code>debugme.py</code>, envoyez-moi une pull request sur
+<a href="https://github.com/loicgrobol/apprentissage-artificiel">https://github.com/loicgrobol/apprentissage-artificiel</a></p>
 
 </div>
 </div>

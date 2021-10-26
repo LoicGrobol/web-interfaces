@@ -1,5 +1,6 @@
 beautifulsoup4
 fastapi
+flake8
 ipycytoscape
 ipympl
 jupyterlab
@@ -8,6 +9,7 @@ lxml
 nbconvert
 numpy
 matplotlib
+pyflakes
 regex
 RISE
 scipy
