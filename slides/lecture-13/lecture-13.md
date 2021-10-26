@@ -172,11 +172,14 @@ async def read_items():
     return HTMLResponse(content=html_content, status_code=200)
 ```
 
-## Exo
+## 🧊 Exo 🧊
 
 
-Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de chaînes
-de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les
-chaînes de caractères reçus.
+1\. Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de
+chaînes de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments
+sont les chaînes de caractères reçus.
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
+
+2\. Reprendre votre API précédente qui utilisait spaCy pour renvoyer les POS tag correspondant à une
+requête et faites lui renvoyer une présentation des résultats en HTML plutôt que du JSON.
