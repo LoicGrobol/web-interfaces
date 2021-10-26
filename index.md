@@ -105,8 +105,8 @@ est indisponible.
 
 - [Slides 13](slides/lecture-13/lecture-13.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
-- [Slides 13](slides/lecture-13/lecture-13.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
+- [Slides 14](slides/lecture-14/lecture-14.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-14/lecture-14.md)
 
 ## Utilisation en local
 
