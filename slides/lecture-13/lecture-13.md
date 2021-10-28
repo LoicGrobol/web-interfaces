@@ -49,9 +49,49 @@ Concevoir
 
 - Une page HTML avec un formulaire comprenant un champ de texte et un bouton de soumission.
   Assurez-vous qu'elle passe au [valideur du W3C](https://validator.w3.org)
+
+<!-- #region -->
+```html
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Envoyer un message</title>
+  </head>
+  <body>
+    <form action="http://localhost:8000" method="POST">
+      <label for="message">Le message à envoyer</label>
+      <input name="message" id="message" value="Ni!">
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>
+```
+<!-- #endregion -->
+
 - Une API avec FastAPI qui reçoit des requêtes de type POST venant de la page que vous avez créé et
   qui crée pour chacune un nouveau fichier texte sur votre machine dont le contenu est le contenu du
-  champ de texte.
+  champ de texte. Vous aurez besoin de regarder [dans sa doc](https://fastapi.tiangolo.com/tutorial/request-forms/) comment on récupère dans FastAPI des données envoyées depuis un formulaire (malheureusement ce n'est pas du JSON ! Pour ça il faut court-circuiter avec du JavaScript).
+
+```python
+# %load examples/html_receiver.py
+import itertools
+import pathlib
+
+from fastapi import FastAPI, Form
+
+
+app = FastAPI()
+
+
+@app.post("/")
+async def read_message(message: str = Form(...)):
+    file_number = next(
+        i for i in itertools.count() if not pathlib.Path(f"{i}.txt").exists()
+    )
+    pathlib.Path(f"{file_number}.txt").write_text(message)
+
+```
 
 ## Générer du HTML en Python
 

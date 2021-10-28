@@ -14529,7 +14529,7 @@ a.anchor-link {
 <h2 id="Traceback">Traceback<a class="anchor-link" href="#Traceback">&#182;</a></h2><p>Parfois rien ne marche, y a des jours comme ça</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
@@ -14561,12 +14561,12 @@ a.anchor-link {
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2606/1619165597.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2251/1619165597.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;I got a {anmal} in my living room&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>catchy_song<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;llama&#34;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_2606/1619165597.py</span> in <span class="ansi-cyan-fg">catchy_song</span><span class="ansi-blue-fg">(animal)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2251/1619165597.py</span> in <span class="ansi-cyan-fg">catchy_song</span><span class="ansi-blue-fg">(animal)</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> catchy_song<span class="ansi-blue-fg">(</span>animal<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;I got a {anmal} in my living room&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -15018,7 +15018,7 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 <p>Extrayons son vocabulaire</p>
 <p><strong>Exercice</strong> écrire une fonction <code>vocab</code> qui prend en argument un chemin vers un fichier texte et qui renvoie</p>
 <ul>
-<li>Une liste contenant les mots de ce texte</li>
+<li>Une liste contenant les mots du vocabulaire du texte</li>
 <li>Un <code>dict</code> qui mappe les mots vers leur position dans la liste</li>
 </ul>
 
@@ -15030,7 +15030,12 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">vocab</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span>
-    <span class="k">pass</span>
+    <span class="n">i2t</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">t2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_stream</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># Faire des trucs ici</span>
+
+    <span class="k">return</span> <span class="n">t2i</span><span class="p">,</span> <span class="n">i2t</span>
 </pre></div>
 
      </div>
@@ -16142,7 +16147,7 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 <p><strong>Exercice</strong> écrire une fonction <code>arg_k_max</code> qui renvoie les indices des $k$ plus grands éléments d'une liste.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
@@ -16150,7 +16155,11 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Renvoie les indices des k plus grands éléments de `lst`&quot;&quot;&quot;</span>
-    <span class="k">pass</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Faire des trucs ici</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">arg_k_max</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16158,10 +16167,82 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renvoie les indices des k plus grands éléments de `lst`&quot;&quot;&quot;</span>
+    <span class="n">srt</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">k_largest</span> <span class="o">=</span> <span class="n">srt</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">k_largest</span><span class="p">]</span>
+
+<span class="n">arg_k_max</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[1, 0]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ou si les boucles c'est votre passion</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -16176,6 +16257,8 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
             <span class="n">res</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">res</span><span class="p">]</span>
+
+    <span class="n">arg_k_max</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16192,7 +16275,7 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">common_neighbours</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">t2i</span><span class="p">,</span> <span class="n">i2t</span><span class="p">,</span> <span class="n">cooc</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -16266,7 +16349,7 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pyflakes lintme.py
@@ -16289,8 +16372,8 @@ j&#39; ai travaillé chez Simca dans l&#39; industrie automobile ça n&#39; avai
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>lintme.py:31:25 undefined name &#39;n&#39;
-lintme.py:35:25 undefined name &#39;n&#39;
+<pre>lintme.py:32:25 undefined name &#39;n&#39;
+lintme.py:36:25 undefined name &#39;n&#39;
 </pre>
 </div>
 </div>
@@ -16331,7 +16414,7 @@ lintme.py:35:25 undefined name &#39;n&#39;
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
@@ -16350,7 +16433,7 @@ lintme.py:35:25 undefined name &#39;n&#39;
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
@@ -16368,7 +16451,7 @@ lintme.py:35:25 undefined name &#39;n&#39;
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;ո&quot;</span><span class="p">)</span>
@@ -16387,7 +16470,7 @@ lintme.py:35:25 undefined name &#39;n&#39;
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
@@ -16417,7 +16500,7 @@ lintme.py:35:25 undefined name &#39;n&#39;
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">arg_k_max</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -16476,7 +16559,7 @@ envie de perdre une heure pour apprendre qu'on a fait une faute de frappe.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>flake8 lintme.py
@@ -16499,10 +16582,11 @@ envie de perdre une heure pour apprendre qu'on a fait une faute de frappe.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>lintme.py:5:13: E741 ambiguous variable name &#39;l&#39;
-lintme.py:16:13: E741 ambiguous variable name &#39;l&#39;
-lintme.py:31:25: F821 undefined name &#39;n&#39;
-lintme.py:35:25: F821 undefined name &#39;n&#39;
+<pre>lintme.py:6:13: E741 ambiguous variable name &#39;l&#39;
+lintme.py:17:13: E741 ambiguous variable name &#39;l&#39;
+lintme.py:23:34: E225 missing whitespace around operator
+lintme.py:32:25: F821 undefined name &#39;n&#39;
+lintme.py:36:25: F821 undefined name &#39;n&#39;
 </pre>
 </div>
 </div>
@@ -16553,7 +16637,7 @@ style recommandé pour Python n'est pas respectée par la ligne suivante :</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat ugly.py
@@ -16597,7 +16681,7 @@ style recommandé pour Python n'est pas respectée par la ligne suivante :</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat ugly.py <span class="p">|</span> black -q -
@@ -16679,7 +16763,7 @@ pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;moi&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
@@ -16722,7 +16806,7 @@ pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;bonjour&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
@@ -16759,7 +16843,7 @@ pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;Russie&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
@@ -16802,7 +16886,7 @@ pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;Orléans&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
@@ -16839,7 +16923,7 @@ pas à les utiliser en permanence, vous vous remercierez dans six mois.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">common_neighbours</span><span class="p">(</span><span class="s2">&quot;médecin&quot;</span><span class="p">,</span> <span class="n">ancor_t2i</span><span class="p">,</span> <span class="n">ancor_i2t</span><span class="p">,</span> <span class="n">ancor_cooc</span><span class="p">))</span>
