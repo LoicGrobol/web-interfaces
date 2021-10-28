@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def vocab(f_path):
     i2t = []
     t2i = dict()
@@ -10,16 +11,16 @@ def vocab(f_path):
     return t2i, i2t
 
 
-def cooc(f_path, t2i):
+def cooc(__f_path, t2i):
     cooc = [[0] * len(t2i)] * len(t2i)
-    with open(f_path) as in_stream:
+    with open(__f_path) as in_stream:
         for l in in_stream:
             words = l.strip().split()
             word_indices = [t2i[w] for w in words]
             for w in word_indices:
                 cooc_w = cooc[w]
                 for other in word_indices:
-                    cooc_w[other] += 1
+                    cooc_w[other]+= 1
     return cooc
 
 

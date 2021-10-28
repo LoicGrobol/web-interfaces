@@ -29,7 +29,7 @@ Cours 14 : Débugguer
 Parfois rien ne marche, y a des jours comme ça
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "subslide"}
+```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 def catchy_song(animal):
     print(f"I got a {anmal} in my living room")
 
@@ -180,13 +180,18 @@ Extrayons son vocabulaire
 
 **Exercice** écrire une fonction `vocab` qui prend en argument un chemin vers un fichier texte et qui renvoie
 
-- Une liste contenant les mots de ce texte
+- Une liste contenant les mots du vocabulaire du texte
 - Un `dict` qui mappe les mots vers leur position dans la liste
 <!-- #endregion -->
 
 ```python
 def vocab(f_path):
-    pass
+    i2t = []
+    t2i = dict()
+    with open(f_path) as in_stream:
+        pass  # Faire des trucs ici
+
+    return t2i, i2t
 ```
 
 ```python slideshow={"slide_type": "subslide"}
@@ -241,10 +246,27 @@ Où on peut par exemple récupérer les $k$ mots qui apparaissent le plus souven
 ```python
 def arg_k_max(lst, k):
     """Renvoie les indices des k plus grands éléments de `lst`"""
-    pass
+    res = []
+    # Faire des trucs ici
+    return res
+
+arg_k_max([9, 10, 2, 3], k=2)
 ```
 
 ```python slideshow={"slide_type": "subslide"}
+def arg_k_max(lst, k):
+    """Renvoie les indices des k plus grands éléments de `lst`"""
+    srt = sorted(enumerate(lst), key=(lambda x: x[1]), reverse=True)
+    k_largest = srt[:k]
+    return [i for i, _ in k_largest]
+
+arg_k_max([9, 10, 2, 3], k=2)
+```
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Ou si les boucles c'est votre passion
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "fragment"}
 def arg_k_max(lst, k):
     """Renvoie les indices des k plus grands éléments de `lst`"""
     res = [] 
@@ -257,6 +279,8 @@ def arg_k_max(lst, k):
             res.append((n, val))
             res.sort(reverse=True, key=lambda x: x[1])
     return [i for i, _ in res]
+
+    arg_k_max([9, 10, 2, 3], k=2)
 ```
 
 **Note** Si les performances sont importantes, préférer [`heapq.nlargest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) pour sélectionner les $k$ plus grands éléments d'une liste.
