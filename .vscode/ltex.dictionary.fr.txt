@@ -1,2 +1,7 @@
 Exos
 Exo
+FastAPI
+Jinja
+spaCy
+POS
+lxml
