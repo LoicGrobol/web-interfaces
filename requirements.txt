@@ -3,6 +3,7 @@ fastapi
 flake8
 ipycytoscape
 ipympl
+Jinja2
 jupyterlab
 jupytext
 lxml

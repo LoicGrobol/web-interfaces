@@ -612,5 +612,5 @@ C'est globalement un peu moins sympa qu'un débuggeur graphique, notamment pour 
 ## Exercice
 
 Débugger et formatter `debugme.py`, envoyez-moi une pull request sur
-<https://github.com/loicgrobol/apprentissage-artificiel>
+<https://github.com/loicgrobol/web-interfaces>
 <!-- #endregion -->

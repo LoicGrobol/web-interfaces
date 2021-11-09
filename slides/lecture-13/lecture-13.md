@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.13.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -223,3 +223,231 @@ Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://valida
 
 2\. Reprendre votre API précédente qui utilisait spaCy pour renvoyer les POS tag correspondant à une
 requête et faites lui renvoyer une présentation des résultats en HTML plutôt que du JSON.
+
+## Les templates avec Jinja
+
+Vous avez dû vous en rendre compte générer du HTML programmatiquement comme ça c'est plutôt pénible :
+
+- Soit on fait en générant des chaînes de caractères à la main, mais c'est pas simple d'être dans
+  les clous du valideur.
+- Soit on génère avec lxml, mais dans ce cas on doit manipuler des grosses hiérarchies d'objets
+  compliqués, c'est vite le bazar.
+
+En plus dans aucun des deux cas on a le confort de
+
+- La coloration syntaxique du HTML
+- Une gestion correcte par git
+- …
+
+Ce qui serait **bien** ça serait de pouvoir écrire du HTML normalement et en Python de ne faire que changer les parties intéressantes.
+
+
+Ça tombe bien, il y a des outils pour ça.
+
+
+Meet [Jinja](https://jinja.palletsprojects.com).
+
+### Jinja ?
+
+Jinja.
+
+```python
+%pip install -U Jinja2
+```
+
+Jinja est un « moteur de templates » (*template engine*), c'est un genre de `str.format` ou de *f-string*. Voyez plutôt :
+
+```python
+from jinja2 import Template
+t = Template("Hello {{ something }}!")
+t.render(something="World")
+```
+
+OK, super mais ça on sait déjà faire, qu'est-ce que ça apporte de plus ?
+
+```python
+t = Template("My favorite numbers: {% for n in numbers %} {{n}} {% endfor %}")
+t.render(numbers=[2, 7, 1, 3])
+```
+
+C'est une boucle for !
+
+
+À quoi ça sert, et bien par exemple on peut s'en servir pour générer des listes :
+
+```python
+t = Template("""My favorite people:
+<ul>
+{% for p in people %}
+<li>{{p.name}}, {{p.position}}</li>
+{% endfor %}
+</ul>
+""")
+lst = t.render(
+    people=[
+        {"name": "Guido van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Emily Bender", "position": "VP-elect of the Association for Computational Linguistics"},
+    ]
+)
+print(lst)
+display(HTML(lst))
+```
+
+Petite subtilité : pour se débarrasser des lignes vides intempestives, [on peut utiliser un `-`](https://jinja.palletsprojects.com/en/3.0.x/templates/#whitespace-control)
+
+```python
+t = Template("""My favorite people:
+<ul>
+{% for p in people -%}
+<li>{{p.name}}, {{p.position}}</li>
+{% endfor -%}
+</ul>
+""")
+lst = t.render(
+    people=[
+        {"name": "Guido van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Emily Bender", "position": "VP-elect of the Association for Computational Linguistics"},
+    ]
+)
+print(lst)
+```
+
+Il y a d'[autres](https://jinja.palletsprojects.com/en/3.0.x/templates/#list-of-control-structures)
+fonctionnalités intéressantes dans les templates Jinja, comme les conditions et les macros. On ne va
+pas rentrer dans le détail parce que c'est en général une meilleure idée de faire les traitements
+compliqués côté Python, mais elles existent et peuvent être utiles à l'occasion.
+
+
+Ce qui est plus intéressant pour nous, c'est la possibilité d'écrire nos templates dans des
+fichiers. Voici par exemple le contenu de
+[`examples/templates/basic.html.jinja`](examples/templates/basic.html.jinja) :
+
+```django
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My favourite people</title>
+</head>
+<body>
+    <h1>My favourite people</h1>
+    <ul>
+        {% for p in people -%}
+            <li>{{p.name}}, {{p.position}}</li>
+        {% endfor -%}
+    </ul>
+</body>
+</html>
+```
+
+
+On s'en sert ainsi
+
+```python
+from jinja2 import Environment, FileSystemLoader
+env = Environment(
+    loader=FileSystemLoader("examples/templates"),
+)
+t = env.get_template("basic.html.jinja")
+lst = t.render(
+    people=[
+        {"name": "Guido van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Emily Bender", "position": "VP-elect of the Association for Computational Linguistics"},
+    ]
+)
+print(lst)
+display(HTML(lst))
+```
+
+Ça permet de séparer un peu plus la partie **traitement des données** qui est gérée par cotre code
+Python et la partie **affichage** des données qui est gérée en Jinja. En plus, les bons IDE
+supportent la syntaxe de Jinja, vous devriez donc au moins avoir de la coloration syntaxique !
+
+
+Parmi les autres fonctions intéressantes, Jinja permet d'échapper automatiquement le HTML, afin de
+se prémunir des injections de code. Par exemple si on reprend l'environnement précédent mais qu'on
+change un peu les données
+
+```python
+lst = t.render(
+    people=[
+        {"name": "<strong>Guido</strong> van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Emily Bender", "position": "VP-elect of the Association for Computational Linguistics"},
+    ]
+)
+print(lst)
+display(HTML(lst))
+```
+
+Évidemment ici ce n'est pas très grave, mais on peut faire beaucoup de choses avec `<script>` par exemple. Mieux vaut donc éviter
+
+```python
+env = Environment(
+    loader=FileSystemLoader("examples/templates"),
+    autoescape=True,
+)
+
+t = env.get_template("basic.html.jinja")
+lst = t.render(
+    people=[
+        {"name": "<strong>Guido</strong> van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Emily Bender", "position": "VP-elect of the Association for Computational Linguistics"},
+    ]
+)
+print(lst)
+display(HTML(lst))
+```
+
+## FastAPI et Jinja
+
+Les deux s'interfacent bien, ou plus précisément, FastAPI propose des interfaces vers Jinja
+
+
+Voici le contenu de [`examples/templates/hello.html.jinja`](examples/templates/jinja_api.py)
+
+```django
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello, {{name}}</title>
+</head>
+<body>
+    <h1>Hello, {{name}}</h1>
+    <p>How do you do, fellow nerd?</p>
+</body>
+</html>
+```
+
+
+Et de [`examples/jinja_api.py`](examples/jinja_api.py)
+
+```python
+# %load examples/jinja_api.py
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI()
+
+templates = Jinja2Templates(directory="templates")
+
+
+# Le paramètre `request` est obligatoire, c'est la faute à Starlette !
+@app.get("/hello/{name}", response_class=HTMLResponse)
+async def read_item(request: Request, name: str):
+    return templates.TemplateResponse(
+        "hello.html.jinja", {"request": request, "name": name}
+    )
+
+```
+
+Lancez cette API avec `uvicorn jinja_api:app` et allez à <http://localhost:8000/hello/world>
+
+
+## 🙄 Exo 🙄
+
+Reprenez les APIs de 🧊 et réécrivez-les en Jinja. Si, si, c'est pour votre bien.
