@@ -63,9 +63,9 @@ est indisponible.
 
 ### 2021-09-29 — Internet, Web, HTTP et bibliothèque `requests`
 
-- [Slides 6](slides/lecture-06/lecture-06.slides.html) [![Launch in Binder
+- [Slides 6](slides/lecture-06/lecture-06.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-06/lecture-06.md)
-- [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
+- [Slides 7](slides/lecture-07/lecture-07.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-07/lecture-07.md)
 
 #### Corrections 2021-09-29
@@ -76,9 +76,9 @@ est indisponible.
 
 ### 2021-10-05 — Documents balisés et APIs web
 
-- [Slides 8](slides/lecture-08/lecture-08.slides.html) [![Launch in Binder
+- [Slides 8](slides/lecture-08/lecture-08.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/lecture-08.md)
-- [Slides 9](slides/lecture-09/lecture-09.slides.html) [![Launch in Binder
+- [Slides 9](slides/lecture-09/lecture-09.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-09/lecture-09.md)
 
 #### Corrections 2021-10-06
@@ -96,19 +96,19 @@ est indisponible.
 - Voir [les corrections de la semaine dernière](#corrections-2021-10-06)
 - [Slides 10](slides/lecture-10/lecture-10.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-10/lecture-10.md)
-- [Slides 11](slides/lecture-11/lecture-11.slides.html) [![Launch in Binder
+- [Slides 11](slides/lecture-11/lecture-11.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
 
 ### 2021-10-20 — Itérateurs, décorateurs et FastAPI
 
-- [Slides 11](slides/lecture-11/lecture-11.slides.html) [![Launch in Binder
+- [Slides 11](slides/lecture-11/lecture-11.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
 - [Slides 12](slides/lecture-12/lecture-12.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-12/lecture-12.md)
 
 ### 2021-10-20 — Atelier débuggage et HTMl
 
-- [Slides 13](slides/lecture-13/lecture-13.slides.html) [![Launch in Binder
+- [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
 - [Slides 14](slides/lecture-14/lecture-14.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-14/lecture-14.md)

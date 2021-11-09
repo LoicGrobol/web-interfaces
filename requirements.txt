@@ -15,4 +15,6 @@ regex
 RISE
 scipy
 spacy
+spacy_streamlit
+streamlit
 uvicorn
