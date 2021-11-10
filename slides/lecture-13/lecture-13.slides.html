@@ -14886,25 +14886,20 @@ fichier et qui écrit dans ce fichier une page HTML qui contient une liste non-o
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_ul</span><span class="p">(</span><span class="n">elems</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">above</span> <span class="o">=</span> <span class="p">(</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">&lt;!DOCTYPE html&gt;</span>
-<span class="sd">&lt;html&gt;</span>
-<span class="sd">  &lt;head&gt;</span>
-<span class="sd">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span>
-<span class="sd">    &lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;</span>
-<span class="sd">  &lt;/head&gt;</span>
-<span class="sd">  &lt;body&gt;</span>
-<span class="sd">  &lt;ul&gt;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-    <span class="p">)</span>
-    <span class="n">below</span> <span class="o">=</span> <span class="p">(</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  &lt;/ul&gt;</span>
-<span class="sd">  &lt;/body&gt;</span>
-<span class="sd">&lt;/html&gt;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-    <span class="p">)</span>
+    <span class="n">above</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">  &lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="s2">    &lt;title&gt;What is the Average Flying Speed of an African Sparrow?&lt;/title&gt;</span>
+<span class="s2">  &lt;/head&gt;</span>
+<span class="s2">  &lt;body&gt;</span>
+<span class="s2">  &lt;ul&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">below</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  &lt;/ul&gt;</span>
+<span class="s2">  &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
     <span class="n">lst</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;&lt;li&gt;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/li&gt;&quot;</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">])</span>
     <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">above</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">below</span><span class="p">])</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_stream</span><span class="p">:</span>
@@ -15005,6 +15000,56 @@ fichier et qui écrit dans ce fichier une page HTML qui contient une liste non-o
 chaînes de caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments
 sont les chaînes de caractères reçus.</p>
 <p>Bien entendu, vérifiez que votre HTML passe au <a href="https://validator.w3.org">valideur du W3C</a>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load examples/echo_list_api.py</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">InputData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">lines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">response_class</span><span class="o">=</span><span class="n">HTMLResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">inpt</span><span class="p">:</span> <span class="n">InputData</span><span class="p">):</span>
+    <span class="n">above</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">  &lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="s2">    &lt;title&gt;This is what you asked me to display&lt;/title&gt;</span>
+<span class="s2">  &lt;/head&gt;</span>
+<span class="s2">  &lt;body&gt;</span>
+<span class="s2">  &lt;ol&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">below</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  &lt;/ol&gt;</span>
+<span class="s2">  &lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;&lt;li&gt;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/li&gt;&quot;</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">inpt</span><span class="o">.</span><span class="n">lines</span><span class="p">])</span>
+    <span class="n">html_content</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">above</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">below</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">html_content</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>2. Reprendre votre API précédente qui utilisait spaCy pour renvoyer les POS tag correspondant à une
 requête et faites lui renvoyer une présentation des résultats en HTML plutôt que du JSON.</p>
 

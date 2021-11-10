@@ -164,10 +164,8 @@ Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://valida
 
 ```python
 def make_ul(elems: List[str], path: str):
-    above = (
-"""
-<!DOCTYPE html>
-<html>
+    above = """<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>What is the Average Flying Speed of an African Sparrow?</title>
@@ -175,14 +173,11 @@ def make_ul(elems: List[str], path: str):
   <body>
   <ul>
 """
-    )
-    below = (
-"""
+    below = """
   </ul>
   </body>
 </html>
 """
-    )
     lst  = "\n".join([f"<li>{name}</li>" for name in elems])
     content = "\n".join([above, lst, below])
     with open(path, "w") as out_stream:
@@ -250,6 +245,41 @@ chaînes de caractère et répond avec une page HTML qui contient une liste ordo
 sont les chaînes de caractères reçus.
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
+
+```python
+# %load examples/echo_list_api.py
+from typing import List
+from fastapi import FastAPI
+from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+
+class InputData(BaseModel):
+    lines: List[str]
+
+
+@app.post("/", response_class=HTMLResponse)
+async def display(inpt: InputData):
+    above = """<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>This is what you asked me to display</title>
+  </head>
+  <body>
+  <ol>
+"""
+    below = """
+  </ol>
+  </body>
+</html>
+"""
+    lst = "\n".join([f"<li>{name}</li>" for name in inpt.lines])
+    html_content = "\n".join([above, lst, below])
+    return HTMLResponse(content=html_content, status_code=200)
+```
 
 2\. Reprendre votre API précédente qui utilisait spaCy pour renvoyer les POS tag correspondant à une
 requête et faites lui renvoyer une présentation des résultats en HTML plutôt que du JSON.
