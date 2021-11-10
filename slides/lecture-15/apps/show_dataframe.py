@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 
-# Le décoreateur `st.cache` permet de conserver le résultat de la fonction d'un chargement sur l'autre
+# Le décorateur `st.cache` permet de conserver le résultat de la fonction d'un chargement sur l'autre
 # ainsi on n'ira chercher ces données qu'une seule fois
 @st.cache
 def get_data():

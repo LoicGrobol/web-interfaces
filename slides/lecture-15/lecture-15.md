@@ -62,14 +62,20 @@ traduisant directement du code en Python, avec beaucoup de magie pour que ce soi
 Comment ça marche concrètement ? Et bien voici une application Streamlit
 
 ```python
-%load apps/slider.py
+# %load apps/slider.py
+import streamlit as st
+x = st.slider("x")
+st.write(x, "au carré vaut", x * x)
+
 ```
 
+<!-- #region -->
 Pour la lancer, on utilise la commande `streamlit` :
 
 ```bash
 streamlit run apps/slider.py
 ```
+<!-- #endregion -->
 
 <small>Comme les fois précédentes, les cellules qui lancent les API dans ce notebook ne sont pas
 exécutables, entrez-les dans votre terminal.</small>
@@ -94,14 +100,189 @@ des mécanismes de mise en cache.
 Voici par exemple comment afficher un `Dataframe` pandas récupéré depuis un CSV distant en ne le
 retéléchargeant pas à chaque modification :
 
+```python
+# %load apps/show_dataframe.py
+import pandas as pd
+import streamlit as st
 
+
+# Le décorateur `st.cache` permet de conserver le résultat de la fonction d'un chargement sur l'autre
+# ainsi on n'ira chercher ces données qu'une seule fois
+@st.cache
+def get_data():
+    url = "http://data.insideairbnb.com/france/ile-de-france/paris/2021-09-09/visualisations/listings.csv"
+    return pd.read_csv(url)
+
+
+df = get_data()
+
+
+st.title("Listings AirBnB pour Paris")
+st.markdown(
+    "Cette page présente les statistiques du groupe [Inside AirBnB](http://data.insideairbnb.com) pour Paris"
+)
+
+st.dataframe(df)
+
+```
+
+<!-- #region -->
 ```bash
 streamlit run apps/show_dataframe.py
 ```
+<!-- #endregion -->
 
-Voir [la doc](https://docs.streamlit.io/library/advanced-features/caching) pour les détails de fonctionnement de `st.cache`
+Voir [la doc](https://docs.streamlit.io/library/advanced-features/caching) pour les détails de fonctionnement de `st.cache`.
 
 
 ## Widgets graphiques
 
-On peut facilement afficher des graphiques : voyez par exemple
+On peut facilement afficher des graphiques, ici par exemple des histogrammes
+
+```python
+# %load apps/graphs.py
+import matplotlib.pyplot as plt
+import pandas as pd
+import streamlit as st
+
+
+@st.cache
+def get_data():
+    url = "http://data.insideairbnb.com/france/ile-de-france/paris/2021-09-09/visualisations/listings.csv"
+    df = pd.read_csv(url)
+    # On vire les données foireuses
+    return df[df["price"] > 20]
+
+
+df = get_data()
+
+
+st.title("Listings AirBnB pour Paris")
+st.markdown(
+    "Cette page présente les statistiques du groupe [Inside AirBnB](http://data.insideairbnb.com) pour Paris"
+)
+
+st.subheader("Répartition des prix")
+
+fig, ax = plt.subplots()
+
+ax.hist(df["price"], bins="auto")
+
+st.pyplot(fig)
+
+
+st.subheader("Répartition des nombres de reviews")
+
+fig, ax = plt.subplots()
+
+ax.hist(df["number_of_reviews"], bins="auto")
+
+st.pyplot(fig)
+
+st.subheader("Détails complets")
+
+st.dataframe(df)
+```
+
+<!-- #region -->
+```bash
+streamlit run apps/graphs.py
+```
+<!-- #endregion -->
+
+Mais aussi des trucs plus rigolos comme des cartes
+
+```python
+# %load apps/map.py
+import matplotlib.pyplot as plt
+import pandas as pd
+import streamlit as st
+
+
+@st.cache
+def get_data():
+    url = "http://data.insideairbnb.com/france/ile-de-france/paris/2021-09-09/visualisations/listings.csv"
+    df = pd.read_csv(url)
+    # On vire les données foireuses
+    return df[df["price"] > 20]
+
+
+df = get_data()
+
+
+st.title("Listings AirBnB pour Paris")
+st.markdown(
+    "Cette page présente les statistiques du groupe [Inside AirBnB](http://data.insideairbnb.com) pour Paris"
+)
+
+st.subheader("Carte de listings à plus de 1000 € la nuit")
+
+# Ça marche parce que le dataframe contient des colonnes `latitude` et `longitude``
+st.map(df[df["price"] > 1000])
+
+st.subheader("Détails complets")
+
+st.dataframe(df)
+```
+
+<!-- #region -->
+```bash
+streamlit run apps/map.py
+```
+<!-- #endregion -->
+
+## Communication entre widgets
+
+Les widgets communiquent aussi entre eux, on peut par exemple utiliser un slider pour sélectionner une fourchette de prix
+
+```python
+# %load apps/map_and_slider.py
+import pandas as pd
+import streamlit as st
+
+
+@st.cache
+def get_data():
+    url = "http://data.insideairbnb.com/france/ile-de-france/paris/2021-09-09/visualisations/listings.csv"
+    df = pd.read_csv(url)
+    # On vire les données foireuses
+    return df[df["price"] > 20]
+
+
+df = get_data()
+
+
+st.title("Listings AirBnB pour Paris")
+st.markdown(
+    "Cette page présente les statistiques du groupe [Inside AirBnB](http://data.insideairbnb.com) pour Paris"
+)
+
+st.subheader("Carte des listings")
+
+absolute_min_price = df["price"].min().astype(float).item()
+absolute_max_price = df["price"].max().astype(float).item()
+
+min_price, max_price = st.slider(
+    "min_price",
+    absolute_min_price,
+    absolute_max_price,
+    value=(
+        df["price"].min().astype(float).item(),
+        (absolute_min_price + absolute_max_price) / 2,
+    ),
+    step=10.0,
+)
+
+st.map(df[df["price"].between(min_price, max_price)])
+
+st.subheader("Détails complets")
+
+st.dataframe(df)
+
+```
+
+<!-- #region -->
+```bash
+streamlit run apps/map_and_slider.py
+```
+<!-- #endregion -->

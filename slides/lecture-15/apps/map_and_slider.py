@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
@@ -21,15 +20,21 @@ st.markdown(
 
 st.subheader("Carte des listings")
 
-min_price = st.slider(
+absolute_min_price = df["price"].min().astype(float).item()
+absolute_max_price = df["price"].max().astype(float).item()
+
+min_price, max_price = st.slider(
     "min_price",
-    df["price"].min().astype(float).item(),
-    1000.0,
-    value=(df["price"].min().astype(float).item(), 100.0),
+    absolute_min_price,
+    absolute_max_price,
+    value=(
+        df["price"].min().astype(float).item(),
+        (absolute_min_price + absolute_max_price) / 2,
+    ),
     step=10.0,
 )
 
-st.map(df[df["price"] > min_price])
+st.map(df[df["price"].between(min_price, max_price)])
 
 st.subheader("Détails complets")
 
