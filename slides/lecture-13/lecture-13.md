@@ -157,10 +157,40 @@ def make_ul(elems: List[str], path: str):
     pass  # À vous de jouer
 
 # Pour tester
-make_ul(["AronChupa", "The Sidh", "Måneskin"], "earworms_producers.html")
+make_ul(["AronChupa", "The Sidh", "Måneskin"], "local/earworms_producers.html")
 ```
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
+
+```python
+def make_ul(elems: List[str], path: str):
+    above = (
+"""
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>What is the Average Flying Speed of an African Sparrow?</title>
+  </head>
+  <body>
+  <ul>
+"""
+    )
+    below = (
+"""
+  </ul>
+  </body>
+</html>
+"""
+    )
+    lst  = "\n".join([f"<li>{name}</li>" for name in elems])
+    content = "\n".join([above, lst, below])
+    with open(path, "w") as out_stream:
+        out_stream.write(content)
+
+# Pour tester
+make_ul(["AronChupa", "The Sidh", "Måneskin"], "local/earworms_producers.html")
+```
 
 ### Avec `lxml`
 

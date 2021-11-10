@@ -113,6 +113,13 @@ est indisponible.
 - [Slides 14](slides/lecture-14/lecture-14.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-14/lecture-14.md)
 
+### 2021-11-10 —  Templates Jinja et applications streamlit
+
+- [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
+- [Slides 15](slides/lecture-15/lecture-15.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-15/lecture-15.md)
+
 ## Utilisation en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec
