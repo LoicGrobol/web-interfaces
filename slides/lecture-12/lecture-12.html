@@ -15003,7 +15003,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_3175/2891714693.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_6316/2891714693.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>itr<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">StopIteration</span>: </pre>
@@ -19612,10 +19612,10 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 4 µs, sys: 1 µs, total: 5 µs
-Wall time: 7.39 µs
-CPU times: user 259 ms, sys: 8.42 ms, total: 267 ms
-Wall time: 266 ms
+<pre>CPU times: user 4 µs, sys: 0 ns, total: 4 µs
+Wall time: 7.63 µs
+CPU times: user 351 ms, sys: 9.89 ms, total: 361 ms
+Wall time: 361 ms
 </pre>
 </div>
 </div>
@@ -19734,9 +19734,9 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 275 ms, sys: 850 µs, total: 276 ms
-Wall time: 276 ms
-CPU times: user 4 µs, sys: 1 µs, total: 5 µs
+<pre>CPU times: user 308 ms, sys: 0 ns, total: 308 ms
+Wall time: 310 ms
+CPU times: user 4 µs, sys: 0 ns, total: 4 µs
 Wall time: 6.68 µs
 </pre>
 </div>
@@ -19831,7 +19831,7 @@ Taille de mots_a_gen : 112
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_3175/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_6316/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>len<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: object of type &#39;generator&#39; has no len()</pre>
@@ -19895,8 +19895,8 @@ là où il s'est arrêté.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 236 ms, sys: 10.1 ms, total: 246 ms
-Wall time: 245 ms
+<pre>CPU times: user 252 ms, sys: 5.7 ms, total: 257 ms
+Wall time: 257 ms
 </pre>
 </div>
 </div>
@@ -19955,7 +19955,7 @@ vous conseille d'en lire la doc d'ailleurs
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;generator object gen_with_a at 0x7f8550677350&gt;
+<pre>&lt;generator object gen_with_a at 0x7f2784634190&gt;
 GEN_CREATED
 chat
 GEN_SUSPENDED
@@ -19975,7 +19975,7 @@ GEN_SUSPENDED
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_3175/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_6316/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span>inspect<span class="ansi-blue-fg">.</span>getgeneratorstate<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -20096,7 +20096,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;generator object &lt;genexpr&gt; at 0x7f8550677040&gt;</pre>
+<pre>&lt;generator object &lt;genexpr&gt; at 0x7f2784634510&gt;</pre>
 </div>
 
 </div>
@@ -20142,7 +20142,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>40 ms ± 1.98 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre>37.3 ms ± 1.88 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre>
 </div>
 </div>
@@ -20182,7 +20182,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.6 ms ± 157 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre>1.73 ms ± 168 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre>
 </div>
 </div>
@@ -20228,7 +20228,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.61 ms ± 132 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre>1.83 ms ± 144 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre>
 </div>
 </div>
@@ -20771,7 +20771,7 @@ mesurer le temps d'exécution d'une fonction :</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 9999900000
-Finished doubled_and_add in 0.017169142999989617 secs
+Finished doubled_and_add in 0.012713084000097297 secs
 </pre>
 </div>
 </div>
@@ -20807,7 +20807,7 @@ Finished doubled_and_add in 0.017169142999989617 secs
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 999999000000
-Finished doubled_and_add in 0.0940704839999853 secs
+Finished doubled_and_add in 0.1060437969999839 secs
 </pre>
 </div>
 </div>
