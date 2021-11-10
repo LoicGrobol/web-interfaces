@@ -138,11 +138,11 @@ HTML(doc)
 Et vous savez comment écrire dans un fichier
 
 ```python
-with open("spam.html", "w") as out_stream:
+with open("local/spam.html", "w") as out_stream:
     out_stream.write(doc)
 ```
 
-Et voilà on a écrit [du HTML](spam.html).
+Et voilà on a écrit [du HTML](local/spam.html).
 
 ### 🎈 Exo 🎈
 
