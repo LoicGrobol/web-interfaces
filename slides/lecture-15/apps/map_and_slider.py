@@ -25,7 +25,7 @@ min_price = st.slider(
     "min_price",
     df["price"].min().astype(float).item(),
     1000.0,
-    100.0,
+    value=(df["price"].min().astype(float).item(), 100.0),
     step=10.0,
 )
 
