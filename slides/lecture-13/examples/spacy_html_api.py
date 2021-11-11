@@ -5,7 +5,6 @@ import spacy
 
 app = FastAPI()
 
-
 class InputData(BaseModel):
     sentence: str
 
