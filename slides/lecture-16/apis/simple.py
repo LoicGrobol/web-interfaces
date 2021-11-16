@@ -14,6 +14,7 @@ def get_db():
         yield cur
         con.commit()
     finally:
+        cur.close()
         con.close()
 
 
