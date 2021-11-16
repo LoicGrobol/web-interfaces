@@ -77,8 +77,3 @@ def get_tree_view(tree_id: str, db: Session = Depends(get_db)):
 @app.post("/trees/")
 async def create_tree_view(tree: Tree):
     return tree
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World!"}

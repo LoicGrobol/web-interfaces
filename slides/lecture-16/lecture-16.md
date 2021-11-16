@@ -232,4 +232,100 @@ recettes = read_recette("Tiramisu")
 
 ## 🌲 Exo 🌲
 
-Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut `sent_id`, la deuxième contiendra son attribut `text`, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Vous pouvez vous aider de [`conllu`](https://github.com/EmilStenstrom/conllu) pour faire le boulot de parser le fichier.
+Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut `sent_id`, la deuxième contiendra son attribut `text`, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Remplissez cette base avec le contenu d'un treebank UD de votre choix. Vous pouvez vous aider de [`conllu`](https://github.com/EmilStenstrom/conllu) pour faire le boulot de parser le fichier.
+
+## Utiliser une base de données dans FastAPI
+
+C'est assez courant d'avoir besoin de bases de données pour des applications complexes. Les cas typiques sont
+
+- Une base qui rassemble des données qu'on compte présenter aux utilisateurices (par exemple avec la base de l'exo précédent on peut vouloir leur permettre de faire des recherches dans un treebank)
+- Une base à usage interne comme une base d'utiliateurices qui stocke leur nom, leur avatar, leurs paramètres, des infos de connexion (comme un hash du mot de passe)…
+
+
+Ce n'est pas très compliqué, voyons ensemble un exemple :
+
+```python
+# %load apis/simple.py
+from typing import List
+import sqlite3
+
+from fastapi import FastAPI, Depends
+from pydantic import BaseModel
+
+app = FastAPI()
+
+
+def get_db():
+    con = sqlite3.connect("db.sqlite3")
+    cur = con.cursor()
+    try:
+        yield cur
+        con.commit()
+    finally:
+        cur.close()
+        con.close()
+
+
+# Database setup
+con = sqlite3.connect("db.sqlite3")
+cur = con.cursor()
+cur.execute(
+    "create table if not exists trees (tree_id VARCHAR NOT NULL PRIMARY KEY, text TEXT)"
+)
+con.close()
+
+
+class Tree(BaseModel):
+    tree_id: str
+    text: str
+
+
+# Methods for interacting with the database
+def get_tree(cur: sqlite3.Cursor, tree_id: str):
+    cur.execute("select * from trees where tree_id=:tree_id", {"tree_id": tree_id})
+    db_tree_id, db_text = cur.fetchone()
+    return {"tree_id": db_tree_id, "text": db_text}
+
+
+def get_trees(cur: sqlite3.Cursor):
+    cur.execute("select * from trees")
+    return [
+        {"tree_id": db_tree_id, "text": db_text}
+        for db_tree_id, db_text in cur.fetchall()
+    ]
+
+
+def create_tree(cur: sqlite3.Cursor, tree: Tree):
+    cur.execute(
+        "insert into trees values (:tree_id, :text)",
+        {"tree_id": tree.tree_id, "text": tree.text},
+    )
+    return tree
+
+
+@app.post("/trees/", response_model=Tree)
+def create_trees_view(tree: Tree, db: sqlite3.Cursor = Depends(get_db)):
+    db_tree = create_tree(db, tree)
+    return db_tree
+
+
+@app.get("/trees/", response_model=List[Tree])
+def get_trees_view(db: sqlite3.Cursor = Depends(get_db)):
+    return get_trees(db)
+
+
+@app.get("/tree/{tree_id}")
+def get_tree_view(tree_id: str, db: sqlite3.Cursor = Depends(get_db)):
+    return get_tree(db, tree_id)
+
+
+@app.post("/trees/")
+async def create_tree_view(tree: Tree):
+    return tree
+
+```
+
+Ça marche exactement comme les API qu'on a déjà réalisé, simplement les opérations font appel à `sqlite3` pour interagir avec une base de données.
+
+
+Le seul truc nouveau ici (mais dont on aurait pû se passer) c'est l'utilisation de `Depends` et `get_db` : il s'agit d'une [injection de dépendance](https://fastapi.tiangolo.com/tutorial/dependencies) : quand un paramètre dans un point d'accès a comme annotation de type `Depends(get_db)`, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`. Une fois la fonction co
