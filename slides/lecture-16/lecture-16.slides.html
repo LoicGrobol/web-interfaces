@@ -15034,7 +15034,125 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#127794; Exo &#127794;<a class="anchor-link" href="#%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#182;</a></h2><p>Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut <code>sent_id</code>, la deuxième contiendra son attribut <code>text</code>, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Vous pouvez vous aider de <a href="https://github.com/EmilStenstrom/conllu"><code>conllu</code></a> pour faire le boulot de parser le fichier.</p>
+<h2 id="%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#127794; Exo &#127794;<a class="anchor-link" href="#%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#182;</a></h2><p>Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut <code>sent_id</code>, la deuxième contiendra son attribut <code>text</code>, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Remplissez cette base avec le contenu d'un treebank UD de votre choix. Vous pouvez vous aider de <a href="https://github.com/EmilStenstrom/conllu"><code>conllu</code></a> pour faire le boulot de parser le fichier.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Utiliser-une-base-de-donn%C3%A9es-dans-FastAPI">Utiliser une base de donn&#233;es dans FastAPI<a class="anchor-link" href="#Utiliser-une-base-de-donn%C3%A9es-dans-FastAPI">&#182;</a></h2><p>C'est assez courant d'avoir besoin de bases de données pour des applications complexes. Les cas typiques sont</p>
+<ul>
+<li>Une base qui rassemble des données qu'on compte présenter aux utilisateurices (par exemple avec la base de l'exo précédent on peut vouloir leur permettre de faire des recherches dans un treebank)</li>
+<li>Une base à usage interne comme une base d'utiliateurices qui stocke leur nom, leur avatar, leurs paramètres, des infos de connexion (comme un hash du mot de passe)…</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ce n'est pas très compliqué, voyons ensemble un exemple :</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load apis/simple.py</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
+    <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">cur</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="c1"># Database setup</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="s2">&quot;create table if not exists trees (tree_id VARCHAR NOT NULL PRIMARY KEY, text TEXT)&quot;</span>
+<span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Tree</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">tree_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="c1"># Methods for interacting with the database</span>
+<span class="k">def</span> <span class="nf">get_tree</span><span class="p">(</span><span class="n">cur</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span><span class="p">,</span> <span class="n">tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from trees where tree_id=:tree_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;tree_id&quot;</span><span class="p">:</span> <span class="n">tree_id</span><span class="p">})</span>
+    <span class="n">db_tree_id</span><span class="p">,</span> <span class="n">db_text</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;tree_id&quot;</span><span class="p">:</span> <span class="n">db_tree_id</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">db_text</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">get_trees</span><span class="p">(</span><span class="n">cur</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span><span class="p">):</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from trees&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;tree_id&quot;</span><span class="p">:</span> <span class="n">db_tree_id</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">db_text</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">db_tree_id</span><span class="p">,</span> <span class="n">db_text</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">create_tree</span><span class="p">(</span><span class="n">cur</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span><span class="p">):</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+        <span class="s2">&quot;insert into trees values (:tree_id, :text)&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="s2">&quot;tree_id&quot;</span><span class="p">:</span> <span class="n">tree</span><span class="o">.</span><span class="n">tree_id</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">tree</span><span class="o">.</span><span class="n">text</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">tree</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/trees/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Tree</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_trees_view</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="n">db_tree</span> <span class="o">=</span> <span class="n">create_tree</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">db_tree</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/trees/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">Tree</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_trees_view</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">get_trees</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tree/</span><span class="si">{tree_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_tree_view</span><span class="p">(</span><span class="n">tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">get_tree</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">tree_id</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/trees/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_tree_view</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tree</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ça marche exactement comme les API qu'on a déjà réalisé, simplement les opérations font appel à <code>sqlite3</code> pour interagir avec une base de données.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Le seul truc nouveau ici (mais dont on aurait pû se passer) c'est l'utilisation de <code>Depends</code> et <code>get_db</code> : il s'agit d'une <a href="https://fastapi.tiangolo.com/tutorial/dependencies">injection de dépendance</a> : quand un paramètre dans un point d'accès a comme annotation de type <code>Depends(get_db)</code>, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur <code>get_db</code> avec <code>yield</code>. Une fois la fonction co</p>
 
 </div>
 </div></section></section>
