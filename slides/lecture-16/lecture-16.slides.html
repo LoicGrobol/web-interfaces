@@ -14642,7 +14642,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Cours-16%E2%80%AF:-Bases-de-donn%C3%A9es-relationnelles-avec-FastAPI">Cours 16&#8239;: Bases de donn&#233;es relationnelles avec FastAPI<a class="anchor-link" href="#Cours-16%E2%80%AF:-Bases-de-donn%C3%A9es-relationnelles-avec-FastAPI">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
+<h1 id="Cours-16%E2%80%AF:-FastAPI-et-les-bases-de-donn%C3%A9es-relationnelles">Cours 16&#8239;: FastAPI et les bases de donn&#233;es relationnelles<a class="anchor-link" href="#Cours-16%E2%80%AF:-FastAPI-et-les-bases-de-donn%C3%A9es-relationnelles">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
 <p>2021-11-17</p>
 
 </div>
@@ -14660,6 +14660,353 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Bases-de-donn%C3%A9es">Bases de donn&#233;es<a class="anchor-link" href="#Bases-de-donn%C3%A9es">&#182;</a></h2><p>Les bases de données en 30s pour les Pythonista pressé⋅e⋅s :</p>
+<ul>
+<li>Une <strong>entrée</strong> dans une base de données, c'est comme un tuple nommé : c'est une série ordonnée de
+valeurs, chacune associée à une clé.</li>
+<li>Une <strong>table</strong>, c'est une liste d'entrées qui ont toutes les mêmes clés. On pense souvent aux
+entrées comme aux lignes (<em>row</em>) d'un tableau et aux clés comme des colonnes.<ul>
+<li>Une des clés sert d'identifiant : on l'appelle la <strong>clé primaire</strong> et la valeur associée doit
+ être unique pour chacune des entrées de la table.</li>
+<li>Il arrive souvent qu'une des colonnes ait comme valeurs des clés primaires d'entrées d'une autre
+table, ça permet de créer des liens entre tables. On dit dans ce cas que cette colonne est une
+<strong>clé étrangère</strong>.</li>
+</ul>
+</li>
+<li>Une <strong>base de données</strong>, c'est un ensemble de tables.</li>
+</ul>
+<p>On peut raffiner beaucoup ce modèle pour des usages avancés et il existe d'autres façons d'envisager
+les bases de données, mais en ce qui nous concerne ça suffira.</p>
+<p>Les bases de données sont un concept crucial en informatique, aussi bien en théorie qu'en pratique
+et elles sont très vite nécessaire dès qu'on gère des grandes quantités d'informations structurées.</p>
+<p>Il y a plein de façons d'implémenter une base de données : on peut tout à fait envisager une base de
+données implémentée en Python comme une liste de listes de tuples nommés et sauvegardée dans un
+fichier JSON. En pratique, on fait rarement ça parce que</p>
+<ul>
+<li>Lire un fichier à chaque recherche, c'est long.</li>
+<li>Réécrire un fichier à chaque modification, c'est très long.</li>
+<li>Avoir plusieurs processus qui accèdent en même temps à un fichier c'est compliqué.</li>
+</ul>
+<p>Le modèle qu'on suit habituellement est plutôt un modèle client-serveur : un programme (le
+gestionnaire) gère la base de données et les autres programmes y accèdent en passant des messages au
+gestionnaire, souvent dans un langage adapté comme SQL (<em><strong>S</strong>tructured <del><strong>Q</strong>ueering</del> <strong>Q</strong>uery
+<strong>L</strong>anguage</em>).</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">recettes</span> <span class="p">(</span><span class="n">id</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="n">nom</span> <span class="nb">varchar</span><span class="p">,</span> <span class="n">texte</span> <span class="nb">text</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">recettes</span> <span class="k">values</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Tartelettes amandines&#39;</span><span class="p">,</span> <span class="s1">&#39;Battez pour qu&#39;&#39;ils soient mousseux quelques œufs&#39;</span><span class="p">);</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">recettes</span> <span class="k">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Tartelettes amandines&#39;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><small>Notez la façon extrêmement maudite de déspécialiser le simple quote</small></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Les détails (sous quelle forme est stockée la base, comment y sont faites les requêtes…) sont
+internes au gestionnaire. Toujours la séparation des préoccupations.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="SQLite">SQLite<a class="anchor-link" href="#SQLite">&#182;</a></h2><p>/ˌɛsˌkjuːˌɛlˈaɪt/ en anglais, /ˈsiːkwəˌlaɪt/ pour la frime, pour moi le plus souvent /ɛskylajt/</p>
+<p>SQLite est une bibliothèque minimaliste de bases de données, à laquelle on peut accéder en Python
+depuis le module <a href="https://docs.python.org/3/library/sqlite3.html"><code>sqlite3</code></a> de la bibliothèque
+standard. Elle a deux particularités qui nous arrangent bien :</p>
+<ul>
+<li>Elle ne nécessite pas de gestionnaire séparé : votre script peut accéder à la base sans passer par
+un autre processus.</li>
+<li>Les bases sont stockées dans des fichiers uniques.</li>
+</ul>
+<p>C'est très avantageux pour nous : on a pas à s'imposer l'installation et la configuration d'un
+système de gestion de bases de données, la création d'utilisateurs avec des droits et tout le
+<em>boilerplate</em> qui est utile pour des grosses applications, mais un sacré frein pour nous.</p>
+<p>Le revers de la médaille, c'est que si l'application devient plus complexe, qu'on a besoin de plus
+de fonctions, de gestion plus fine, ça ne suffira plus. <strong>Cependant</strong> il sera toujours temps de
+migrer plus tard si besoin : « <em>premature optimisation is the root of all evil</em> ».</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Comment on une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer <code>":memory:</code> à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On fait ce qu'on a à y faire, puis on ferme la connexion.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Astuce : on peut utiliser <a href="https://docs.python.org/3/library/contextlib.html#contextlib.closing"><code>contextlib.closing</code></a> pour le faire automatiquement et proprement</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
+<span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+    <span class="k">pass</span>  <span class="c1"># Faire des trucs ici</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ok, super, on a ouvert et fermé un fichier, mais comment on accède à la base ?</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Avec un <a href="https://docs.python.org/3/library/sqlite3.html#cursor-objects">curseur</a></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;create table if not exists recettes (id int not null primary key, nom varchar, texte text)&quot;</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;insert into recettes values (0, &#39;Tartelettes amandines&#39;, &#39;Battez pour qu&#39;&#39;ils soient mousseux quelques œufs&#39;)&quot;</span><span class="p">)</span>
+    <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from recettes where nom=&#39;Tartelettes amandines&#39;;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Quelques trucs à noter</p>
+<ul>
+<li>On exécute des commands en SQL avec la méthode <code>execute</code> d'un curseur. On peut aussi exécuter tout un script avec <code>executescript</code> ou — mieux, voir plus bas — <code>executemany</code></li>
+<li>Une fois qu'elles sont exécutées, il faut les valider en utilisant la méthode <code>commit</code> de la connexion. Tant qu'on ne l'a pas fait, rien ne se passe.</li>
+<li>Pour récupérer les résultats d'une requête on peut utilise les méthodes <code>fetchone</code>, <code>fetchall</code> ou <code>fetchmany</code> du curseur. Comme d'hab, la <a href="https://docs.python.org/3/library/sqlite3.html#cursor-objects">doc</a> est votre amie.</li>
+<li>On ferme les curseurs avec leur méthode <code>close</code></li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On peut récupérer un résumé de la table sous la forme des commandes SQL qui permettent de la recopier à l'identique avec <code>iterdump</code></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">con</span><span class="o">.</span><span class="n">iterdump</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Attention quand vous construisez des instructions SQL à partir d'entrées que vous ne maîtrisez pas</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    insert into recettes values (2, &#39;Tiramisu&#39;, &#39;Aucune idée mais c&#39;&#39;est délicieux&#39;);</span>
+<span class="s2">    insert into recettes values (3, &#39;Seitan bolognaise&#39;, &#39;Commencer par faire du seitan&#39;);</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from recettes&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_recette</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;select * from recettes where nom=&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">read_recette</span><span class="p">(</span><span class="s2">&quot;Tiramisu&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pas de problème jusque là, mais si un individu malveillant passe un nom qui contient du code :</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">read_recette</span><span class="p">(</span><span class="s2">&quot;Tiramisu&#39; or nom &lt;&gt; &#39;Tiramisu&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ça dumpe toute la table ! Si vous avez eu la mauvaise idée de faire ça dans un <code>executescript</code> c'est pire, vous risquez de rencontrer Bobby Tables</p>
+<p><a href="https://xkcd.com/327"><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt=""></a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour éviter ça : on utilise des requêtes paramétrées qui seront asainies pour nous</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_recette</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from recettes where nom=:lenom&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;lenom&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">read_recette</span><span class="p">(</span><span class="s2">&quot;Tiramisu&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">read_recette</span><span class="p">(</span><span class="s2">&quot;Tiramisu&#39; or nom &lt;&gt; &#39;Tiramisu&quot;</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Avec ça (et un manuel de SQL sous la main) vous avez l'essentiel de ce qu'il faut pour gérer des bases de données en SQLite. On l'a dit, c'est minimaliste.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#127794; Exo &#127794;<a class="anchor-link" href="#%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#182;</a></h2><p>Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut <code>sent_id</code>, la deuxième contiendra son attribut <code>text</code>, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Vous pouvez vous aider de <a href="https://github.com/EmilStenstrom/conllu"><code>conllu</code></a> pour faire le boulot de parser le fichier.</p>
+
+</div>
 </div></section></section>
 </div>
 </div>

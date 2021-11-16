@@ -15003,7 +15003,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2199/2891714693.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2206/2891714693.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>itr<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">StopIteration</span>: </pre>
@@ -19612,10 +19612,10 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 4 µs, sys: 1e+03 ns, total: 5 µs
-Wall time: 7.87 µs
-CPU times: user 313 ms, sys: 0 ns, total: 313 ms
-Wall time: 312 ms
+<pre>CPU times: user 4 µs, sys: 1 µs, total: 5 µs
+Wall time: 8.11 µs
+CPU times: user 292 ms, sys: 6.77 ms, total: 299 ms
+Wall time: 298 ms
 </pre>
 </div>
 </div>
@@ -19734,10 +19734,10 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 295 ms, sys: 2.97 ms, total: 298 ms
-Wall time: 298 ms
-CPU times: user 4 µs, sys: 0 ns, total: 4 µs
-Wall time: 6.44 µs
+<pre>CPU times: user 274 ms, sys: 12.8 ms, total: 287 ms
+Wall time: 288 ms
+CPU times: user 3 µs, sys: 1e+03 ns, total: 4 µs
+Wall time: 6.91 µs
 </pre>
 </div>
 </div>
@@ -19831,7 +19831,7 @@ Taille de mots_a_gen : 112
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2199/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2206/1075121558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>len<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: object of type &#39;generator&#39; has no len()</pre>
@@ -19895,8 +19895,8 @@ là où il s'est arrêté.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 258 ms, sys: 9.15 ms, total: 267 ms
-Wall time: 266 ms
+<pre>CPU times: user 238 ms, sys: 4.65 ms, total: 242 ms
+Wall time: 242 ms
 </pre>
 </div>
 </div>
@@ -19955,7 +19955,7 @@ vous conseille d'en lire la doc d'ailleurs
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;generator object gen_with_a at 0x7fb8d8142120&gt;
+<pre>&lt;generator object gen_with_a at 0x7f1d845350b0&gt;
 GEN_CREATED
 chat
 GEN_SUSPENDED
@@ -19975,7 +19975,7 @@ GEN_SUSPENDED
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2199/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2206/797085204.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span> print<span class="ansi-blue-fg">(</span>inspect<span class="ansi-blue-fg">.</span>getgeneratorstate<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>next<span class="ansi-blue-fg">(</span>mots_a_gen<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
@@ -20096,7 +20096,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;generator object &lt;genexpr&gt; at 0x7fb8d8142190&gt;</pre>
+<pre>&lt;generator object &lt;genexpr&gt; at 0x7f1d845352e0&gt;</pre>
 </div>
 
 </div>
@@ -20142,7 +20142,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>36.1 ms ± 758 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre>34.5 ms ± 659 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre>
 </div>
 </div>
@@ -20182,7 +20182,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.62 ms ± 12.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre>1.64 ms ± 20.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </pre>
 </div>
 </div>
@@ -20228,7 +20228,7 @@ GEN_SUSPENDED
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.67 ms ± 29.2 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre>1.63 ms ± 30.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </pre>
 </div>
 </div>
@@ -20771,7 +20771,7 @@ mesurer le temps d'exécution d'une fonction :</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 9999900000
-Finished doubled_and_add in 0.009810264000009283 secs
+Finished doubled_and_add in 0.010284452999997029 secs
 </pre>
 </div>
 </div>
@@ -20807,7 +20807,7 @@ Finished doubled_and_add in 0.009810264000009283 secs
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 999999000000
-Finished doubled_and_add in 0.10818381100000352 secs
+Finished doubled_and_add in 0.10043471399995951 secs
 </pre>
 </div>
 </div>
