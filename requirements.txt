@@ -16,5 +16,6 @@ RISE
 scipy
 spacy
 spacy_streamlit
+sqlalchemy
 streamlit
 uvicorn
