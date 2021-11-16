@@ -213,6 +213,23 @@ display(read_recette("Tiramisu' or nom <> 'Tiramisu"))
 
 Avec ça (et un manuel de SQL sous la main) vous avez l'essentiel de ce qu'il faut pour gérer des bases de données en SQLite. On l'a dit, c'est minimaliste.
 
+
+Une dernière astuce ? On peut récupérer des mappings plutôt que des tuples avec `fetch…` :
+
+```python
+def read_recette(name):
+    with closing(sqlite3.connect("db.sqlite3")) as con:
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
+        cur.execute("select * from recettes where nom=:lenom", {"lenom": name})
+        res = cur.fetchall()
+        cur.close()
+    return res
+
+recettes = read_recette("Tiramisu")
+[r["texte"] for r in recettes]
+```
+
 ## 🌲 Exo 🌲
 
 Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut `sent_id`, la deuxième contiendra son attribut `text`, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Vous pouvez vous aider de [`conllu`](https://github.com/EmilStenstrom/conllu) pour faire le boulot de parser le fichier.

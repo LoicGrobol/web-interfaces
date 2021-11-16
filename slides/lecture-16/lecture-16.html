@@ -15035,6 +15035,59 @@ COMMIT;
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Une dernière astuce ? On peut récupérer des mappings plutôt que des tuples avec <code>fetch…</code> :</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_recette</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;db.sqlite3&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from recettes where nom=:lenom&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;lenom&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">recettes</span> <span class="o">=</span> <span class="n">read_recette</span><span class="p">(</span><span class="s2">&quot;Tiramisu&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;texte&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">recettes</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[&#34;Aucune idée mais c&#39;est délicieux&#34;]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#127794; Exo &#127794;<a class="anchor-link" href="#%F0%9F%8C%B2-Exo-%F0%9F%8C%B2">&#182;</a></h2><p>Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut <code>sent_id</code>, la deuxième contiendra son attribut <code>text</code>, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Vous pouvez vous aider de <a href="https://github.com/EmilStenstrom/conllu"><code>conllu</code></a> pour faire le boulot de parser le fichier.</p>
 
 </div>
