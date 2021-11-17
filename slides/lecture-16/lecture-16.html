@@ -15321,10 +15321,10 @@ COMMIT;
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2021-11-16 22:37:59,931 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2021-11-16 22:37:59,932 INFO sqlalchemy.engine.Engine PRAGMA main.table_info(&#34;trees&#34;)
-2021-11-16 22:37:59,933 INFO sqlalchemy.engine.Engine [raw sql] ()
-2021-11-16 22:37:59,934 INFO sqlalchemy.engine.Engine COMMIT
+<pre>2021-11-17 09:41:49,163 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2021-11-17 09:41:49,164 INFO sqlalchemy.engine.Engine PRAGMA main.table_info(&#34;trees&#34;)
+2021-11-17 09:41:49,165 INFO sqlalchemy.engine.Engine [raw sql] ()
+2021-11-17 09:41:49,166 INFO sqlalchemy.engine.Engine COMMIT
 </pre>
 </div>
 </div>
@@ -15342,7 +15342,15 @@ COMMIT;
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="La-vitesse-sup%C3%A9rieure%E2%80%AF:-FastAPI-Users">La vitesse sup&#233;rieure&#8239;: FastAPI Users<a class="anchor-link" href="#La-vitesse-sup%C3%A9rieure%E2%80%AF:-FastAPI-Users">&#182;</a></h2>
+<p>Ça vaut aussi le coup de lire un jour <a href="https://docs.sqlalchemy.org/en/14/tutorial">le tutoriel de SQLAlchemy</a> qui est plus ou moins la bibliothèque standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu mais ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être un⋅e alchimiste ?).</p>
+<p><small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme <a href="https://fastapi-users.github.io">FastAPI Users</a> qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin.</p>
+
 </div>
 </div>
 </body>
