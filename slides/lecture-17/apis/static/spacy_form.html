@@ -23,29 +23,29 @@
   <div id="result"></div>
 </body>
 <script>
-  inputForm.onsubmit = async (e) => {
-    e.preventDefault()
-    var form = document.querySelector("#inputForm")
+  document.querySelector("#inputForm").onsubmit = async (event) => {
+      event.preventDefault()
+      const form = event.target
 
-    data = {
-      sentence: form.querySelector("#sentence").value,
-    }
+      const data = {
+          sentence: form.querySelector("#sentence").value,
+      }
 
-    // On pourrait aussi uttiliser `form.action` plutot que de remettre
-    // l'URL en du
-    let response = await fetch(
-      "http://localhost:8000/postag",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      },
-    )
+      // On pourrait aussi uttiliser `form.action` plutot que de remettre
+      // l'URL en dur
+      const response = await fetch(
+          "http://localhost:8000/postag",
+          {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+          },
+      )
 
-    let text = await response.text() // read response body as text
-    document.querySelector("#result").innerHTML = text
+      const text = await response.text() // read response body as text
+      document.querySelector("#result").innerHTML = text
   }
 </script>
 
