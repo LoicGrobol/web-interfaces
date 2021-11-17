@@ -421,4 +421,10 @@ async def create_tree_view(tree: Tree):
 
 C'est essentiellement la même chose, en plus agréable à écrire mais aussi en plus magique. À vous de voir ce que vous préférez, FastAPI a [un tutoriel](https://fastapi.tiangolo.com/tutorial/sql-databases) sur l'utilisation de SQLAlchemy pour un gestionnaire d'utilisateurices basique.
 
-## La vitesse supérieure : FastAPI Users
+
+Ça vaut aussi le coup de lire un jour [le tutoriel de SQLAlchemy](https://docs.sqlalchemy.org/en/14/tutorial) qui est plus ou moins la bibliothèque standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu mais ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être un⋅e alchimiste ?).
+
+<small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small>
+
+
+Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme [FastAPI Users](https://fastapi-users.github.io) qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 
