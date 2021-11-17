@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>POS-tagger</title>
+</head>
+
+<body>
+  <strong>
+    This does not work when loaded from a file because of
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp">Firefox CORS policy for file:/// urls</a>
+    You have to load it from a http* address. For this page, you can <code>uvicorn --reload spacy_html_api:app</code>
+    then access <a href="http://localhost:8000/front/spacy_form.html">http://localhost:8000/front/spacy_form.html</a>.
+  </strong>
+  <h1>POS-tagger</h1>
+  <form action="http://localhost:8000/postag" method="POST" id="inputForm">
+    <label for="sentence">La phrase à analyser</label>
+    <input name="sentence" id="sentence" value="Il y a un lama dans mon salon !" />
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+<script>
+  inputForm.onsubmit = async (e) => {
+    e.preventDefault()
+    var form = document.querySelector("#inputForm")
+
+    data = {
+      sentence: form.querySelector("#sentence").value,
+    }
+
+    // On pourrait aussi uttiliser `form.action` plutot que de remettre
+    // l'URL en du
+    let response = await fetch(
+      "http://localhost:8000/postag",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      },
+    )
+
+    let text = await response.text() // read response body as text
+    document.querySelector("#result").innerHTML = text
+  }
+</script>
+
+</html>
