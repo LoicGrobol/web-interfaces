@@ -14780,7 +14780,8 @@ constantes) ou avec <code>var</code> <strong>mais éviter d'utiliser <code>var</
 <span class="p">}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
 </pre></div>
-<p>renverra une erreur à la dernière ligne : <code>x</code> n'est pas définie en dehors du bloc. Il faut plutôt écrire</p>
+<p>renverra une erreur à la dernière ligne : <code>x</code> n'est pas définie en dehors du bloc. Il faut plutôt
+écrire</p>
 <div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">2</span>
 <span class="kd">let</span> <span class="nx">x</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">!=</span> <span class="mf">2</span><span class="p">)</span> <span class="p">{</span>
@@ -14864,7 +14865,7 @@ en Python, mais ici elles ne sont pas limitées à une seule expression)</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="DOM-et-usage-dans-un-navigateur">DOM et usage dans un navigateur<a class="anchor-link" href="#DOM-et-usage-dans-un-navigateur">&#182;</a></h3><p>En général on utilise JavaScript dans une page web. Dans ce cas, il existe un objet global,
-<code>documenr</code> qui est une représentation de la page et de ses éléments et qui offre un grand nombre
+<code>document</code> qui est une représentation de la page et de ses éléments et qui offre un grand nombre
 d'outils pour les observer et les manipuler. Par exemple ceci change la couleur du fond de la page</p>
 <div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
 </pre></div>
@@ -14875,7 +14876,8 @@ d'outils pour les observer et les manipuler. Par exemple ceci change la couleur 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%C3%89v%C3%A8nements">&#201;v&#232;nements<a class="anchor-link" href="#%C3%89v%C3%A8nements">&#182;</a></h3><p>Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en liant des fonctions (<code>callbacks</code>) à des actions ou des circonstances prédéfinies (<code>hooks</code>)</p>
+<h3 id="%C3%89v%C3%A8nements">&#201;v&#232;nements<a class="anchor-link" href="#%C3%89v%C3%A8nements">&#182;</a></h3><p>Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en
+liant des fonctions (<code>callbacks</code>) à des actions ou des circonstances prédéfinies (<code>hooks</code>)</p>
 
 </div>
 </div>
@@ -14896,7 +14898,8 @@ d'outils pour les observer et les manipuler. Par exemple ceci change la couleur 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><code>Hello, world!</code> s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce moment (pas au chargement de la page).</p>
+<p><code>Hello, world!</code> s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce
+moment (pas au chargement de la page).</p>
 <p>Pour des cas simples on peut aussi redéfinir complètement l'évènement</p>
 
 </div>
@@ -14915,10 +14918,15 @@ d'outils pour les observer et les manipuler. Par exemple ceci change la couleur 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h2><p>En ce qui nous concerne, comme l'objectif est de réaliser des interfaces pour des systèmes de TAL et étant donné ce qu'on a vu dans ce cours, l'idéal est probablement de ne pas faire reposer trop de logique sur JavaScript, que ce soit côté client (donc page web) que du côté serveur, je vous recommande même d'éviter ici d'utiliser du JavaScript côté serveur (ce qu'on pourrait faire en Node). L'architecture adaptée si vous voulez une interface web graphique :</p>
+<h2 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h2><p>En ce qui nous concerne, comme l'objectif est de réaliser des interfaces pour des systèmes de TAL et
+étant donné ce qu'on a vu dans ce cours, l'idéal est probablement de ne pas faire reposer trop de
+logique sur JavaScript, que ce soit côté client (donc page web) que du côté serveur, je vous
+recommande même d'éviter ici d'utiliser du JavaScript côté serveur (ce qu'on pourrait faire en
+Node). L'architecture adaptée si vous voulez une interface web graphique :</p>
 
 <pre><code>Système de TAL ⇆ API (FastAPI[+Jinja][+SQL]) ⇆ Page web (HTML+CSS+JavaScript)</code></pre>
-<p>Ici la page web requête l'API au moyen de méthodes comme <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><code>fetch</code></a>. En voici un exemple :</p>
+<p>Ici la page web requête l'API au moyen de méthodes comme
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><code>fetch</code></a>. En voici un exemple :</p>
 
 </div>
 </div>
@@ -14951,7 +14959,7 @@ d'outils pour les observer et les manipuler. Par exemple ceci change la couleur 
           <span class="nx">sentence</span><span class="o">:</span> <span class="nx">form</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#sentence&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="c1">// On pourrait aussi uttiliser `form.action` plutot que de remettre</span>
+      <span class="c1">// On pourrait aussi utiliser `form.action` plutot que de remettre</span>
       <span class="c1">// l&#39;URL en dur</span>
       <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
           <span class="s2">&quot;http://localhost:8000/postag&quot;</span><span class="p">,</span>

@@ -106,14 +106,14 @@ est indisponible.
 - [Slides 12](slides/lecture-12/lecture-12.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-12/lecture-12.md)
 
-### 2021-10-20 — Atelier débuggage et HTMl
+### 2021-10-20 — Atelier débuggage et HTML
 
 - [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
 - [Slides 14](slides/lecture-14/lecture-14.slides.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-14/lecture-14.md)
 
-### 2021-11-10 — Templates Jinja et applications streamlit
+### 2021-11-10 — Templates Jinja et applications Streamlit
 
 - [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)

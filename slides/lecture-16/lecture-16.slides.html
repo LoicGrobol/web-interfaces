@@ -14755,7 +14755,7 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Comment on une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin</p>
+<p>Comment on ouvre une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14775,7 +14775,7 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer <code>":memory:</code> à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.</p>
+<p>Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer <code>":memory:"</code> à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.</p>
 
 </div>
 </div>
@@ -15086,6 +15086,7 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
     <span class="s2">&quot;create table if not exists trees (tree_id VARCHAR NOT NULL PRIMARY KEY, text TEXT)&quot;</span>
 <span class="p">)</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
@@ -15131,11 +15132,6 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/tree/</span><span class="si">{tree_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_tree_view</span><span class="p">(</span><span class="n">tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">get_tree</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">tree_id</span><span class="p">)</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/trees/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_tree_view</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">tree</span>
 </pre></div>
 
      </div>
@@ -15271,7 +15267,7 @@ migrer plus tard si besoin : « <em>premature optimisation is the root of al
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme <a href="https://fastapi-users.github.io">FastAPI Users</a> qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin.</p>
+<p>Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme <a href="https://fastapi-users.github.io/fastapi-users/">FastAPI Users</a> qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin.</p>
 
 </div>
 </div></section></section>

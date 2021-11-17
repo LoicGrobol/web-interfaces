@@ -24,6 +24,7 @@ cur = con.cursor()
 cur.execute(
     "create table if not exists trees (tree_id VARCHAR NOT NULL PRIMARY KEY, text TEXT)"
 )
+cur.close()
 con.close()
 
 
@@ -69,8 +70,3 @@ def get_trees_view(db: sqlite3.Cursor = Depends(get_db)):
 @app.get("/tree/{tree_id}")
 def get_tree_view(tree_id: str, db: sqlite3.Cursor = Depends(get_db)):
     return get_tree(db, tree_id)
-
-
-@app.post("/trees/")
-async def create_tree_view(tree: Tree):
-    return tree
