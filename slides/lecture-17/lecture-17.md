@@ -156,7 +156,8 @@ if (a != 2) {
 console.log(x)
 ```
 
-renverra une erreur à la dernière ligne : `x` n'est pas définie en dehors du bloc. Il faut plutôt écrire
+renverra une erreur à la dernière ligne : `x` n'est pas définie en dehors du bloc. Il faut plutôt
+écrire
 
 ```javascript
 const a = 2
@@ -249,7 +250,7 @@ console.log(materials.map(material => material.length));
 ### DOM et usage dans un navigateur
 
 En général on utilise JavaScript dans une page web. Dans ce cas, il existe un objet global,
-`documenr` qui est une représentation de la page et de ses éléments et qui offre un grand nombre
+`document` qui est une représentation de la page et de ses éléments et qui offre un grand nombre
 d'outils pour les observer et les manipuler. Par exemple ceci change la couleur du fond de la page
 
 ```javascript
@@ -263,7 +264,8 @@ Il **faut** garder sous la main [la documentation du DOM](https://developer.mozi
 
 ### Évènements
 
-Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en liant des fonctions (`callbacks`) à des actions ou des circonstances prédéfinies (`hooks`)
+Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en
+liant des fonctions (`callbacks`) à des actions ou des circonstances prédéfinies (`hooks`)
 
 <!-- #region -->
 ```html
@@ -279,7 +281,8 @@ Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènem
 ```
 <!-- #endregion -->
 
-`Hello, world!` s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce moment (pas au chargement de la page).
+`Hello, world!` s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce
+moment (pas au chargement de la page).
 
 Pour des cas simples on peut aussi redéfinir complètement l'évènement
 
@@ -296,13 +299,18 @@ Pour des cas simples on peut aussi redéfinir complètement l'évènement
 
 ## Interfaces
 
-En ce qui nous concerne, comme l'objectif est de réaliser des interfaces pour des systèmes de TAL et étant donné ce qu'on a vu dans ce cours, l'idéal est probablement de ne pas faire reposer trop de logique sur JavaScript, que ce soit côté client (donc page web) que du côté serveur, je vous recommande même d'éviter ici d'utiliser du JavaScript côté serveur (ce qu'on pourrait faire en Node). L'architecture adaptée si vous voulez une interface web graphique :
+En ce qui nous concerne, comme l'objectif est de réaliser des interfaces pour des systèmes de TAL et
+étant donné ce qu'on a vu dans ce cours, l'idéal est probablement de ne pas faire reposer trop de
+logique sur JavaScript, que ce soit côté client (donc page web) que du côté serveur, je vous
+recommande même d'éviter ici d'utiliser du JavaScript côté serveur (ce qu'on pourrait faire en
+Node). L'architecture adaptée si vous voulez une interface web graphique :
 
 ```
 Système de TAL ⇆ API (FastAPI[+Jinja][+SQL]) ⇆ Page web (HTML+CSS+JavaScript)
 ```
 
-Ici la page web requête l'API au moyen de méthodes comme [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). En voici un exemple :
+Ici la page web requête l'API au moyen de méthodes comme
+[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). En voici un exemple :
 
 <!-- #region -->
 ```html
@@ -333,7 +341,7 @@ Ici la page web requête l'API au moyen de méthodes comme [`fetch`](https://dev
           sentence: form.querySelector("#sentence").value,
       }
 
-      // On pourrait aussi uttiliser `form.action` plutot que de remettre
+      // On pourrait aussi utiliser `form.action` plutot que de remettre
       // l'URL en dur
       const response = await fetch(
           "http://localhost:8000/postag",

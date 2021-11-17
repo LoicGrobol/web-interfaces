@@ -102,13 +102,13 @@ migrer plus tard si besoin : « *premature optimisation is the root of all e
 import sqlite3
 ```
 
-Comment on une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin
+Comment on ouvre une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin
 
 ```python
 con = sqlite3.connect("db.sqlite3")
 ```
 
-Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer `":memory:` à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.
+Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer `":memory:"` à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.
 
 
 On fait ce qu'on a à y faire, puis on ferme la connexion.
@@ -272,6 +272,7 @@ cur = con.cursor()
 cur.execute(
     "create table if not exists trees (tree_id VARCHAR NOT NULL PRIMARY KEY, text TEXT)"
 )
+cur.close()
 con.close()
 
 
@@ -317,11 +318,6 @@ def get_trees_view(db: sqlite3.Cursor = Depends(get_db)):
 @app.get("/tree/{tree_id}")
 def get_tree_view(tree_id: str, db: sqlite3.Cursor = Depends(get_db)):
     return get_tree(db, tree_id)
-
-
-@app.post("/trees/")
-async def create_tree_view(tree: Tree):
-    return tree
 
 ```
 
@@ -427,4 +423,4 @@ C'est essentiellement la même chose, en plus agréable à écrire mais aussi en
 <small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small>
 
 
-Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme [FastAPI Users](https://fastapi-users.github.io) qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 
+Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme [FastAPI Users](https://fastapi-users.github.io/fastapi-users/) qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 
