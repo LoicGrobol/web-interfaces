@@ -265,6 +265,7 @@ Il **faut** garder sous la main [la documentation du DOM](https://developer.mozi
 
 Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en liant des fonctions (`callbacks`) à des actions ou des circonstances prédéfinies (`hooks`)
 
+<!-- #region -->
 ```html
 <input id="elem" type="button" value="Click me">
 <script>
@@ -276,11 +277,13 @@ Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènem
   )
 </script>
 ```
+<!-- #endregion -->
 
 `Hello, world!` s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce moment (pas au chargement de la page).
 
 Pour des cas simples on peut aussi redéfinir complètement l'évènement
 
+<!-- #region -->
 ```html
 <input id="elem" type="button" value="Click me">
 <script>
@@ -289,6 +292,7 @@ Pour des cas simples on peut aussi redéfinir complètement l'évènement
   }
 </script>
 ```
+<!-- #endregion -->
 
 ## Interfaces
 
@@ -321,27 +325,29 @@ Ici la page web requête l'API au moyen de méthodes comme [`fetch`](https://dev
   <div id="result"></div>
 </body>
 <script>
-  inputForm.onsubmit = async (e) => {
-    e.preventDefault()
-    var form = document.querySelector("#inputForm")
+  document.querySelector("#inputForm").onsubmit = async (event) => {
+      event.preventDefault()
+      const form = event.target
 
-    data = {
-      sentence: form.querySelector("#sentence").value,
-    }
+      const data = {
+          sentence: form.querySelector("#sentence").value,
+      }
 
-    let response = await fetch(
-      "http://localhost:8000/postag",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      },
-    )
+      // On pourrait aussi uttiliser `form.action` plutot que de remettre
+      // l'URL en dur
+      const response = await fetch(
+          "http://localhost:8000/postag",
+          {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+          },
+      )
 
-    let text = await response.text()
-    document.querySelector("#result").innerHTML = text
+      const text = await response.text() // read response body as text
+      document.querySelector("#result").innerHTML = text
   }
 </script>
 </html>
