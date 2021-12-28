@@ -123,9 +123,9 @@ est indisponible.
 
 ### 2021-11-17 — Bases de données et quelques autres choses
 
-- [Slides 13](slides/lecture-16/lecture-16.html) [![Launch in Binder
+- [Slides 16](slides/lecture-16/lecture-16.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-16/lecture-16.md)
-- [Slides 15](slides/lecture-17/lecture-17.html) [![Launch in Binder
+- [Slides 17](slides/lecture-17/lecture-17.html) [![Launch in Binder
   badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-17/lecture-17.md)
 
 ## Utilisation en local
