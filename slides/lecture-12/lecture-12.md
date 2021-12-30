@@ -474,7 +474,24 @@ obj()
 ```
 
 Ce décorateur ne sert à rien, on est d'accord. Voici un exemple plus parlant avec un décorateur pour
-mesurer le temps d'exécution d'une fonction :
+vectoriser une fonction :
+
+```python
+def vectorise(fn):
+    def wrapper(lst):
+        return [fn(elem) for elem in lst]
+    return wrapper
+```
+
+```python
+@vectorise
+def square(x):
+    return x**2
+
+square([2, 7, 1, 3])
+```
+
+Enfin, voici un décorateur pour mesurer le temps d'exécution d'une fonction :
 
 ```python
 import time

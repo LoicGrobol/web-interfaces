@@ -14937,14 +14937,14 @@ Node). L'architecture adaptée si vous voulez une interface web graphique :</p
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2473/711291507.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2665/711291507.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span> 
 <span class="ansi-green-intense-fg ansi-bold">     10</span> 
 <span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg"> </span>app<span class="ansi-blue-fg">.</span>mount<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;/front&#34;</span><span class="ansi-blue-fg">,</span> StaticFiles<span class="ansi-blue-fg">(</span>directory<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;static&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;front&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     12</span> 
 <span class="ansi-green-intense-fg ansi-bold">     13</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/starlette/staticfiles.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, directory, packages, html, check_dir)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/starlette/staticfiles.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, directory, packages, html, check_dir)</span>
 <span class="ansi-green-intense-fg ansi-bold">     55</span>         self<span class="ansi-blue-fg">.</span>config_checked <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span>
 <span class="ansi-green-intense-fg ansi-bold">     56</span>         <span class="ansi-green-fg">if</span> check_dir <span class="ansi-green-fg">and</span> directory <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>isdir<span class="ansi-blue-fg">(</span>directory<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">---&gt; 57</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> RuntimeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;Directory &#39;{directory}&#39; does not exist&#34;</span><span class="ansi-blue-fg">)</span>

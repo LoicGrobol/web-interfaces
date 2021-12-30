@@ -14564,11 +14564,11 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (2.26.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests) (1.25.11)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests) (2.0.7)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests) (3.3)
+<pre>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (2.26.0)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (1.25.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2.0.9)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (3.3)
 Note: you may need to restart the kernel to use updated packages.
 </pre>
 </div>
@@ -14675,12 +14675,12 @@ se passe par exemple avec une requête <code>GET</code> sur le point d'accès (<
   &#34;hireable&#34;: null,
   &#34;bio&#34;: null,
   &#34;twitter_username&#34;: null,
-  &#34;public_repos&#34;: 46,
+  &#34;public_repos&#34;: 49,
   &#34;public_gists&#34;: 1,
   &#34;followers&#34;: 21,
   &#34;following&#34;: 12,
   &#34;created_at&#34;: &#34;2015-09-12T11:19:30Z&#34;,
-  &#34;updated_at&#34;: &#34;2021-11-17T19:22:11Z&#34;
+  &#34;updated_at&#34;: &#34;2021-12-30T06:37:09Z&#34;
 }
 </pre>
 </div>
@@ -14903,52 +14903,52 @@ passe par des <em>proxy</em>.</li>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2188/996708156.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2400/996708156.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ast<span class="ansi-blue-fg">.</span>literal_eval<span class="ansi-blue-fg">(</span>requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;https://jsonplaceholder.typicode.com/todos/1&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>text<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">literal_eval</span><span class="ansi-blue-fg">(node_or_string)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">literal_eval</span><span class="ansi-blue-fg">(node_or_string)</span>
 <span class="ansi-green-intense-fg ansi-bold">    103</span>                     <span class="ansi-green-fg">return</span> left <span class="ansi-blue-fg">-</span> right
 <span class="ansi-green-intense-fg ansi-bold">    104</span>         <span class="ansi-green-fg">return</span> _convert_signed_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 105</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _convert<span class="ansi-blue-fg">(</span>node_or_string<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    106</span> 
 <span class="ansi-green-intense-fg ansi-bold">    107</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert</span><span class="ansi-blue-fg">(node)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert</span><span class="ansi-blue-fg">(node)</span>
 <span class="ansi-green-intense-fg ansi-bold">     92</span>             <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">!=</span> len<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>values<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     93</span>                 _raise_malformed_node<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">---&gt; 94</span><span class="ansi-red-fg">             return dict(zip(map(_convert, node.keys),
 </span><span class="ansi-green-intense-fg ansi-bold">     95</span>                             map(_convert, node.values)))
 <span class="ansi-green-intense-fg ansi-bold">     96</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> BinOp<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> isinstance<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>op<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>Add<span class="ansi-blue-fg">,</span> Sub<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert</span><span class="ansi-blue-fg">(node)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert</span><span class="ansi-blue-fg">(node)</span>
 <span class="ansi-green-intense-fg ansi-bold">    102</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    103</span>                     <span class="ansi-green-fg">return</span> left <span class="ansi-blue-fg">-</span> right
 <span class="ansi-green-fg">--&gt; 104</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _convert_signed_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    105</span>     <span class="ansi-green-fg">return</span> _convert<span class="ansi-blue-fg">(</span>node_or_string<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    106</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert_signed_num</span><span class="ansi-blue-fg">(node)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert_signed_num</span><span class="ansi-blue-fg">(node)</span>
 <span class="ansi-green-intense-fg ansi-bold">     76</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     77</span>                 <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">-</span> operand
 <span class="ansi-green-fg">---&gt; 78</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _convert_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     79</span>     <span class="ansi-green-fg">def</span> _convert<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     80</span>         <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> Constant<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert_num</span><span class="ansi-blue-fg">(node)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_convert_num</span><span class="ansi-blue-fg">(node)</span>
 <span class="ansi-green-intense-fg ansi-bold">     67</span>     <span class="ansi-green-fg">def</span> _convert_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     68</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> Constant<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>value<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">(</span>int<span class="ansi-blue-fg">,</span> float<span class="ansi-blue-fg">,</span> complex<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">---&gt; 69</span><span class="ansi-red-fg">             </span>_raise_malformed_node<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     70</span>         <span class="ansi-green-fg">return</span> node<span class="ansi-blue-fg">.</span>value
 <span class="ansi-green-intense-fg ansi-bold">     71</span>     <span class="ansi-green-fg">def</span> _convert_signed_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_raise_malformed_node</span><span class="ansi-blue-fg">(node)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/ast.py</span> in <span class="ansi-cyan-fg">_raise_malformed_node</span><span class="ansi-blue-fg">(node)</span>
 <span class="ansi-green-intense-fg ansi-bold">     64</span>         node_or_string <span class="ansi-blue-fg">=</span> node_or_string<span class="ansi-blue-fg">.</span>body
 <span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-green-fg">def</span> _raise_malformed_node<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> ValueError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#39;malformed node or string: {node!r}&#39;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     67</span>     <span class="ansi-green-fg">def</span> _convert_num<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     68</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">,</span> Constant<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> type<span class="ansi-blue-fg">(</span>node<span class="ansi-blue-fg">.</span>value<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">(</span>int<span class="ansi-blue-fg">,</span> float<span class="ansi-blue-fg">,</span> complex<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">ValueError</span>: malformed node or string: &lt;ast.Name object at 0x7f9c886dbf10&gt;</pre>
+<span class="ansi-red-fg">ValueError</span>: malformed node or string: &lt;ast.Name object at 0x7fe5a82b66a0&gt;</pre>
 </div>
 </div>
 
@@ -15074,12 +15074,12 @@ d'usages.</p>
  &#39;hireable&#39;: None,
  &#39;bio&#39;: None,
  &#39;twitter_username&#39;: None,
- &#39;public_repos&#39;: 46,
+ &#39;public_repos&#39;: 49,
  &#39;public_gists&#39;: 1,
  &#39;followers&#39;: 21,
  &#39;following&#39;: 12,
  &#39;created_at&#39;: &#39;2015-09-12T11:19:30Z&#39;,
- &#39;updated_at&#39;: &#39;2021-11-17T19:22:11Z&#39;}</pre>
+ &#39;updated_at&#39;: &#39;2021-12-30T06:37:09Z&#39;}</pre>
 </div>
 
 </div>

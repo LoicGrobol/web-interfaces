@@ -14602,89 +14602,90 @@ directement des interfaces sophistiquées avec très peu d'efforts.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: streamlit in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (1.2.0)
-Requirement already satisfied: python-dateutil in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (2.8.0)
-Requirement already satisfied: watchdog in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (2.1.6)
-Requirement already satisfied: toml in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (0.10.2)
-Requirement already satisfied: click&lt;8.0,&gt;=7.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (7.1.2)
-Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (1.21.4)
-Requirement already satisfied: attrs in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (21.2.0)
-Requirement already satisfied: astor in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (0.8.1)
-Requirement already satisfied: pydeck&gt;=0.1.dev5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (0.7.1)
-Requirement already satisfied: cachetools&gt;=4.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (4.2.4)
-Requirement already satisfied: protobuf!=3.11,&gt;=3.6.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (3.19.1)
-Requirement already satisfied: altair&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (4.1.0)
-Requirement already satisfied: blinker in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (1.4)
-Requirement already satisfied: base58 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (2.1.1)
-Requirement already satisfied: tornado&gt;=5.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (6.1)
-Requirement already satisfied: pandas&gt;=0.21.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (1.3.4)
-Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (21.2)
-Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (8.4.0)
-Requirement already satisfied: tzlocal in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (4.1)
-Requirement already satisfied: pyarrow in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (6.0.0)
-Requirement already satisfied: validators in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (0.18.2)
-Requirement already satisfied: gitpython!=3.1.19 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (3.1.24)
-Requirement already satisfied: pympler&gt;=0.9 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (0.9)
-Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from streamlit) (2.26.0)
-Requirement already satisfied: entrypoints in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (0.3)
-Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (3.0.3)
-Requirement already satisfied: toolz in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (0.11.2)
-Requirement already satisfied: jsonschema in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (4.2.1)
-Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from gitpython!=3.1.19-&gt;streamlit) (4.0.9)
-Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from gitpython!=3.1.19-&gt;streamlit) (4.0.0)
-Requirement already satisfied: pytz&gt;=2017.3 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pandas&gt;=0.21.0-&gt;streamlit) (2021.3)
-Requirement already satisfied: ipykernel&gt;=5.1.2 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (6.5.0)
-Requirement already satisfied: ipywidgets&gt;=7.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (7.6.5)
-Requirement already satisfied: traitlets&gt;=4.3.2 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (5.1.1)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from python-dateutil-&gt;streamlit) (1.16.0)
-Requirement already satisfied: pyparsing&lt;3,&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from packaging-&gt;streamlit) (2.4.7)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (1.25.11)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (2.0.7)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (3.3)
-Requirement already satisfied: pytz-deprecation-shim in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from tzlocal-&gt;streamlit) (0.1.0.post0)
-Requirement already satisfied: decorator&gt;=3.4.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from validators-&gt;streamlit) (5.1.0)
-Requirement already satisfied: smmap&lt;6,&gt;=3.0.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;gitpython!=3.1.19-&gt;streamlit) (5.0.0)
-Requirement already satisfied: matplotlib-inline&lt;0.2.0,&gt;=0.1.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.1.3)
-Requirement already satisfied: ipython&lt;8.0,&gt;=7.23.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (7.29.0)
-Requirement already satisfied: jupyter-client&lt;8.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (7.0.6)
-Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.1)
-Requirement already satisfied: widgetsnbextension~=3.5.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (3.5.2)
-Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.0.2)
-Requirement already satisfied: ipython-genutils~=0.2.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.0)
-Requirement already satisfied: nbformat&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (5.1.3)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jinja2-&gt;altair&gt;=3.2.0-&gt;streamlit) (2.0.1)
-Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jsonschema-&gt;altair&gt;=3.2.0-&gt;streamlit) (0.18.0)
-Requirement already satisfied: tzdata in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pytz-deprecation-shim-&gt;tzlocal-&gt;streamlit) (2021.5)
-Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (3.0.22)
-Requirement already satisfied: jedi&gt;=0.16 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.18.1)
-Requirement already satisfied: setuptools&gt;=18.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (58.1.0)
-Requirement already satisfied: pexpect&gt;4.3 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.8.0)
-Requirement already satisfied: pickleshare in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.5)
-Requirement already satisfied: backcall in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.0)
-Requirement already satisfied: pygments in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (2.10.0)
-Requirement already satisfied: jupyter-core&gt;=4.6.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.9.1)
-Requirement already satisfied: pyzmq&gt;=13 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (22.3.0)
-Requirement already satisfied: nest-asyncio&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.1)
-Requirement already satisfied: notebook&gt;=4.4.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (6.4.6)
-Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.8.2)
-Requirement already satisfied: terminado&gt;=0.8.3 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.12.1)
-Requirement already satisfied: prometheus-client in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.12.0)
-Requirement already satisfied: argon2-cffi in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (21.1.0)
-Requirement already satisfied: nbconvert in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (6.3.0)
-Requirement already satisfied: Send2Trash&gt;=1.8.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.8.0)
-Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.0)
-Requirement already satisfied: wcwidth in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.5)
-Requirement already satisfied: cffi&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.15.0)
-Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.8.4)
-Requirement already satisfied: jupyterlab-pygments in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.1.2)
-Requirement already satisfied: bleach in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.1.0)
-Requirement already satisfied: pandocfilters&gt;=1.4.1 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.0)
-Requirement already satisfied: testpath in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.0)
-Requirement already satisfied: defusedxml in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.1)
-Requirement already satisfied: nbclient&lt;0.6.0,&gt;=0.5.0 in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.8)
-Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (2.21)
-Requirement already satisfied: webencodings in /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.1)
+<pre>Requirement already satisfied: streamlit in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (1.3.1)
+Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (1.21.5)
+Requirement already satisfied: toml in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (0.10.2)
+Requirement already satisfied: gitpython!=3.1.19 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (3.1.24)
+Requirement already satisfied: altair&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (4.2.0)
+Requirement already satisfied: tzlocal in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (4.1)
+Requirement already satisfied: pympler&gt;=0.9 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (1.0.1)
+Requirement already satisfied: click&lt;8.0,&gt;=7.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (7.1.2)
+Requirement already satisfied: validators in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (0.18.2)
+Requirement already satisfied: astor in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (0.8.1)
+Requirement already satisfied: protobuf!=3.11,&gt;=3.6.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (3.19.1)
+Requirement already satisfied: watchdog in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (2.1.6)
+Requirement already satisfied: cachetools&gt;=4.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (5.0.0)
+Requirement already satisfied: python-dateutil in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (2.8.0)
+Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (2.26.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (8.4.0)
+Requirement already satisfied: blinker in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (1.4)
+Requirement already satisfied: attrs in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (21.4.0)
+Requirement already satisfied: pyarrow in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (6.0.1)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (21.3)
+Requirement already satisfied: tornado&gt;=5.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (6.1)
+Requirement already satisfied: pandas&gt;=0.21.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (1.3.5)
+Requirement already satisfied: base58 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (2.1.1)
+Requirement already satisfied: pydeck&gt;=0.1.dev5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from streamlit) (0.7.1)
+Requirement already satisfied: jsonschema&gt;=3.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (4.3.2)
+Requirement already satisfied: entrypoints in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (0.3)
+Requirement already satisfied: toolz in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (0.11.2)
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from altair&gt;=3.2.0-&gt;streamlit) (3.0.3)
+Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from gitpython!=3.1.19-&gt;streamlit) (4.0.9)
+Requirement already satisfied: typing-extensions&gt;=3.7.4.3 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from gitpython!=3.1.19-&gt;streamlit) (4.0.1)
+Requirement already satisfied: pytz&gt;=2017.3 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pandas&gt;=0.21.0-&gt;streamlit) (2021.3)
+Requirement already satisfied: traitlets&gt;=4.3.2 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (5.1.1)
+Requirement already satisfied: ipywidgets&gt;=7.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (7.6.5)
+Requirement already satisfied: ipykernel&gt;=5.1.2 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pydeck&gt;=0.1.dev5-&gt;streamlit) (6.6.0)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from python-dateutil-&gt;streamlit) (1.16.0)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from packaging-&gt;streamlit) (3.0.6)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (1.25.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (2021.10.8)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (2.0.9)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests-&gt;streamlit) (3.3)
+Requirement already satisfied: pytz-deprecation-shim in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from tzlocal-&gt;streamlit) (0.1.0.post0)
+Requirement already satisfied: decorator&gt;=3.4.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from validators-&gt;streamlit) (5.1.0)
+Requirement already satisfied: smmap&lt;6,&gt;=3.0.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;gitpython!=3.1.19-&gt;streamlit) (5.0.0)
+Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.1)
+Requirement already satisfied: matplotlib-inline&lt;0.2.0,&gt;=0.1.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.1.3)
+Requirement already satisfied: ipython&gt;=7.23.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (7.30.1)
+Requirement already satisfied: jupyter-client&lt;8.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (7.1.0)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (5.1.3)
+Requirement already satisfied: ipython-genutils~=0.2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.0)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (3.5.2)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.0.2)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jinja2-&gt;altair&gt;=3.2.0-&gt;streamlit) (2.0.1)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jsonschema&gt;=3.0-&gt;altair&gt;=3.2.0-&gt;streamlit) (0.18.0)
+Requirement already satisfied: tzdata in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pytz-deprecation-shim-&gt;tzlocal-&gt;streamlit) (2021.5)
+Requirement already satisfied: jedi&gt;=0.16 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.18.1)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (3.0.24)
+Requirement already satisfied: pygments in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (2.10.0)
+Requirement already satisfied: pexpect&gt;4.3 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.8.0)
+Requirement already satisfied: pickleshare in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.5)
+Requirement already satisfied: setuptools&gt;=18.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (58.1.0)
+Requirement already satisfied: backcall in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.0)
+Requirement already satisfied: pyzmq&gt;=13 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (22.3.0)
+Requirement already satisfied: nest-asyncio&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.4)
+Requirement already satisfied: jupyter-core&gt;=4.6.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jupyter-client&lt;8.0-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.9.1)
+Requirement already satisfied: notebook&gt;=4.4.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (6.4.6)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.8.3)
+Requirement already satisfied: nbconvert in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (6.3.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.12.1)
+Requirement already satisfied: prometheus-client in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.12.0)
+Requirement already satisfied: Send2Trash&gt;=1.8.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.8.0)
+Requirement already satisfied: argon2-cffi in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (21.3.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.0)
+Requirement already satisfied: wcwidth in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=7.23.1-&gt;ipykernel&gt;=5.1.2-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.2.5)
+Requirement already satisfied: argon2-cffi-bindings in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (21.2.0)
+Requirement already satisfied: testpath in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.0)
+Requirement already satisfied: defusedxml in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.7.1)
+Requirement already satisfied: bleach in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (4.1.0)
+Requirement already satisfied: nbclient&lt;0.6.0,&gt;=0.5.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.9)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.5.0)
+Requirement already satisfied: jupyterlab-pygments in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.1.2)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.8.4)
+Requirement already satisfied: cffi&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (1.15.0)
+Requirement already satisfied: webencodings in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (0.5.1)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7.0.0-&gt;pydeck&gt;=0.1.dev5-&gt;streamlit) (2.21)
 Note: you may need to restart the kernel to use updated packages.
 </pre>
 </div>
@@ -14732,11 +14733,11 @@ traduisant directement du code en Python, avec beaucoup de magie pour que ce soi
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>2021-11-17 21:14:22.182 
+<pre>2021-12-30 13:32:44.496 
   <span class="ansi-yellow-intense-fg ansi-bold">Warning:</span> to view this Streamlit app on a browser, run it with the following
   command:
 
-    streamlit run /opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/ipykernel_launcher.py [ARGUMENTS]
+    streamlit run /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/ipykernel_launcher.py [ARGUMENTS]
 </pre>
 </div>
 </div>
@@ -14841,107 +14842,107 @@ retéléchargeant pas à chaque modification :</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">AttributeError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">InternalHashError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2419/971394892.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2610/2613198642.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">     12</span> 
 <span class="ansi-green-intense-fg ansi-bold">     13</span> 
 <span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> get_data<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     15</span> 
 <span class="ansi-green-intense-fg ansi-bold">     16</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    572</span>         <span class="ansi-green-fg">if</span> show_spinner<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    573</span>             <span class="ansi-green-fg">with</span> st<span class="ansi-blue-fg">.</span>spinner<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 574</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    575</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    576</span>             <span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">    497</span>                 <span class="ansi-red-fg"># If we generated the key earlier we would only hash those</span>
 <span class="ansi-green-intense-fg ansi-bold">    498</span>                 <span class="ansi-red-fg"># globals by name, and miss changes in their code or value.</span>
 <span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">                 </span>cache_key <span class="ansi-blue-fg">=</span> _hash_func<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">,</span> hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    500</span> 
 <span class="ansi-green-intense-fg ansi-bold">    501</span>             <span class="ansi-red-fg"># First, get the cache that&#39;s attached to this function.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-red-fg"># because this step will be hashing any objects referenced in the function</span>
 <span class="ansi-green-intense-fg ansi-bold">    624</span>     <span class="ansi-red-fg"># body.</span>
 <span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">     update_hash(
 </span><span class="ansi-green-intense-fg ansi-bold">    626</span>         func<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    627</span>         hasher<span class="ansi-blue-fg">=</span>func_hasher<span class="ansi-blue-fg">,</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    114</span> 
 <span class="ansi-green-intense-fg ansi-bold">    115</span>     ch <span class="ansi-blue-fg">=</span> _CodeHasher<span class="ansi-blue-fg">(</span>hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 116</span><span class="ansi-red-fg">     </span>ch<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>hasher<span class="ansi-blue-fg">,</span> val<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    117</span> 
 <span class="ansi-green-intense-fg ansi-bold">    118</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    391</span>     <span class="ansi-green-fg">def</span> update<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hasher<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">:</span> Any<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">:</span> Optional<span class="ansi-blue-fg">[</span>Context<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    392</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Update the provided hasher with the hash of an object.&#34;&#34;&#34;</span>
 <span class="ansi-green-fg">--&gt; 393</span><span class="ansi-red-fg">         </span>b <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    394</span>         hasher<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    395</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    380</span> 
 <span class="ansi-green-intense-fg ansi-bold">    381</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 382</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> InternalHashError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    383</span> 
 <span class="ansi-green-intense-fg ansi-bold">    384</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    366</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 <span class="ansi-green-intense-fg ansi-bold">    370</span>             <span class="ansi-red-fg"># Hmmm... It&#39;s possible that the size calculation is wrong. When we</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             h <span class="ansi-blue-fg">=</span> hashlib<span class="ansi-blue-fg">.</span>new<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;md5&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    633</span>                 <span class="ansi-green-fg">if</span> obj<span class="ansi-blue-fg">.</span>__defaults__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    632</span>             code <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__code__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    636</span>                 defaults <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__defaults__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    408</span>             <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">False</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 <span class="ansi-green-intense-fg ansi-bold">    412</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    715</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    719</span> 
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    723</span> 
 
 <span class="ansi-red-fg">InternalHashError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
@@ -14966,7 +14967,7 @@ from, try looking at the hash chain below for an object that you do recognize,
 then pass that to `hash_funcs` instead:
 
 ```
-Object of type builtins.function: &lt;function get_data at 0x7f9a1f691a60&gt;
+Object of type builtins.function: &lt;function get_data at 0x7f19d44ec820&gt;
 ```
 
 Please see the `hash_funcs` [documentation]
@@ -15069,107 +15070,107 @@ for more details.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">AttributeError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">InternalHashError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2419/3394188157.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2610/1246036283.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">     13</span> 
 <span class="ansi-green-intense-fg ansi-bold">     14</span> 
 <span class="ansi-green-fg">---&gt; 15</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> get_data<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     16</span> 
 <span class="ansi-green-intense-fg ansi-bold">     17</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    572</span>         <span class="ansi-green-fg">if</span> show_spinner<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    573</span>             <span class="ansi-green-fg">with</span> st<span class="ansi-blue-fg">.</span>spinner<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 574</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    575</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    576</span>             <span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">    497</span>                 <span class="ansi-red-fg"># If we generated the key earlier we would only hash those</span>
 <span class="ansi-green-intense-fg ansi-bold">    498</span>                 <span class="ansi-red-fg"># globals by name, and miss changes in their code or value.</span>
 <span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">                 </span>cache_key <span class="ansi-blue-fg">=</span> _hash_func<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">,</span> hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    500</span> 
 <span class="ansi-green-intense-fg ansi-bold">    501</span>             <span class="ansi-red-fg"># First, get the cache that&#39;s attached to this function.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-red-fg"># because this step will be hashing any objects referenced in the function</span>
 <span class="ansi-green-intense-fg ansi-bold">    624</span>     <span class="ansi-red-fg"># body.</span>
 <span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">     update_hash(
 </span><span class="ansi-green-intense-fg ansi-bold">    626</span>         func<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    627</span>         hasher<span class="ansi-blue-fg">=</span>func_hasher<span class="ansi-blue-fg">,</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    114</span> 
 <span class="ansi-green-intense-fg ansi-bold">    115</span>     ch <span class="ansi-blue-fg">=</span> _CodeHasher<span class="ansi-blue-fg">(</span>hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 116</span><span class="ansi-red-fg">     </span>ch<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>hasher<span class="ansi-blue-fg">,</span> val<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    117</span> 
 <span class="ansi-green-intense-fg ansi-bold">    118</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    391</span>     <span class="ansi-green-fg">def</span> update<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hasher<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">:</span> Any<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">:</span> Optional<span class="ansi-blue-fg">[</span>Context<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    392</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Update the provided hasher with the hash of an object.&#34;&#34;&#34;</span>
 <span class="ansi-green-fg">--&gt; 393</span><span class="ansi-red-fg">         </span>b <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    394</span>         hasher<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    395</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    380</span> 
 <span class="ansi-green-intense-fg ansi-bold">    381</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 382</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> InternalHashError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    383</span> 
 <span class="ansi-green-intense-fg ansi-bold">    384</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    366</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 <span class="ansi-green-intense-fg ansi-bold">    370</span>             <span class="ansi-red-fg"># Hmmm... It&#39;s possible that the size calculation is wrong. When we</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             h <span class="ansi-blue-fg">=</span> hashlib<span class="ansi-blue-fg">.</span>new<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;md5&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    633</span>                 <span class="ansi-green-fg">if</span> obj<span class="ansi-blue-fg">.</span>__defaults__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    632</span>             code <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__code__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    636</span>                 defaults <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__defaults__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    408</span>             <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">False</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 <span class="ansi-green-intense-fg ansi-bold">    412</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    715</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    719</span> 
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    723</span> 
 
 <span class="ansi-red-fg">InternalHashError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
@@ -15194,7 +15195,7 @@ from, try looking at the hash chain below for an object that you do recognize,
 then pass that to `hash_funcs` instead:
 
 ```
-Object of type builtins.function: &lt;function get_data at 0x7f9a1e655430&gt;
+Object of type builtins.function: &lt;function get_data at 0x7f199a6a1430&gt;
 ```
 
 Please see the `hash_funcs` [documentation]
@@ -15279,107 +15280,107 @@ for more details.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">AttributeError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">InternalHashError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2419/2229213616.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2610/896660455.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">     13</span> 
 <span class="ansi-green-intense-fg ansi-bold">     14</span> 
 <span class="ansi-green-fg">---&gt; 15</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> get_data<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     16</span> 
 <span class="ansi-green-intense-fg ansi-bold">     17</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    572</span>         <span class="ansi-green-fg">if</span> show_spinner<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    573</span>             <span class="ansi-green-fg">with</span> st<span class="ansi-blue-fg">.</span>spinner<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 574</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    575</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    576</span>             <span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">    497</span>                 <span class="ansi-red-fg"># If we generated the key earlier we would only hash those</span>
 <span class="ansi-green-intense-fg ansi-bold">    498</span>                 <span class="ansi-red-fg"># globals by name, and miss changes in their code or value.</span>
 <span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">                 </span>cache_key <span class="ansi-blue-fg">=</span> _hash_func<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">,</span> hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    500</span> 
 <span class="ansi-green-intense-fg ansi-bold">    501</span>             <span class="ansi-red-fg"># First, get the cache that&#39;s attached to this function.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-red-fg"># because this step will be hashing any objects referenced in the function</span>
 <span class="ansi-green-intense-fg ansi-bold">    624</span>     <span class="ansi-red-fg"># body.</span>
 <span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">     update_hash(
 </span><span class="ansi-green-intense-fg ansi-bold">    626</span>         func<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    627</span>         hasher<span class="ansi-blue-fg">=</span>func_hasher<span class="ansi-blue-fg">,</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    114</span> 
 <span class="ansi-green-intense-fg ansi-bold">    115</span>     ch <span class="ansi-blue-fg">=</span> _CodeHasher<span class="ansi-blue-fg">(</span>hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 116</span><span class="ansi-red-fg">     </span>ch<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>hasher<span class="ansi-blue-fg">,</span> val<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    117</span> 
 <span class="ansi-green-intense-fg ansi-bold">    118</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    391</span>     <span class="ansi-green-fg">def</span> update<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hasher<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">:</span> Any<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">:</span> Optional<span class="ansi-blue-fg">[</span>Context<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    392</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Update the provided hasher with the hash of an object.&#34;&#34;&#34;</span>
 <span class="ansi-green-fg">--&gt; 393</span><span class="ansi-red-fg">         </span>b <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    394</span>         hasher<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    395</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    380</span> 
 <span class="ansi-green-intense-fg ansi-bold">    381</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 382</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> InternalHashError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    383</span> 
 <span class="ansi-green-intense-fg ansi-bold">    384</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    366</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 <span class="ansi-green-intense-fg ansi-bold">    370</span>             <span class="ansi-red-fg"># Hmmm... It&#39;s possible that the size calculation is wrong. When we</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             h <span class="ansi-blue-fg">=</span> hashlib<span class="ansi-blue-fg">.</span>new<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;md5&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    633</span>                 <span class="ansi-green-fg">if</span> obj<span class="ansi-blue-fg">.</span>__defaults__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    632</span>             code <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__code__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    636</span>                 defaults <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__defaults__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    408</span>             <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">False</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 <span class="ansi-green-intense-fg ansi-bold">    412</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    715</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    719</span> 
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    723</span> 
 
 <span class="ansi-red-fg">InternalHashError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
@@ -15404,7 +15405,7 @@ from, try looking at the hash chain below for an object that you do recognize,
 then pass that to `hash_funcs` instead:
 
 ```
-Object of type builtins.function: &lt;function get_data at 0x7f9a1e655280&gt;
+Object of type builtins.function: &lt;function get_data at 0x7f199a6a1700&gt;
 ```
 
 Please see the `hash_funcs` [documentation]
@@ -15501,107 +15502,107 @@ for more details.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">AttributeError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">InternalHashError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2419/256607582.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_2610/22664411.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">     12</span> 
 <span class="ansi-green-intense-fg ansi-bold">     13</span> 
 <span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> get_data<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     15</span> 
 <span class="ansi-green-intense-fg ansi-bold">     16</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">wrapped_func</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    572</span>         <span class="ansi-green-fg">if</span> show_spinner<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    573</span>             <span class="ansi-green-fg">with</span> st<span class="ansi-blue-fg">.</span>spinner<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 574</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    575</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    576</span>             <span class="ansi-green-fg">return</span> get_or_create_cached_value<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">get_or_create_cached_value</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">    497</span>                 <span class="ansi-red-fg"># If we generated the key earlier we would only hash those</span>
 <span class="ansi-green-intense-fg ansi-bold">    498</span>                 <span class="ansi-red-fg"># globals by name, and miss changes in their code or value.</span>
 <span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">                 </span>cache_key <span class="ansi-blue-fg">=</span> _hash_func<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">,</span> hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    500</span> 
 <span class="ansi-green-intense-fg ansi-bold">    501</span>             <span class="ansi-red-fg"># First, get the cache that&#39;s attached to this function.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/caching.py</span> in <span class="ansi-cyan-fg">_hash_func</span><span class="ansi-blue-fg">(func, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    623</span>     <span class="ansi-red-fg"># because this step will be hashing any objects referenced in the function</span>
 <span class="ansi-green-intense-fg ansi-bold">    624</span>     <span class="ansi-red-fg"># body.</span>
 <span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">     update_hash(
 </span><span class="ansi-green-intense-fg ansi-bold">    626</span>         func<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    627</span>         hasher<span class="ansi-blue-fg">=</span>func_hasher<span class="ansi-blue-fg">,</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update_hash</span><span class="ansi-blue-fg">(val, hasher, hash_reason, hash_source, context, hash_funcs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    114</span> 
 <span class="ansi-green-intense-fg ansi-bold">    115</span>     ch <span class="ansi-blue-fg">=</span> _CodeHasher<span class="ansi-blue-fg">(</span>hash_funcs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 116</span><span class="ansi-red-fg">     </span>ch<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>hasher<span class="ansi-blue-fg">,</span> val<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    117</span> 
 <span class="ansi-green-intense-fg ansi-bold">    118</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, hasher, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    391</span>     <span class="ansi-green-fg">def</span> update<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hasher<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">:</span> Any<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">:</span> Optional<span class="ansi-blue-fg">[</span>Context<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    392</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Update the provided hasher with the hash of an object.&#34;&#34;&#34;</span>
 <span class="ansi-green-fg">--&gt; 393</span><span class="ansi-red-fg">         </span>b <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    394</span>         hasher<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    395</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    380</span> 
 <span class="ansi-green-intense-fg ansi-bold">    381</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">--&gt; 382</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> InternalHashError<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    383</span> 
 <span class="ansi-green-intense-fg ansi-bold">    384</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
 <span class="ansi-green-intense-fg ansi-bold">    366</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    367</span>             <span class="ansi-red-fg"># Hash the input</span>
 <span class="ansi-green-fg">--&gt; 368</span><span class="ansi-red-fg">             </span>b <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;%s:%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>tname<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_to_bytes<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span> 
 <span class="ansi-green-intense-fg ansi-bold">    370</span>             <span class="ansi-red-fg"># Hmmm... It&#39;s possible that the size calculation is wrong. When we</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             h <span class="ansi-blue-fg">=</span> hashlib<span class="ansi-blue-fg">.</span>new<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;md5&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    630</span> 
-<span class="ansi-green-fg">--&gt; 631</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">.</span>__code__<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    633</span>                 <span class="ansi-green-fg">if</span> obj<span class="ansi-blue-fg">.</span>__defaults__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_to_bytes</span><span class="ansi-blue-fg">(self, obj, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    632</span>             code <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__code__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    633</span>             <span class="ansi-green-fg">assert</span> code <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 634</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_file_should_be_hashed<span class="ansi-blue-fg">(</span>code<span class="ansi-blue-fg">.</span>co_filename<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    635</span>                 context <span class="ansi-blue-fg">=</span> _get_context<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    636</span>                 defaults <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__defaults__&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_file_should_be_hashed</span><span class="ansi-blue-fg">(self, filename)</span>
 <span class="ansi-green-intense-fg ansi-bold">    408</span>             <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">False</span>
 <span class="ansi-green-intense-fg ansi-bold">    409</span>         return file_util.file_is_in_folder_glob(
 <span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">             </span>filepath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_get_main_script_directory<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    411</span>         ) or file_util.file_in_pythonpath(filepath)
 <span class="ansi-green-intense-fg ansi-bold">    412</span> 
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.8/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    715</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
-<span class="ansi-green-intense-fg ansi-bold">    716</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
-<span class="ansi-green-fg">--&gt; 717</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
-<span class="ansi-green-intense-fg ansi-bold">    718</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    719</span> 
+<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/streamlit/legacy_caching/hashing.py</span> in <span class="ansi-cyan-fg">_get_main_script_directory</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    719</span>         <span class="ansi-red-fg"># This works because we set __main__.__file__ to the report</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>         <span class="ansi-red-fg"># script path in ScriptRunner.</span>
+<span class="ansi-green-fg">--&gt; 721</span><span class="ansi-red-fg">         </span>main_path <span class="ansi-blue-fg">=</span> __main__<span class="ansi-blue-fg">.</span>__file__
+<span class="ansi-green-intense-fg ansi-bold">    722</span>         <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span>os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>dirname<span class="ansi-blue-fg">(</span>main_path<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    723</span> 
 
 <span class="ansi-red-fg">InternalHashError</span>: module &#39;__main__&#39; has no attribute &#39;__file__&#39;
 
@@ -15626,7 +15627,7 @@ from, try looking at the hash chain below for an object that you do recognize,
 then pass that to `hash_funcs` instead:
 
 ```
-Object of type builtins.function: &lt;function get_data at 0x7f9a1e655430&gt;
+Object of type builtins.function: &lt;function get_data at 0x7f199a6a1940&gt;
 ```
 
 Please see the `hash_funcs` [documentation]
