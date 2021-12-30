@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.13.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -24,6 +24,8 @@ Aller jusqu'à « *Philosophy* », version HTML
 
 2021-10-06
 <!-- #endregion -->
+
+**Avertissement** au 2021-13-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on n'y vas plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.
 
 ```python
 from IPython.display import display
@@ -476,6 +478,7 @@ def search_for(start_url, target_title="Philosophy"):
             # cible. Plutôt que de faire des fantaisies à renvoyer `math.inf` ou je ne sais quoi, on
             # va sobrement renvoyer `-1`. On pourrait aussi lever une exception.
             return -1
+        visited.add(title)
         next_url = urljoin(next_url, get_first_url(soup))
     return n_hops
 ```

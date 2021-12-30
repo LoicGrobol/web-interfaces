@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from urllib.parse import urljoin
 import sys
 
@@ -69,6 +70,7 @@ def search_for(start_url, target_title="Philosophy"):
             # cible. Plutôt que de faire des fantaisies à renvoyer `math.inf` ou je ne sais quoi, on
             # va sobrement renvoyer `-1`. On pourrait aussi lever une exception.
             return -1
+        visited.add(title)
         next_url = urljoin(next_url, get_first_url(soup))
     return n_hops
 
