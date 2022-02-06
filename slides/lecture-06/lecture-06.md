@@ -139,7 +139,7 @@ Dans le modèle TCP/IP, on distingue en général quatre couches
   interface sur laquelle elle peut envoyer et recevoir des données en sachant qu'elles seront
   correctement transmises à l'autre application. C'est surtout ce niveau qui va nous intéresser.
 - La couche *de transport* définie la façon dont deux machines sur un réseau communiquent. On y
-  suppose que chaque machine a accès à une interface permettant de passer des message à l'autre
+  suppose que chaque machine a accès à une interface permettant de passer des messages à l'autre
   machine.
 - La couche *internet* concerne la façon dont des réseaux déjà existants peuvent établir des
   communications entre eux et les utiliser pour se passer des messages via leurs routeurs.
@@ -232,7 +232,7 @@ documents et de ressources, possédant des *Universal Resource Locators* (URL), 
 caractères qui permettent d'y accéder de façon stable depuis n'importe quel point d'accès.
 
 Une URL est habituellement de la forme `http://www.example.com/path/page.html`, où `http` désigne le
-protocole applicatif suivant lequel la ressource est mise à disposition, `www.example.com` est le
+protocole applicatif suivant lequel la ressource est mise à disposition, `example.com` est le
 nom de domaine associé à une machine qui met la ressource à disposition et `path/page.html` est un
 chemin interne à cette machine, qui peut correspondre ou non à un chemin dans son système de
 fichiers.

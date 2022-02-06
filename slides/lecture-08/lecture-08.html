@@ -14454,25 +14454,79 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Misc */
 a.anchor-link {
-   display: none;
+  display: none;
 }
+
 .highlight  {
-    margin: 0.4em;
+  margin: 0.4em;
 }
 
 /* Input area styling */
 .jp-InputArea {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .jp-InputArea-editor {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.CodeMirror pre {
+  margin: 0;
+  padding: 0;
+}
+
+/* Using table instead of flexbox so that we can use break-inside property */
+/* CSS rules under this comment should not be required anymore after we move to the JupyterLab 4.0 CSS */
+
+
+.jp-CodeCell.jp-mod-outputsScrolled .jp-OutputArea-prompt {
+  min-width: calc(
+    var(--jp-cell-prompt-width) - var(--jp-private-cell-scrolling-output-offset)
+  );
+}
+
+.jp-OutputArea-child {
+  display: table;
+  width: 100%;
+}
+
+.jp-OutputPrompt {
+  display: table-cell;
+  vertical-align: top;
+  min-width: var(--jp-cell-prompt-width);
+}
+
+body[data-format='mobile'] .jp-OutputPrompt {
+  display: table-row;
+}
+
+.jp-OutputArea-output {
+  display: table-cell;
+  width: 100%;
+}
+
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  display: table-row;
+}
+
+.jp-OutputArea-output.jp-OutputArea-executeResult {
+  width: 100%;
 }
 
 @media print {
-  body {
-    margin: 0;
+  .jp-Collapser {
+    display: none;
+  }
+
+  .jp-Cell-inputWrapper,
+  .jp-Cell-outputWrapper {
+    display: block;
+  }
+
+  .jp-OutputArea-child {
+    break-inside: avoid-page;
   }
 }
 </style>
@@ -14513,19 +14567,33 @@ a.anchor-link {
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <!-- LTeX: language=fr -->
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Cours-8%E2%80%AF:-Parser-des-documents-balis%C3%A9s-avec-lxml-et-BeautifulSoup">Cours 8&#8239;: Parser des documents balis&#233;s avec <code>lxml</code> et BeautifulSoup<a class="anchor-link" href="#Cours-8%E2%80%AF:-Parser-des-documents-balis%C3%A9s-avec-lxml-et-BeautifulSoup">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
 <p>2021-10-06</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14539,12 +14607,22 @@ a.anchor-link {
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Documents-balis%C3%A9s">Documents balis&#233;s<a class="anchor-link" href="#Documents-balis%C3%A9s">&#182;</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="lxml%E2%80%AF?-Beautiful-Soup%E2%80%AF?"><code>lxml</code>&#8239;? Beautiful Soup&#8239;?<a class="anchor-link" href="#lxml%E2%80%AF?-Beautiful-Soup%E2%80%AF?">&#182;</a></h2><p><code>lxml</code>. Beautiful Soup.</p>
 <p><a href="http://lxml.de/"><code>lxml</code></a> est un parseur de documents balisés, fonctionnant via un <em>binding</em> de la
@@ -14561,8 +14639,12 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 anecdotiquement de <code>matplotlib</code>.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14576,6 +14658,8 @@ anecdotiquement de <code>matplotlib</code>.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14587,25 +14671,27 @@ anecdotiquement de <code>matplotlib</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: beautifulsoup4 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (4.10.0)
-Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (4.7.1)
-Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (3.5.1)
-Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (2.26.0)
-Requirement already satisfied: soupsieve&gt;1.2 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from beautifulsoup4) (2.3.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (2.8.0)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (3.0.6)
-Requirement already satisfied: numpy&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (1.21.5)
-Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (21.3)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (1.3.2)
-Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (8.4.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from matplotlib) (4.28.5)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (1.25.11)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2.0.9)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (3.3)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
-Note: you may need to restart the kernel to use updated packages.
+<pre>Requirement already satisfied: beautifulsoup4 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (4.10.0)
+Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (4.7.1)
+Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (3.5.1)
+Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (2.27.1)
+Requirement already satisfied: soupsieve&gt;1.2 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from beautifulsoup4) (2.3.1)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.3.2)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (3.0.7)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (2.8.0)
+Requirement already satisfied: numpy&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.22.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (9.0.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (1.25.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.11)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (3.3)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.2; however, version 22.0.3 is available.
+You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x64/bin/python -m pip install --upgrade pip&#39; command.</span><span class="ansi-yellow-fg">
+</span>Note: you may need to restart the kernel to use updated packages.
 </pre>
 </div>
 </div>
@@ -14616,6 +14702,8 @@ Note: you may need to restart the kernel to use updated packages.
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14631,7 +14719,11 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Parser-du-HTML">Parser du HTML<a class="anchor-link" href="#Parser-du-HTML">&#182;</a></h2><p><a href="https://stackoverflow.com/a/1732454">On ne parse pas du HTML avec de regex</a></p>
 <p>(sauf quand on le fait quand même)</p>
@@ -14650,14 +14742,24 @@ archive de <a href="http://web.archive.org/">Wayback Machine</a>)</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Avec <code>requests</code> pour récupérer les données, nous allons pouvoir instancier un objet Beautiful Soup
 sans trop d'efforts</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14676,15 +14778,23 @@ sans trop d'efforts</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Voilà nous avons maintenant un objet <code>soup</code> de classe <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#beautifulsoup">Beautiful Soup</a>.</p>
 <p>La <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">doc</a> est très claire.</p>
 <p>Chercher un élément avec le tag <code>title</code></p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14699,6 +14809,8 @@ sans trop d'efforts</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14722,13 +14834,21 @@ sans trop d'efforts</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Récupérer son tag</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14742,6 +14862,8 @@ sans trop d'efforts</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14765,13 +14887,21 @@ sans trop d'efforts</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Récupérer son contenu textuel</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14785,6 +14915,8 @@ sans trop d'efforts</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14808,7 +14940,11 @@ sans trop d'efforts</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Les informations qui nous intéressent sont contenues dans des éléments comme celui-ci (formaté pour
 une meilleure lisibilité) :</p>
@@ -14822,15 +14958,25 @@ une meilleure lisibilité) :</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%F0%9F%8E%B6-Exo-1-%F0%9F%8E%B6">&#127926; Exo 1 &#127926;<a class="anchor-link" href="#%F0%9F%8E%B6-Exo-1-%F0%9F%8E%B6">&#182;</a></h3><p>1. Affichez les titres et les tunings des 10 premières chansons en utilisant la méthode
 <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all"><code>find_all</code></a>. La méthode renvoie un
 itérable.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14845,6 +14991,8 @@ itérable.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14857,7 +15005,7 @@ itérable.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_2256/3763432044.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [8]</span>
 <span class="ansi-red-fg">    print(item.[...], item.[...])</span>
                ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -14870,15 +15018,23 @@ itérable.</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>2. Créez un <code>dict</code> appelé <code>tunings</code> qui classe les chansons par tuning (autrement dit qui associe à
 un tuning la liste des morceaux qui l'utilisent). (On peut utiliser plus sympa qu'un bête <code>dict</code>).
 Lisez bien <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all">la doc de <code>find_all</code></a>.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14897,6 +15053,8 @@ Lisez bien <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14909,7 +15067,7 @@ Lisez bien <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_2256/1296690998.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [9]</span>
 <span class="ansi-red-fg">    song_title = item.[...]</span>
                       ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -14922,7 +15080,11 @@ Lisez bien <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>(<code>typing</code> c'est quoi ? Qu'est-ce que ça veut dire <code>Dict[str, List[str]]</code> ? On en reparlera si on a le
 temps mais vous pouvez prendre de l'avance <a href="https://realpython.com/python-type-checking/">sur Real
@@ -14930,8 +15092,12 @@ Python</a>)</p>
 <p>3. 'Harvest Moon' utilise l'accordage DADGBE, y en a-t'il d'autres ?</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14945,6 +15111,8 @@ Python</a>)</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14966,15 +15134,23 @@ Python</a>)</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>4. Affichez les accordages et le nombre de chansons pour chaque accordage, le tout trié par nombre de
 chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code> ainsi que l'argument mot-clé
 <code>key</code> (des exemples <a href="https://wiki.python.org/moin/HowTo/Sorting#Key_Functions">ici</a>) :</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14989,6 +15165,8 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15003,9 +15181,9 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2256/3332638558.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">for</span> tuning <span class="ansi-green-fg">in</span> sorted<span class="ansi-blue-fg">(</span>tunings<span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> tuning <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">sorted</span>(<span class="ansi-yellow-bg">tunings</span><span style="color: rgb(98,98,98)">.</span>keys(), key<span style="color: rgb(98,98,98)">=</span>[<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span>]):
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span style="color: rgb(0,135,0)">print</span>([<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span>])
 
 <span class="ansi-red-fg">NameError</span>: name &#39;tunings&#39; is not defined</pre>
 </div>
@@ -15016,13 +15194,21 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Allez hop un histogramme</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15043,6 +15229,8 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15057,12 +15245,12 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2256/3643067155.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;matplotlib&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;inline&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">import</span> matplotlib<span class="ansi-blue-fg">.</span>pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>values <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>len<span class="ansi-blue-fg">(</span>tunings<span class="ansi-blue-fg">[</span>x<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> x <span class="ansi-green-fg">in</span> tunings<span class="ansi-blue-fg">]</span>
+Input <span class="ansi-green-fg">In [12]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> get_ipython()<span style="color: rgb(98,98,98)">.</span>run_line_magic(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">matplotlib</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">inline</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> <span class="ansi-bold" style="color: rgb(0,0,255)">matplotlib</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">pyplot</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> <span class="ansi-bold" style="color: rgb(0,0,255)">plt</span>
+<span class="ansi-green-fg">----&gt; 3</span> values <span style="color: rgb(98,98,98)">=</span> [<span style="color: rgb(0,135,0)">len</span>(tunings[x]) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> x <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg">tunings</span>]
 <span class="ansi-green-intense-fg ansi-bold">      4</span> values
-<span class="ansi-green-intense-fg ansi-bold">      5</span> plt<span class="ansi-blue-fg">.</span>bar<span class="ansi-blue-fg">(</span>range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>values<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> values<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> plt<span style="color: rgb(98,98,98)">.</span>bar(<span style="color: rgb(0,135,0)">range</span>(<span style="color: rgb(98,98,98)">0</span>, <span style="color: rgb(0,135,0)">len</span>(values)), values)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;tunings&#39; is not defined</pre>
 </div>
@@ -15073,7 +15261,11 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>5. Une chanson a un tuning un peu particulier comparé aux autres (indice, c'est une question de
 taille). Trouvez le tuning qui est différent des autres et donnez la chanson qui lui correspond.
@@ -15082,7 +15274,13 @@ B, C, D, E, F et G) !</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Parser-du-XML">Parser du XML<a class="anchor-link" href="#Parser-du-XML">&#182;</a></h2><p>Nous allons travailler sur un fichier au format <a href="http://www.tei-c.org/">TEI</a> extrait du corpus
 <a href="https://hdl.handle.net/11403/corpus14/v1"><em>Corpus 14</em></a>.</p>
@@ -15102,7 +15300,13 @@ questions)</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Avec-lxml">Avec lxml<a class="anchor-link" href="#Avec-lxml">&#182;</a></h3><p>Pourquoi <code>lxml</code> et pas <code>xml.etree.ElementTree</code> ? Parce que : <a href="http://lxml.de/intro.html">1</a> et
 surtout <a href="http://lxml.de/performance.html">2</a>.</p>
@@ -15111,8 +15315,12 @@ surtout <a href="http://lxml.de/performance.html">2</a>.</p>
 est propre à <code>libxml</code>.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15132,6 +15340,8 @@ est propre à <code>libxml</code>.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15143,9 +15353,9 @@ est propre à <code>libxml</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;cyfunction Comment at 0x7f0084763040&gt;
+<pre>&lt;cyfunction Comment at 0x7f6b94ed7040&gt;
 {http://www.tei-c.org/ns/1.0}teiHeader
-&lt;cyfunction Comment at 0x7f0084763040&gt;
+&lt;cyfunction Comment at 0x7f6b94ed7040&gt;
 {http://www.tei-c.org/ns/1.0}facsimile
 {http://www.tei-c.org/ns/1.0}text
 </pre>
@@ -15157,7 +15367,11 @@ est propre à <code>libxml</code>.</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Avec-des-requ%C3%AAtes-ElementPath">Avec des requ&#234;tes <code>ElementPath</code><a class="anchor-link" href="#Avec-des-requ%C3%AAtes-ElementPath">&#182;</a></h3><p>Le fichier utilise l'<a href="https://fr.wikipedia.org/wiki/Espace_de_noms_XML">espace de nom</a> TEI : <code>&lt;TEI
 xmlns="http://www.tei-c.org/ns/1.0"&gt;</code>, nous devrons l'indiquer dans nos instructions de recherche.</p>
@@ -15167,8 +15381,12 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 <code>xpath</code>)</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15183,6 +15401,8 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15196,7 +15416,7 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7f00840a1580&gt;</pre>
+<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7f6b75637780&gt;</pre>
 </div>
 
 </div>
@@ -15206,13 +15426,21 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%F0%9F%A7%AD-Exo-%F0%9F%A7%AD">&#129517; Exo &#129517;<a class="anchor-link" href="#%F0%9F%A7%AD-Exo-%F0%9F%A7%AD">&#182;</a></h3><p>1. Récupérez le titre et affichez son tag XML ainsi que son contenu textuel (<code>/TEI/teiHeader/fileDesc/titleStmt/title</code>)</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15228,6 +15456,8 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15242,23 +15472,23 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">3457</span>, in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/tmp/ipykernel_2256/1808741789.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1</span>, in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [15]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
     title = root.find(&#34;[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/etree.pyx&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1547</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1547</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">323</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.find</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:323</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.find</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">312</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:312</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">295</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:295</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;src/lxml/_elementpath.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">237</span><span class="ansi-cyan-fg">, in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">src/lxml/_elementpath.py:237</span><span class="ansi-cyan-fg"> in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;string&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">unknown</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&lt;string&gt;</span>
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid predicate
 </pre>
 </div>
@@ -15269,13 +15499,21 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>2. Idem pour la source (élément <code>sourceDesc</code>) :</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15291,6 +15529,8 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15305,23 +15545,23 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">3457</span>, in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/tmp/ipykernel_2256/441717962.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1</span>, in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [16]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
     source = root.find(&#34;[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/etree.pyx&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1547</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1547</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">323</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.find</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:323</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.find</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">312</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:312</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">295</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:295</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;src/lxml/_elementpath.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">237</span><span class="ansi-cyan-fg">, in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">src/lxml/_elementpath.py:237</span><span class="ansi-cyan-fg"> in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;string&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">unknown</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&lt;string&gt;</span>
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid predicate
 </pre>
 </div>
@@ -15332,15 +15572,23 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Avec-des-requ%C3%AAtes-xpath">Avec des requ&#234;tes xpath<a class="anchor-link" href="#Avec-des-requ%C3%AAtes-xpath">&#182;</a></h3><p><code>lxml</code> a aussi une méthode <a href="https://lxml.de/xpathxslt.html">xpath</a> qui permet d'utiliser directement
 des <a href="https://www.w3schools.com/xml/xpath_syntax.asp">expressions xpath</a> (sans oublier les espaces de
 noms pour notre fichier) :</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15359,6 +15607,8 @@ noms pour notre fichier) :</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15381,13 +15631,21 @@ Correspondance de Joséphine Pouchet, numérisée par les Archives Départementa
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Ou comme ceci</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15405,6 +15663,8 @@ Correspondance de Joséphine Pouchet, numérisée par les Archives Départementa
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15426,7 +15686,11 @@ Correspondance de Joséphine Pouchet, numérisée par les Archives Départementa
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Pour le contenu il faut ruser. La difficulté ici tient à l'utilisation d'élements <code>&lt;lb/&gt;</code> de type
 <a href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/CO.html#CORS5">milestones</a> pour noter les
@@ -15441,15 +15705,25 @@ anais de maime pour nous<span class="nt">&lt;lb/&gt;</span>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%F0%9F%A5%B2-Exo-%F0%9F%A5%B2">&#129394; Exo &#129394;<a class="anchor-link" href="#%F0%9F%A5%B2-Exo-%F0%9F%A5%B2">&#182;</a></h3><p>1. Récupérez dans un premier temps l'ensemble des balises <code>&lt;p&gt;</code> en utilisant la méthode
 <a href="http://effbot.org/zone/element.htm#searching-for-subelements">findall</a>. la méthode <code>findall</code>
 renvoie une liste avec tous les éléments correspondant au chemin argument.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15465,6 +15739,8 @@ renvoie une liste avec tous les éléments correspondant au chemin argument.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15479,23 +15755,23 @@ renvoie une liste avec tous les éléments correspondant au chemin argument.</p>
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">3457</span>, in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;/tmp/ipykernel_2256/188387988.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1</span>, in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [19]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
     body = root.findall(&#34;./[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/etree.pyx&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">1573</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.findall</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1573</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.findall</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">334</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.findall</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:334</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.findall</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">312</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:312</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath.iterfind</span>
 
-  File <span class="ansi-green-intense-fg ansi-bold">&#34;src/lxml/_elementpath.py&#34;</span>, line <span class="ansi-green-intense-fg ansi-bold">295</span>, in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
+  File <span class="ansi-green-intense-fg ansi-bold">src/lxml/_elementpath.py:295</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml._elementpath._build_path_iterator</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;src/lxml/_elementpath.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">237</span><span class="ansi-cyan-fg">, in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">src/lxml/_elementpath.py:237</span><span class="ansi-cyan-fg"> in </span><span class="ansi-magenta-fg">lxml._elementpath.prepare_predicate</span>
 
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;string&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">unknown</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&lt;string&gt;</span>
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid predicate
 </pre>
 </div>
@@ -15506,7 +15782,11 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Ici on ne récupère que les nœuds <code>text</code> précédant les éléments <code>&lt;lb/&gt;</code>.</p>
 <p>2. Utilisez la fonction <code>xpath</code> pour récupérer tous les nœuds text du corps de la lettre. Vous
@@ -15515,8 +15795,12 @@ intégrerez dans votre requête la fonction <code>text</code> (vue un peu plus h
 documentation supplémentaire).</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15532,6 +15816,8 @@ documentation supplémentaire).</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15546,16 +15832,16 @@ documentation supplémentaire).</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">XPathEvalError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2256/4211279612.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>body <span class="ansi-blue-fg">=</span> root<span class="ansi-blue-fg">.</span>xpath<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;[...]&#34;</span><span class="ansi-blue-fg">,</span> namespaces<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#39;tei&#39;</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">&#34;http://www.tei-c.org/ns/1.0&#34;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">for</span> text <span class="ansi-green-fg">in</span> body<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     print<span class="ansi-blue-fg">(</span>text<span class="ansi-blue-fg">,</span> end<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [20]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> body <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">root</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">xpath</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">[...]</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">namespaces</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">tei</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">http://www.tei-c.org/ns/1.0</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> text <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> body:
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span style="color: rgb(0,135,0)">print</span>(text, end<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
-<span class="ansi-green-fg">src/lxml/etree.pyx</span> in <span class="ansi-cyan-fg">lxml.etree._Element.xpath</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">src/lxml/etree.pyx:1597</span>, in <span class="ansi-cyan-fg">lxml.etree._Element.xpath</span><span class="ansi-blue-fg">()</span>
 
-<span class="ansi-green-fg">src/lxml/xpath.pxi</span> in <span class="ansi-cyan-fg">lxml.etree.XPathElementEvaluator.__call__</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">src/lxml/xpath.pxi:305</span>, in <span class="ansi-cyan-fg">lxml.etree.XPathElementEvaluator.__call__</span><span class="ansi-blue-fg">()</span>
 
-<span class="ansi-green-fg">src/lxml/xpath.pxi</span> in <span class="ansi-cyan-fg">lxml.etree._XPathEvaluatorBase._handle_result</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">src/lxml/xpath.pxi:225</span>, in <span class="ansi-cyan-fg">lxml.etree._XPathEvaluatorBase._handle_result</span><span class="ansi-blue-fg">()</span>
 
 <span class="ansi-red-fg">XPathEvalError</span>: Invalid expression</pre>
 </div>
@@ -15566,13 +15852,23 @@ documentation supplémentaire).</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>3. Écrivez une requête xpath pour récupérer tous les éléments raturés de la lettre de Joséphine.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Avec-DOM">Avec DOM<a class="anchor-link" href="#Avec-DOM">&#182;</a></h2><p>L'API <code>ElementTree</code> est propre à Python, <code>DOM</code> (<a href="https://www.w3.org/DOM/">le site officiel</a> et <a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model">des
 informations en français</a>) est
@@ -15580,8 +15876,12 @@ une API indépendante d'un langage de programmation. Il existe des implémentati
 plupart des langages de programmation modernes.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15597,6 +15897,8 @@ plupart des langages de programmation modernes.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15610,7 +15912,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;xml.dom.minidom.Document at 0x7f0052d027c0&gt;</pre>
+<pre>&lt;xml.dom.minidom.Document at 0x7f6b756137c0&gt;</pre>
 </div>
 
 </div>
@@ -15621,6 +15923,8 @@ plupart des langages de programmation modernes.</p>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15636,6 +15940,8 @@ plupart des langages de programmation modernes.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15649,7 +15955,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7f0052d0ae50&gt;</pre>
+<pre>&lt;DOM Element: title at 0x7f6b755c40d0&gt;</pre>
 </div>
 
 </div>
@@ -15659,13 +15965,21 @@ plupart des langages de programmation modernes.</p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><code>title</code> est un objet <code>Element</code>, pour accéder au contenu textuel il faut récupérer le nœud texte</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15681,6 +15995,8 @@ plupart des langages de programmation modernes.</p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15692,7 +16008,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7f0052d0ae50&gt;
+<pre>&lt;DOM Element: title at 0x7f6b755c40d0&gt;
 #text
 Joséphine Pouchet à son époux le 19-01-1915 depuis Baillargues
 </pre>
@@ -15704,14 +16020,22 @@ Joséphine Pouchet à son époux le 19-01-1915 depuis Baillargues
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Idem pour la source, sauf qu'on ne peut pas se permettre de rechercher tous les éléments <code>p</code>.<br>
 Il faut trouver l'élément <code>p</code> fils de <code>sourceDesc</code></p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15728,6 +16052,8 @@ Il faut trouver l'élément <code>p</code> fils de <code>sourceDesc</code></p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15749,19 +16075,33 @@ Il faut trouver l'élément <code>p</code> fils de <code>sourceDesc</code></p>
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Et maintenant le contenu et ses éléments milestones</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#128524; Exo &#128524;<a class="anchor-link" href="#%F0%9F%98%8C-Exo-%F0%9F%98%8C">&#182;</a></h3><p>Pour garder la forme, vous réécrirez les boucles <code>for</code> suivies de <code>if</code> en listes en intension.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15780,6 +16120,8 @@ Il faut trouver l'élément <code>p</code> fils de <code>sourceDesc</code></p>
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15841,12 +16183,20 @@ et amie et de marie la perdigailles
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Avec-lxml-et-Beautiful-Soup">Avec lxml et Beautiful Soup<a class="anchor-link" href="#Avec-lxml-et-Beautiful-Soup">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15864,6 +16214,8 @@ et amie et de marie la perdigailles
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15877,6 +16229,8 @@ et amie et de marie la perdigailles
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15901,6 +16255,8 @@ et amie et de marie la perdigailles
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15914,6 +16270,8 @@ et amie et de marie la perdigailles
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15937,13 +16295,21 @@ et amie et de marie la perdigailles
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Pour le contenu de la lettre il y a la merveilleuse fonction <code>get_text()</code></p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15958,6 +16324,8 @@ et amie et de marie la perdigailles
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15972,6 +16340,8 @@ et amie et de marie la perdigailles
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -16042,7 +16412,11 @@ et amie et de marie la perdigailles
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><code>lxml</code> est rapide, Beautiful Soup simple à utiliser. Le combo diablement efficace.</p>
 <p>Il y a un autre module super pour le web que nous ne verrons pas dans cette séance mais que je me
@@ -16053,7 +16427,13 @@ automatiquement les interfaces web que vous développez</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#129300; Exo d'application &#129300;<a class="anchor-link" href="#%F0%9F%A4%94-Exo-d'application-%F0%9F%A4%94">&#182;</a></h2><blockquote><p>Wikipedia trivia: if you take any article, click on the first link in the article text not in
 parentheses or italics, <strong>and then repeat</strong>, you will eventually end up at "Philosophy". ([xkcd</p>
@@ -16072,6 +16452,8 @@ interactif comme <a href="https://pyvis.readthedocs.io/en/latest/tutorial.html">
 graphviz</a> ou encore générer directement des fichiers dot.</li>
 </ul>
 
+</div>
+</div>
 </div>
 </div>
 </body>

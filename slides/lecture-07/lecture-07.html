@@ -14454,25 +14454,79 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Misc */
 a.anchor-link {
-   display: none;
+  display: none;
 }
+
 .highlight  {
-    margin: 0.4em;
+  margin: 0.4em;
 }
 
 /* Input area styling */
 .jp-InputArea {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .jp-InputArea-editor {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.CodeMirror pre {
+  margin: 0;
+  padding: 0;
+}
+
+/* Using table instead of flexbox so that we can use break-inside property */
+/* CSS rules under this comment should not be required anymore after we move to the JupyterLab 4.0 CSS */
+
+
+.jp-CodeCell.jp-mod-outputsScrolled .jp-OutputArea-prompt {
+  min-width: calc(
+    var(--jp-cell-prompt-width) - var(--jp-private-cell-scrolling-output-offset)
+  );
+}
+
+.jp-OutputArea-child {
+  display: table;
+  width: 100%;
+}
+
+.jp-OutputPrompt {
+  display: table-cell;
+  vertical-align: top;
+  min-width: var(--jp-cell-prompt-width);
+}
+
+body[data-format='mobile'] .jp-OutputPrompt {
+  display: table-row;
+}
+
+.jp-OutputArea-output {
+  display: table-cell;
+  width: 100%;
+}
+
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  display: table-row;
+}
+
+.jp-OutputArea-output.jp-OutputArea-executeResult {
+  width: 100%;
 }
 
 @media print {
-  body {
-    margin: 0;
+  .jp-Collapser {
+    display: none;
+  }
+
+  .jp-Cell-inputWrapper,
+  .jp-Cell-outputWrapper {
+    display: block;
+  }
+
+  .jp-OutputArea-child {
+    break-inside: avoid-page;
   }
 }
 </style>
@@ -14513,19 +14567,33 @@ a.anchor-link {
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <!-- LTeX: language=fr -->
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Cours-7%E2%80%AF:-utiliser-requests">Cours 7&#8239;: utiliser <code>requests</code><a class="anchor-link" href="#Cours-7%E2%80%AF:-utiliser-requests">&#182;</a></h1><p><strong>Loïc Grobol</strong> <a href="mailto:lgrobol@parisnanterre.fr"><a href="mailto:lgrobol@parisnanterre.fr">lgrobol@parisnanterre.fr</a></a></p>
 <p>2021-09-29</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14539,7 +14607,24 @@ a.anchor-link {
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Note (2022-02-06)</strong> La bibliothèque <a href="https://github.com/encode/httpx">httpx</a> semble être plus à
+jour que requests, tout en étant largement compatible. Y jeter un œil serait intéressant.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="HTTP-en-Python">HTTP en Python<a class="anchor-link" href="#HTTP-en-Python">&#182;</a></h2><p>Python est « <em>batteries included</em> », il comprend donc <strong>en théorie</strong> déjà tout ce qu'il faut pour
 communiquer en HTTP, aussi bien du point de vue client que serveur. On pourra regarder par exemple
@@ -14560,7 +14645,13 @@ une bibliothèque dont l'objectif est de rendre tout ceci simple :
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="requests%E2%80%AF?"><code>requests</code>&#8239;?<a class="anchor-link" href="#requests%E2%80%AF?">&#182;</a></h2><p><code>requests</code>.</p>
 <p><code>requests</code> est un projet de <a href="https://kennethreitz.org/">Kenneth Reitz</a>, un développeur Python très
@@ -14573,8 +14664,12 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 <a href="../../requirements.txt">requirements.txt</a> de ce cours, <code>requests</code> est déjà installé.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14588,6 +14683,8 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14599,12 +14696,14 @@ suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce co
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (2.26.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (1.25.11)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (2.0.9)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages (from requests) (3.3)
-Note: you may need to restart the kernel to use updated packages.
+<pre>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (2.27.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (1.25.11)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.11)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (3.3)
+<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.2; however, version 22.0.3 is available.
+You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x64/bin/python -m pip install --upgrade pip&#39; command.</span><span class="ansi-yellow-fg">
+</span>Note: you may need to restart the kernel to use updated packages.
 </pre>
 </div>
 </div>
@@ -14615,6 +14714,8 @@ Note: you may need to restart the kernel to use updated packages.
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14628,18 +14729,32 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Une-premi%C3%A8re-requ%C3%AAte">Une premi&#232;re requ&#234;te<a class="anchor-link" href="#Une-premi%C3%A8re-requ%C3%AAte">&#182;</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Exécutez la cellule de code suivante</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14653,6 +14768,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14676,19 +14793,33 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Bravo, vous avez fait votre première requête HTTP en Python ! La fonction <a href="https://docs.python-requests.org/en/latest/api/#requests.get"><code>requests.get</code></a> envoie en effet une requête <code>GET</code> à l'URL passée en argument.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="L'objet-Response">L'objet <code>Response</code><a class="anchor-link" href="#L'objet-Response">&#182;</a></h3><p>On recommence</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14703,6 +14834,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14726,18 +14859,32 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="https://docs.python-requests.org/en/latest/api/#requests.get"><code>requests.get</code></a> renvoie un objet du type <a href="https://docs.python-requests.org/en/latest/api/#requests.Response"><code>requests.Response</code></a>, qui est une interface pour le contenu de la réponse HTTP obtenue. Nous allons voir ses principales propriétés.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="status_code"><code>status_code</code><a class="anchor-link" href="#status_code">&#182;</a></h4>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14751,6 +14898,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14774,7 +14923,11 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>La valeur de <code>response.status_code</code> est la valeur du code d'état de la réponse HTTP. Les plus important pour nous sont</p>
 <ul>
@@ -14784,8 +14937,12 @@ Note: you may need to restart the kernel to use updated packages.
 <p>→ Voir <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">la liste complète sur MDN</a></p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14799,6 +14956,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14822,13 +14981,21 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Les objets de type <code>Response</code> ont une valeur de vérité intéressante : ils sont vrais si et seulement si la requête a réussi :</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14850,6 +15017,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14872,20 +15041,34 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Attention</strong> <code>200</code> n'est pas le seul type code correspondant à une réussite.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Contenu">Contenu<a class="anchor-link" href="#Contenu">&#182;</a></h3><p>Une requête de type <code>GET</code> attend en général une ressource, qui se trouve en cas de succès dans le contenu ou <em>payload</em> de la réponse.</p>
 <p>S'il s'agit d'un texte, on le trouvera dans lattribut <code>text</code></p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14900,6 +15083,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14913,7 +15098,7 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;\r\n        &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;\r\n&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xml:lang=&#34;fr&#34; lang=&#34;fr&#34;&gt;\r\n&lt;head&gt;\r\n\t&lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=iso-8859-1&#34; /&gt;\r\n&lt;title&gt;(pluriTAL.org) pluriTAL : Filieres TAL et ingénierie linguistique de Paris III, Paris Nanterre, INALCO &lt;/title&gt;\r\n\t&lt;meta name=&#34;author&#34; content=&#34;pluriTAL, master TAL&#34; /&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;Filières TAL ingénierie linguistique  Paris III Sorbonne nouvelle Paris Nanterre INALCO&#34; /&gt;\r\n    &lt;meta name=&#34;description&#34; content=&#34;Le domaine du TAL et de l\&#39;ingénierie linguistique se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&#34;&gt;\r\n\r\n\t&lt;meta name=&#34;dc.title&#34; content=&#34;pluriTAL : Filieres TAL et ingénierie linguistique de Paris III, Paris Nanterre, INALCO&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.creator&#34; content=&#34;pluriTAL, master TAL&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.type&#34; content=&#34;text&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.date&#34; content=&#34;2005&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.format&#34; content=&#34;text/html&#34;/&gt;\r\n\r\n\t&lt;meta name=&#34;dc.identifier&#34; content=&#34;http://plurital.org/&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.description&#34; content=&#34;Le domaine du TAL et de l\&#39;ingénierie linguistique se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&#34;/&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;MASTER, TAL, ingénierie linguistique, Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.subject&#34; content=&#34;MASTER TAL, ingénierie linguistique,  Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement, TAL&#34;/&gt;\r\n&lt;meta name=&#34;google-translate-customization&#34; content=&#34;c8a7747d89699969-b8c11c731c09014a-g2c2985efe82fbdde-20&#34;&gt;&lt;/meta&gt;\r\n\t&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://www.tal.univ-paris3.fr/plurital/logo.ico&#34;&gt;\r\n\r\n\t&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;layout.css&#34; title=&#34;default&#34; /&gt;\r\n\t&lt;script type=&#34;text/javascript&#34;&gt;\r\n\r\n  var _gaq = _gaq || [];\r\n  _gaq.push([\&#39;_setAccount\&#39;, \&#39;UA-1823334-6\&#39;]);\r\n  _gaq.push([\&#39;_trackPageview\&#39;]);\r\n\r\n  (function() {\r\n    var ga = document.createElement(\&#39;script\&#39;); ga.type = \&#39;text/javascript\&#39;; ga.async = true;\r\n    ga.src = (\&#39;https:\&#39; == document.location.protocol ? \&#39;https://ssl\&#39; : \&#39;http://www\&#39;) + \&#39;.google-analytics.com/ga.js\&#39;;\r\n    var s = document.getElementsByTagName(\&#39;script\&#39;)[0]; s.parentNode.insertBefore(ga, s);\r\n  })();\r\n\r\n&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;div id=&#34;logo&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;&lt;img src=&#34;./images/logo.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;div id=&#34;content&#34;&gt;\r\n&lt;div id=&#34;menu&#34;&gt;&lt;a href=&#34;index.html&#34;&gt;Accueil&lt;/a&gt;&lt;a href=&#34;localisations.html&#34;&gt;Localisations&lt;/a&gt;&lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt;&lt;a href=&#34;preparation.html&#34;&gt;Prépa-master&lt;/a&gt;&lt;a href=&#34;master.html&#34;&gt;Cours en ligne&lt;/a&gt;&lt;a href=&#34;journee.html&#34;&gt;Journées pluriTAL&lt;/a&gt;&lt;a href=&#34;liens.html&#34;&gt;Labos&lt;/a&gt;&lt;a href=&#34;contact.html&#34;&gt;Enseignants&lt;/a&gt;&lt;a href=&#34;stages.html&#34;&gt;Stages&lt;/a&gt;&lt;a href=&#34;memoires.html&#34;&gt;Mémoires M2&lt;/a&gt;&lt;a href=&#34;que_devient_on.html&#34;&gt;Que devient-on ?&lt;/a&gt;&lt;a href=&#34;biblio.html&#34;&gt;Bibliographie&lt;/a&gt;&lt;a href=&#34;lectures.html&#34;&gt;Liens/Lectures&lt;/a&gt;&lt;a href=&#34;groupepluriTAL.html&#34;&gt;Liste pluriTAL&lt;/a&gt;&lt;a href=&#34;international.html&#34;&gt;Etudiants étrangers&lt;/a&gt;&lt;a href=&#34;nextal.html&#34;&gt;nexTAL&lt;/a&gt;&lt;a href=&#34;images.html&#34;&gt;Images&lt;/a&gt;\r\n&lt;div id=&#34;google_translate_element&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34;&gt;\r\nfunction googleTranslateElementInit() {\r\n  new google.translate.TranslateElement({pageLanguage: \&#39;fr\&#39;}, \&#39;google_translate_element\&#39;);\r\n}\r\n&lt;/script&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&#34;&gt;&lt;/script&gt;\r\n&lt;/div&gt;\r\n&lt;h1&gt;&lt;font color=&#34;#6a87ea&#34;&gt;pluriTAL&lt;/font&gt;  &lt;span style=\&#39;font-size:60%;\&#39;&gt;[&lt;font color=&#34;#0099FF&#34;&gt;http://pluriTAL.org&lt;/font&gt;]&lt;/span&gt; := &lt;span style=\&#39;font-size:80%;\&#39;&gt;Filières TAL et Ingénierie Linguistique de la &lt;font color=&#34;#bdbbbb&#34;&gt;Sorbonne nouvelle&lt;/font&gt;, de l\&#39;&lt;font color=&#34;#3399ff&#34;&gt;INALCO&lt;/font&gt; et de &lt;font color=&#34;#ffcc66&#34;&gt;Paris Nanterre&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/p&gt;\r\n\r\n&lt;h2&gt;Rentrée 2021-2022&lt;/h2&gt;\r\n\r\n&lt;h3&gt;Le master Traitement Automatique des Langues (T.A.L)&lt;/h3&gt;\r\n\r\n\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les inscriptions en master TAL, voir les informations disponibles sur la page &lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt; et sur la page &lt;a href=&#34;preparation.html&#34;&gt;Prépa-master&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;Pour avoir des informations concernant la procédure d\&#39;inscription au Master  T.A.L : contacter &lt;a href=&#34;mailto:sergefleury@gmail.com&#34;&gt;Serge Fleury&lt;/a&gt; (inscription à Sorbonne Nouvelle), &lt;a href=&#34;mailto:sylvain@kahane.fr&#34;&gt;Sylvain Kahane&lt;/a&gt; (inscription à Paris Nanterre), &lt;a href=&#34;mailto:mathieu.valette@inalco.fr&#34;&gt;Mathieu Valette&lt;/a&gt; (inscription à l\&#39;Inalco)&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h4&gt;Dates importantes&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Journée d\&#39;accueil  le 15/09/2021 :&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M2 de 10h à 11h00&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M1 de 11h15 à 12h30&lt;/strong&gt;&lt;br/&gt;Lieu :  &lt;u&gt;Inalco, Auditorium Georges Dumézil, 2 rue de Lille, 75007 Paris&lt;/u&gt;.&lt;/span&gt;&lt;/li&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;INSTALL PARTY pour les M1 : 15/09/2021 de 13h30 à 16h&lt;/strong&gt;.&lt;br/&gt;Lieu : &lt;u&gt;Inalco, Auditorium Georges Dumézil, 2 rue de Lille, 75007 Paris&lt;/u&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;Cette séance sera l\&#39;occasion d\&#39;installer sur vos machines personnelles un environnement informatique performant pour le bon déroulement des cours à venir...&lt;br/&gt;En attendant, vous trouverez ci-dessous de bonnes lectures (&lt;u&gt;estivales&lt;/u&gt;) pour préparer vos machines... &lt;/li&gt;\r\n&lt;blockquote&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/aide-memoire-install-party.pdf&#34;&gt;Aide mémoire sur les connaissances informatiques minimales&lt;/a&gt;&#34; (J. Ferguth, 2017)&lt;/li&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/Outils_Linux.pdf&#34;&gt;Outils Unix&lt;/a&gt;&#34; (M.A. Moreaux, 2018)&lt;/li&gt;\r\n&lt;/blockquote&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;u&gt;Début des cours&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;\r\n\r\n- Les cours de &lt;strong&gt;M1 de Paris Nanterre&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de Sorbonne nouvelle &lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de l\&#39;Inalco&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Paris Nanterre&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Sorbonne nouvelle &lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de l\&#39;Inalco&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les étudiants du master &lt;u&gt;inscrits à la Sorbonne Nouvelle&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Inscription pédagogique M2&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER2-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail à la secrétaire du master à Paris 3&lt;br/&gt;&lt;b&gt;Inscription pédagogique M1&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER1-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail à la secrétaire du master à Paris 3.&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h4&gt;Planning des cours 2021/2022&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le planning de la plupart des cours (S1/S2) sont disponibles dans la brochure.&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S1 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S1_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S1-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;MàJ le 16/09/2021&lt;/span&gt;).&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S2 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S2_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S2-INALCO&lt;/a&gt; (&lt;u&gt;indisponible&lt;/u&gt;).&lt;/li&gt;\r\n&lt;!--&lt;li&gt;Le planning  des &lt;u&gt;cours du M1 de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;https://planning.parisnanterre.fr/direct/index.jsp?login=PHILLIAW&amp;password=PHILSEDT&amp;projectId=0&amp;showTree=false&amp;displayConfName=Standard%20sans%20fusion&amp;resources=32713&#34;&gt;Cours M1 TAL Paris Nanterre&lt;/a&gt;.&lt;/li&gt;--&gt;\r\n&lt;li&gt;Le planning des &lt;u&gt;cours du M2 du parcours TAL de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;./admin/Calendrier_M2_TAL_PX_2021_22.xlsx&#34;&gt;Cours M2 parcours TAL&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;MàJ le 21/07/2021&lt;/span&gt;).&lt;/li&gt;\r\n\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n\r\n&lt;h2&gt;Présentation du Master  &lt;I&gt;TAL&lt;/I&gt;&lt;/h2&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le diplôme est délivré par les 3 partenaires suivants :&lt;/p&gt;\r\n&lt;blockquote&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;a href=&#34;http://www.u-paris10.fr/&#34; target=&#34;_blank&#34;&gt;Université P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;anterre&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.univ-paris3.fr/&#34; target=&#34;_blank&#34;&gt;Université P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris 3&lt;/span&gt; S&lt;span style=&#34;font-variant: small-caps;&#34;&gt;orbonne nouvelle&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.inalco.fr/&#34; target=&#34;_blank&#34;&gt;I&lt;span style=&#34;font-variant: small-caps;&#34;&gt;nstitut&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ational des L&lt;span style=&#34;font-variant: small-caps;&#34;&gt;angues&lt;/span&gt; et C&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ivilisations&lt;/span&gt; O&lt;span style=&#34;font-variant: small-caps;&#34;&gt;rientales&lt;/span&gt;&lt;/a&gt; &lt;span style=&#34;font-variant: small-caps;&#34;&gt;- inalco&lt;/span&gt;&lt;/p&gt;\r\n&lt;/blockquote&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La formation s\&#39;appuie sur les laboratoires : &lt;a href=&#34;http://www.modyco.fr/&#34;&gt;Paris Nanterre - MODYCO&lt;/a&gt;, &lt;i&gt;Modèles, Dynamiques, Corpus&lt;/i&gt;, (UMR 7114), &lt;a href=&#34;http://www.univ-paris3.fr/ea-7345-clesthia-langage-systemes-discours-98241.kjsp&#34;&gt;Sorbonne Nouvelle - CLESTHIA&lt;/a&gt; &lt;i&gt;Langage, systèmes, discours&lt;/i&gt; (EA 7345), &lt;a href=&#34;http://lpp.univ-paris3.fr/&#34;&gt;Sorbonne Nouvelle - LPP&lt;/a&gt; &lt;i&gt;Laboratoire de Phonétique et Phonologie&lt;/i&gt; (UMR 7018), &lt;a href=&#34;http://www.lattice.cnrs.fr/&#34;&gt;Sorbonne Nouvelle \x96 Lattice&lt;/a&gt; (Langues, Textes, Traitements informatiques, Cognition), &lt;a href=&#34;http://www.crim.fr/&#34;&gt;INALCO - ER-TIM&lt;/a&gt; &lt;i&gt;Textes, Informatique, Multilinguisme&lt;/i&gt; (EAD 2540).&lt;/p&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La mention &lt;I&gt;TAL&lt;/I&gt; concerne la recherche et le développement dans le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et des &lt;a href=&#34;http://fr.wikipedia.org/wiki/Linguistique_informatique&#34; target=&#34;_blank&#34;&gt;industries de la langue&lt;/a&gt;. L\&#39;ingénierie linguistique fait appel à des méthodes et des savoirs multiples. Il s\&#39;agit de :&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;1.\tDisposer des pré-requis en linguistique : maîtriser les manipulations débouchant sur des descriptions détaillées de faits de langue, connaître les bases des grands domaines des sciences du langage (phonétique et phonologie, morphologie, syntaxe et sémantique) ; &lt;br/&gt;\r\n2.\tConnaître les bases de la recherche et extraction d\&#39;information, de la constitution et de la gestion de corpus (écrits ou oraux) et de ressources, y compris multilingues : les corpus sont des mines d\&#39;information pour une description réaliste d\&#39;emplois d\&#39;une langue, les techniques de la recherche et de l\&#39;extraction d\&#39;information permettent de rapatrier les documents ou les parties de documents jugés pertinents pour un besoin particulier ;&lt;br/&gt;\r\n3.\tExprimer les règles et les régularités à l\&#39;\x9cuvre, par le biais des grammaires formelles et des traitements quantitatifs pour savoir passer d\&#39;une description linguistique à une représentation plus précise permettant son utilisation par des logiciels.&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;L\&#39;objectif de la formation est de donner à des étudiants issus de cursus de langues ou de sciences du langage des bases solides qui leur permettent de s\&#39;orienter vers les métiers de l\&#39;ingénierie linguistique et du TAL, et de les laisser choisir entre diverses perspectives : document électronique, ingénierie multilingue, traductique. Il s\&#39;agit aussi de permettre à certains d\&#39;entre eux d\&#39;opter pour la recherche et le développement en ce domaine.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Organisation globale des enseignements du master &lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le master s\x92organise selon une première année composée d\x92enseignements en Traitement Automatique des langues puis quatre parcours en M2, adossés chacun à un ou plusieurs établissements universitaires :&lt;br/&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#bdbbbb&#34;&gt;M2 Recherche et Développement&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à Sorbonne Nouvelle et à l\&#39;Inalco&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#ffcc66&#34;&gt;M2 TAL&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à Paris Nanterre&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 Ingénierie multilingue&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à l\x92INALCO&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 TeTraDom (Traductique)&lt;/font&gt;&lt;/b&gt;, également &lt;u&gt;basé à l\x92INALCO&lt;/u&gt;.\r\n&lt;/ul&gt;&lt;br/&gt;\r\n&lt;/p&gt;\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;./admin/organigramme-master.png&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n&lt;h3&gt;Brochure Master T.A.L&lt;/h3&gt;\r\n\r\n&lt;h4&gt;2019-2023&lt;/h4&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/Plurital-MASTER-TAL-P3-PX-INALCO.pdf&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Brochure 2019-2023&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p align=&#34;&#34;&gt;Ci-dessous, la même brochure disponible en ligne via &lt;i&gt;issuu&lt;/i&gt; :  &lt;/p&gt;\r\n\r\n&lt;div id=&#34;data-configid&#34; data-configid=&#34;1010051/7377357&#34; style=&#34;width: 525px; height: 371px;&#34; class=&#34;issuuembed&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//e.issuu.com/embed.js&#34; async=&#34;true&#34;&gt;&lt;/script&gt;\r\n\r\n\r\n&lt;h4&gt;2014-2018 (archive)&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/BROCHURE-MASTER-TAL-PLURITAL-ORG.pdf&#34;&gt;Brochure 2014-2018&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h3&gt;Brochures Master S.D.L&lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Brochures des masters SDL&lt;/strong&gt; des 3 partenaires :&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;strong&gt;Sorbonne Nouvelle&lt;/strong&gt;, MASTER SDL (ILPGA) : &lt;a href=&#34;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&#34;&gt;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;Paris Nanterre&lt;/strong&gt; : &lt;a href=&#34;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&#34;&gt;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;INALCO&lt;/strong&gt; : (idem Sorbonne Nouvelle)&lt;br/&gt;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;u&gt;Les cours optionnels de linguistique du master TAL sont à choisir parmi ceux proposés dans ces brochures.&lt;/u&gt;&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h1&gt;pluriTAL. Repères historiques...&lt;br/&gt;Apports croisés, complémentaires et pluriels pour le TAL&lt;br/&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/nuage-plurital.jpg&#34; border=&#34;0&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n        &lt;p align=&#34;justify&#34;&gt;Le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et de l\&#39;&lt;a href=&#34;http://www.culture.gouv.fr/culture/dglf/rifal/garde.htm&#34; target=&#34;_blank&#34;&gt;ingénierie linguistique&lt;/a&gt; se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous travaillons depuis plusieurs années universitaires à conjoindre nos formations. Les deux premières années, ce sont des conférences croisées qui ont été mises en place. Nous avons organisé, en 2002-2003, deux matinées de présentation mutuelle des travaux et recherches que nous effectuons, puis en 2003-2004 une &lt;a href=&#34;journee.html&#34;&gt;matinée&lt;/a&gt; pour continuer cet échange et préparer les &#34;échanges&#34; de cours et les compléments de formation à intégrer progressivement dans les formations que nous assurons.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;De manière plus ambitieuse, nous avons rajouté aux cursus de nos étudiants pour &lt;a href=&#34;journee.html&#34;&gt;l\&#39;année 2004/2005&lt;/a&gt;, 24 heures de cours assurées (en dehors des services statutaires) à raison de 8h par établissement, sur trois thématiques : &lt;a href=&#34;cours3-2004.html&#34;&gt;la formalisation en syntaxe&lt;/a&gt; ; &lt;a href=&#34;cours2-2004.html&#34;&gt;la constitution et l\x92utilisation de corpus électroniques à des fins lexicographiques&lt;/a&gt; ; &lt;a href=&#34;cours1-2004.html&#34;&gt;l\x92utilisation de ressources électroniques multilingues&lt;/a&gt;.&lt;/p&gt;        \r\n\t\t&lt;p align=&#34;justify&#34;&gt;Dans la perspective du LMD, à partir de ces collaborations, nous avons construit pour la période 2005-2008 un projet de &lt;i&gt;Master Recherche en &lt;strong&gt;T&lt;/strong&gt;raitement &lt;strong&gt;A&lt;/strong&gt;utomatique des &lt;strong&gt;L&lt;/strong&gt;angues&lt;/i&gt; dont le démarrage a eu lieu pour la rentrée 2005-2006.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la période 2009-2013, nous avons renforcé notre partenariat en mettant en place un &lt;a href=&#34;master-ingenierie-linguistique.html&#34;&gt;Master Spécialité &lt;i&gt;Ingénierie Linguistique&lt;/i&gt;&lt;/a&gt; dont le démarrage a lieu pour la rentrée 2009-2010.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la période 2014-2018, la spécialité &#34;Ingénierie Linguistique&#34; devient une mention à part entière et sa dénomination est désormais &#34;Master mention Traitement Automatique des Langues&#34;.&lt;/p&gt;\r\n\r\n\t\t&lt;p align=&#34;justify&#34;&gt;On trouvera sur ce site l\&#39;ensemble des ressources des cours pluriTAL passés et à venir...&lt;/p&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n\r\n&lt;table align=&#34;center&#34;&gt;\r\n&lt;tr&gt;\r\n&lt;td  valign=&#34;top&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/table&gt;\r\n\r\n&lt;p class=&#34;copyright&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;http://pluriTAL.org&lt;/a&gt; | pluriTAL &amp;copy;2021, INALCO, Paris Nanterre, Sorbonne Nouvelle&lt;/a&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;&#39;</pre>
+<pre>&#39;&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;\r\n        &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;\r\n&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xml:lang=&#34;fr&#34; lang=&#34;fr&#34;&gt;\r\n&lt;head&gt;\r\n\t&lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=iso-8859-1&#34; /&gt;\r\n&lt;title&gt;(pluriTAL.org) pluriTAL : Filieres TAL et ingénierie linguistique de Paris III, Paris Nanterre, INALCO &lt;/title&gt;\r\n\t&lt;meta name=&#34;author&#34; content=&#34;pluriTAL, master TAL&#34; /&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;Filières TAL ingénierie linguistique  Paris III Sorbonne nouvelle Paris Nanterre INALCO&#34; /&gt;\r\n    &lt;meta name=&#34;description&#34; content=&#34;Le domaine du TAL et de l\&#39;ingénierie linguistique se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&#34;&gt;\r\n\r\n\t&lt;meta name=&#34;dc.title&#34; content=&#34;pluriTAL : Filieres TAL et ingénierie linguistique de Paris III, Paris Nanterre, INALCO&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.creator&#34; content=&#34;pluriTAL, master TAL&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.type&#34; content=&#34;text&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.date&#34; content=&#34;2005&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.format&#34; content=&#34;text/html&#34;/&gt;\r\n\r\n\t&lt;meta name=&#34;dc.identifier&#34; content=&#34;http://plurital.org/&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.description&#34; content=&#34;Le domaine du TAL et de l\&#39;ingénierie linguistique se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&#34;/&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;MASTER, TAL, ingénierie linguistique, Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.subject&#34; content=&#34;MASTER TAL, ingénierie linguistique,  Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement, TAL&#34;/&gt;\r\n&lt;meta name=&#34;google-translate-customization&#34; content=&#34;c8a7747d89699969-b8c11c731c09014a-g2c2985efe82fbdde-20&#34;&gt;&lt;/meta&gt;\r\n\t&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://www.tal.univ-paris3.fr/plurital/logo.ico&#34;&gt;\r\n\r\n\t&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;layout.css&#34; title=&#34;default&#34; /&gt;\r\n\t&lt;script type=&#34;text/javascript&#34;&gt;\r\n\r\n  var _gaq = _gaq || [];\r\n  _gaq.push([\&#39;_setAccount\&#39;, \&#39;UA-1823334-6\&#39;]);\r\n  _gaq.push([\&#39;_trackPageview\&#39;]);\r\n\r\n  (function() {\r\n    var ga = document.createElement(\&#39;script\&#39;); ga.type = \&#39;text/javascript\&#39;; ga.async = true;\r\n    ga.src = (\&#39;https:\&#39; == document.location.protocol ? \&#39;https://ssl\&#39; : \&#39;http://www\&#39;) + \&#39;.google-analytics.com/ga.js\&#39;;\r\n    var s = document.getElementsByTagName(\&#39;script\&#39;)[0]; s.parentNode.insertBefore(ga, s);\r\n  })();\r\n\r\n&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;div id=&#34;logo&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;&lt;img src=&#34;./images/logo.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;div id=&#34;content&#34;&gt;\r\n&lt;div id=&#34;menu&#34;&gt;&lt;a href=&#34;index.html&#34;&gt;Accueil&lt;/a&gt;&lt;a href=&#34;localisations.html&#34;&gt;Localisations&lt;/a&gt;&lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt;&lt;a href=&#34;preparation.html&#34;&gt;Prépa-master&lt;/a&gt;&lt;a href=&#34;master.html&#34;&gt;Cours en ligne&lt;/a&gt;&lt;a href=&#34;journee.html&#34;&gt;Journées pluriTAL&lt;/a&gt;&lt;a href=&#34;liens.html&#34;&gt;Labos&lt;/a&gt;&lt;a href=&#34;contact.html&#34;&gt;Enseignants&lt;/a&gt;&lt;a href=&#34;stages.html&#34;&gt;Stages&lt;/a&gt;&lt;a href=&#34;memoires.html&#34;&gt;Mémoires M2&lt;/a&gt;&lt;a href=&#34;que_devient_on.html&#34;&gt;Que devient-on ?&lt;/a&gt;&lt;a href=&#34;biblio.html&#34;&gt;Bibliographie&lt;/a&gt;&lt;a href=&#34;lectures.html&#34;&gt;Liens/Lectures&lt;/a&gt;&lt;a href=&#34;groupepluriTAL.html&#34;&gt;Liste pluriTAL&lt;/a&gt;&lt;a href=&#34;international.html&#34;&gt;Etudiants étrangers&lt;/a&gt;&lt;a href=&#34;nextal.html&#34;&gt;nexTAL&lt;/a&gt;&lt;a href=&#34;images.html&#34;&gt;Images&lt;/a&gt;\r\n&lt;div id=&#34;google_translate_element&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34;&gt;\r\nfunction googleTranslateElementInit() {\r\n  new google.translate.TranslateElement({pageLanguage: \&#39;fr\&#39;}, \&#39;google_translate_element\&#39;);\r\n}\r\n&lt;/script&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&#34;&gt;&lt;/script&gt;\r\n&lt;/div&gt;\r\n&lt;h1&gt;&lt;font color=&#34;#6a87ea&#34;&gt;pluriTAL&lt;/font&gt;  &lt;span style=\&#39;font-size:60%;\&#39;&gt;[&lt;font color=&#34;#0099FF&#34;&gt;http://pluriTAL.org&lt;/font&gt;]&lt;/span&gt; := &lt;span style=\&#39;font-size:80%;\&#39;&gt;Filières TAL et Ingénierie Linguistique de la &lt;font color=&#34;#bdbbbb&#34;&gt;Sorbonne nouvelle&lt;/font&gt;, de l\&#39;&lt;font color=&#34;#3399ff&#34;&gt;INALCO&lt;/font&gt; et de &lt;font color=&#34;#ffcc66&#34;&gt;Paris Nanterre&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/p&gt;\r\n\r\n&lt;h2&gt;Rentrée 2021-2022&lt;/h2&gt;\r\n\r\n&lt;h3&gt;Le master Traitement Automatique des Langues (T.A.L)&lt;/h3&gt;\r\n\r\n\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les inscriptions en master TAL, voir les informations disponibles sur la page &lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt; et sur la page &lt;a href=&#34;preparation.html&#34;&gt;Prépa-master&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;Pour avoir des informations concernant la procédure d\&#39;inscription au Master  T.A.L : contacter &lt;a href=&#34;mailto:sergefleury@gmail.com&#34;&gt;Serge Fleury&lt;/a&gt; (inscription à Sorbonne Nouvelle), &lt;a href=&#34;mailto:sylvain@kahane.fr&#34;&gt;Sylvain Kahane&lt;/a&gt; (inscription à Paris Nanterre), &lt;a href=&#34;mailto:mathieu.valette@inalco.fr&#34;&gt;Mathieu Valette&lt;/a&gt; (inscription à l\&#39;Inalco)&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h4&gt;Dates importantes&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Journée d\&#39;accueil  le 15/09/2021 :&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M2 de 10h à 11h00&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M1 de 11h15 à 12h30&lt;/strong&gt;&lt;br/&gt;Lieu :  &lt;u&gt;Inalco, Auditorium Georges Dumézil, 2 rue de Lille, 75007 Paris&lt;/u&gt;.&lt;/span&gt;&lt;/li&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;INSTALL PARTY pour les M1 : 15/09/2021 de 13h30 à 16h&lt;/strong&gt;.&lt;br/&gt;Lieu : &lt;u&gt;Inalco, Auditorium Georges Dumézil, 2 rue de Lille, 75007 Paris&lt;/u&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;Cette séance sera l\&#39;occasion d\&#39;installer sur vos machines personnelles un environnement informatique performant pour le bon déroulement des cours à venir...&lt;br/&gt;En attendant, vous trouverez ci-dessous de bonnes lectures (&lt;u&gt;estivales&lt;/u&gt;) pour préparer vos machines... &lt;/li&gt;\r\n&lt;blockquote&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/aide-memoire-install-party.pdf&#34;&gt;Aide mémoire sur les connaissances informatiques minimales&lt;/a&gt;&#34; (J. Ferguth, 2017)&lt;/li&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/Outils_Linux.pdf&#34;&gt;Outils Unix&lt;/a&gt;&#34; (M.A. Moreaux, 2018)&lt;/li&gt;\r\n&lt;/blockquote&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;u&gt;Début des cours&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;\r\n\r\n- Les cours de &lt;strong&gt;M1 de Paris Nanterre&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de Sorbonne nouvelle &lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de l\&#39;Inalco&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Paris Nanterre&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Sorbonne nouvelle &lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de l\&#39;Inalco&lt;/strong&gt; démarrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les étudiants du master &lt;u&gt;inscrits à la Sorbonne Nouvelle&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Inscription pédagogique M2&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER2-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail à la secrétaire du master à Paris 3&lt;br/&gt;&lt;b&gt;Inscription pédagogique M1&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER1-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail à la secrétaire du master à Paris 3.&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h4&gt;Planning des cours 2021/2022&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le planning de la plupart des cours (S1/S2) sont disponibles dans la brochure.&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S1 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S1_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S1-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;MàJ le 16/09/2021&lt;/span&gt;).&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S2 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S2_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S2-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;MàJ le 13/01/2022&lt;/span&gt;).&lt;/li&gt;\r\n&lt;!--&lt;li&gt;Le planning  des &lt;u&gt;cours du M1 de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;https://planning.parisnanterre.fr/direct/index.jsp?login=PHILLIAW&amp;password=PHILSEDT&amp;projectId=0&amp;showTree=false&amp;displayConfName=Standard%20sans%20fusion&amp;resources=32713&#34;&gt;Cours M1 TAL Paris Nanterre&lt;/a&gt;.&lt;/li&gt;--&gt;\r\n&lt;li&gt;Le planning des &lt;u&gt;cours du M2 du parcours TAL de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;./admin/Calendrier_M2_TAL_PX_2021_22.xlsx&#34;&gt;Cours M2 parcours TAL&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;MàJ le 21/07/2021&lt;/span&gt;).&lt;/li&gt;\r\n\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n\r\n&lt;h2&gt;Présentation du Master  &lt;I&gt;TAL&lt;/I&gt;&lt;/h2&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le diplôme est délivré par les 3 partenaires suivants :&lt;/p&gt;\r\n&lt;blockquote&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;a href=&#34;http://www.u-paris10.fr/&#34; target=&#34;_blank&#34;&gt;Université P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;anterre&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.univ-paris3.fr/&#34; target=&#34;_blank&#34;&gt;Université P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris 3&lt;/span&gt; S&lt;span style=&#34;font-variant: small-caps;&#34;&gt;orbonne nouvelle&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.inalco.fr/&#34; target=&#34;_blank&#34;&gt;I&lt;span style=&#34;font-variant: small-caps;&#34;&gt;nstitut&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ational des L&lt;span style=&#34;font-variant: small-caps;&#34;&gt;angues&lt;/span&gt; et C&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ivilisations&lt;/span&gt; O&lt;span style=&#34;font-variant: small-caps;&#34;&gt;rientales&lt;/span&gt;&lt;/a&gt; &lt;span style=&#34;font-variant: small-caps;&#34;&gt;- inalco&lt;/span&gt;&lt;/p&gt;\r\n&lt;/blockquote&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La formation s\&#39;appuie sur les laboratoires : &lt;a href=&#34;http://www.modyco.fr/&#34;&gt;Paris Nanterre - MODYCO&lt;/a&gt;, &lt;i&gt;Modèles, Dynamiques, Corpus&lt;/i&gt;, (UMR 7114), &lt;a href=&#34;http://www.univ-paris3.fr/ea-7345-clesthia-langage-systemes-discours-98241.kjsp&#34;&gt;Sorbonne Nouvelle - CLESTHIA&lt;/a&gt; &lt;i&gt;Langage, systèmes, discours&lt;/i&gt; (EA 7345), &lt;a href=&#34;http://lpp.univ-paris3.fr/&#34;&gt;Sorbonne Nouvelle - LPP&lt;/a&gt; &lt;i&gt;Laboratoire de Phonétique et Phonologie&lt;/i&gt; (UMR 7018), &lt;a href=&#34;http://www.lattice.cnrs.fr/&#34;&gt;Sorbonne Nouvelle \x96 Lattice&lt;/a&gt; (Langues, Textes, Traitements informatiques, Cognition), &lt;a href=&#34;http://www.crim.fr/&#34;&gt;INALCO - ER-TIM&lt;/a&gt; &lt;i&gt;Textes, Informatique, Multilinguisme&lt;/i&gt; (EAD 2540).&lt;/p&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La mention &lt;I&gt;TAL&lt;/I&gt; concerne la recherche et le développement dans le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et des &lt;a href=&#34;http://fr.wikipedia.org/wiki/Linguistique_informatique&#34; target=&#34;_blank&#34;&gt;industries de la langue&lt;/a&gt;. L\&#39;ingénierie linguistique fait appel à des méthodes et des savoirs multiples. Il s\&#39;agit de :&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;1.\tDisposer des pré-requis en linguistique : maîtriser les manipulations débouchant sur des descriptions détaillées de faits de langue, connaître les bases des grands domaines des sciences du langage (phonétique et phonologie, morphologie, syntaxe et sémantique) ; &lt;br/&gt;\r\n2.\tConnaître les bases de la recherche et extraction d\&#39;information, de la constitution et de la gestion de corpus (écrits ou oraux) et de ressources, y compris multilingues : les corpus sont des mines d\&#39;information pour une description réaliste d\&#39;emplois d\&#39;une langue, les techniques de la recherche et de l\&#39;extraction d\&#39;information permettent de rapatrier les documents ou les parties de documents jugés pertinents pour un besoin particulier ;&lt;br/&gt;\r\n3.\tExprimer les règles et les régularités à l\&#39;\x9cuvre, par le biais des grammaires formelles et des traitements quantitatifs pour savoir passer d\&#39;une description linguistique à une représentation plus précise permettant son utilisation par des logiciels.&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;L\&#39;objectif de la formation est de donner à des étudiants issus de cursus de langues ou de sciences du langage des bases solides qui leur permettent de s\&#39;orienter vers les métiers de l\&#39;ingénierie linguistique et du TAL, et de les laisser choisir entre diverses perspectives : document électronique, ingénierie multilingue, traductique. Il s\&#39;agit aussi de permettre à certains d\&#39;entre eux d\&#39;opter pour la recherche et le développement en ce domaine.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Organisation globale des enseignements du master &lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le master s\x92organise selon une première année composée d\x92enseignements en Traitement Automatique des langues puis quatre parcours en M2, adossés chacun à un ou plusieurs établissements universitaires :&lt;br/&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#bdbbbb&#34;&gt;M2 Recherche et Développement&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à Sorbonne Nouvelle et à l\&#39;Inalco&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#ffcc66&#34;&gt;M2 TAL&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à Paris Nanterre&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 Ingénierie multilingue&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;basé à l\x92INALCO&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 TeTraDom (Traductique)&lt;/font&gt;&lt;/b&gt;, également &lt;u&gt;basé à l\x92INALCO&lt;/u&gt;.\r\n&lt;/ul&gt;&lt;br/&gt;\r\n&lt;/p&gt;\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;./admin/organigramme-master.png&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n&lt;h3&gt;Brochure Master T.A.L&lt;/h3&gt;\r\n\r\n&lt;h4&gt;2019-2023&lt;/h4&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/Plurital-MASTER-TAL-P3-PX-INALCO.pdf&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Brochure 2019-2023&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p align=&#34;&#34;&gt;Ci-dessous, la même brochure disponible en ligne via &lt;i&gt;issuu&lt;/i&gt; :  &lt;/p&gt;\r\n\r\n&lt;div id=&#34;data-configid&#34; data-configid=&#34;1010051/7377357&#34; style=&#34;width: 525px; height: 371px;&#34; class=&#34;issuuembed&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//e.issuu.com/embed.js&#34; async=&#34;true&#34;&gt;&lt;/script&gt;\r\n\r\n\r\n&lt;h4&gt;2014-2018 (archive)&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/BROCHURE-MASTER-TAL-PLURITAL-ORG.pdf&#34;&gt;Brochure 2014-2018&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h3&gt;Brochures Master S.D.L&lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Brochures des masters SDL&lt;/strong&gt; des 3 partenaires :&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;strong&gt;Sorbonne Nouvelle&lt;/strong&gt;, MASTER SDL (ILPGA) : &lt;a href=&#34;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&#34;&gt;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;Paris Nanterre&lt;/strong&gt; : &lt;a href=&#34;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&#34;&gt;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;INALCO&lt;/strong&gt; : (idem Sorbonne Nouvelle)&lt;br/&gt;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;u&gt;Les cours optionnels de linguistique du master TAL sont à choisir parmi ceux proposés dans ces brochures.&lt;/u&gt;&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h1&gt;pluriTAL. Repères historiques...&lt;br/&gt;Apports croisés, complémentaires et pluriels pour le TAL&lt;br/&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/nuage-plurital.jpg&#34; border=&#34;0&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n        &lt;p align=&#34;justify&#34;&gt;Le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et de l\&#39;&lt;a href=&#34;http://www.culture.gouv.fr/culture/dglf/rifal/garde.htm&#34; target=&#34;_blank&#34;&gt;ingénierie linguistique&lt;/a&gt; se caractérise par la multiplicité des dimensions prises en compte (traitement de l\&#39;écrit, de l\&#39;oral), des niveaux d\&#39;analyse impliqués (morphologie, syntaxe, sémantique, pragmatique), des techniques, des langues abordées. C\&#39;est un domaine où il est essentiel de conjuguer des apports multiples.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous enseignons, effectuons des recherches et participons à des projets dans le domaine du traitement automatique des langues et de l\&#39;ingénierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports spécifiques pour offrir une formation plus complète. Nous espérons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la région parisienne.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous travaillons depuis plusieurs années universitaires à conjoindre nos formations. Les deux premières années, ce sont des conférences croisées qui ont été mises en place. Nous avons organisé, en 2002-2003, deux matinées de présentation mutuelle des travaux et recherches que nous effectuons, puis en 2003-2004 une &lt;a href=&#34;journee.html&#34;&gt;matinée&lt;/a&gt; pour continuer cet échange et préparer les &#34;échanges&#34; de cours et les compléments de formation à intégrer progressivement dans les formations que nous assurons.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;De manière plus ambitieuse, nous avons rajouté aux cursus de nos étudiants pour &lt;a href=&#34;journee.html&#34;&gt;l\&#39;année 2004/2005&lt;/a&gt;, 24 heures de cours assurées (en dehors des services statutaires) à raison de 8h par établissement, sur trois thématiques : &lt;a href=&#34;cours3-2004.html&#34;&gt;la formalisation en syntaxe&lt;/a&gt; ; &lt;a href=&#34;cours2-2004.html&#34;&gt;la constitution et l\x92utilisation de corpus électroniques à des fins lexicographiques&lt;/a&gt; ; &lt;a href=&#34;cours1-2004.html&#34;&gt;l\x92utilisation de ressources électroniques multilingues&lt;/a&gt;.&lt;/p&gt;        \r\n\t\t&lt;p align=&#34;justify&#34;&gt;Dans la perspective du LMD, à partir de ces collaborations, nous avons construit pour la période 2005-2008 un projet de &lt;i&gt;Master Recherche en &lt;strong&gt;T&lt;/strong&gt;raitement &lt;strong&gt;A&lt;/strong&gt;utomatique des &lt;strong&gt;L&lt;/strong&gt;angues&lt;/i&gt; dont le démarrage a eu lieu pour la rentrée 2005-2006.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la période 2009-2013, nous avons renforcé notre partenariat en mettant en place un &lt;a href=&#34;master-ingenierie-linguistique.html&#34;&gt;Master Spécialité &lt;i&gt;Ingénierie Linguistique&lt;/i&gt;&lt;/a&gt; dont le démarrage a lieu pour la rentrée 2009-2010.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la période 2014-2018, la spécialité &#34;Ingénierie Linguistique&#34; devient une mention à part entière et sa dénomination est désormais &#34;Master mention Traitement Automatique des Langues&#34;.&lt;/p&gt;\r\n\r\n\t\t&lt;p align=&#34;justify&#34;&gt;On trouvera sur ce site l\&#39;ensemble des ressources des cours pluriTAL passés et à venir...&lt;/p&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n\r\n&lt;table align=&#34;center&#34;&gt;\r\n&lt;tr&gt;\r\n&lt;td  valign=&#34;top&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/table&gt;\r\n\r\n&lt;p class=&#34;copyright&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;http://pluriTAL.org&lt;/a&gt; | pluriTAL &amp;copy;2022, INALCO, Paris Nanterre, Sorbonne Nouvelle&lt;/a&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;&#39;</pre>
 </div>
 
 </div>
@@ -14923,19 +15108,33 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Dans le cas de la page d'accueil du site du master, il est asseez conséquent, puisqu'il s'agit de tout le code HTML de la page.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><code>requests</code> fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe, le contenu sous forme binaire non décodée est toujours disponible dans l'attribut <code>content</code>.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14949,6 +15148,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14962,7 +15163,7 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>b&#39;&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;\r\n        &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;\r\n&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xml:lang=&#34;fr&#34; lang=&#34;fr&#34;&gt;\r\n&lt;head&gt;\r\n\t&lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=iso-8859-1&#34; /&gt;\r\n&lt;title&gt;(pluriTAL.org) pluriTAL : Filieres TAL et ing\xe9nierie linguistique de Paris III, Paris Nanterre, INALCO &lt;/title&gt;\r\n\t&lt;meta name=&#34;author&#34; content=&#34;pluriTAL, master TAL&#34; /&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;Fili\xe8res TAL ing\xe9nierie linguistique  Paris III Sorbonne nouvelle Paris Nanterre INALCO&#34; /&gt;\r\n    &lt;meta name=&#34;description&#34; content=&#34;Le domaine du TAL et de l\&#39;ing\xe9nierie linguistique se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&#34;&gt;\r\n\r\n\t&lt;meta name=&#34;dc.title&#34; content=&#34;pluriTAL : Filieres TAL et ing\xe9nierie linguistique de Paris III, Paris Nanterre, INALCO&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.creator&#34; content=&#34;pluriTAL, master TAL&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.type&#34; content=&#34;text&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.date&#34; content=&#34;2005&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.format&#34; content=&#34;text/html&#34;/&gt;\r\n\r\n\t&lt;meta name=&#34;dc.identifier&#34; content=&#34;http://plurital.org/&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.description&#34; content=&#34;Le domaine du TAL et de l\&#39;ing\xe9nierie linguistique se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&#34;/&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;MASTER, TAL, ing\xe9nierie linguistique, Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.subject&#34; content=&#34;MASTER TAL, ing\xe9nierie linguistique,  Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement, TAL&#34;/&gt;\r\n&lt;meta name=&#34;google-translate-customization&#34; content=&#34;c8a7747d89699969-b8c11c731c09014a-g2c2985efe82fbdde-20&#34;&gt;&lt;/meta&gt;\r\n\t&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://www.tal.univ-paris3.fr/plurital/logo.ico&#34;&gt;\r\n\r\n\t&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;layout.css&#34; title=&#34;default&#34; /&gt;\r\n\t&lt;script type=&#34;text/javascript&#34;&gt;\r\n\r\n  var _gaq = _gaq || [];\r\n  _gaq.push([\&#39;_setAccount\&#39;, \&#39;UA-1823334-6\&#39;]);\r\n  _gaq.push([\&#39;_trackPageview\&#39;]);\r\n\r\n  (function() {\r\n    var ga = document.createElement(\&#39;script\&#39;); ga.type = \&#39;text/javascript\&#39;; ga.async = true;\r\n    ga.src = (\&#39;https:\&#39; == document.location.protocol ? \&#39;https://ssl\&#39; : \&#39;http://www\&#39;) + \&#39;.google-analytics.com/ga.js\&#39;;\r\n    var s = document.getElementsByTagName(\&#39;script\&#39;)[0]; s.parentNode.insertBefore(ga, s);\r\n  })();\r\n\r\n&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;div id=&#34;logo&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;&lt;img src=&#34;./images/logo.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;div id=&#34;content&#34;&gt;\r\n&lt;div id=&#34;menu&#34;&gt;&lt;a href=&#34;index.html&#34;&gt;Accueil&lt;/a&gt;&lt;a href=&#34;localisations.html&#34;&gt;Localisations&lt;/a&gt;&lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt;&lt;a href=&#34;preparation.html&#34;&gt;Pr\xe9pa-master&lt;/a&gt;&lt;a href=&#34;master.html&#34;&gt;Cours en ligne&lt;/a&gt;&lt;a href=&#34;journee.html&#34;&gt;Journ\xe9es pluriTAL&lt;/a&gt;&lt;a href=&#34;liens.html&#34;&gt;Labos&lt;/a&gt;&lt;a href=&#34;contact.html&#34;&gt;Enseignants&lt;/a&gt;&lt;a href=&#34;stages.html&#34;&gt;Stages&lt;/a&gt;&lt;a href=&#34;memoires.html&#34;&gt;M\xe9moires M2&lt;/a&gt;&lt;a href=&#34;que_devient_on.html&#34;&gt;Que devient-on ?&lt;/a&gt;&lt;a href=&#34;biblio.html&#34;&gt;Bibliographie&lt;/a&gt;&lt;a href=&#34;lectures.html&#34;&gt;Liens/Lectures&lt;/a&gt;&lt;a href=&#34;groupepluriTAL.html&#34;&gt;Liste pluriTAL&lt;/a&gt;&lt;a href=&#34;international.html&#34;&gt;Etudiants \xe9trangers&lt;/a&gt;&lt;a href=&#34;nextal.html&#34;&gt;nexTAL&lt;/a&gt;&lt;a href=&#34;images.html&#34;&gt;Images&lt;/a&gt;\r\n&lt;div id=&#34;google_translate_element&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34;&gt;\r\nfunction googleTranslateElementInit() {\r\n  new google.translate.TranslateElement({pageLanguage: \&#39;fr\&#39;}, \&#39;google_translate_element\&#39;);\r\n}\r\n&lt;/script&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&#34;&gt;&lt;/script&gt;\r\n&lt;/div&gt;\r\n&lt;h1&gt;&lt;font color=&#34;#6a87ea&#34;&gt;pluriTAL&lt;/font&gt;  &lt;span style=\&#39;font-size:60%;\&#39;&gt;[&lt;font color=&#34;#0099FF&#34;&gt;http://pluriTAL.org&lt;/font&gt;]&lt;/span&gt; := &lt;span style=\&#39;font-size:80%;\&#39;&gt;Fili\xe8res TAL et Ing\xe9nierie Linguistique de la &lt;font color=&#34;#bdbbbb&#34;&gt;Sorbonne nouvelle&lt;/font&gt;, de l\&#39;&lt;font color=&#34;#3399ff&#34;&gt;INALCO&lt;/font&gt; et de &lt;font color=&#34;#ffcc66&#34;&gt;Paris Nanterre&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/p&gt;\r\n\r\n&lt;h2&gt;Rentr\xe9e 2021-2022&lt;/h2&gt;\r\n\r\n&lt;h3&gt;Le master Traitement Automatique des Langues (T.A.L)&lt;/h3&gt;\r\n\r\n\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les inscriptions en master TAL, voir les informations disponibles sur la page &lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt; et sur la page &lt;a href=&#34;preparation.html&#34;&gt;Pr\xe9pa-master&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;Pour avoir des informations concernant la proc\xe9dure d\&#39;inscription au Master  T.A.L : contacter &lt;a href=&#34;mailto:sergefleury@gmail.com&#34;&gt;Serge Fleury&lt;/a&gt; (inscription \xe0 Sorbonne Nouvelle), &lt;a href=&#34;mailto:sylvain@kahane.fr&#34;&gt;Sylvain Kahane&lt;/a&gt; (inscription \xe0 Paris Nanterre), &lt;a href=&#34;mailto:mathieu.valette@inalco.fr&#34;&gt;Mathieu Valette&lt;/a&gt; (inscription \xe0 l\&#39;Inalco)&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h4&gt;Dates importantes&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Journ\xe9e d\&#39;accueil  le 15/09/2021 :&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M2 de 10h \xe0 11h00&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M1 de 11h15 \xe0 12h30&lt;/strong&gt;&lt;br/&gt;Lieu :  &lt;u&gt;Inalco, Auditorium Georges Dum\xe9zil, 2 rue de Lille, 75007 Paris&lt;/u&gt;.&lt;/span&gt;&lt;/li&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;INSTALL PARTY pour les M1 : 15/09/2021 de 13h30 \xe0 16h&lt;/strong&gt;.&lt;br/&gt;Lieu : &lt;u&gt;Inalco, Auditorium Georges Dum\xe9zil, 2 rue de Lille, 75007 Paris&lt;/u&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;Cette s\xe9ance sera l\&#39;occasion d\&#39;installer sur vos machines personnelles un environnement informatique performant pour le bon d\xe9roulement des cours \xe0 venir...&lt;br/&gt;En attendant, vous trouverez ci-dessous de bonnes lectures (&lt;u&gt;estivales&lt;/u&gt;) pour pr\xe9parer vos machines... &lt;/li&gt;\r\n&lt;blockquote&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/aide-memoire-install-party.pdf&#34;&gt;Aide m\xe9moire sur les connaissances informatiques minimales&lt;/a&gt;&#34; (J. Ferguth, 2017)&lt;/li&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/Outils_Linux.pdf&#34;&gt;Outils Unix&lt;/a&gt;&#34; (M.A. Moreaux, 2018)&lt;/li&gt;\r\n&lt;/blockquote&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;u&gt;D\xe9but des cours&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;\r\n\r\n- Les cours de &lt;strong&gt;M1 de Paris Nanterre&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de Sorbonne nouvelle &lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de l\&#39;Inalco&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Paris Nanterre&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Sorbonne nouvelle &lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de l\&#39;Inalco&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les \xe9tudiants du master &lt;u&gt;inscrits \xe0 la Sorbonne Nouvelle&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Inscription p\xe9dagogique M2&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER2-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail \xe0 la secr\xe9taire du master \xe0 Paris 3&lt;br/&gt;&lt;b&gt;Inscription p\xe9dagogique M1&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER1-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail \xe0 la secr\xe9taire du master \xe0 Paris 3.&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h4&gt;Planning des cours 2021/2022&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le planning de la plupart des cours (S1/S2) sont disponibles dans la brochure.&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S1 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S1_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S1-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;M\xe0J le 16/09/2021&lt;/span&gt;).&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S2 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S2_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S2-INALCO&lt;/a&gt; (&lt;u&gt;indisponible&lt;/u&gt;).&lt;/li&gt;\r\n&lt;!--&lt;li&gt;Le planning  des &lt;u&gt;cours du M1 de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;https://planning.parisnanterre.fr/direct/index.jsp?login=PHILLIAW&amp;password=PHILSEDT&amp;projectId=0&amp;showTree=false&amp;displayConfName=Standard%20sans%20fusion&amp;resources=32713&#34;&gt;Cours M1 TAL Paris Nanterre&lt;/a&gt;.&lt;/li&gt;--&gt;\r\n&lt;li&gt;Le planning des &lt;u&gt;cours du M2 du parcours TAL de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;./admin/Calendrier_M2_TAL_PX_2021_22.xlsx&#34;&gt;Cours M2 parcours TAL&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;M\xe0J le 21/07/2021&lt;/span&gt;).&lt;/li&gt;\r\n\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n\r\n&lt;h2&gt;Pr\xe9sentation du Master  &lt;I&gt;TAL&lt;/I&gt;&lt;/h2&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le dipl\xf4me est d\xe9livr\xe9 par les 3 partenaires suivants :&lt;/p&gt;\r\n&lt;blockquote&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;a href=&#34;http://www.u-paris10.fr/&#34; target=&#34;_blank&#34;&gt;Universit\xe9 P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;anterre&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.univ-paris3.fr/&#34; target=&#34;_blank&#34;&gt;Universit\xe9 P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris 3&lt;/span&gt; S&lt;span style=&#34;font-variant: small-caps;&#34;&gt;orbonne nouvelle&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.inalco.fr/&#34; target=&#34;_blank&#34;&gt;I&lt;span style=&#34;font-variant: small-caps;&#34;&gt;nstitut&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ational des L&lt;span style=&#34;font-variant: small-caps;&#34;&gt;angues&lt;/span&gt; et C&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ivilisations&lt;/span&gt; O&lt;span style=&#34;font-variant: small-caps;&#34;&gt;rientales&lt;/span&gt;&lt;/a&gt; &lt;span style=&#34;font-variant: small-caps;&#34;&gt;- inalco&lt;/span&gt;&lt;/p&gt;\r\n&lt;/blockquote&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La formation s\&#39;appuie sur les laboratoires : &lt;a href=&#34;http://www.modyco.fr/&#34;&gt;Paris Nanterre - MODYCO&lt;/a&gt;, &lt;i&gt;Mod\xe8les, Dynamiques, Corpus&lt;/i&gt;, (UMR 7114), &lt;a href=&#34;http://www.univ-paris3.fr/ea-7345-clesthia-langage-systemes-discours-98241.kjsp&#34;&gt;Sorbonne Nouvelle - CLESTHIA&lt;/a&gt; &lt;i&gt;Langage, syst\xe8mes, discours&lt;/i&gt; (EA 7345), &lt;a href=&#34;http://lpp.univ-paris3.fr/&#34;&gt;Sorbonne Nouvelle - LPP&lt;/a&gt; &lt;i&gt;Laboratoire de Phon\xe9tique et Phonologie&lt;/i&gt; (UMR 7018), &lt;a href=&#34;http://www.lattice.cnrs.fr/&#34;&gt;Sorbonne Nouvelle \x96 Lattice&lt;/a&gt; (Langues, Textes, Traitements informatiques, Cognition), &lt;a href=&#34;http://www.crim.fr/&#34;&gt;INALCO - ER-TIM&lt;/a&gt; &lt;i&gt;Textes, Informatique, Multilinguisme&lt;/i&gt; (EAD 2540).&lt;/p&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La mention &lt;I&gt;TAL&lt;/I&gt; concerne la recherche et le d\xe9veloppement dans le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et des &lt;a href=&#34;http://fr.wikipedia.org/wiki/Linguistique_informatique&#34; target=&#34;_blank&#34;&gt;industries de la langue&lt;/a&gt;. L\&#39;ing\xe9nierie linguistique fait appel \xe0 des m\xe9thodes et des savoirs multiples. Il s\&#39;agit de :&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;1.\tDisposer des pr\xe9-requis en linguistique : ma\xeetriser les manipulations d\xe9bouchant sur des descriptions d\xe9taill\xe9es de faits de langue, conna\xeetre les bases des grands domaines des sciences du langage (phon\xe9tique et phonologie, morphologie, syntaxe et s\xe9mantique) ; &lt;br/&gt;\r\n2.\tConna\xeetre les bases de la recherche et extraction d\&#39;information, de la constitution et de la gestion de corpus (\xe9crits ou oraux) et de ressources, y compris multilingues : les corpus sont des mines d\&#39;information pour une description r\xe9aliste d\&#39;emplois d\&#39;une langue, les techniques de la recherche et de l\&#39;extraction d\&#39;information permettent de rapatrier les documents ou les parties de documents jug\xe9s pertinents pour un besoin particulier ;&lt;br/&gt;\r\n3.\tExprimer les r\xe8gles et les r\xe9gularit\xe9s \xe0 l\&#39;\x9cuvre, par le biais des grammaires formelles et des traitements quantitatifs pour savoir passer d\&#39;une description linguistique \xe0 une repr\xe9sentation plus pr\xe9cise permettant son utilisation par des logiciels.&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;L\&#39;objectif de la formation est de donner \xe0 des \xe9tudiants issus de cursus de langues ou de sciences du langage des bases solides qui leur permettent de s\&#39;orienter vers les m\xe9tiers de l\&#39;ing\xe9nierie linguistique et du TAL, et de les laisser choisir entre diverses perspectives : document \xe9lectronique, ing\xe9nierie multilingue, traductique. Il s\&#39;agit aussi de permettre \xe0 certains d\&#39;entre eux d\&#39;opter pour la recherche et le d\xe9veloppement en ce domaine.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Organisation globale des enseignements du master &lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le master s\x92organise selon une premi\xe8re ann\xe9e compos\xe9e d\x92enseignements en Traitement Automatique des langues puis quatre parcours en M2, adoss\xe9s chacun \xe0 un ou plusieurs \xe9tablissements universitaires :&lt;br/&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#bdbbbb&#34;&gt;M2 Recherche et D\xe9veloppement&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 Sorbonne Nouvelle et \xe0 l\&#39;Inalco&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#ffcc66&#34;&gt;M2 TAL&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 Paris Nanterre&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 Ing\xe9nierie multilingue&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 l\x92INALCO&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 TeTraDom (Traductique)&lt;/font&gt;&lt;/b&gt;, \xe9galement &lt;u&gt;bas\xe9 \xe0 l\x92INALCO&lt;/u&gt;.\r\n&lt;/ul&gt;&lt;br/&gt;\r\n&lt;/p&gt;\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;./admin/organigramme-master.png&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n&lt;h3&gt;Brochure Master T.A.L&lt;/h3&gt;\r\n\r\n&lt;h4&gt;2019-2023&lt;/h4&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/Plurital-MASTER-TAL-P3-PX-INALCO.pdf&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Brochure 2019-2023&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p align=&#34;&#34;&gt;Ci-dessous, la m\xeame brochure disponible en ligne via &lt;i&gt;issuu&lt;/i&gt; :  &lt;/p&gt;\r\n\r\n&lt;div id=&#34;data-configid&#34; data-configid=&#34;1010051/7377357&#34; style=&#34;width: 525px; height: 371px;&#34; class=&#34;issuuembed&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//e.issuu.com/embed.js&#34; async=&#34;true&#34;&gt;&lt;/script&gt;\r\n\r\n\r\n&lt;h4&gt;2014-2018 (archive)&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/BROCHURE-MASTER-TAL-PLURITAL-ORG.pdf&#34;&gt;Brochure 2014-2018&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h3&gt;Brochures Master S.D.L&lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Brochures des masters SDL&lt;/strong&gt; des 3 partenaires :&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;strong&gt;Sorbonne Nouvelle&lt;/strong&gt;, MASTER SDL (ILPGA) : &lt;a href=&#34;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&#34;&gt;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;Paris Nanterre&lt;/strong&gt; : &lt;a href=&#34;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&#34;&gt;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;INALCO&lt;/strong&gt; : (idem Sorbonne Nouvelle)&lt;br/&gt;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;u&gt;Les cours optionnels de linguistique du master TAL sont \xe0 choisir parmi ceux propos\xe9s dans ces brochures.&lt;/u&gt;&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h1&gt;pluriTAL. Rep\xe8res historiques...&lt;br/&gt;Apports crois\xe9s, compl\xe9mentaires et pluriels pour le TAL&lt;br/&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/nuage-plurital.jpg&#34; border=&#34;0&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n        &lt;p align=&#34;justify&#34;&gt;Le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et de l\&#39;&lt;a href=&#34;http://www.culture.gouv.fr/culture/dglf/rifal/garde.htm&#34; target=&#34;_blank&#34;&gt;ing\xe9nierie linguistique&lt;/a&gt; se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous travaillons depuis plusieurs ann\xe9es universitaires \xe0 conjoindre nos formations. Les deux premi\xe8res ann\xe9es, ce sont des conf\xe9rences crois\xe9es qui ont \xe9t\xe9 mises en place. Nous avons organis\xe9, en 2002-2003, deux matin\xe9es de pr\xe9sentation mutuelle des travaux et recherches que nous effectuons, puis en 2003-2004 une &lt;a href=&#34;journee.html&#34;&gt;matin\xe9e&lt;/a&gt; pour continuer cet \xe9change et pr\xe9parer les &#34;\xe9changes&#34; de cours et les compl\xe9ments de formation \xe0 int\xe9grer progressivement dans les formations que nous assurons.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;De mani\xe8re plus ambitieuse, nous avons rajout\xe9 aux cursus de nos \xe9tudiants pour &lt;a href=&#34;journee.html&#34;&gt;l\&#39;ann\xe9e 2004/2005&lt;/a&gt;, 24 heures de cours assur\xe9es (en dehors des services statutaires) \xe0 raison de 8h par \xe9tablissement, sur trois th\xe9matiques : &lt;a href=&#34;cours3-2004.html&#34;&gt;la formalisation en syntaxe&lt;/a&gt; ; &lt;a href=&#34;cours2-2004.html&#34;&gt;la constitution et l\x92utilisation de corpus \xe9lectroniques \xe0 des fins lexicographiques&lt;/a&gt; ; &lt;a href=&#34;cours1-2004.html&#34;&gt;l\x92utilisation de ressources \xe9lectroniques multilingues&lt;/a&gt;.&lt;/p&gt;        \r\n\t\t&lt;p align=&#34;justify&#34;&gt;Dans la perspective du LMD, \xe0 partir de ces collaborations, nous avons construit pour la p\xe9riode 2005-2008 un projet de &lt;i&gt;Master Recherche en &lt;strong&gt;T&lt;/strong&gt;raitement &lt;strong&gt;A&lt;/strong&gt;utomatique des &lt;strong&gt;L&lt;/strong&gt;angues&lt;/i&gt; dont le d\xe9marrage a eu lieu pour la rentr\xe9e 2005-2006.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la p\xe9riode 2009-2013, nous avons renforc\xe9 notre partenariat en mettant en place un &lt;a href=&#34;master-ingenierie-linguistique.html&#34;&gt;Master Sp\xe9cialit\xe9 &lt;i&gt;Ing\xe9nierie Linguistique&lt;/i&gt;&lt;/a&gt; dont le d\xe9marrage a lieu pour la rentr\xe9e 2009-2010.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la p\xe9riode 2014-2018, la sp\xe9cialit\xe9 &#34;Ing\xe9nierie Linguistique&#34; devient une mention \xe0 part enti\xe8re et sa d\xe9nomination est d\xe9sormais &#34;Master mention Traitement Automatique des Langues&#34;.&lt;/p&gt;\r\n\r\n\t\t&lt;p align=&#34;justify&#34;&gt;On trouvera sur ce site l\&#39;ensemble des ressources des cours pluriTAL pass\xe9s et \xe0 venir...&lt;/p&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n\r\n&lt;table align=&#34;center&#34;&gt;\r\n&lt;tr&gt;\r\n&lt;td  valign=&#34;top&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/table&gt;\r\n\r\n&lt;p class=&#34;copyright&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;http://pluriTAL.org&lt;/a&gt; | pluriTAL &amp;copy;2021, INALCO, Paris Nanterre, Sorbonne Nouvelle&lt;/a&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;&#39;</pre>
+<pre>b&#39;&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;\r\n        &#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;\r\n&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xml:lang=&#34;fr&#34; lang=&#34;fr&#34;&gt;\r\n&lt;head&gt;\r\n\t&lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=iso-8859-1&#34; /&gt;\r\n&lt;title&gt;(pluriTAL.org) pluriTAL : Filieres TAL et ing\xe9nierie linguistique de Paris III, Paris Nanterre, INALCO &lt;/title&gt;\r\n\t&lt;meta name=&#34;author&#34; content=&#34;pluriTAL, master TAL&#34; /&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;Fili\xe8res TAL ing\xe9nierie linguistique  Paris III Sorbonne nouvelle Paris Nanterre INALCO&#34; /&gt;\r\n    &lt;meta name=&#34;description&#34; content=&#34;Le domaine du TAL et de l\&#39;ing\xe9nierie linguistique se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&#34;&gt;\r\n\r\n\t&lt;meta name=&#34;dc.title&#34; content=&#34;pluriTAL : Filieres TAL et ing\xe9nierie linguistique de Paris III, Paris Nanterre, INALCO&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.creator&#34; content=&#34;pluriTAL, master TAL&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.type&#34; content=&#34;text&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.date&#34; content=&#34;2005&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.format&#34; content=&#34;text/html&#34;/&gt;\r\n\r\n\t&lt;meta name=&#34;dc.identifier&#34; content=&#34;http://plurital.org/&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.description&#34; content=&#34;Le domaine du TAL et de l\&#39;ing\xe9nierie linguistique se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples. Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&#34;/&gt;\r\n\t&lt;meta name=&#34;keywords&#34; content=&#34;MASTER, TAL, ing\xe9nierie linguistique, Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement&#34;/&gt;\r\n\t&lt;meta name=&#34;dc.subject&#34; content=&#34;MASTER TAL, ing\xe9nierie linguistique,  Paris III, Sorbonne nouvelle, Paris Nanterre, INALCO, Recherche, Enseignement, TAL&#34;/&gt;\r\n&lt;meta name=&#34;google-translate-customization&#34; content=&#34;c8a7747d89699969-b8c11c731c09014a-g2c2985efe82fbdde-20&#34;&gt;&lt;/meta&gt;\r\n\t&lt;link rel=&#34;shortcut icon&#34; href=&#34;http://www.tal.univ-paris3.fr/plurital/logo.ico&#34;&gt;\r\n\r\n\t&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;layout.css&#34; title=&#34;default&#34; /&gt;\r\n\t&lt;script type=&#34;text/javascript&#34;&gt;\r\n\r\n  var _gaq = _gaq || [];\r\n  _gaq.push([\&#39;_setAccount\&#39;, \&#39;UA-1823334-6\&#39;]);\r\n  _gaq.push([\&#39;_trackPageview\&#39;]);\r\n\r\n  (function() {\r\n    var ga = document.createElement(\&#39;script\&#39;); ga.type = \&#39;text/javascript\&#39;; ga.async = true;\r\n    ga.src = (\&#39;https:\&#39; == document.location.protocol ? \&#39;https://ssl\&#39; : \&#39;http://www\&#39;) + \&#39;.google-analytics.com/ga.js\&#39;;\r\n    var s = document.getElementsByTagName(\&#39;script\&#39;)[0]; s.parentNode.insertBefore(ga, s);\r\n  })();\r\n\r\n&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;div id=&#34;logo&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;&lt;img src=&#34;./images/logo.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;div id=&#34;content&#34;&gt;\r\n&lt;div id=&#34;menu&#34;&gt;&lt;a href=&#34;index.html&#34;&gt;Accueil&lt;/a&gt;&lt;a href=&#34;localisations.html&#34;&gt;Localisations&lt;/a&gt;&lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt;&lt;a href=&#34;preparation.html&#34;&gt;Pr\xe9pa-master&lt;/a&gt;&lt;a href=&#34;master.html&#34;&gt;Cours en ligne&lt;/a&gt;&lt;a href=&#34;journee.html&#34;&gt;Journ\xe9es pluriTAL&lt;/a&gt;&lt;a href=&#34;liens.html&#34;&gt;Labos&lt;/a&gt;&lt;a href=&#34;contact.html&#34;&gt;Enseignants&lt;/a&gt;&lt;a href=&#34;stages.html&#34;&gt;Stages&lt;/a&gt;&lt;a href=&#34;memoires.html&#34;&gt;M\xe9moires M2&lt;/a&gt;&lt;a href=&#34;que_devient_on.html&#34;&gt;Que devient-on ?&lt;/a&gt;&lt;a href=&#34;biblio.html&#34;&gt;Bibliographie&lt;/a&gt;&lt;a href=&#34;lectures.html&#34;&gt;Liens/Lectures&lt;/a&gt;&lt;a href=&#34;groupepluriTAL.html&#34;&gt;Liste pluriTAL&lt;/a&gt;&lt;a href=&#34;international.html&#34;&gt;Etudiants \xe9trangers&lt;/a&gt;&lt;a href=&#34;nextal.html&#34;&gt;nexTAL&lt;/a&gt;&lt;a href=&#34;images.html&#34;&gt;Images&lt;/a&gt;\r\n&lt;div id=&#34;google_translate_element&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34;&gt;\r\nfunction googleTranslateElementInit() {\r\n  new google.translate.TranslateElement({pageLanguage: \&#39;fr\&#39;}, \&#39;google_translate_element\&#39;);\r\n}\r\n&lt;/script&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&#34;&gt;&lt;/script&gt;\r\n&lt;/div&gt;\r\n&lt;h1&gt;&lt;font color=&#34;#6a87ea&#34;&gt;pluriTAL&lt;/font&gt;  &lt;span style=\&#39;font-size:60%;\&#39;&gt;[&lt;font color=&#34;#0099FF&#34;&gt;http://pluriTAL.org&lt;/font&gt;]&lt;/span&gt; := &lt;span style=\&#39;font-size:80%;\&#39;&gt;Fili\xe8res TAL et Ing\xe9nierie Linguistique de la &lt;font color=&#34;#bdbbbb&#34;&gt;Sorbonne nouvelle&lt;/font&gt;, de l\&#39;&lt;font color=&#34;#3399ff&#34;&gt;INALCO&lt;/font&gt; et de &lt;font color=&#34;#ffcc66&#34;&gt;Paris Nanterre&lt;/font&gt;&lt;/span&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/p&gt;\r\n\r\n&lt;h2&gt;Rentr\xe9e 2021-2022&lt;/h2&gt;\r\n\r\n&lt;h3&gt;Le master Traitement Automatique des Langues (T.A.L)&lt;/h3&gt;\r\n\r\n\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les inscriptions en master TAL, voir les informations disponibles sur la page &lt;a href=&#34;admin.html&#34;&gt;Inscription&lt;/a&gt; et sur la page &lt;a href=&#34;preparation.html&#34;&gt;Pr\xe9pa-master&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;Pour avoir des informations concernant la proc\xe9dure d\&#39;inscription au Master  T.A.L : contacter &lt;a href=&#34;mailto:sergefleury@gmail.com&#34;&gt;Serge Fleury&lt;/a&gt; (inscription \xe0 Sorbonne Nouvelle), &lt;a href=&#34;mailto:sylvain@kahane.fr&#34;&gt;Sylvain Kahane&lt;/a&gt; (inscription \xe0 Paris Nanterre), &lt;a href=&#34;mailto:mathieu.valette@inalco.fr&#34;&gt;Mathieu Valette&lt;/a&gt; (inscription \xe0 l\&#39;Inalco)&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h4&gt;Dates importantes&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Journ\xe9e d\&#39;accueil  le 15/09/2021 :&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M2 de 10h \xe0 11h00&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;M1 de 11h15 \xe0 12h30&lt;/strong&gt;&lt;br/&gt;Lieu :  &lt;u&gt;Inalco, Auditorium Georges Dum\xe9zil, 2 rue de Lille, 75007 Paris&lt;/u&gt;.&lt;/span&gt;&lt;/li&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;INSTALL PARTY pour les M1 : 15/09/2021 de 13h30 \xe0 16h&lt;/strong&gt;.&lt;br/&gt;Lieu : &lt;u&gt;Inalco, Auditorium Georges Dum\xe9zil, 2 rue de Lille, 75007 Paris&lt;/u&gt;&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;Cette s\xe9ance sera l\&#39;occasion d\&#39;installer sur vos machines personnelles un environnement informatique performant pour le bon d\xe9roulement des cours \xe0 venir...&lt;br/&gt;En attendant, vous trouverez ci-dessous de bonnes lectures (&lt;u&gt;estivales&lt;/u&gt;) pour pr\xe9parer vos machines... &lt;/li&gt;\r\n&lt;blockquote&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/aide-memoire-install-party.pdf&#34;&gt;Aide m\xe9moire sur les connaissances informatiques minimales&lt;/a&gt;&#34; (J. Ferguth, 2017)&lt;/li&gt;\r\n&lt;li&gt;&#34;&lt;a href=&#34;./cours/Outils_Linux.pdf&#34;&gt;Outils Unix&lt;/a&gt;&#34; (M.A. Moreaux, 2018)&lt;/li&gt;\r\n&lt;/blockquote&gt;\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;u&gt;D\xe9but des cours&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;\r\n\r\n- Les cours de &lt;strong&gt;M1 de Paris Nanterre&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de Sorbonne nouvelle &lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M1 de l\&#39;Inalco&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Paris Nanterre&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de Sorbonne nouvelle &lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n- Les cours de &lt;strong&gt;M2 de l\&#39;Inalco&lt;/strong&gt; d\xe9marrent le &lt;u&gt;20/09/2021&lt;/u&gt;&lt;br/&gt;\r\n&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;li&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;Pour les \xe9tudiants du master &lt;u&gt;inscrits \xe0 la Sorbonne Nouvelle&lt;/u&gt;&lt;/span&gt; : &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Inscription p\xe9dagogique M2&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER2-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail \xe0 la secr\xe9taire du master \xe0 Paris 3&lt;br/&gt;&lt;b&gt;Inscription p\xe9dagogique M1&lt;/b&gt; : envoyez &lt;a href=&#34;http://plurital.org/admin/FICHE-MASTER1-2019-2023.pdf&#34;&gt;&lt;b&gt;votre fiche IP&lt;/b&gt;&lt;/a&gt; par mail \xe0 la secr\xe9taire du master \xe0 Paris 3.&lt;/li&gt;\r\n\r\n&lt;br/&gt;\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h4&gt;Planning des cours 2021/2022&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le planning de la plupart des cours (S1/S2) sont disponibles dans la brochure.&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S1 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S1_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S1-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;M\xe0J le 16/09/2021&lt;/span&gt;).&lt;/li&gt;\r\n&lt;li&gt;Le planning des cours M1/M2 de l\&#39;Inalco du S2 est disponible ici : &lt;a href=&#34;./admin/EDT_MASTER_TAL_S2_M1_M2_2021_2022.pdf&#34;&gt;PLANNING-S2-INALCO&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;M\xe0J le 13/01/2022&lt;/span&gt;).&lt;/li&gt;\r\n&lt;!--&lt;li&gt;Le planning  des &lt;u&gt;cours du M1 de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;https://planning.parisnanterre.fr/direct/index.jsp?login=PHILLIAW&amp;password=PHILSEDT&amp;projectId=0&amp;showTree=false&amp;displayConfName=Standard%20sans%20fusion&amp;resources=32713&#34;&gt;Cours M1 TAL Paris Nanterre&lt;/a&gt;.&lt;/li&gt;--&gt;\r\n&lt;li&gt;Le planning des &lt;u&gt;cours du M2 du parcours TAL de Paris Nanterre&lt;/u&gt; (avec indication des salles) est disponible ici : &lt;a href=&#34;./admin/Calendrier_M2_TAL_PX_2021_22.xlsx&#34;&gt;Cours M2 parcours TAL&lt;/a&gt; (&lt;span style=\&#39;background-color:#FC3;color:black\&#39;&gt;M\xe0J le 21/07/2021&lt;/span&gt;).&lt;/li&gt;\r\n\r\n\r\n\r\n&lt;/ul&gt;\r\n\r\n\r\n\r\n&lt;h2&gt;Pr\xe9sentation du Master  &lt;I&gt;TAL&lt;/I&gt;&lt;/h2&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le dipl\xf4me est d\xe9livr\xe9 par les 3 partenaires suivants :&lt;/p&gt;\r\n&lt;blockquote&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;a href=&#34;http://www.u-paris10.fr/&#34; target=&#34;_blank&#34;&gt;Universit\xe9 P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;anterre&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.univ-paris3.fr/&#34; target=&#34;_blank&#34;&gt;Universit\xe9 P&lt;span style=&#34;font-variant: small-caps;&#34;&gt;aris 3&lt;/span&gt; S&lt;span style=&#34;font-variant: small-caps;&#34;&gt;orbonne nouvelle&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&#34;http://www.inalco.fr/&#34; target=&#34;_blank&#34;&gt;I&lt;span style=&#34;font-variant: small-caps;&#34;&gt;nstitut&lt;/span&gt; N&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ational des L&lt;span style=&#34;font-variant: small-caps;&#34;&gt;angues&lt;/span&gt; et C&lt;span style=&#34;font-variant: small-caps;&#34;&gt;ivilisations&lt;/span&gt; O&lt;span style=&#34;font-variant: small-caps;&#34;&gt;rientales&lt;/span&gt;&lt;/a&gt; &lt;span style=&#34;font-variant: small-caps;&#34;&gt;- inalco&lt;/span&gt;&lt;/p&gt;\r\n&lt;/blockquote&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La formation s\&#39;appuie sur les laboratoires : &lt;a href=&#34;http://www.modyco.fr/&#34;&gt;Paris Nanterre - MODYCO&lt;/a&gt;, &lt;i&gt;Mod\xe8les, Dynamiques, Corpus&lt;/i&gt;, (UMR 7114), &lt;a href=&#34;http://www.univ-paris3.fr/ea-7345-clesthia-langage-systemes-discours-98241.kjsp&#34;&gt;Sorbonne Nouvelle - CLESTHIA&lt;/a&gt; &lt;i&gt;Langage, syst\xe8mes, discours&lt;/i&gt; (EA 7345), &lt;a href=&#34;http://lpp.univ-paris3.fr/&#34;&gt;Sorbonne Nouvelle - LPP&lt;/a&gt; &lt;i&gt;Laboratoire de Phon\xe9tique et Phonologie&lt;/i&gt; (UMR 7018), &lt;a href=&#34;http://www.lattice.cnrs.fr/&#34;&gt;Sorbonne Nouvelle \x96 Lattice&lt;/a&gt; (Langues, Textes, Traitements informatiques, Cognition), &lt;a href=&#34;http://www.crim.fr/&#34;&gt;INALCO - ER-TIM&lt;/a&gt; &lt;i&gt;Textes, Informatique, Multilinguisme&lt;/i&gt; (EAD 2540).&lt;/p&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;La mention &lt;I&gt;TAL&lt;/I&gt; concerne la recherche et le d\xe9veloppement dans le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et des &lt;a href=&#34;http://fr.wikipedia.org/wiki/Linguistique_informatique&#34; target=&#34;_blank&#34;&gt;industries de la langue&lt;/a&gt;. L\&#39;ing\xe9nierie linguistique fait appel \xe0 des m\xe9thodes et des savoirs multiples. Il s\&#39;agit de :&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;1.\tDisposer des pr\xe9-requis en linguistique : ma\xeetriser les manipulations d\xe9bouchant sur des descriptions d\xe9taill\xe9es de faits de langue, conna\xeetre les bases des grands domaines des sciences du langage (phon\xe9tique et phonologie, morphologie, syntaxe et s\xe9mantique) ; &lt;br/&gt;\r\n2.\tConna\xeetre les bases de la recherche et extraction d\&#39;information, de la constitution et de la gestion de corpus (\xe9crits ou oraux) et de ressources, y compris multilingues : les corpus sont des mines d\&#39;information pour une description r\xe9aliste d\&#39;emplois d\&#39;une langue, les techniques de la recherche et de l\&#39;extraction d\&#39;information permettent de rapatrier les documents ou les parties de documents jug\xe9s pertinents pour un besoin particulier ;&lt;br/&gt;\r\n3.\tExprimer les r\xe8gles et les r\xe9gularit\xe9s \xe0 l\&#39;\x9cuvre, par le biais des grammaires formelles et des traitements quantitatifs pour savoir passer d\&#39;une description linguistique \xe0 une repr\xe9sentation plus pr\xe9cise permettant son utilisation par des logiciels.&lt;/p&gt;\r\n&lt;p align=&#34;justify&#34;&gt;L\&#39;objectif de la formation est de donner \xe0 des \xe9tudiants issus de cursus de langues ou de sciences du langage des bases solides qui leur permettent de s\&#39;orienter vers les m\xe9tiers de l\&#39;ing\xe9nierie linguistique et du TAL, et de les laisser choisir entre diverses perspectives : document \xe9lectronique, ing\xe9nierie multilingue, traductique. Il s\&#39;agit aussi de permettre \xe0 certains d\&#39;entre eux d\&#39;opter pour la recherche et le d\xe9veloppement en ce domaine.&lt;/p&gt;\r\n\r\n&lt;h3&gt;Organisation globale des enseignements du master &lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;Le master s\x92organise selon une premi\xe8re ann\xe9e compos\xe9e d\x92enseignements en Traitement Automatique des langues puis quatre parcours en M2, adoss\xe9s chacun \xe0 un ou plusieurs \xe9tablissements universitaires :&lt;br/&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#bdbbbb&#34;&gt;M2 Recherche et D\xe9veloppement&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 Sorbonne Nouvelle et \xe0 l\&#39;Inalco&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#ffcc66&#34;&gt;M2 TAL&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 Paris Nanterre&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 Ing\xe9nierie multilingue&lt;/font&gt;&lt;/b&gt;, &lt;u&gt;bas\xe9 \xe0 l\x92INALCO&lt;/u&gt;,\r\n&lt;li&gt;Le parcours &lt;b&gt;&lt;font color=&#34;#3399ff&#34;&gt;M2 TeTraDom (Traductique)&lt;/font&gt;&lt;/b&gt;, \xe9galement &lt;u&gt;bas\xe9 \xe0 l\x92INALCO&lt;/u&gt;.\r\n&lt;/ul&gt;&lt;br/&gt;\r\n&lt;/p&gt;\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;./admin/organigramme-master.png&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n&lt;h3&gt;Brochure Master T.A.L&lt;/h3&gt;\r\n\r\n&lt;h4&gt;2019-2023&lt;/h4&gt;\r\n\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/Plurital-MASTER-TAL-P3-PX-INALCO.pdf&#34;&gt;&lt;span style=\&#39;background-color:#FC3;color:black;font-family:arial,helvetica,sans-serif;font-variant:small-caps;font-size:110%;padding:2px;border-right:1px solid #C90;;border-bottom:1px solid #C90;\&#39;&gt;&lt;strong&gt;Brochure 2019-2023&lt;/strong&gt;&lt;/span&gt;&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;p align=&#34;&#34;&gt;Ci-dessous, la m\xeame brochure disponible en ligne via &lt;i&gt;issuu&lt;/i&gt; :  &lt;/p&gt;\r\n\r\n&lt;div id=&#34;data-configid&#34; data-configid=&#34;1010051/7377357&#34; style=&#34;width: 525px; height: 371px;&#34; class=&#34;issuuembed&#34;&gt;&lt;/div&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;//e.issuu.com/embed.js&#34; async=&#34;true&#34;&gt;&lt;/script&gt;\r\n\r\n\r\n&lt;h4&gt;2014-2018 (archive)&lt;/h4&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/admin/BROCHURE-MASTER-TAL-PLURITAL-ORG.pdf&#34;&gt;Brochure 2014-2018&lt;/a&gt; &lt;small&gt;(PDF)&lt;/small&gt;. &lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n\r\n&lt;h3&gt;Brochures Master S.D.L&lt;/h3&gt;\r\n\r\n&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Brochures des masters SDL&lt;/strong&gt; des 3 partenaires :&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;strong&gt;Sorbonne Nouvelle&lt;/strong&gt;, MASTER SDL (ILPGA) : &lt;a href=&#34;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&#34;&gt;http://www.univ-paris3.fr/jsp/saisie/liste_fichiergw.jsp?OBJET=DOCUMENT&amp;CODE=28950199&amp;LANGUE=0&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;Paris Nanterre&lt;/strong&gt; : &lt;a href=&#34;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&#34;&gt;https://master-fldl.parisnanterre.fr/accueil/master-fonctionnements-linguistiques-et-dysfonctionnements-langagiers-333180.kjsp&lt;/a&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;strong&gt;INALCO&lt;/strong&gt; : (idem Sorbonne Nouvelle)&lt;br/&gt;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p align=&#34;justify&#34;&gt;&lt;u&gt;Les cours optionnels de linguistique du master TAL sont \xe0 choisir parmi ceux propos\xe9s dans ces brochures.&lt;/u&gt;&lt;/p&gt;\r\n\r\n\r\n\r\n&lt;h1&gt;pluriTAL. Rep\xe8res historiques...&lt;br/&gt;Apports crois\xe9s, compl\xe9mentaires et pluriels pour le TAL&lt;br/&gt;&lt;/h1&gt;\r\n\r\n&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/nuage-plurital.jpg&#34; border=&#34;0&#34; width=&#34;100%&#34;/&gt;&lt;/p&gt;\r\n\r\n        &lt;p align=&#34;justify&#34;&gt;Le domaine du &lt;a href=&#34;http://fr.wikipedia.org/wiki/Traitement_automatique_des_langues&#34; target=&#34;_blank&#34;&gt;TAL&lt;/a&gt; et de l\&#39;&lt;a href=&#34;http://www.culture.gouv.fr/culture/dglf/rifal/garde.htm&#34; target=&#34;_blank&#34;&gt;ing\xe9nierie linguistique&lt;/a&gt; se caract\xe9rise par la multiplicit\xe9 des dimensions prises en compte (traitement de l\&#39;\xe9crit, de l\&#39;oral), des niveaux d\&#39;analyse impliqu\xe9s (morphologie, syntaxe, s\xe9mantique, pragmatique), des techniques, des langues abord\xe9es. C\&#39;est un domaine o\xf9 il est essentiel de conjuguer des apports multiples.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous enseignons, effectuons des recherches et participons \xe0 des projets dans le domaine du traitement automatique des langues et de l\&#39;ing\xe9nierie linguistique. Nous travaillons ensemble pour l\&#39;enseignement comme pour la recherche. Nous souhaitons aller plus loin en croisant progressivement nos apports sp\xe9cifiques pour offrir une formation plus compl\xe8te. Nous esp\xe9rons d\&#39;ailleurs pouvoir progressivement travailler avec d\&#39;autres formateurs du domaine sur la r\xe9gion parisienne.&lt;/p&gt;\r\n        &lt;p align=&#34;justify&#34;&gt;Nous travaillons depuis plusieurs ann\xe9es universitaires \xe0 conjoindre nos formations. Les deux premi\xe8res ann\xe9es, ce sont des conf\xe9rences crois\xe9es qui ont \xe9t\xe9 mises en place. Nous avons organis\xe9, en 2002-2003, deux matin\xe9es de pr\xe9sentation mutuelle des travaux et recherches que nous effectuons, puis en 2003-2004 une &lt;a href=&#34;journee.html&#34;&gt;matin\xe9e&lt;/a&gt; pour continuer cet \xe9change et pr\xe9parer les &#34;\xe9changes&#34; de cours et les compl\xe9ments de formation \xe0 int\xe9grer progressivement dans les formations que nous assurons.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;De mani\xe8re plus ambitieuse, nous avons rajout\xe9 aux cursus de nos \xe9tudiants pour &lt;a href=&#34;journee.html&#34;&gt;l\&#39;ann\xe9e 2004/2005&lt;/a&gt;, 24 heures de cours assur\xe9es (en dehors des services statutaires) \xe0 raison de 8h par \xe9tablissement, sur trois th\xe9matiques : &lt;a href=&#34;cours3-2004.html&#34;&gt;la formalisation en syntaxe&lt;/a&gt; ; &lt;a href=&#34;cours2-2004.html&#34;&gt;la constitution et l\x92utilisation de corpus \xe9lectroniques \xe0 des fins lexicographiques&lt;/a&gt; ; &lt;a href=&#34;cours1-2004.html&#34;&gt;l\x92utilisation de ressources \xe9lectroniques multilingues&lt;/a&gt;.&lt;/p&gt;        \r\n\t\t&lt;p align=&#34;justify&#34;&gt;Dans la perspective du LMD, \xe0 partir de ces collaborations, nous avons construit pour la p\xe9riode 2005-2008 un projet de &lt;i&gt;Master Recherche en &lt;strong&gt;T&lt;/strong&gt;raitement &lt;strong&gt;A&lt;/strong&gt;utomatique des &lt;strong&gt;L&lt;/strong&gt;angues&lt;/i&gt; dont le d\xe9marrage a eu lieu pour la rentr\xe9e 2005-2006.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la p\xe9riode 2009-2013, nous avons renforc\xe9 notre partenariat en mettant en place un &lt;a href=&#34;master-ingenierie-linguistique.html&#34;&gt;Master Sp\xe9cialit\xe9 &lt;i&gt;Ing\xe9nierie Linguistique&lt;/i&gt;&lt;/a&gt; dont le d\xe9marrage a lieu pour la rentr\xe9e 2009-2010.&lt;/p&gt;\r\n\t\t&lt;p align=&#34;justify&#34;&gt;Pour la p\xe9riode 2014-2018, la sp\xe9cialit\xe9 &#34;Ing\xe9nierie Linguistique&#34; devient une mention \xe0 part enti\xe8re et sa d\xe9nomination est d\xe9sormais &#34;Master mention Traitement Automatique des Langues&#34;.&lt;/p&gt;\r\n\r\n\t\t&lt;p align=&#34;justify&#34;&gt;On trouvera sur ce site l\&#39;ensemble des ressources des cours pluriTAL pass\xe9s et \xe0 venir...&lt;/p&gt;\r\n\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n&lt;br/&gt;\r\n\r\n&lt;table align=&#34;center&#34;&gt;\r\n&lt;tr&gt;\r\n&lt;td  valign=&#34;top&#34;&gt;&lt;img src=&#34;http://www.tal.univ-paris3.fr/plurital//images/logo-pluriTAL.jpg&#34; border=&#34;0&#34;&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/table&gt;\r\n\r\n&lt;p class=&#34;copyright&#34;&gt;&lt;a href=&#34;http://www.tal.univ-paris3.fr/plurital/&#34;&gt;http://pluriTAL.org&lt;/a&gt; | pluriTAL &amp;copy;2022, INALCO, Paris Nanterre, Sorbonne Nouvelle&lt;/a&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;&#39;</pre>
 </div>
 
 </div>
@@ -14972,13 +15173,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Et on peut le décoder explicitement</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14993,6 +15202,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15014,13 +15225,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Headers">Headers<a class="anchor-link" href="#Headers">&#182;</a></h3><p>On a dit que les <em>headers</em> des messages HTTP contiennent des métadonnées sur ces messages. Le header de notre réponse est accessible directement sous forme de dictionnaire.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15034,6 +15253,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15047,7 +15268,7 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;Date&#39;: &#39;Thu, 30 Dec 2021 13:29:44 GMT&#39;, &#39;Server&#39;: &#39;Apache&#39;, &#39;Last-Modified&#39;: &#39;Thu, 16 Sep 2021 10:14:32 GMT&#39;, &#39;ETag&#39;: &#39;&#34;6a305-4f5a-5cc1a14b25200&#34;&#39;, &#39;Accept-Ranges&#39;: &#39;bytes&#39;, &#39;Vary&#39;: &#39;Accept-Encoding&#39;, &#39;Content-Encoding&#39;: &#39;gzip&#39;, &#39;Content-Length&#39;: &#39;6242&#39;, &#39;Keep-Alive&#39;: &#39;timeout=5, max=100&#39;, &#39;Connection&#39;: &#39;Keep-Alive&#39;, &#39;Content-Type&#39;: &#39;text/html&#39;}</pre>
+<pre>{&#39;Date&#39;: &#39;Sun, 06 Feb 2022 21:17:39 GMT&#39;, &#39;Server&#39;: &#39;Apache&#39;, &#39;Last-Modified&#39;: &#39;Thu, 13 Jan 2022 15:38:18 GMT&#39;, &#39;ETag&#39;: &#39;&#34;6a305-4f8f-5d57879b12e80&#34;&#39;, &#39;Accept-Ranges&#39;: &#39;bytes&#39;, &#39;Vary&#39;: &#39;Accept-Encoding&#39;, &#39;Content-Encoding&#39;: &#39;gzip&#39;, &#39;Content-Length&#39;: &#39;6244&#39;, &#39;Keep-Alive&#39;: &#39;timeout=5, max=100&#39;, &#39;Connection&#39;: &#39;Keep-Alive&#39;, &#39;Content-Type&#39;: &#39;text/html&#39;}</pre>
 </div>
 
 </div>
@@ -15057,13 +15278,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Les-autres-types-de-requ%C3%AAtes">Les autres types de requ&#234;tes<a class="anchor-link" href="#Les-autres-types-de-requ%C3%AAtes">&#182;</a></h2><p>On peut de la même façon faire des requêtes <code>PUT</code> et <code>POST</code> (ainsi que toutes les autres d'ailleurs).</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15077,6 +15306,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15101,6 +15332,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15114,6 +15347,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15137,13 +15372,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre data</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15157,6 +15400,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15180,13 +15425,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>N'importe quel type de données</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15200,6 +15453,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15214,78 +15469,111 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnicodeEncodeError</span>                        Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2228/2962244202.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>requests<span class="ansi-blue-fg">.</span>put<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;https://httpbin.org/put&#34;</span><span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;We are the knights who say “Ni”!&#34;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [16]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">requests</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">put</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">https://httpbin.org/put</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">We are the knights who say “Ni”!</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">put</span><span class="ansi-blue-fg">(url, data, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    130</span>     &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    131</span> 
-<span class="ansi-green-fg">--&gt; 132</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> request<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;put&#39;</span><span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">=</span>data<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    133</span> 
-<span class="ansi-green-intense-fg ansi-bold">    134</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/requests/api.py:132</span>, in <span class="ansi-cyan-fg">put</span><span class="ansi-blue-fg">(url, data, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">put</span>(url, data<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Sends a PUT request.</span>
+<span class="ansi-green-intense-fg ansi-bold">    122</span> 
+<span class="ansi-green-intense-fg ansi-bold">    123</span> <span style="color: rgb(175,0,0)">    :param url: URL for the new :class:`Request` object.</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    129</span> <span style="color: rgb(175,0,0)">    :rtype: requests.Response</span>
+<span class="ansi-green-intense-fg ansi-bold">    130</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 132</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">put</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     59</span>     <span class="ansi-red-fg"># cases, and look like a memory leak in others.</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span>     <span class="ansi-green-fg">with</span> sessions<span class="ansi-blue-fg">.</span>Session<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> session<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 61</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> session<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">=</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span> 
-<span class="ansi-green-intense-fg ansi-bold">     63</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/requests/api.py:61</span>, in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span> <span style="color: rgb(95,135,135)"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
+<span class="ansi-green-intense-fg ansi-bold">     58</span> <span style="color: rgb(95,135,135)"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span> <span style="color: rgb(95,135,135)"># cases, and look like a memory leak in others.</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> sessions<span style="color: rgb(98,98,98)">.</span>Session() <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> session:
+<span class="ansi-green-fg">---&gt; 61</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">session</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="ansi-green-intense-fg ansi-bold">    527</span>         }
-<span class="ansi-green-intense-fg ansi-bold">    528</span>         send_kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>settings<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 529</span><span class="ansi-red-fg">         </span>resp <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>prep<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>send_kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    530</span> 
-<span class="ansi-green-intense-fg ansi-bold">    531</span>         <span class="ansi-green-fg">return</span> resp
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/requests/sessions.py:529</span>, in <span class="ansi-cyan-fg">Session.request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="ansi-green-intense-fg ansi-bold">    524</span> send_kwargs <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">    525</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">timeout</span><span style="color: rgb(175,0,0)">&#39;</span>: timeout,
+<span class="ansi-green-intense-fg ansi-bold">    526</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">allow_redirects</span><span style="color: rgb(175,0,0)">&#39;</span>: allow_redirects,
+<span class="ansi-green-intense-fg ansi-bold">    527</span> }
+<span class="ansi-green-intense-fg ansi-bold">    528</span> send_kwargs<span style="color: rgb(98,98,98)">.</span>update(settings)
+<span class="ansi-green-fg">--&gt; 529</span> resp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">send</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">prep</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">send_kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    531</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> resp
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    643</span> 
-<span class="ansi-green-intense-fg ansi-bold">    644</span>         <span class="ansi-red-fg"># Send the request</span>
-<span class="ansi-green-fg">--&gt; 645</span><span class="ansi-red-fg">         </span>r <span class="ansi-blue-fg">=</span> adapter<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>request<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    646</span> 
-<span class="ansi-green-intense-fg ansi-bold">    647</span>         <span class="ansi-red-fg"># Total elapsed time of the request (approximately)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/requests/sessions.py:645</span>, in <span class="ansi-cyan-fg">Session.send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    642</span> start <span style="color: rgb(98,98,98)">=</span> preferred_clock()
+<span class="ansi-green-intense-fg ansi-bold">    644</span> <span style="color: rgb(95,135,135)"># Send the request</span>
+<span class="ansi-green-fg">--&gt; 645</span> r <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">adapter</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">send</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    647</span> <span style="color: rgb(95,135,135)"># Total elapsed time of the request (approximately)</span>
+<span class="ansi-green-intense-fg ansi-bold">    648</span> elapsed <span style="color: rgb(98,98,98)">=</span> preferred_clock() <span style="color: rgb(98,98,98)">-</span> start
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="ansi-green-intense-fg ansi-bold">    438</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    439</span>             <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> chunked<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 440</span><span class="ansi-red-fg">                 resp = conn.urlopen(
-</span><span class="ansi-green-intense-fg ansi-bold">    441</span>                     method<span class="ansi-blue-fg">=</span>request<span class="ansi-blue-fg">.</span>method<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    442</span>                     url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/requests/adapters.py:440</span>, in <span class="ansi-cyan-fg">HTTPAdapter.send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    438</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-intense-fg ansi-bold">    439</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> chunked:
+<span class="ansi-green-fg">--&gt; 440</span>         resp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">urlopen</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    441</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    442</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    443</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    444</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    445</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">redirect</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    446</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">assert_same_host</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    447</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">preload_content</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    448</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">decode_content</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    449</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">retries</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">max_retries</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    450</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout</span>
+<span class="ansi-green-intense-fg ansi-bold">    451</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    453</span>     <span style="color: rgb(95,135,135)"># Send the request.</span>
+<span class="ansi-green-intense-fg ansi-bold">    454</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    455</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">hasattr</span>(conn, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">proxy_pool</span><span style="color: rgb(175,0,0)">&#39;</span>):
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="ansi-green-intense-fg ansi-bold">    668</span> 
-<span class="ansi-green-intense-fg ansi-bold">    669</span>             <span class="ansi-red-fg"># Make the request on the httplib connection object.</span>
-<span class="ansi-green-fg">--&gt; 670</span><span class="ansi-red-fg">             httplib_response = self._make_request(
-</span><span class="ansi-green-intense-fg ansi-bold">    671</span>                 conn<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    672</span>                 method<span class="ansi-blue-fg">,</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/urllib3/connectionpool.py:670</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool.urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    667</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_prepare_proxy(conn)
+<span class="ansi-green-intense-fg ansi-bold">    669</span> <span style="color: rgb(95,135,135)"># Make the request on the httplib connection object.</span>
+<span class="ansi-green-fg">--&gt; 670</span> httplib_response <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_make_request</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    671</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    672</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    673</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    674</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout_obj</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    675</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    676</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    677</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">chunked</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    678</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    680</span> <span style="color: rgb(95,135,135)"># If we&#39;re going to release the connection in ``finally:``, then</span>
+<span class="ansi-green-intense-fg ansi-bold">    681</span> <span style="color: rgb(95,135,135)"># the response doesn&#39;t need to know about the connection. Otherwise</span>
+<span class="ansi-green-intense-fg ansi-bold">    682</span> <span style="color: rgb(95,135,135)"># it will also try to release it and we&#39;ll have a double-release</span>
+<span class="ansi-green-intense-fg ansi-bold">    683</span> <span style="color: rgb(95,135,135)"># mess.</span>
+<span class="ansi-green-intense-fg ansi-bold">    684</span> response_conn <span style="color: rgb(98,98,98)">=</span> conn <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> release_conn <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">_make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="ansi-green-intense-fg ansi-bold">    390</span>             conn<span class="ansi-blue-fg">.</span>request_chunked<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>httplib_request_kw<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    391</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 392</span><span class="ansi-red-fg">             </span>conn<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>httplib_request_kw<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    393</span> 
-<span class="ansi-green-intense-fg ansi-bold">    394</span>         <span class="ansi-red-fg"># Reset the timeout for the recv() on the socket</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/urllib3/connectionpool.py:392</span>, in <span class="ansi-cyan-fg">HTTPConnectionPool._make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    390</span>     conn<span style="color: rgb(98,98,98)">.</span>request_chunked(method, url, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>httplib_request_kw)
+<span class="ansi-green-intense-fg ansi-bold">    391</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">--&gt; 392</span>     <span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">httplib_request_kw</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    394</span> <span style="color: rgb(95,135,135)"># Reset the timeout for the recv() on the socket</span>
+<span class="ansi-green-intense-fg ansi-bold">    395</span> read_timeout <span style="color: rgb(98,98,98)">=</span> timeout_obj<span style="color: rgb(98,98,98)">.</span>read_timeout
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1283</span>                 encode_chunked=False):
-<span class="ansi-green-intense-fg ansi-bold">   1284</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Send a complete request to the server.&#34;&#34;&#34;</span>
-<span class="ansi-green-fg">-&gt; 1285</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> body<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1286</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1287</span>     <span class="ansi-green-fg">def</span> _send_request<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> body<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/http/client.py:1285</span>, in <span class="ansi-cyan-fg">HTTPConnection.request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1282</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">request</span>(<span style="color: rgb(0,135,0)">self</span>, method, url, body<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, headers<span style="color: rgb(98,98,98)">=</span>{}, <span style="color: rgb(98,98,98)">*</span>,
+<span class="ansi-green-intense-fg ansi-bold">   1283</span>             encode_chunked<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>):
+<span class="ansi-green-intense-fg ansi-bold">   1284</span>     <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Send a complete request to the server.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">-&gt; 1285</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_send_request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">headers</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">encode_chunked</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_send_request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1328</span>             <span class="ansi-red-fg"># RFC 2616 Section 3.7.1 says that text default has a</span>
-<span class="ansi-green-intense-fg ansi-bold">   1329</span>             <span class="ansi-red-fg"># default charset of iso-8859-1.</span>
-<span class="ansi-green-fg">-&gt; 1330</span><span class="ansi-red-fg">             </span>body <span class="ansi-blue-fg">=</span> _encode<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;body&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1331</span>         self<span class="ansi-blue-fg">.</span>endheaders<span class="ansi-blue-fg">(</span>body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1332</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/http/client.py:1330</span>, in <span class="ansi-cyan-fg">HTTPConnection._send_request</span><span class="ansi-blue-fg">(self, method, url, body, headers, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1326</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>putheader(hdr, value)
+<span class="ansi-green-intense-fg ansi-bold">   1327</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(body, <span style="color: rgb(0,135,0)">str</span>):
+<span class="ansi-green-intense-fg ansi-bold">   1328</span>     <span style="color: rgb(95,135,135)"># RFC 2616 Section 3.7.1 says that text default has a</span>
+<span class="ansi-green-intense-fg ansi-bold">   1329</span>     <span style="color: rgb(95,135,135)"># default charset of iso-8859-1.</span>
+<span class="ansi-green-fg">-&gt; 1330</span>     body <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_encode</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">body</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">body</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1331</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>endheaders(body, encode_chunked<span style="color: rgb(98,98,98)">=</span>encode_chunked)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/http/client.py</span> in <span class="ansi-cyan-fg">_encode</span><span class="ansi-blue-fg">(data, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">    166</span>         <span class="ansi-green-fg">return</span> data<span class="ansi-blue-fg">.</span>encode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;latin-1&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    167</span>     <span class="ansi-green-fg">except</span> UnicodeEncodeError <span class="ansi-green-fg">as</span> err<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 168</span><span class="ansi-red-fg">         raise UnicodeEncodeError(
-</span><span class="ansi-green-intense-fg ansi-bold">    169</span>             err<span class="ansi-blue-fg">.</span>encoding<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    170</span>             err<span class="ansi-blue-fg">.</span>object<span class="ansi-blue-fg">,</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/http/client.py:168</span>, in <span class="ansi-cyan-fg">_encode</span><span class="ansi-blue-fg">(data, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    166</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> data<span style="color: rgb(98,98,98)">.</span>encode(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">latin-1</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    167</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">UnicodeEncodeError</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
+<span class="ansi-green-fg">--&gt; 168</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">UnicodeEncodeError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    169</span>         err<span style="color: rgb(98,98,98)">.</span>encoding,
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         err<span style="color: rgb(98,98,98)">.</span>object,
+<span class="ansi-green-intense-fg ansi-bold">    171</span>         err<span style="color: rgb(98,98,98)">.</span>start,
+<span class="ansi-green-intense-fg ansi-bold">    172</span>         err<span style="color: rgb(98,98,98)">.</span>end,
+<span class="ansi-green-intense-fg ansi-bold">    173</span>         <span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span style="color: rgb(175,0,0)"> (</span><span class="ansi-bold" style="color: rgb(175,95,135)">%.20r</span><span style="color: rgb(175,0,0)">) is not valid Latin-1. Use </span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span style="color: rgb(175,0,0)">.encode(</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">utf-8</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">) </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    174</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">if you want to send it encoded in UTF-8.</span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">%</span>
+<span class="ansi-green-intense-fg ansi-bold">    175</span>         (name<span style="color: rgb(98,98,98)">.</span>title(), data[err<span style="color: rgb(98,98,98)">.</span>start:err<span style="color: rgb(98,98,98)">.</span>end], name)) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span style="color: rgb(0,135,0)">None</span>
 
 <span class="ansi-red-fg">UnicodeEncodeError</span>: &#39;latin-1&#39; codec can&#39;t encode character &#39;\u201c&#39; in position 27: Body (&#39;“&#39;) is not valid Latin-1. Use body.encode(&#39;utf-8&#39;) if you want to send it encoded in UTF-8.</pre>
 </div>
@@ -15296,31 +15584,57 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Ah.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Quel est le problème ici ?</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>En fait, <code>requests</code> ne sait passer que des paramètres binaires, et il encode implicitement les chaînes de caractères en <code>latin-1</code>, <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.4.1">comme c'est la norme</a>.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Pour utiliser un autre encodage, il faut le faire à la main.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15334,6 +15648,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15357,13 +15673,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Mais là le serveur ne saura pas deviner que c'est cet encodage que vous utilisez, il faudra encore lui dire via les <em>headers</em>.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15378,6 +15702,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15401,20 +15727,34 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Headers-et-param%C3%A8tres">Headers et param&#232;tres<a class="anchor-link" href="#Headers-et-param%C3%A8tres">&#182;</a></h2><p>En plus du corps d'une requête, il y a d'autres façons de passer des informations : les paramètres et les headers.</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Les-param%C3%A8tres-d'URL">Les param&#232;tres d'URL<a class="anchor-link" href="#Les-param%C3%A8tres-d'URL">&#182;</a></h3><p>Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple <a href="http://httpbin.org/get?key=val">http://httpbin.org/get?key=val</a> a comme paramètre <code>key</code>, de valeur <code>value</code>.</p>
 <p>On peut ajouter ces paramètres directement à l'URL qu'on requête, mais celà demande de les encoder soi-même, ce qui n'est pas très pratique. À la place on peut les confier à <code>requests</code> sous forme d'un dict.</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15430,6 +15770,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15453,13 +15795,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Voici l'URL qui a été utilisé</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15473,6 +15823,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15496,13 +15848,21 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Headers-de-requ%C3%AAtes">Headers de requ&#234;tes<a class="anchor-link" href="#Headers-de-requ%C3%AAtes">&#182;</a></h3><p>Les <em>headers</em> se passent exactement de la même manière, en passant un dictionnaire</p>
 
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15517,6 +15877,8 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15530,7 +15892,7 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 
 
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
-<pre>b&#39;{\n  &#34;args&#34;: {}, \n  &#34;headers&#34;: {\n    &#34;Accept&#34;: &#34;*/*&#34;, \n    &#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;, \n    &#34;Host&#34;: &#34;httpbin.org&#34;, \n    &#34;User-Agent&#34;: &#34;pluriquest/1.0.0&#34;, \n    &#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-61cdb449-21d5ec171dbe87c63aaf577f&#34;\n  }, \n  &#34;origin&#34;: &#34;20.122.94.238&#34;, \n  &#34;url&#34;: &#34;https://httpbin.org/get&#34;\n}\n&#39;</pre>
+<pre>b&#39;{\n  &#34;args&#34;: {}, \n  &#34;headers&#34;: {\n    &#34;Accept&#34;: &#34;*/*&#34;, \n    &#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;, \n    &#34;Host&#34;: &#34;httpbin.org&#34;, \n    &#34;User-Agent&#34;: &#34;pluriquest/1.0.0&#34;, \n    &#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-62003af5-617a557664d8e30e59561e0a&#34;\n  }, \n  &#34;origin&#34;: &#34;40.117.34.61&#34;, \n  &#34;url&#34;: &#34;https://httpbin.org/get&#34;\n}\n&#39;</pre>
 </div>
 
 </div>
@@ -15540,18 +15902,34 @@ http://example.com/this/resource/does/not/exist n&#39;est pas atteignable
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Tiens, c'est marrant cette réponse. À quoi ça ressemble ?</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%F0%9F%8E%A8-Exos-%F0%9F%8E%A8">&#127912; Exos &#127912;<a class="anchor-link" href="#%F0%9F%8E%A8-Exos-%F0%9F%8E%A8">&#182;</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Une-batterie-de-requ%C3%AAtes">Une batterie de requ&#234;tes<a class="anchor-link" href="#Une-batterie-de-requ%C3%AAtes">&#182;</a></h3><p>À l'aide de <code>requests</code>, faites les requêtes HTTP suivantes (elles devraient vous dire quelque chose) :</p>
 <ol>
@@ -15579,18 +15957,36 @@ avec une utilisation judicieuse des <em>headers</em>.</li>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="requrl">requrl<a class="anchor-link" href="#requrl">&#182;</a></h3>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="1.-La-base">1. La base<a class="anchor-link" href="#1.-La-base">&#182;</a></h4><p>Écrire un script <code>requrl.py</code>, qui prend comme argument de ligne de commande une URL et affiche la ressource correspondante sur la sortie standard (comme un curl très très très basique).</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="2.-Quelques-param%C3%A8tres">2. Quelques param&#232;tres<a class="anchor-link" href="#2.-Quelques-param%C3%A8tres">&#182;</a></h4><p>Ajoutez quelques paramètres à votre commande, avec
 <a href="https://docs.python.org/3/library/argparse.html"><code>argparse</code></a> mais vous pouvez aussi regarder du
@@ -15608,6 +16004,8 @@ type.</li>
 <p>Utilisez <a href="https://httpbin.com">httpbin</a> pour tester votre commande avec ses différentes options.</p>
 <p>Vous pouvez aussi essayer d'implémenter les autres options de curl, certaines sont plus faciles que d'autres.</p>
 
+</div>
+</div>
 </div>
 </div>
 </body>

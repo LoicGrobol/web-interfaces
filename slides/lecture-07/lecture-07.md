@@ -29,6 +29,9 @@ Cours 7 : utiliser `requests`
 from IPython.display import display
 ```
 
+**Note (2022-02-06)** La bibliothèque [httpx](https://github.com/encode/httpx) semble être plus à
+jour que requests, tout en étant largement compatible. Y jeter un œil serait intéressant.
+
 ## HTTP en Python
 
 Python est « *batteries included* », il comprend donc **en théorie** déjà tout ce qu'il faut pour
