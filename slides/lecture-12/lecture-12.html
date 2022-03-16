@@ -14454,6 +14454,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 /* Misc */
 a.anchor-link {
   display: none;
@@ -14515,11 +14520,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   width: 100%;
 }
 
-@media print {
-  .jp-Collapser {
-    display: none;
-  }
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
 
+@media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
     display: block;
@@ -15177,7 +15183,7 @@ ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">next</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">itr</span><span class="ansi-yellow-bg">)</span>
 
 <span class="ansi-red-fg">StopIteration</span>: </pre>
@@ -19862,10 +19868,10 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 4 µs, sys: 1e+03 ns, total: 5 µs
+<pre>CPU times: user 5 µs, sys: 1e+03 ns, total: 6 µs
 Wall time: 8.58 µs
-CPU times: user 322 ms, sys: 9.44 ms, total: 332 ms
-Wall time: 331 ms
+CPU times: user 311 ms, sys: 13.8 ms, total: 325 ms
+Wall time: 323 ms
 </pre>
 </div>
 </div>
@@ -20012,9 +20018,9 @@ matin
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 325 ms, sys: 0 ns, total: 325 ms
-Wall time: 324 ms
-CPU times: user 4 µs, sys: 0 ns, total: 4 µs
+<pre>CPU times: user 311 ms, sys: 989 µs, total: 312 ms
+Wall time: 312 ms
+CPU times: user 4 µs, sys: 1e+03 ns, total: 5 µs
 Wall time: 6.91 µs
 </pre>
 </div>
@@ -20129,7 +20135,7 @@ Taille de mots_a_gen : 112
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [22]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [22]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">len</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mots_a_gen</span><span class="ansi-yellow-bg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: object of type &#39;generator&#39; has no len()</pre>
@@ -20215,8 +20221,8 @@ là où il s'est arrêté.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 289 ms, sys: 1.99 ms, total: 291 ms
-Wall time: 291 ms
+<pre>CPU times: user 280 ms, sys: 6.48 ms, total: 287 ms
+Wall time: 286 ms
 </pre>
 </div>
 </div>
@@ -20291,7 +20297,7 @@ vous conseille d'en lire la doc d'ailleurs
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;generator object gen_with_a at 0x7fcd0cf6feb0&gt;
+<pre>&lt;generator object gen_with_a at 0x7f0924a1d190&gt;
 GEN_CREATED
 chat
 GEN_SUSPENDED
@@ -20311,7 +20317,7 @@ GEN_SUSPENDED
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 10&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">next</span>(mots_a_gen))
 <span class="ansi-green-intense-fg ansi-bold">      9</span> <span style="color: rgb(0,135,0)">print</span>(inspect<span style="color: rgb(98,98,98)">.</span>getgeneratorstate(mots_a_gen))
 <span class="ansi-green-fg">---&gt; 10</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg" style="color: rgb(0,135,0)">next</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mots_a_gen</span><span class="ansi-yellow-bg">)</span>)
@@ -20450,7 +20456,7 @@ Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;generator object &lt;genexpr&gt; at 0x7fcd0ce050b0&gt;</pre>
+<pre>&lt;generator object &lt;genexpr&gt; at 0x7f0924a1d3c0&gt;</pre>
 </div>
 
 </div>
@@ -20506,7 +20512,7 @@ Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>39.1 ms ± 27.7 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre>38 ms ± 980 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre>
 </div>
 </div>
@@ -20550,7 +20556,7 @@ Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.79 ms ± 19.2 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<pre>1.66 ms ± 33.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre>
 </div>
 </div>
@@ -20606,7 +20612,7 @@ Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1.76 ms ± 770 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<pre>1.68 ms ± 32.9 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre>
 </div>
 </div>
@@ -21333,7 +21339,7 @@ vectoriser une fonction :</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 9999900000
-Finished doubled_and_add in 0.011138976000040657 secs
+Finished doubled_and_add in 0.010613083000009738 secs
 </pre>
 </div>
 </div>
@@ -21373,7 +21379,7 @@ Finished doubled_and_add in 0.011138976000040657 secs
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Result : 999999000000
-Finished doubled_and_add in 0.10913224400002264 secs
+Finished doubled_and_add in 0.10760487600003898 secs
 </pre>
 </div>
 </div>

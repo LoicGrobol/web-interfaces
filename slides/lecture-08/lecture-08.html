@@ -14454,6 +14454,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 /* Misc */
 a.anchor-link {
   display: none;
@@ -14515,11 +14520,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   width: 100%;
 }
 
-@media print {
-  .jp-Collapser {
-    display: none;
-  }
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
 
+@media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
     display: block;
@@ -14672,24 +14678,24 @@ anecdotiquement de <code>matplotlib</code>.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Requirement already satisfied: beautifulsoup4 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (4.10.0)
-Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (4.7.1)
+Requirement already satisfied: lxml in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (4.8.0)
 Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (3.5.1)
 Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (2.27.1)
 Requirement already satisfied: soupsieve&gt;1.2 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from beautifulsoup4) (2.3.1)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.3.2)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (3.0.7)
-Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (21.3)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (2.8.0)
-Requirement already satisfied: numpy&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.22.2)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (3.0.7)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (4.30.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: numpy&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.22.3)
 Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (9.0.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from matplotlib) (1.4.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (1.25.11)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.11)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.12)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (3.3)
 Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
-<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.2; however, version 22.0.3 is available.
+<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.3; however, version 22.0.4 is available.
 You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x64/bin/python -m pip install --upgrade pip&#39; command.</span><span class="ansi-yellow-fg">
 </span>Note: you may need to restart the kernel to use updated packages.
 </pre>
@@ -15181,7 +15187,7 @@ chansons décroissant. Pour cela, cous utiliserez la méthode <code>sorted</code
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> tuning <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">sorted</span>(<span class="ansi-yellow-bg">tunings</span><span style="color: rgb(98,98,98)">.</span>keys(), key<span style="color: rgb(98,98,98)">=</span>[<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span>]):
 <span class="ansi-green-intense-fg ansi-bold">      2</span>     <span style="color: rgb(0,135,0)">print</span>([<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(98,98,98)">.</span>])
 
@@ -15245,7 +15251,7 @@ Input <span class="ansi-green-fg">In [11]</span>, in <span class="ansi-cyan-fg">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [12]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [12]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 3&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> get_ipython()<span style="color: rgb(98,98,98)">.</span>run_line_magic(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">matplotlib</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">inline</span><span style="color: rgb(175,0,0)">&#39;</span>)
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> <span class="ansi-bold" style="color: rgb(0,0,255)">matplotlib</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">pyplot</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> <span class="ansi-bold" style="color: rgb(0,0,255)">plt</span>
 <span class="ansi-green-fg">----&gt; 3</span> values <span style="color: rgb(98,98,98)">=</span> [<span style="color: rgb(0,135,0)">len</span>(tunings[x]) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> x <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg">tunings</span>]
@@ -15353,9 +15359,9 @@ est propre à <code>libxml</code>.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;cyfunction Comment at 0x7f6b94ed7040&gt;
+<pre>&lt;cyfunction Comment at 0x7f352ce4ac70&gt;
 {http://www.tei-c.org/ns/1.0}teiHeader
-&lt;cyfunction Comment at 0x7f6b94ed7040&gt;
+&lt;cyfunction Comment at 0x7f352ce4ac70&gt;
 {http://www.tei-c.org/ns/1.0}facsimile
 {http://www.tei-c.org/ns/1.0}text
 </pre>
@@ -15416,7 +15422,7 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7f6b75637780&gt;</pre>
+<pre>&lt;Element {http://www.tei-c.org/ns/1.0}teiHeader at 0x7f350c698e40&gt;</pre>
 </div>
 
 </div>
@@ -15472,10 +15478,10 @@ récupérer le <em>header</em> TEI dont le chemin est <code>/TEI/teiHeader</code
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3361</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  Input <span class="ansi-green-intense-fg ansi-bold">In [15]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [15]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;cell line: 1&gt;</span>
     title = root.find(&#34;[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
   File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1547</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
@@ -15545,10 +15551,10 @@ Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3361</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  Input <span class="ansi-green-intense-fg ansi-bold">In [16]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [16]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;cell line: 1&gt;</span>
     source = root.find(&#34;[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
   File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1547</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.find</span>
@@ -15755,10 +15761,10 @@ renvoie une liste avec tous les éléments correspondant au chemin argument.</p>
 <pre>
 Traceback <span class="ansi-cyan-fg">(most recent call last)</span>:
 
-  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3251</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
+  File <span class="ansi-green-intense-fg ansi-bold">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3361</span> in <span class="ansi-magenta-intense-fg ansi-bold">run_code</span>
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  Input <span class="ansi-green-intense-fg ansi-bold">In [19]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;module&gt;</span>
+  Input <span class="ansi-green-intense-fg ansi-bold">In [19]</span> in <span class="ansi-magenta-intense-fg ansi-bold">&lt;cell line: 1&gt;</span>
     body = root.findall(&#34;./[...]&#34;, namespaces={&#39;tei&#39;:&#34;http://www.tei-c.org/ns/1.0&#34;})
 
   File <span class="ansi-green-intense-fg ansi-bold">src/lxml/etree.pyx:1573</span> in <span class="ansi-magenta-intense-fg ansi-bold">lxml.etree._Element.findall</span>
@@ -15832,7 +15838,7 @@ documentation supplémentaire).</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">XPathEvalError</span>                            Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [20]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [20]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> body <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">root</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">xpath</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">[...]</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">namespaces</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">tei</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">http://www.tei-c.org/ns/1.0</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> text <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> body:
 <span class="ansi-green-intense-fg ansi-bold">      3</span>     <span style="color: rgb(0,135,0)">print</span>(text, end<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#34;</span>)
@@ -15912,7 +15918,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;xml.dom.minidom.Document at 0x7f6b756137c0&gt;</pre>
+<pre>&lt;xml.dom.minidom.Document at 0x7f350c5afd60&gt;</pre>
 </div>
 
 </div>
@@ -15955,7 +15961,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7f6b755c40d0&gt;</pre>
+<pre>&lt;DOM Element: title at 0x7f350c5d9820&gt;</pre>
 </div>
 
 </div>
@@ -16008,7 +16014,7 @@ plupart des langages de programmation modernes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;DOM Element: title at 0x7f6b755c40d0&gt;
+<pre>&lt;DOM Element: title at 0x7f350c5d9820&gt;
 #text
 Joséphine Pouchet à son époux le 19-01-1915 depuis Baillargues
 </pre>

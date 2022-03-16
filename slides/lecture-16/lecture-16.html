@@ -14454,6 +14454,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 /* Misc */
 a.anchor-link {
   display: none;
@@ -14515,11 +14520,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   width: 100%;
 }
 
-@media print {
-  .jp-Collapser {
-    display: none;
-  }
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
 
+@media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
     display: block;
@@ -15577,10 +15583,10 @@ COMMIT;
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2022-02-06 21:21:19,954 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2022-02-06 21:21:19,955 INFO sqlalchemy.engine.Engine PRAGMA main.table_info(&#34;trees&#34;)
-2022-02-06 21:21:19,956 INFO sqlalchemy.engine.Engine [raw sql] ()
-2022-02-06 21:21:19,957 INFO sqlalchemy.engine.Engine COMMIT
+<pre>2022-03-16 15:30:52,937 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2022-03-16 15:30:52,938 INFO sqlalchemy.engine.Engine PRAGMA main.table_info(&#34;trees&#34;)
+2022-03-16 15:30:52,938 INFO sqlalchemy.engine.Engine [raw sql] ()
+2022-03-16 15:30:52,940 INFO sqlalchemy.engine.Engine COMMIT
 </pre>
 </div>
 </div>

@@ -14454,6 +14454,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 /* Misc */
 a.anchor-link {
   display: none;
@@ -14515,11 +14520,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   width: 100%;
 }
 
-@media print {
-  .jp-Collapser {
-    display: none;
-  }
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
 
+@media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
     display: block;
@@ -14639,9 +14645,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <pre>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (2.27.1)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (1.25.11)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2021.10.8)
-Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.11)
+Requirement already satisfied: charset_normalizer~=2.0.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (2.0.12)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from requests) (3.3)
-<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.2; however, version 22.0.3 is available.
+<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.3; however, version 22.0.4 is available.
 You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x64/bin/python -m pip install --upgrade pip&#39; command.</span><span class="ansi-yellow-fg">
 </span>Note: you may need to restart the kernel to use updated packages.
 </pre>
@@ -14776,7 +14782,7 @@ se passe par exemple avec une requête <code>GET</code> sur le point d'accès (<
   &#34;followers&#34;: 21,
   &#34;following&#34;: 13,
   &#34;created_at&#34;: &#34;2015-09-12T11:19:30Z&#34;,
-  &#34;updated_at&#34;: &#34;2022-01-28T15:35:27Z&#34;
+  &#34;updated_at&#34;: &#34;2022-02-28T15:59:49Z&#34;
 }
 </pre>
 </div>
@@ -15045,7 +15051,7 @@ passe par des <em>proxy</em>.</li>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [7]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [7]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">ast</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">literal_eval</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">requests</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">https://jsonplaceholder.typicode.com/todos/1</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">text</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/ast.py:105</span>, in <span class="ansi-cyan-fg">literal_eval</span><span class="ansi-blue-fg">(node_or_string)</span>
@@ -15081,7 +15087,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.10/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_raise_malformed_node</span>(node):
 <span class="ansi-green-fg">---&gt; 66</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">malformed node or string: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>node<span class="ansi-bold" style="color: rgb(175,95,135)">!r}</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
-<span class="ansi-red-fg">ValueError</span>: malformed node or string: &lt;ast.Name object at 0x7f9ecc7f3ee0&gt;</pre>
+<span class="ansi-red-fg">ValueError</span>: malformed node or string: &lt;ast.Name object at 0x7feb091d35e0&gt;</pre>
 </div>
 </div>
 
@@ -15232,7 +15238,7 @@ d'usages.</p>
  &#39;followers&#39;: 21,
  &#39;following&#39;: 13,
  &#39;created_at&#39;: &#39;2015-09-12T11:19:30Z&#39;,
- &#39;updated_at&#39;: &#39;2022-01-28T15:35:27Z&#39;}</pre>
+ &#39;updated_at&#39;: &#39;2022-02-28T15:59:49Z&#39;}</pre>
 </div>
 
 </div>

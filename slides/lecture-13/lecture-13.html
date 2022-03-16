@@ -14454,6 +14454,11 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 /* Misc */
 a.anchor-link {
   display: none;
@@ -14515,11 +14520,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   width: 100%;
 }
 
-@media print {
-  .jp-Collapser {
-    display: none;
-  }
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
 
+@media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
     display: block;
@@ -14933,7 +14939,7 @@ maintenant on va voir comment lui répondre en affichant des données générée
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [5]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [5]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">local/spam.html</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">w</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> out_stream:
 <span class="ansi-green-intense-fg ansi-bold">      2</span>     out_stream<span style="color: rgb(98,98,98)">.</span>write(doc)
 
@@ -15059,7 +15065,7 @@ fichier et qui écrit dans ce fichier une page HTML qui contient une liste non-o
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [7]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [7]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 22&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">     19</span>         out_stream<span style="color: rgb(98,98,98)">.</span>write(content)
 <span class="ansi-green-intense-fg ansi-bold">     21</span> <span style="color: rgb(95,135,135)"># Pour tester</span>
 <span class="ansi-green-fg">---&gt; 22</span> <span class="ansi-yellow-bg">make_ul</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">AronChupa</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">The Sidh</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">Måneskin</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">local/earworms_producers.html</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
@@ -15425,8 +15431,8 @@ compliqués, c'est vite le bazar.</li>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Requirement already satisfied: Jinja2 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (3.0.3)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from Jinja2) (2.0.1)
-<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.2; however, version 22.0.3 is available.
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.10/x64/lib/python3.9/site-packages (from Jinja2) (2.1.1)
+<span class="ansi-yellow-fg">WARNING: You are using pip version 22.0.3; however, version 22.0.4 is available.
 You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x64/bin/python -m pip install --upgrade pip&#39; command.</span><span class="ansi-yellow-fg">
 </span>Note: you may need to restart the kernel to use updated packages.
 </pre>
@@ -15638,7 +15644,7 @@ You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.9.10/x6
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;coroutine object display at 0x7f635142d940&gt;</pre>
+<pre>&lt;coroutine object display at 0x7f645b0fdd40&gt;</pre>
 </div>
 
 </div>
@@ -15843,7 +15849,7 @@ fichiers. Voici par exemple le contenu de
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;coroutine object display at 0x7f635142db40&gt;</pre>
+<pre>&lt;coroutine object display at 0x7f645b0fde40&gt;</pre>
 </div>
 
 </div>
@@ -15945,7 +15951,7 @@ change un peu les données</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;coroutine object display at 0x7f635142dd40&gt;</pre>
+<pre>&lt;coroutine object display at 0x7f645b127140&gt;</pre>
 </div>
 
 </div>
@@ -16037,7 +16043,7 @@ change un peu les données</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;coroutine object display at 0x7f635142dbc0&gt;</pre>
+<pre>&lt;coroutine object display at 0x7f645b1273c0&gt;</pre>
 </div>
 
 </div>
