@@ -7,7 +7,7 @@ emojicon: 🕸
 url: https://loicgrobol.github.io/
 baseurl: /web-interfaces
 repository: "loicgrobol/web-interfaces"
-environ_repository: "loicgrobol/web-interfaces-environ"s
+environ_repository: "loicgrobol/web-interfaces-environ"
 repo_branch: "main"
 
 exclude:

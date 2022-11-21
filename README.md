@@ -24,6 +24,67 @@ Pour travailler au développement de ce cours :
    ```console
    pip install -U -r requirements.txt
    ```
+3. Démarrer jupyter
+
+   ```console
+   jupyter notebook
+   ```
+
+   Idéalement ça devrait aussi marcher avec jupyterlab [mais ce n'est pas encore le cas pour les
+   slides](https://github.com/damianavila/RISE/pull/381)
+4. On peut alors modifier les fichiers md dans jupyter comme si c'étaient des notebooks grâce à la
+   magie de [jupytext](https://github.com/mwouts/jupytext)
+
+Autres éléments magiques :
+
+- On peut ouvrir les notebooks en md sur Binder grâce au [postBuild](postBuild) qui dit de compiler
+  l'extension jupytext. Par contre le build initial de l'image est assez lent. (même avec
+  `--minimize=False` qui [accélère un
+  peu](https://github.com/jupyterlab/jupyterlab/issues/4824#issuecomment-697188390))
+
+## Générer le site en local
+
+Dependencies:
+
+- Ruby
+  - Bundle
+
+Setup:
+
+```console
+gem install jekyll bundler
+bundle config set --local path 'vendor/bundle'
+bundle install
+```
+
+Regenerate:
+
+```bash
+bundle exec jekyll build
+bundle exec jekyll serve
+```
+
+Astuce pour les pages : Jekyll n'est pas très bon pour les pages qui ne sont pas des postes de blog,
+les ajouter dans `_pages` (ce qui fonctionne parce qu'on l'a mis dans `_config.yml`)- et leur donner
+un `permalink` dans le header.
+
+## Binder
+
+(En cours)
+
+Pour accélérer le lancement des notebooks dans Binder, on utilise [un repo d'environnement
+](https://github.com/LoicGrobol/neural-networks-environ) différent (l'idée est que comme ce
+repo change rarement, il y a rarement besoin de reconstruire l'image pour Binder). Il faut penser à
+le mettre à jour quand on change les dépendances ici.
+
+Pour travailler au développement de ce cours :
+
+1. Créer un environnement virtuel et l'activer
+2. Installer les dépendances
+
+   ```console
+   pip install -U -r requirements.txt
+   ```
 
 3. Démarrer jupyter
 
