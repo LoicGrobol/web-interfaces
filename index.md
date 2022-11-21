@@ -43,8 +43,8 @@ est indisponible.
   [Slides Internet](slides/01-internet/internet-slides.py.ipynb)
 - {% notebook_badges slides/02-OOP/oop-slides.py.md %}
   [Slides OOP](slides/02-OOP/oop-slides.py.ipynb)
-- {% notebook_badges slides/02-OOP/oop-slides.py.md %}
-  [Slides modules](slides/02-OOP/oop-slides.py.ipynb)
+- {% notebook_badges slides/03-modules/modules-slides.py.md %}
+  [Slides modules](slides/03-modules/modules-slides.py.ipynb)
 
 ## Lire les slides en local
 
