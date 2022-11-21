@@ -1,21 +1,18 @@
 ---
-title: Apprentissage artificiel — M2 PluriTAL 2021
-layout: default
-permalink: /2021/
+title: Interfaces web pour le TAL — M2 PluriTAL 2021
 ---
 
-<!-- LTeX: language=fr -->
+[comment]: <> "LTeX: language=fr"
 
 ## News
 
-- **2021-11-09** le cours du 17/11 est reporté au 15/11, même heure, même salle
 - **2021-11-05** Les [**consignes pour les projets**](assignments/projets.html) sont disponibles.
 
 ## Infos pratiques
 
-- **Quoi** « Apprentissage Automatique » 4L9TL07P
+- **Quoi** « Bases de données et web dynamique » 4L3SC01P
 - **Où** Salle 219, bâtiment Paul Ricœur
-- **Quand** 8 séances, les mercredi de 9:30 à 12:30, du 22/09 au 17/11
+- **Quand** 8 séances, les mercredi de 13:30 à 16:30, du 22/09 au 17/11
   - Voir [le
     planning](http://www.tal.univ-paris3.fr/plurital/admin/Calendrier_M2_TAL_PX_2021_22.xlsx) pour
     les dates exactes
@@ -24,7 +21,7 @@ permalink: /2021/
 
 ## Séances
 
-Tous les supports sont sur [github](https://github.com/loicgrobol/apprentissage-artificiel), voir
+Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), voir
 [Utilisation en local](#utilisation-en-local) pour les utiliser sur votre machine comme des
 notebooks. À défaut, ce sont des fichiers Markdown assez standards, qui devraient se visualiser
 correctement sur la plupart des plateformes (mais ne seront pas dynamiques).
@@ -38,15 +35,15 @@ est indisponible.
 #### Slides
 
 - [Slides 1](slides/lecture-01/lecture-01.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/lecture-01.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/lecture-01.md)
 - [Slides 2](slides/lecture-02/lecture-02.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/lecture-02.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/lecture-02.md)
 - [Slides 3](slides/lecture-03/lecture-03.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-03/lecture-03.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-03/lecture-03.md)
 - [Slides 4](slides/lecture-04/lecture-04.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-04/lecture-04.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-04/lecture-04.md)
 - [Slides 5](slides/lecture-05/lecture-05.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
 
 #### Exos
 
@@ -55,106 +52,83 @@ est indisponible.
 - [The descent](https://www.codingame.com/ide/puzzle/the-descent)
 - [Shadow of the knight E01](https://www.codingame.com/ide/puzzle/shadows-of-the-knight-episode-1)
 
-#### Corrections
+#### Corrections 2021-09-22
 
-- [Exercices slides 1](slides/lecture-01/solutions-01.md) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-01/solutions-01.md)
-- [Exercices slides 2](slides/lecture-02/solutions-02.md) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-02/solutions-02.md)
+- [Exercices slides 1](slides/lecture-01/solutions-01.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-01/solutions-01.md)
+- [Exercices slides 2](slides/lecture-02/solutions-02.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-02/solutions-02.md)
 - Exercices Codingame : voir
-  [Github](https://github.com/LoicGrobol//apprentissage-artificiel/tree/main/corrections)
+  [Github](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections)
 
-### 2021-09-29 — Un peu de théorie et NumPy
+### 2021-09-29 — Internet, Web, HTTP et bibliothèque `requests`
 
-- [Slides 6](slides/lecture-06/lecture-06.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-06/lecture-06.md)
+- [Slides 6](slides/lecture-06/lecture-06.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-06/lecture-06.md)
+- [Slides 7](slides/lecture-07/lecture-07.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-07/lecture-07.md)
 
-#### Corrections
+#### Corrections 2021-09-29
 
-- [Exo sacs de mots](https://github.com/LoicGrobol//apprentissage-artificiel/tree/main/corrections/tfidf.py) dans sa version la plus sale possible.
+- [Exercices curl](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/curl.sh)
+- [`requrl` version de
+  base](https://github.com/LoicGrobol/web-interfaces/tree/main/corrections/requrl.py)
 
-### 2021-10-06 — Encore un peu de théorie, scikit-learn et les modèles de langues à n-grams
-
-- [Slides 7](slides/lecture-07/lecture-07.slides.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-07/lecture-07.md)
-- Exercice : écrire deux scripts Python. Le premier doit apprendre à partir d'un corpus de textes un
-  modèle de langue à n-grammes (avec n paramétrable) et le sauvegarder dans un fichier csv. L'autre
-  doit lire le modèle précédent et l'utiliser pour générer une phrase. Tester avec [Le Ventre de
-  Paris](data/zola_ventre-de-paris.txt), puis avec le corpus
-  [CIDRE](https://www.ortolang.fr/market/corpora/cidre).
-
-Lecture compagnon : [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 3 « *N-Gram language models* ».
-
-Pour la fois prochaine : lire le chapitre 4 « *Naïve Bayes and Sentiment Classification* » (sauf
-4.9) de [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/). Venir au cours
-avec vos questions !
-
-### 2021-10-13 — Modèles de langue à n-grammes (suite et fin) et *Naïve Bayes*
+### 2021-10-05 — Documents balisés et APIs web
 
 - [Slides 8](slides/lecture-08/lecture-08.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-08/lecture-08.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/lecture-08.md)
 - [Slides 9](slides/lecture-09/lecture-09.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-09/lecture-09.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-09/lecture-09.md)
 
-Lecture compagnon : [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 4 « *Naïve Bayes and Sentiment Classification* ».
+#### Corrections 2021-10-06
 
-Pour la fois prochaine :
+- [Solutions slides 8](slides/lecture-08/solutions.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/solutions.md)
+- Exercice Wikipédia
+  - [Notebook exploratoire](slides/lecture-08/wikipedia.html) [![Launch in Binder
+    badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-08/wikipedia.md)
+  - [Script version
+    HTML](https://github.com/LoicGrobol/web-interfaces/slides/lecture-08/wikipedia_soup.py)
 
-- Faites de votre mieux pour les exercices à la fin du slide 9
-- Relire le chapitre 4 « *Naïve Bayes and Sentiment Classification* » et lire le chapitre 5 « *Logistic Regression* », venir au cours avec vos questions !
+### 2021-10-13 — Wikipédia, git et FastAPI
 
-### 2021-10-20 — Naïve Bayes (suite et fin) et régression logistique.
+- Voir [les corrections de la semaine dernière](#corrections-2021-10-06)
+- [Slides 10](slides/lecture-10/lecture-10.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-10/lecture-10.md)
+- [Slides 11](slides/lecture-11/lecture-11.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
 
-- [Correction slide 9](slides/lecture-09/correction.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-09/correction.md)
-- [Slides 10](slides/lecture-10/lecture-10.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-10/lecture-10.md)
-
-Lecture compagnon : [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 5 « *Logistic Regression* ».
-
-Pour la fois prochaine :
-
-- [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 6 « *Vector Semantics and Embeddings* ».
-
-### 2021-10-27 — Régression logistique (suite et fin)
-
-- [Slides 10](slides/lecture-10/lecture-10.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-10/lecture-10.md)
-
-Lecture compagnon : [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 5 « *Logistic Regression* ».
-
-Pour la fois prochaine :
-
-- [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 6 « *Vector Semantics and Embeddings* ».
-
-### 2021-11-10 — Réseaux de neurones et (peut-être) représentations vectorielles
+### 2021-10-20 — Itérateurs, décorateurs et FastAPI
 
 - [Slides 11](slides/lecture-11/lecture-11.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-11/lecture-11.md)
-- [Slides 12](slides/lecture-12/lecture-12.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-12/lecture-12.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-11/lecture-11.md)
+- [Slides 12](slides/lecture-12/lecture-12.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-12/lecture-12.md)
 
-Lecture compagnon : [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 7 « *Neural Networks and Neural Language Models* ».
-
-Pour la fois prochaine :
-
-- [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/)
-chapitre 9 « *Deep Learning Architectures for Sequence Processing* ».
-
-### 2021-11-14 — Réseaux de neurones pour le traitement de séquences
+### 2021-10-20 — Atelier débuggage et HTML
 
 - [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
-  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-13/lecture-13.md)
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
+- [Slides 14](slides/lecture-14/lecture-14.slides.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-14/lecture-14.md)
+
+### 2021-11-10 — Templates Jinja et applications Streamlit
+
+- [Slides 13](slides/lecture-13/lecture-13.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-13/lecture-13.md)
+- [Slides 15](slides/lecture-15/lecture-15.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-15/lecture-15.md)
 
 
-## Lire les slides en local
+### 2021-11-17 — Bases de données et quelques autres choses
+
+- [Slides 16](slides/lecture-16/lecture-16.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-16/lecture-16.md)
+- [Slides 17](slides/lecture-17/lecture-17.html) [![Launch in Binder
+  badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-17/lecture-17.md)
+
+## Utilisation en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec
 [Jupytext](https://github.com/mwouts/jupytext). C'est entre autres une façon d'avoir un historique
@@ -162,11 +136,11 @@ git propre, malheureusement ça signifie que pour les ouvrir en local, il faut i
 extensions adéquates. Le plus simple est le suivant
 
 1. Récupérez le dossier du cours, soit en téléchargeant et décompressant
-   [l'archive](https://github.com/LoicGrobol/apprentissage-artificiel/archive/refs/heads/main.zip)
+   [l'archive](https://github.com/LoicGrobol/web-interfaces/archive/refs/heads/main.zip)
    soit en le clonant avec git : `git clone
-   https://github.com/LoicGrobol/apprentissage-artificiel.git` et placez-vous dans ce dossier.
+   https://github.com/LoicGrobol/web-interfaces.git` et placez-vous dans ce dossier.
 2. Créez un environnement virtuel pour le cours (allez voir [le cours
-   5](https://mybinder.org/v2/gh/loicgrobol/apprentissage-artificiel/main?urlpath=tree/slides/lecture-05/lecture-05.md)
+   5](https://mybinder.org/v2/gh/loicgrobol/web-interfaces/main?urlpath=tree/slides/lecture-05/lecture-05.md)
    pour plus de détails sur ce que ça signifie)
 
    ```console
@@ -188,45 +162,70 @@ extensions adéquates. Le plus simple est le suivant
 
    JupyterLab est aussi utilisable, mais la fonctionnalité slide n'y fonctionne pas pour l'instant.
 
+## Outils
+
+Vous aurez besoin d'un interpréteur Python et d'un éditeur de texte.
+
+### Python & co
+
+On travaillera avec Python 3.8 et supérieur.
+
+Les supports de cours sont essentiellement sous forme de notebooks [Jupyter](http://jupyter.org/),
+les diapos utilisant [RISE](https://github.com/damianavila/RISE). Pour utiliser les notebooks
+(anciennement ipython notebook maintenant jupyter notebook) vous aurez besoin d'installer sur votre
+machine de travail. Je vous incite également à utiliser le shell interactif `ipython` qui est une
+version améliorée du shell `python` (ipython est inclus dans jupyter).
+
+Deux options pour l'installation :
+
+#### Installer uniquement les outils nécessaires avec pip
+
+1. Installer Python 3, de préférence via le gestionnaire de paquets de votre système, sinon à partir
+   de <https://www.python.org/downloads/>.
+   Pour les distributions dérivées de Debian (y compris Ubuntu) vous aurez également besoin
+   d'installer `pip`
+
+      ```bash
+      sudo apt install python3 python3-pip
+      ```
+
+2. Installer jupyter
+
+      ```bash
+      python3 -m pip install --user jupyter
+      ```
+
+#### Utiliser Anaconda
+
+Ce n'est pas recommandé, mais si vous préférez, vous pouvez installer
+[anaconda](https://www.continuum.io/downloads), qui gère non-seulement Python et les modules Python,
+mais aussi beaucoup d'autres paquets et installera beaucoup de modules tiers dont on se servira pas
+
+Nous verrons également dans le cours comment utiliser [virtualenv](https://virtualenv.pypa.io) pour
+gérer des installations de Python isolées du système pour plus de confort.
+
 ## Ressources
-
-### Apprentissage artificiel
-
-- [*Speech and Language Processing*](https://web.stanford.edu/~jurafsky/slp3/) de Daniel Jurafsky et
-  James H. Martin est **indispensable**. Il parle de bien plus de chose que simplement de
-  l'apprentissage artificiel, mais sur le plan théorique il contient tout ce dont on parlera
-  concernant l'apprentissage pour le TAL. Il est disponible gratuitement, donc n'hésitez pas à le
-  consulter très fréquemment. J'essaierai d'indiquer pour chaque cours les chapitres en rapport.
-- [*Apprentissage artificiel - Concepts et
-  algorithmes*](https://www.eyrolles.com/Informatique/Livre/apprentissage-artificiel-9782416001048/)
-  d'Antoine Cornuéjols et Laurent Miclet. Plus ancien mais en français et une référence très
-  complète sur l'apprentissage (en particulier non-neuronal). Il est un peu cher alors si vous
-  voulez l'utiliser, commencez par me demander et je vous prêterai le mien.
-
-### Python général
 
 Il y a beaucoup, beaucoup de ressources disponibles pour apprendre Python. Ce qui suit n'est qu'une sélection.
 
-#### Livres
+## Livres
 
-- How to think like a computer scientist, by Jeffrey Elkner, Allen B. Downey, and Chris Meyers. Vous
-  pouvez l'acheter. Vous pouvez aussi le lire
-  [ici](http://openbookproject.net/thinkcs/python/english3e/)
-- Dive into Python, by Mark Pilgrim. [Ici](http://www.diveintopython3.net/) vous pouvez le lire ou
-  télécharger le pdf.
+- How to think like a computer scientist, by Jeffrey Elkner, Allen B. Downey, and Chris Meyers.
+Vous pouvez l'acheter. Vous pouvez aussi le lire [ici](http://openbookproject.net/thinkcs/python/english3e/)
+- Dive into Python, by Mark Pilgrim.
+[Ici](http://www.diveintopython3.net/) vous pouvez le lire ou télécharger le pdf.
 - Learning Python, by Mark Lutz.
 - Beginning Python, by Magnus Lie Hetland.
 - Python Algorithms: Mastering Basic Algorithms in the Python Language, by Magnus Lie Hetland.
-  Peut-être un peu costaud pour des débutants.
+Peut-être un peu costaud pour des débutants.
 - Programmation Efficace. Les 128 Algorithmes Qu'Il Faut Avoir Compris et Codés en Python au Cours
   de sa Vie, by Christoph Dürr and Jill-Jênn Vie. Si le cours vous paraît trop facile. Le code
   Python est clair, les difficultés sont commentées. Les algos sont très costauds.
 
-#### Web
+## Web
 
 Il vous est vivement conseillé d'utiliser un (ou plus) des sites et tutoriels ci-dessous.
 
-- [Un bon tuto NumPy](https://cs231n.github.io/python-numpy-tutorial/) qui va de A à Z.
 - [Real Python](https://realpython.com), des cours et des tutoriels souvent de très bonne qualité et
   pour tous niveaux.
 - [Coding Game](https://www.codingame.com/home). Vous le retrouverez dans les exercices
@@ -240,14 +239,6 @@ Il vous est vivement conseillé d'utiliser un (ou plus) des sites et tutoriels c
 - [Mooc Python](https://www.fun-mooc.fr/courses/inria/41001S03/session03/about#). Un mooc de
   l'INRIA, carré.
 - [Code combat](https://codecombat.com/)
-
-
-### Divers
-
-- La chaîne YouTube [3blue1brown](https://www.youtube.com/c/3blue1brown) pour des vidéos de maths
-  générales.
-- La chaîne YouTube de [Freya Holmér](https://www.youtube.com/c/Acegikmo) plutôt orientée *game
-  design*, mais avec d'excellentes vidéos de géométrie computationnelle.
 
 ## Licences
 
