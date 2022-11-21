@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 6 : Internet, Web et HTTP
+Cours 1 : Internet, Web et HTTP
 ===============================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-09-29
 <!-- #endregion -->
 
 ```python
@@ -340,7 +339,8 @@ utilisées l'une pour l'autre.
 
 (Tirés de <https://jvns.ca/blog/2019/08/27/curl-exercises/>)
 
-À l'aide de `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP suivantes
+À l'aide de `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP
+suivantes :
 
 1. Une requête à <https://httpbin.org>
 2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?

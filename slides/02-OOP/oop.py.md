@@ -17,16 +17,16 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "-"} -->
-Cours 3 : POO
+Cours 1 : POO
 =============
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-09-22
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Au commencement
+## Au commencement
+
 Au commencement étaient les variables
 <!-- #endregion -->
 
@@ -90,7 +90,7 @@ distance(point_1, point_2)
 ```
 
 <!-- #region slideshow={"slide_type": "-"} -->
-Voilà, le cours est fini, bonnes vacances.
+Voilà, le cours est fini, on se revoit la fois prochaine.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -152,7 +152,8 @@ bidule([2,7,1,3], [1,2,4,8])
 
 ```
 
-Vous êtes **fortement** encouragé⋅e⋅s à utiliser des tuples nommés quand vous écrivez une fonction qui renvoie plusieurs valeurs.
+Vous êtes **fortement** encouragé⋅e⋅s à utiliser des tuples nommés quand vous écrivez une fonction
+qui renvoie plusieurs valeurs.
 
 ```python slideshow={"slide_type": "subslide"}
 Vecteur = namedtuple('Vecteur', ('x', 'y'))
@@ -222,6 +223,7 @@ C'est un peu mieux mais pas top. (Même si on aurait pu trouver une solution plu
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Ces fameux objets
+
 Une des solutions pour faire mieux c'est de passer à la vitesse supérieure : les objets.
 
 Ça va d'abord être un peu plus désagréable, pour ensuite être beaucoup plus agréable.
@@ -276,10 +278,12 @@ Le choix de la bonne fonction `norme` se fait automagiquement
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Résumons
-  - Un objet, c'est un bidule qui regroupe
-    - Des données (on dit *attributs* ou *propriétés*)
-    - Des fonctions (on dit des *méthodes*)
-  - Ça permet d'organiser son code de façon plus lisible et plus facilement réutilisable (croyez moi sur parole)
+
+- Un objet, c'est un bidule qui regroupe
+  - Des données (on dit *attributs* ou *propriétés*)
+  - Des fonctions (on dit des *méthodes*)
+  - Ça permet d'organiser son code de façon plus lisible et plus facilement réutilisable (faites moi
+    confiance)
   
 Et vous en avez déjà rencontré plein
 <!-- #endregion -->
@@ -294,25 +298,27 @@ Car en Python, tout est objet. Ce qui ne veut pas dire qu'on est obligé d'y fai
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## POO
 
-La programmation orientée objet (POO) est une manière de programmer différente de la programmation procédurale vue jusqu'ici.
+La programmation orientée objet (POO/OOP) est une manière de programmer différente de la
+programmation procédurale vue jusqu'ici.
 
 - Les outils de base sont les objets et les classes
 - Un concept → une classe, une réalisation concrète → un objet
 
-C'est une façon particulière de résoudre les problèmes, on parle de *paradigme*, et il y en a d'autres
+C'est une façon particulière de résoudre les problèmes, on parle de *paradigme*, et il y en a
+d'autres
   
 - Fonctionnel : les outils de base sont les fonctions
 - Impérative : les outils de base sont les structures de contrôle (boucles, tests…)
 
-Python fait partie des langages multi-paradigmes : on utilise le plus pratique, ce qui n'est pas sans déplaire aux puristes mais
-
-« *We are all consenting adults here* »
+Python fait partie des langages multi-paradigmes : on utilise le plus pratique, ce qui n'est pas
+sans déplaire aux puristes.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Classes
+
 - On définit une classe en utilisant le mot-clé `class`
-- Par conventions, les noms de classe s'écrivent avec des  majuscules (CapWords convention)
+- Par conventions, les noms de classe s'écrivent avec des majuscules (CapWords convention)
 
 <!-- #endregion -->
 
@@ -420,12 +426,12 @@ class Word:
         else:
             return False
 
-w = Word('orientales', 'oriental', 'adj')
+w = Word("autrices", "auteur", "noun")
 print(w)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Pourquoi `self` ? Parce que écrire `w.is_inflected()` c'est du sucre pour
+Pourquoi `self` ? Parce que écrire `w.is_inflected()`, c'est du sucre syntaxique pour
 <!-- #endregion -->
 
 ```python
@@ -433,7 +439,7 @@ Word.is_inflected(w)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Héritage
+## Héritage
 
 <!-- #endregion -->
 
@@ -507,16 +513,20 @@ L'héritage est à utiliser avec parcimonie. On utilisera volontiers par contre 
 l'utilisation d'objets d'autres classes comme attributs. Voir
 <https://python-patterns.guide/gang-of-four/composition-over-inheritance/>
 
+### ☕ Exos 1 ☕
 
-### ☕  Exos 1 ☕
+Écrire une classe `Sentence` et une classe `Word` qui représenteront les données d'un fichier
+CoNLL-U (https://universaldependencies.org/).
 
-Écrire une classe `Sentence` et une classe `Word` qui représenteront les données d'un fichier ud (https://universaldependencies.org/).  
-Vous écrirez également un programme qui reçoit un fichier .conll en argument et instancie autant d'objets Sentence et Word que nécessaires.
-
+Vous écrirez également un programme qui reçoit un fichier CoNLL-U en argument et instancie autant
+d'objets Sentence et Word que nécessaires.
 
 ### ☕  Exos 2 ☕
 
-Écrivez un script qui reçoit trois arguments : un répertoire de fichiers conllu, une chaîne de car. notant le mode (form ou pos) et un entier (n entre 2 et 4).  
-Votre calculera les fréquences des n-grammes (où la valeur de n est passée en argument) dans les fichiers du répertoire. Deux modes de calcul : par forme ou par pos.  
-Je veux juste votre script, pas les données, ni les résultats.
+Écrire un script qui reçoit trois arguments : un répertoire de fichiers conllu, une chaîne de
+caractères notant le mode (form ou pos) et un entier (n entre 2 et 4).
+
+Votre script calculera les fréquences des n-grammes (où la valeur de n est passée en argument) dans
+les fichiers du répertoire. Deux modes de calcul : par forme ou par pos. Affichez le résultat sur la
+sortie standard (avec `print` par exemple).
 

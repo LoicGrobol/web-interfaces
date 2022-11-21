@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 4 : Modules
+Cours 2 : Modules
 =================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-09-22
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -177,7 +176,7 @@ dir(re)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Par convention, ici comme ailleurs, les membres à usage privé (que vous n'êtes pas censés utilisés
+Par convention, ici comme ailleurs, les membres à usage privé (que vous n'êtes pas censés utiliser
 commencent par un underscore
 <!-- #endregion -->
 
@@ -194,7 +193,7 @@ langage de façon particulière.
 re.__file__
 ```
 
-Par exemple `__file__` n'est pas défini dans `re.py` mais est affecté au moment de `import re`
+Par exemple `__file__` n'est pas défini dans `re.py`, mais est affecté au moment de `import re`
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 # `import`
@@ -218,7 +217,7 @@ Autrement dit, si vous avec `truc = 1` dans `machin.py`, quand vous importez `ma
 traitera pas tout, cependant
 
 - Les modules qui se trouvent dans le même dossier que votre script sont directement importables
-- Les modules présent dans le `PYTHONPATH` sont directement importables
+- Les modules présents dans le `PYTHONPATH` sont directement importables
 <!-- #endregion -->
 
 ```python

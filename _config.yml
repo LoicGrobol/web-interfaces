@@ -1,4 +1,20 @@
-theme: jekyll-theme-slate
+theme: jekyll-theme-primer
 
 title: Interfaces web pour le TAL
-description: Contenus pour le cours « Bases de données et web dynamique » du master PluriTAL
+description: Contenus pour le cours « Interfaces web pour le TAL du master Plurital. »
+emojicon: 🕸
+
+url: https://loicgrobol.github.io/
+baseurl: /web-interfaces
+repository: "loicgrobol/web-interfaces"
+environ_repository: "loicgrobol/web-interfaces-environ"s
+repo_branch: "main"
+
+exclude:
+  - "*.py.md"
+  - "**/local"
+
+include:
+  - _pages
+  - "*.py.html"
+  - "pdf_slides/*"
