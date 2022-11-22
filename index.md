@@ -26,7 +26,7 @@ layout: default
 
 ## Séances
 
-Tous les supports sont sur [github](https://github.com/loicgrobol/neural-networks), voir
+Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), voir
 [Utilisation en local](#utilisation-en-local) pour les utiliser sur votre machine comme des
 notebooks. À défaut, ce sont des fichiers Markdown assez standards, qui devraient se visualiser
 correctement sur la plupart des plateformes (mais ne seront pas dynamiques).
