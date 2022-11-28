@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.12.0
+      jupytext_version: 1.14.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -143,7 +143,7 @@ def mon_max(lst):
 
 def bidule(lst1, lst2):
     """Renvoie la valeur de lst2 à l'indice où lst1 atteint son max"""
-    return lst2[mon_max(lst1)[1]]
+    return lst2[mon_max(lst1).indice]
 
 bidule([2,7,1,3], [1,2,4,8])
 ```
@@ -512,6 +512,8 @@ gato_2.is_trop_gras()
 L'héritage est à utiliser avec parcimonie. On utilisera volontiers par contre la composition c-a-d
 l'utilisation d'objets d'autres classes comme attributs. Voir
 <https://python-patterns.guide/gang-of-four/composition-over-inheritance/>
+
+<!-- TODO: ajouter des exemples de données pour tester !!!!!! -->
 
 ### ☕ Exos 1 ☕
 

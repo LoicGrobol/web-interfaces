@@ -35,16 +35,23 @@ Les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 sans rien installer. Les slides ont aussi des liens vers une version HTML statique utile si Binder
 est indisponible.
 
-### 202211-22 — Internet, modules et programmation orientée objet
-
-#### Slides
+### 2022-11-22 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/01-internet/internet-slides.py.md %}
   [Slides Internet](slides/01-internet/internet-slides.py.ipynb)
+  - [Corrections]({{site.url}}{{site.baseurl}}/slides/01-internet/curl.sh)
 - {% notebook_badges slides/02-OOP/oop-slides.py.md %}
   [Slides OOP](slides/02-OOP/oop-slides.py.ipynb)
+  - [Correction CoNLL-U 1]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v1.py)
+  - [Correction CoNLL-U 2]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v2.py)
+
+### 2022-11-29 – Modules, requests, et HTML
+
 - {% notebook_badges slides/03-modules/modules-slides.py.md %}
   [Slides modules](slides/03-modules/modules-slides.py.ipynb)
+- {% notebook_badges slides/04-requests/requests-slides.py.md %}
+  [Slides request](slides/04-requests/requests-slides.py.ipynb)
+- Suivre le tutoriel [*Getting started with HTML*](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) sur MDN
 
 ## Lire les slides en local
 
