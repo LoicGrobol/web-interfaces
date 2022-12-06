@@ -57,6 +57,7 @@ est indisponible.
 
 - {% notebook_badges slides/05-parsers/parsers-slides.py.md %}
   [Slides parser](slides/05-parsers/parsers-slides.py.ipynb)
+  - {% notebook_badges slides/05-parsers/solutions.py.md %} [Corrections](slides/05-parsers/solutions.py.ipynb)
 - {% notebook_badges slides/06-REST/rest-slides.py.md %}
   [Slides REST](slides/06-REST/rest-slides.py.ipynb)
 
