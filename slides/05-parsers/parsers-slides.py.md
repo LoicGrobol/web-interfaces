@@ -202,7 +202,7 @@ Nous allons travailler sur un fichier au format [TEI](http://www.tei-c.org/) ext
 Le fichier se nomme [`josephine-1-150119.xml`](data/josephine-1-150119.xml). Il s'agit d'une
 lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
 pour bosser en local, vous pouvez le récupérer sur
-[GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/slides/05-parsers/data/josephine-1-150119.xml)
+[GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml)
 
 Nous allons extraire du fichier TEI les informations suivantes :
 

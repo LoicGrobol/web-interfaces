@@ -202,8 +202,8 @@ print(f"Texte : {title.text}")
 
 ```python
 source = root.find("./tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:p", namespaces={'tei':"http://www.tei-c.org/ns/1.0"})
-print(f"Tag : {title.tag}")
-print(f"Texte : {title.text}")
+print(f"Tag : {source.tag}")
+print(f"Texte : {source.text}")
 ```
 
 ### Avec des requêtes xpath
