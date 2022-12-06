@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 8 : Parser des documents balisés avec `lxml` et BeautifulSoup
+Cours 5 : Parser des documents balisés avec `lxml` et BeautifulSoup
 ==================================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-06
 <!-- #endregion -->
 
 ```python
@@ -44,10 +43,9 @@ documents potentiellement mal formés.
 
 Installons ces modules, soit dans votre terminal avec `pip`, soit en exécutant la cellule de code
 suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce cours dans un
-[environnement virtuel](../lecture-05/lecture-05.md) et si vous avez installé le
-[requirements.txt](../../requirements.txt) de ce cours, ces modules sont déjà installés. Nous aurons
-également besoin de `requests` [que nous avons déjà utilisé](../lecture-07/lecture-07.md) et plus
-anecdotiquement de `matplotlib`.
+environnement virtuel et si vous avez installé le [requirements.txt](../../requirements.txt) de ce
+cours, ces modules sont déjà installés. Nous aurons également besoin de `requests` [que nous avons
+déjà utilisé](../04-requests/requests-slides.py.md) et plus anecdotiquement de `matplotlib`.
 
 
 ```python
@@ -201,7 +199,7 @@ B, C, D, E, F et G) !
 Nous allons travailler sur un fichier au format [TEI](http://www.tei-c.org/) extrait du corpus
 [*Corpus 14*](https://hdl.handle.net/11403/corpus14/v1).
 
-Le fichier se nomme [`josephine-1-150119.xml`](../../data/josephine-1-150119.xml). Il s'agit d'une
+Le fichier se nomme [`josephine-1-150119.xml`](data/josephine-1-150119.xml). Il s'agit d'une
 lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
 pour bosser en local, vous pouvez le récupérer sur
 [GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml)
@@ -227,7 +225,7 @@ est propre à `libxml`.
 
 ```python
 from lxml import etree
-tree = etree.parse('../../data/josephine-1-150119.xml')
+tree = etree.parse('data/josephine-1-150119.xml')
 root = tree.getroot()
 
 # Parcours des enfants de la racine (commentaires et éléments)
@@ -343,7 +341,7 @@ plupart des langages de programmation modernes.
 
 ```python
 from xml.dom import minidom
-dom = minidom.parse("../../data/josephine-1-150119.xml")
+dom = minidom.parse("data/josephine-1-150119.xml")
 dom
 ```
 
@@ -391,7 +389,7 @@ for node in body.childNodes:
 ```python
 from bs4 import BeautifulSoup
 
-with open("../../data/josephine-1-150119.xml") as fp:
+with open("data/josephine-1-150119.xml") as fp:
     soup = BeautifulSoup(fp, 'lxml')
 ```
 

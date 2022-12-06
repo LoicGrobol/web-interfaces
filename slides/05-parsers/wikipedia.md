@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.1
+      jupytext_version: 1.14.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -25,7 +25,9 @@ Aller jusqu'à « *Philosophy* », version HTML
 2021-10-06
 <!-- #endregion -->
 
-**Avertissement** au 2021-13-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on n'y vas plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.
+~~**Avertissement** au 2021-12-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on n'y vas plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.~~
+
+Au 2022-12-06, on revient effectivement à Philosophy.
 
 ```python
 from IPython.display import display
@@ -115,10 +117,6 @@ soup = BeautifulSoup(response.text, 'lxml')
 soup.title.text
 ```
 
-(Il y a eu une pseudo-redirection mais pas via une requête HTTP, plutôt via de la cuisine interne à
-MediaWiki et [de la sorcellerie](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState)
-en Javascript. Du coup, ça c'est passé sans douleur pour nous.)
-
 ## 🔄
 
 On recommence
@@ -153,9 +151,13 @@ On teste
 get_next_url(next_url)
 ```
 
+Bon, fut un temps ça renvoyait sur [Latin language](https://en.wikipedia.org/wiki/Latin), on va faire comme si c'était toujours le cas et on reviendra sur ce problème là plus tard.
+
+
 Et encore
 
 ```python
+next_url = "https://en.wikipedia.org/wiki/Latin"
 for _ in range(16):
     print(next_url)
     next_url = get_next_url(next_url)
@@ -218,7 +220,7 @@ trouve être entre parenthèses donc ici ça ne gêne pas mais ça pourrait l'ê
 <!-- #endregion -->
 
 Visiblement chez MediaWiki on a pas trop de complexes avec la non-séparation du style et du contenu
-et pour mettre en italiques on utilise `<i>` (ça ne concerne pas les bandeau d'info qui eux sont
+et pour mettre en italiques on utilise `<i>` (ça ne concerne pas les bandeauyx d'info qui eux sont
 bien stylés en CSS). Ça tombe bien, on va pouvoir exploiter ça pour être sûr⋅e⋅s de ne pas prendre
 un lien en italiques : on va chercher seulement les `<a>` qui ne sont pas dans un `<i>`
 
@@ -266,7 +268,7 @@ def get_next_url(url):
 ```
 
 ```python
-next_url = "https://en.wikipedia.org/wiki/Algorithmic_bias"
+next_url = "https://en.wikipedia.org/wiki/Latin"
 for _ in range(16):
     print(next_url)
     next_url = get_next_url(next_url)
@@ -304,7 +306,7 @@ Note que ça ne nous protège pas des liens qui serait une redirection vers la m
 nom différent. Mais on se préoccupera de ça si on tombe dessus, comme c'est probablement assez rare
 
 ```python tags=["raises-exception"]
-next_url = "https://en.wikipedia.org/wiki/Algorithmic_bias"
+next_url = "https://en.wikipedia.org/wiki/Latin"
 for _ in range(16):
     print(next_url)
     next_url = get_next_url(next_url)
@@ -315,7 +317,7 @@ Encore ?
 ## Le dernier problème
 
 ```python tags=["raises-exception"]
-get_next_url("https://en.wikipedia.org/wiki/Logic")
+get_next_url("https://en.wikipedia.org/wiki/Religious_philosophy")
 ```
 
 Quel est le problème cette fois-ci ? Visiblement le premier paragraphe ne contient pas de lien 😱
@@ -325,7 +327,7 @@ C'est effectivement un truc auquel on avait pas pensé et qu'il faudra gérer, m
 ce cas précis
 
 ```python
-response = requests.get("https://en.wikipedia.org/wiki/Logic")
+response = requests.get("https://en.wikipedia.org/wiki/Religious_philosophy")
 soup = BeautifulSoup(response.text, 'lxml')
 first_p = next(p for p in soup.body.find_all("p") if p.text and not p.text.isspace())
 first_p
@@ -345,49 +347,15 @@ def get_next_url(url):
     soup = BeautifulSoup(response.text, "lxml")
     
     # Un sélecteur CSS pour récupérer le contenu de la page
-    page_content = soup.select(".mw-parser-output")[0]
-    first_p = next(
-        p
-        for p in page_content.find_all("p", recursive=False)
-        if p.text and not p.text.isspace()
-    )
-    first_link = next(
-        a
-        for a in first_p.find_all("a")
-        if not a["href"].startswith("#")
-        and not a.find_parents("span")
-        and not a.find_parents("i")
-        and not is_between_parentheses(a, first_p)
-    )
-    return urljoin(url, first_link["href"])
-get_next_url("https://en.wikipedia.org/wiki/Logic")
-```
-
-```python
-next_url = "https://en.wikipedia.org/wiki/Algorithmic_bias"
-for _ in range(29):
-    print(next_url)
-    next_url = get_next_url(next_url)
-```
-
-🥳
-
-
-On va quand même prévoir l'avenir : il se pourrait qu'une page n'ait pas de lien dans le premier
-paragraphe. On va donc plutôt itérer sur les paragraphes
-
-```python
-def get_next_url(url):
-    """Récupère la page à `url` et revoie l'addresse du premier lien du premier paragraphe"""
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    page_content = soup.select(".mw-parser-output")[0]
+    # il peut y en avoir plusieurs, on va donc tous les tester
+    page_contents = soup.select(".mw-parser-output")
+    # On pourrait aussi faire une très grosse compréhension mais c'est déjà assez compliqué
     paragraphs = (
         p
-        for p in page_content.find_all("p", recursive=False)
+        for content in page_contents
+        for p in content.find_all("p", recursive=False)
         if p.text and not p.text.isspace()
     )
-    # On pourrait aussi faire une très grosse compréhension mais c'est déjà assez compliqué
     for p in paragraphs:
         # `None` en valeur par défaut si le générateur est vide
         first_link = next(
@@ -399,14 +367,26 @@ def get_next_url(url):
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
-            None,
+            None
         )
         if first_link is not None:
             return urljoin(url, first_link["href"])
-
-# Une page sans lien valide dans le premier paragraphe
-get_next_url("https://en.wikipedia.org/wiki/Creativity")
+    raise ValueError("No link???")
+get_next_url("https://en.wikipedia.org/wiki/Religious_philosophy")
 ```
+
+```python
+next_url = "https://en.wikipedia.org/wiki/Algorithmic_bias"
+for _ in range(32):
+    print(next_url)
+    next_url = get_next_url(next_url)
+```
+
+🥳
+
+
+On va quand même prévoir l'avenir : il se pourrait qu'une page n'ait pas de lien dans le premier
+paragraphe. On va donc plutôt itérer sur les paragraphes
 
 ## Le poète des cercles disparus
 
@@ -429,13 +409,16 @@ import sys
 # et on veut éviter de parser plusieurs fois la même page
 def get_first_url(soup):
     """Renvoie l'addresse du premier lien du premier paragraphe dans une soupe"""
-    page_content = soup.select(".mw-parser-output")[0]
+    page_contents = soup.select(".mw-parser-output")
+    # On pourrait aussi faire une très grosse compréhension mais c'est déjà assez compliqué
     paragraphs = (
         p
-        for p in page_content.find_all("p", recursive=False)
+        for content in page_contents
+        for p in content.find_all("p", recursive=False)
         if p.text and not p.text.isspace()
     )
     for p in paragraphs:
+        # `None` en valeur par défaut si le générateur est vide
         first_link = next(
             (
                 a
@@ -445,10 +428,11 @@ def get_first_url(soup):
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
-            None,
+            None
         )
         if first_link is not None:
             return first_link["href"]
+    raise ValueError("No link???")
 
 
 def search_for(start_url, target_title="Philosophy"):
@@ -505,7 +489,7 @@ Si on est très motivé⋅e⋅s, on va essayer de visualiser la structure que �
 ça on peut se servir de [ipycytoscape](https://github.com/cytoscape/ipycytoscape)
 
 ```python
-%pip install ipycytoscape
+%pip install ipycytoscape networkx
 ```
 
 ```python
@@ -574,7 +558,7 @@ directed.set_style([*directed.cytoscape_style, {'selector': 'node', 'css': {'con
 directed
 ```
 
-Après, ça serait plus rigolo de pas se restreindre à philosophie et de voir une structure de graph
+Après, ça serait plus rigolo de pas se restreindre à philosophie et de voir une structure de graphe
 plus large
 
 ```python
@@ -596,7 +580,7 @@ def walk(min_pages=128):
             print(title, file=sys.stderr)
             try:
                 next_url = urljoin(next_url, get_first_url(soup))
-            except IndexError:
+            except ValueError:
                 print(f"Something is wrong in {next_url}", file=sys.stderr)
                 title = None
                 next_url = "https://en.wikipedia.org/wiki/Special:Random"

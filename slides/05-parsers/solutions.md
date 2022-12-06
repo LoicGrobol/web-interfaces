@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Solutions 8 : Parser des documents balisés avec `lxml` et BeautifulSoup
-==================================================================
+Parser des documents balisés avec `lxml` et BeautifulSoup : solutions
+=====================================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-06
 <!-- #endregion -->
 
 ```python
@@ -137,7 +136,7 @@ B, C, D, E, F et G) !
 Nous allons travailler sur un fichier au format [TEI](http://www.tei-c.org/) extrait du corpus
 [*Corpus 14*](https://hdl.handle.net/11403/corpus14/v1).
 
-Le fichier se nomme [`josephine-1-150119.xml`](../../data/josephine-1-150119.xml). Il s'agit d'une
+Le fichier se nomme [`josephine-1-150119.xml`](data/josephine-1-150119.xml). Il s'agit d'une
 lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
 pour bosser en local, vous pouvez le récupérer sur
 [GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml)
@@ -163,7 +162,7 @@ est propre à `libxml`.
 
 ```python
 from lxml import etree
-tree = etree.parse('../../data/josephine-1-150119.xml')
+tree = etree.parse('data/josephine-1-150119.xml')
 root = tree.getroot()
 
 # Parcours des enfants de la racine (commentaires et éléments)
@@ -288,7 +287,7 @@ plupart des langages de programmation modernes.
 
 ```python
 from xml.dom import minidom
-dom = minidom.parse("../../data/josephine-1-150119.xml")
+dom = minidom.parse("data/josephine-1-150119.xml")
 dom
 ```
 
@@ -349,7 +348,7 @@ for t in texts:
 ```python
 from bs4 import BeautifulSoup
 
-with open("../../data/josephine-1-150119.xml") as fp:
+with open("data/josephine-1-150119.xml") as fp:
     soup = BeautifulSoup(fp, 'lxml')
 ```
 

@@ -21,13 +21,16 @@ def is_between_parentheses(a, p):
 
 def get_first_url(soup):
     """Renvoie l'addresse du premier lien du premier paragraphe dans une soupe"""
-    page_content = soup.select(".mw-parser-output")[0]
+    page_contents = soup.select(".mw-parser-output")
+    # On pourrait aussi faire une très grosse compréhension mais c'est déjà assez compliqué
     paragraphs = (
         p
-        for p in page_content.find_all("p", recursive=False)
+        for content in page_contents
+        for p in content.find_all("p", recursive=False)
         if p.text and not p.text.isspace()
     )
     for p in paragraphs:
+        # `None` en valeur par défaut si le générateur est vide
         first_link = next(
             (
                 a
@@ -37,10 +40,11 @@ def get_first_url(soup):
                 and not a.find_parents("i")
                 and not is_between_parentheses(a, p)
             ),
-            None,
+            None
         )
         if first_link is not None:
             return first_link["href"]
+    raise ValueError("No link???")
 
 
 def search_for(start_url, target_title="Philosophy"):
@@ -76,8 +80,9 @@ def search_for(start_url, target_title="Philosophy"):
 
 
 if __name__ == "__main__":
-    n_hops = search_for(sys.argv[1])
+    target = "Philosophy" if len(sys.argv) == 2 else sys.argv[2]
+    n_hops = search_for(sys.argv[1], target)
     if n_hops < 0:
-        print(f"Could get to {sys.argv[1]}")
+        print(f"Couldn't get to {target}")
     else:
         print(n_hops)

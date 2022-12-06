@@ -68,7 +68,7 @@ Une API web, c'est une API à laquelle on accède via le web.
 
 Voilà, le cours est fini, joyeux Noël.
 
-En pratique, on parle d'API web quand des services applicatifs sont accessible via des requêtes
+En pratique, on parle d'API web quand des services applicatifs sont accessibles via des requêtes
 HTTP. Par exemple celle de GitHub, à laquelle on accède à <https://api.github.com>. Regardez ce qui
 se passe par exemple avec une requête `GET` sur le point d'accès (*endpoint*)
 <https://api.github.com/users/loicgrobol>
