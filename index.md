@@ -53,6 +53,13 @@ est indisponible.
   [Slides request](slides/04-requests/requests-slides.py.ipynb)
 - Suivre le tutoriel [*Getting started with HTML*](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) sur MDN
 
+### 2022-12-06 – Parser et APIs REST
+
+- {% notebook_badges slides/05-parsers/parsers-slides.py.md %}
+  [Slides parser](slides/05-parsers/parsers-slides.py.ipynb)
+- {% notebook_badges slides/06-REST/rest-slides.py.md %}
+  [Slides REST](slides/06-REST/rest-slides.py.ipynb)
+
 ## Lire les slides en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec

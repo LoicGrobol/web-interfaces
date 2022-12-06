@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.14.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -121,7 +121,7 @@ Les principes (un peu simplifiés) de REST sont
 
 ## Accéder à des API
 
-On l'a déjà fait [plein](../lecture-06/lecture-06.md) de [fois](../lecture-07/lecture-07.md) !
+On l'a déjà fait [plusieurs](../01-internet/internet-slides.py.md) [fois](../04-requests/requests-slides.py.md) !
 
 On a dit qu'il suffisait de faire des requêtes HTTP et ça on sait déjà faire :
 
