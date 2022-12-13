@@ -79,7 +79,7 @@ se passe par exemple avec une requête `GET` sur le point d'accès (*endpoint*)
 
 ```python
 import requests
-requests.get("https://api.github.com/users/loicgrobol")
+requests.get("https://api.github.com/users/loicgrobol").text
 ```
 
 Le serveur est alors littéralement un serveur web, les concepts s'alignent !
@@ -126,7 +126,7 @@ On l'a déjà fait [plusieurs](../01-internet/internet-slides.py.md) [fois](../0
 On a dit qu'il suffisait de faire des requêtes HTTP et ça on sait déjà faire :
 
 ```python
-requests.get("https://jsonplaceholder.typicode.com/comments/1").text
+print(requests.get("https://jsonplaceholder.typicode.com/comments/1").text)
 ```
 
 Par contre, on a pas reparlé de ce format étrange.

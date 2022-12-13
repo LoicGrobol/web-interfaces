@@ -16,8 +16,8 @@ jupyter:
 
 <!-- LTeX: language=fr -->
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 14 : Débugguer
-==================
+Cours 14 : Débuggueurs, formatteurs et linters
+==============================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 

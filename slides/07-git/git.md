@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 10 : git
-================================
+Cours 07 : git
+==============
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-13
 <!-- #endregion -->
 
 Note: ceci est une introduction, elle est un peu sale, ne pas se limiter à ces slides

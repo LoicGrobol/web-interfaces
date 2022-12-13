@@ -61,6 +61,13 @@ est indisponible.
 - {% notebook_badges slides/06-REST/rest-slides.py.md %}
   [Slides REST](slides/06-REST/rest-slides.py.ipynb)
 
+### 2022-12-16 – Git, débuggueurs, formateurs et linters
+
+- {% notebook_badges slides/07-git/git.md %}
+  [Slides git](slides/07-git/git.ipynb)
+- {% notebook_badges slides/08-debugger/debug.md %}
+  [Slides débuggueurs, formateurs et linters](slides/08-debugger/debug.md)
+
 ## Lire les slides en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec
