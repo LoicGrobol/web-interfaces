@@ -7,16 +7,15 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.14.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
 
-<!-- LTeX: language=fr -->
-
 <!-- #region slideshow={"slide_type": "slide"} -->
+<!-- LTeX: language=fr -->
 Cours 07 : git
 ==============
 
@@ -260,6 +259,45 @@ git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- project.py
 ```
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Plus précisément
+
+- Faites une modif dans `project.py`
+- Essayez `git commit -m "j'ai changé un truc`
+
+Que se passe-t-il ?
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Git vous dit que votre changement n'a pas été *stage*, « ajouté à l'index ».
+
+En fait, quand on fait un commit, git n'enregistre pas tous les changements, il enregistre seulement ceux qui ont été mis dans l'index avec [`git add`](https://git-scm.com/docs/git-add).
+
+Faites donc
+
+```shell
+git add project.py
+git commit -m "j'ai changé un truc"
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Ça permet plein de trucs, par exemple si vous avez modifié plusieurs fichiers mais voulez répartir vos modifications sur plusieurs commit pour plus de lisibilité.
+
+On peut même faire plus sophistiqué, par exemple en ne stageant pas toutes les modifications dans un fichier (mais là il vaut mieux passer par une interface graphique)
+
+Enfin, ça permet de vérifier ce qui a changé avant de commiter :
+
+```shell
+git diff --cached
+```
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Branches 🌲
 
+Un des trucs les plus utiles de git, ce sont les branches, qui perm
+
 Suivre le tutoriel interactif de [*Learn Git Branching*](https://learngitbranching.js.org/)
+<!-- #endregion -->
