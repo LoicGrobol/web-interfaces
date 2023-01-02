@@ -63,10 +63,15 @@ est indisponible.
 
 ### 2022-12-16 – Git, débuggueurs, formateurs et linters
 
-- {% notebook_badges slides/07-git/git.md %}
-  [Slides git](slides/07-git/git.ipynb)
-- {% notebook_badges slides/08-debugger/debug.md %}
-  [Slides débuggueurs, formateurs et linters](slides/08-debugger/debug.md)
+- {% notebook_badges slides/07-git/git-slides.py.md %}
+  [Slides git](slides/07-git/git-slides.py.ipynb)
+- {% notebook_badges slides/08-debugger/debug-slides.py.md %}
+  [Slides débuggueurs, formateurs et linters](slides/08-debugger/debug-slides.py.md)
+
+### 2023-01-03 — Typage et FastAPI
+
+- - {% notebook_badges slides/09-fastapi/fastapi-slides.py.md %}
+  [Slides FastAPI](slides/09-fastapi/fastapi-slides.py.ipynb)
 
 ## Lire les slides en local
 

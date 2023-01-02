@@ -30,7 +30,7 @@ from IPython.display import display
 ```
 
 On ne va pas faire un cours sur la programmation fonctionnelle, mais je vous invite cependant à vous
-intéresser à ce paradigme de programmation ou à jetter un œil au vénérable
+intéresser à ce paradigme de programmation ou à jeter un œil au vénérable
 [Lisp](https://fr.wikipedia.org/wiki/Lisp), à [Haskell](https://www.haskell.org/) ou (cocorico à)
 [OCaml](https://ocaml.org/).
 

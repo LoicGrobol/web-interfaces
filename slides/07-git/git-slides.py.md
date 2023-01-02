@@ -263,7 +263,7 @@ git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- project.py
 ## Plus précisément
 
 - Faites une modif dans `project.py`
-- Essayez `git commit -m "j'ai changé un truc`
+- Essayez `git commit -m "j'ai changé un truc"`
 
 Que se passe-t-il ?
 <!-- #endregion -->
@@ -297,7 +297,7 @@ git diff --cached
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Branches 🌲
 
-Un des trucs les plus utiles de git, ce sont les branches, qui perm
+Un des trucs les plus utiles de git, ce sont les branches, qui permettent de gérer plusieurs historiques de changements, en les faisant diverger, évoluer en parallèle, puis se réconcilier. C'est idéal pour travailler à plusieurs, ou seul⋅e sur plusieurs parties d'un projet.
 
-Suivre le tutoriel interactif de [*Learn Git Branching*](https://learngitbranching.js.org/)
+On va suivre ensemble le tutoriel interactif de [*Learn Git Branching*](https://learngitbranching.js.org/)
 <!-- #endregion -->
