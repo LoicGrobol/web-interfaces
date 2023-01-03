@@ -61,7 +61,7 @@ avoir commenté sa première ligne.
 <!-- #endregion -->
 
 ```python
-#%%script false --no-raise-error
+%%script false --no-raise-error
 import http.server
 import socketserver
 
