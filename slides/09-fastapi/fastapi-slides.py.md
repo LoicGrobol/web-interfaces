@@ -61,7 +61,7 @@ avoir commenté sa première ligne.
 <!-- #endregion -->
 
 ```python
-%%script false --no-raise-error
+#%%script false --no-raise-error
 import http.server
 import socketserver
 
@@ -616,3 +616,11 @@ connaissez la chanson.
 - Un point d'accès accessible par POST, qui prend comme paramètre un nom de modèle spaCy et comme
   données une phrase et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
 <!-- #endregion -->
+
+```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
+requests.post(
+    "http://localhost:8000/postag",
+    params={"model": "fr_core_news_sm"},
+    json={"sentence": "je reconnais l'existence du kiwi!"}
+).json()
+```
