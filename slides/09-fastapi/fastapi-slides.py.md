@@ -381,39 +381,23 @@ curl -X GET "localhost:8000/knights/?name=lancelot"
 
 Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue
 austronésienne et renvoie le mot correspondant dans cette langue à partir de
-[`austronesian_swadesh.csv`](../../data/austronesian_swadesh.csv).
-
-(Il y a une correction sur la slide suivante, ne pas la regarder avant d'essayer)
+[`austronesian_swadesh.csv`](data/austronesian_swadesh.csv).
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "subslide"}
-# %load examples/swadesh_api.py
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Indice
+<!-- #endregion -->
+
+```python
 import csv
 
-from fastapi import FastAPI, HTTPException
-
-app = FastAPI()
-
-
-with open("../../../data/austronesian_swadesh.csv") as csvfile:
+with open("data/austronesian_swadesh.csv") as csvfile:
     reader = csv.DictReader(csvfile, delimiter=",", quotechar='"')
     swadesh_dict = {
         row["English"]: {k: v for k, v in row.items() if k != "N°"} for row in reader
     }
 
-
-@app.get("/")
-async def swadesh(word, lang="English"):
-    try:
-        word_translations = swadesh_dict[word]
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Word {word!r} not found")
-
-    try:
-        return word_translations[lang]
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Language {lang!r} not found")
-
+swadesh_dict["bird"]
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -626,45 +610,9 @@ connaissez la chanson.
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 🪐 Exo 🪐
 
-Écrire une API accessible par POST, qui prend comme paramètre un nom de modèle spaCy et comme données une phrase
-et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
+Écrire une API qui avec
+
+- Un point d'accès accessible par GET qui renvoie la liste des modèles spaCy installés
+- Un point d'accès accessible par POST, qui prend comme paramètre un nom de modèle spaCy et comme
+  données une phrase et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
 <!-- #endregion -->
-
-```python slideshow={"slide_type": "-"}
-%pip install spacy
-```
-
-```python slideshow={"slide_type": "subslide"}
-# %load examples/spacy_api.py
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import spacy
-
-app = FastAPI()
-
-
-class InputData(BaseModel):
-    sentence: str
-
-
-@app.post("/postag")
-async def postag(inpt: InputData, model="fr_core_news_sm"):
-    if model not in spacy.util.get_installed_models():
-        raise HTTPException(status_code=422, detail=f"Model {model!r} unavailable")
-    nlp = spacy.load(model)
-    doc = nlp(inpt.sentence)
-    return {"tags": [w.pos_ for w in doc]}
-
-
-@app.get("/list")
-async def list_models():
-    return {"models": spacy.util.get_installed_models()}
-```
-
-```python slideshow={"slide_type": "subslide"}
-requests.get("http://localhost:8000/list").json()
-```
-
-```python
-requests.post("http://localhost:8000/postag", params={"model": "fr_core_news_sm"}, json={"sentence": "je reconnais l'existence du kiwi!"}).json()
-```

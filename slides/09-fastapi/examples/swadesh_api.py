@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 app = FastAPI()
 
 
-with open("../../../data/austronesian_swadesh.csv") as csvfile:
+with open("../data/austronesian_swadesh.csv") as csvfile:
     reader = csv.DictReader(csvfile, delimiter=",", quotechar='"')
     swadesh_dict = {
         row["English"]: {k: v for k, v in row.items() if k != "N°"} for row in reader

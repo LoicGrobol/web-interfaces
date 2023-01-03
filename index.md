@@ -70,8 +70,10 @@ est indisponible.
 
 ### 2023-01-03 — Typage et FastAPI
 
-- - {% notebook_badges slides/09-fastapi/fastapi-slides.py.md %}
+- {% notebook_badges slides/09-fastapi/fastapi-slides.py.md %}
   [Slides FastAPI](slides/09-fastapi/fastapi-slides.py.ipynb)
+  - {% notebook_badges slides/09-fastapi/solutions.py.md %}
+  [Slides FastAPI](slides/09-fastapi/solutions.py.ipynb)
 
 ## Lire les slides en local
 
