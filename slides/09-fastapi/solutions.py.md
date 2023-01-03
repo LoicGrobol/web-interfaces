@@ -102,6 +102,10 @@ async def swadesh(word, lang="English"):
 
 ```
 
+```python slideshow={"slide_type": "subslide"}
+!curl "http://localhost:8000?word=bird&lang=Ilocano"
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 🪐 Exo 🪐
 
@@ -139,7 +143,13 @@ async def list_models():
     return {"models": spacy.util.get_installed_models()}
 ```
 
+```python
+!python -m spacy download en_core_web_sm
+!python -m spacy download fr_core_news_sm
+```
+
 ```python slideshow={"slide_type": "subslide"}
+import requests
 requests.get("http://localhost:8000/list").json()
 ```
 
