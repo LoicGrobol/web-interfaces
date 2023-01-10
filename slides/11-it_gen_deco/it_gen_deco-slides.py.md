@@ -7,14 +7,16 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.14.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
 
+<!-- #region slideshow={"slide_type": "skip"} -->
 <!-- LTeX: language=fr -->
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 12 : Itérateurs, générateurs et décorateurs
@@ -27,38 +29,91 @@ Cours 12 : Itérateurs, générateurs et décorateurs
 from IPython.display import display
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 On ne va pas faire un cours sur la programmation fonctionnelle, mais je vous invite cependant à vous
 intéresser à ce paradigme de programmation ou à jeter un œil au vénérable
-[Lisp](https://fr.wikipedia.org/wiki/Lisp), à [Haskell](https://www.haskell.org/) ou (cocorico) à
-[OCaml](https://ocaml.org/).
+[Lisp](https://fr.wikipedia.org/wiki/Lisp), à [Haskell](https://www.haskell.org/) **ou (cocorico) à
+[OCaml](https://ocaml.org/)**.
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 En Python tout est objet, ça, vous le savez. Vous savez aussi que Python est un langage
 multi-paradigme. Vous pouvez programmer dans un style procédural, en objet ou dans un style
 fonctionnel.
+<!-- #endregion -->
 
-Qu'est-ce que cela signifie un style fonctionànel ?
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Qu'est-ce que cela signifie « un style fonctionnel » ? C'est un style de programmation où les objets de bases sont les **fonctions** et où la conception d'un programme consiste en gros à établir un graphe de routage des données entre ces fonctions.
+<!-- #endregion -->
 
-Vous ne pourrez pas produire de programmation fonctionnelle « pure » mais vous pouvez vous en
-approcher en privilégiant les fonctions sans effet de bord (pas de changement d'état, par exemple
-dans les structures de données), en évitant les variables globales, ou encore en utilisant des
-fonctions d'ordre supérieur (c-a-d des fonctions qui acceptent des fonctions comme arguments ou qui
-renvoient des fonctions).
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Ça a pour principal avantage de permettre d'utiliser des outils mathématiques puisants pour analyser des programmes, afin de prouver leur *correction* ou leur sécurité, voire de les optimiser automatiquement.
+<!-- #endregion -->
 
-Vous pouvez aussi apprendre à vous servir des itérateurs, des générateurs (ce qu'on fera ici) puis,
-si vous voulez, aller plus loin avec les modules
-[itertools](https://docs.python.org/3/library/itertools.html#module-itertools) et
-[functools](https://docs.python.org/3/library/functools.html#module-functools)
+<!-- #region slideshow={"slide_type": "subslide"} -->
+En Python, les fonctions sont des objets manipulables plus ou moins comme les autres
+<!-- #endregion -->
 
-
-```python
+```python slideshow={"slide_type": "fragment"}
 def fun(x):
     return 2*x
 fun
 ```
 
+```python slideshow={"slide_type": "fragment"}
+fun2 = fun
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Vous ne pourrez pas produire de programmation fonctionnelle « pure » en Python mais vous pouvez vous en
+approcher en privilégiant les fonctions sans effet de bord (pas de changement d'état, par exemple
+dans les structures de données), en évitant les variables globales, ou encore en utilisant des
+fonctions d'ordre supérieur (c-a-d des fonctions qui acceptent des fonctions comme arguments ou qui
+renvoient des fonctions).
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "subslide"}
+def spam():
+    print("spam")
+```
+
+```python
+def fun_args(f):
+    print("sausages")
+    f()
+```
+
+```python
+fun_args(spam)
+```
+
+```python slideshow={"slide_type": "subslide"}
+def fun_ret(s):
+    def res():
+        print(f"spam, eggs, sausages and {s}")
+    return res
+```
+
+```python
+fun = fun_ret("spam")
+```
+
+```python
+fun()
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Vous pouvez aussi apprendre à vous servir des itérateurs, des générateurs (ce qu'on fera ici) puis,
+si vous voulez, aller plus loin avec les modules
+[itertools](https://docs.python.org/3/library/itertools.html#module-itertools) et
+[functools](https://docs.python.org/3/library/functools.html#module-functools)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Les itérateurs
 
 Itérer vous connaissez déjà : c'est ce qu'on fait avec une boucle `for`, ici pour une liste
+<!-- #endregion -->
 
 ```python
 numbers = [1, 2, 3, 4, 5]
@@ -66,7 +121,9 @@ for it in numbers:
     print(it)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 On peut faire ça avec tous les objets ?
+<!-- #endregion -->
 
 ```python
 number = 5
@@ -74,11 +131,14 @@ for i in numbers:
     print(i)
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Non.
+<!-- #endregion -->
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Les objets sur lesquels on peut *itérer* sont des *itérables*. Ils doivent pour ça implémenter la
 méthode `__iter__`, qui renvoie un *itérateur*.
+<!-- #endregion -->
 
 ```python
 numbers = [1, 2, 3, 4, 5]
@@ -86,47 +146,59 @@ itr = numbers.__iter__()
 type(itr)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Les itérateurs sont des objets qui représentent un flux de données. Pour être un itérateur un objet
 doit implémenter la fonction `__next()__`. Cette fonction peut aussi s'appeler avec `next()`, elle
 ne reçoit pas d'argument, renvoie le prochain élément, et si plus d'élément renvoie l'exception
 `StopIteration`.
 
 Voici un itérateur :
+<!-- #endregion -->
 
 ```python
 itr = iter([2, 7, 1, 3])
 display(type(itr))
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 La façon canonique de récupérer l'élément suivant
+<!-- #endregion -->
 
 ```python
 a = next(itr)
 a
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 À plus bas niveau, ce qui se passe, c'est
+<!-- #endregion -->
 
 ```python
 a = itr.__next__()
 a
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Mais comme d'habitude, c'est mieux d'éviter d'appeler directement les dunders.
 
 On continue ?
+<!-- #endregion -->
 
-```python
+```python slideshow={"slide_type": "subslide"}
 next(itr)
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Encore
+<!-- #endregion -->
 
 ```python
 next(itr)
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Et encore
+<!-- #endregion -->
 
 ```python tags=["raises-exception"]
 next(itr)
@@ -134,8 +206,9 @@ next(itr)
 
 Ah oui, on a fini.
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Quand vous écrivez
+<!-- #endregion -->
 
 ```python
 for i in [1, 2, 3, 4]:
@@ -154,31 +227,35 @@ while True:
     print(a)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Un itérateur est un flux, vous pouvez accéder aux éléments les uns après les autres mais pas revenir
 en arrière ou faire une copie. Si vous voulez accéder à nouveau au flux vous devez utiliser un
 nouvel itérateur. C'est le cas pour la lecture d'un fichier par exemple : vous ne pouvez pas lire à
 nouveau l'objet fichier si vous l'avez déjà fait.
 
 Quel intérêt ? Et bien par exemple on peut avoir des itérateurs infinis, comme ceux renvoyés par `itertools.count()`.
+<!-- #endregion -->
 
 ```python
 from itertools import count
 for i in count():
-    print(i)  # Décommentez pour le voir en action
+    # print(i)  # Décommentez pour le voir en action
     if i**2 > 18701871:
         break
 print(f"Le premier nombre dont le carré dépasse 18701871 est {i}")
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Les générateurs
-
+<!-- #endregion -->
 
 Les générateurs sont très simples à utiliser et très puissants. Ils vous permettront d'optimiser
 votre code à moindre frais. Alors pourquoi se priver ?
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Imaginons que je veuille extraire d'une liste de mots la liste des mots comportant le caractère
 `'a'`. Je vais écrire une fonction.
+<!-- #endregion -->
 
 ```python
 def with_a(words):
@@ -200,10 +277,13 @@ for w in mots_a:
     print(w)
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Rien de méchant.
+<!-- #endregion -->
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 On va mesurer le temps de traitement avec `%time`. <small>Jupyter est plein de magie, `%time` supercalifragilisticexpialidocious et voilà.</small>
+<!-- #endregion -->
 
 ```python
 %time mots_a = with_a(mots)
@@ -214,8 +294,9 @@ mots_big = mots * 1000000
 Comme on pouvait s'y attendre le temps d'exécution de la fonction augmente avec la taille de la
 liste initiale.
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Essayons maintenant comme ça
+<!-- #endregion -->
 
 ```python
 def gen_with_a(words):
@@ -234,6 +315,7 @@ for w in mots_a:
     print(w)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Construire un générateur, c'est simple : vous remplacez `return` par `yield` dans votre fonction.
 
 C'est tout ? C'est tout.  
@@ -242,6 +324,7 @@ C'est tout ? C'est tout.
 255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
 
 Est-ce que ça va vite ?
+<!-- #endregion -->
 
 ```python
 mots_big = mots * 1000000
@@ -249,11 +332,15 @@ mots_big = mots * 1000000
 %time mots_a_gen = gen_with_a(mots_big)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ![Mème « surprised Pikachu »](https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png)
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Oui, c'est de la magie. Enfin, c'est plutôt de la triche, regardez :
+<!-- #endregion -->
 
-```python
+```python slideshow={"slide_type": "subslide"}
 print(f"mots_a is a {type(mots_a)}")
 print(f"mots_a_gen is a {type(mots_a_gen)}")
 import sys
@@ -261,9 +348,11 @@ print(f"Taille de mots_a : {sys.getsizeof(mots_a)}")
 print(f"Taille de mots_a_gen : {sys.getsizeof(mots_a_gen)}")
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 `mots_a_gen` n'est pas une liste, c'est un objet `generator`.
 
 Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille
+<!-- #endregion -->
 
 ```python tags=["raises-exception"]
 len(mots_a_gen)
@@ -272,9 +361,9 @@ len(mots_a_gen)
 Mais on peut le parcourir comme une liste. Par contre, on ne peut pas les "trancher", on ne peut pas
 accéder à un élément d'index `i` comme pour une liste, et on ne peut le parcourir qu'une seule fois.
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Ça rappelle les itérateurs !
-
+<!-- #endregion -->
 
 C'est parce que c'en est un cas particulier.
 
@@ -293,9 +382,10 @@ Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voul
 %time mots_a_gen = list(gen_with_a(mots_big))
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Mais même sans tricher les générateurs demeurent très efficaces. Vous aurez compris qu'il vous est
 désormais chaudement recommandé de les utiliser.
-
+<!-- #endregion -->
 
 Si vous voulez en savoir plus sur la cuisine du truc vous pouvez utiliser le module `inspect`. Je
 vous conseille d'en lire la doc d'ailleurs
