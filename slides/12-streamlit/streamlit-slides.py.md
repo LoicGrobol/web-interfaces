@@ -17,12 +17,10 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 15 : Interfaces magiques avec Streamlit
+Cours 12 : Interfaces magiques avec Streamlit
 =============================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
-
-2021-11-09
 <!-- #endregion -->
 
 Ce document est très fortement inspiré du tutoriel [*Streamlit 101: An in-depth introduction*](https://towardsdatascience.com/streamlit-101-an-in-depth-introduction) et du [tutoriel de Streamlit](https://docs.streamlit.io/library/get-started).
