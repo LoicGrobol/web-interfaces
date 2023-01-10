@@ -536,7 +536,7 @@ async def surname(data: EchoData):
     return {"answer": f"Vous avez envoyé le message {data.message!r}"}
 ```
 
-```python slideshow={"slide_type": "subslide"}
+```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 response = requests.post("http://localhost:8000/echo", json={"message": "We are the knights who say “Ni”!"})
 response.json()
 ```
@@ -547,7 +547,7 @@ Pas si compliqué n'est-ce pas ?
 Et si on ne suit pas le format ?
 <!-- #endregion -->
 
-```python
+```python tags=["raises-exception"]
 response = requests.post("http://localhost:8000/echo", json={"speech": "We are the knights who say “Ni”!"})
 display(response)
 display(response.json())
