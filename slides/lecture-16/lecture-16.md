@@ -114,7 +114,7 @@ con = sqlite3.connect("db.sqlite3")
 On fait ce qu'on a à y faire, puis on ferme la connexion.
 
 ```python
-con.close()
+con.close() 
 ```
 
 Astuce : on peut utiliser [`contextlib.closing`](https://docs.python.org/3/library/contextlib.html#contextlib.closing) pour le faire automatiquement et proprement
@@ -143,9 +143,13 @@ with closing(sqlite3.connect("db.sqlite3")) as con:
 
 Quelques trucs à noter
 
-- On exécute des commands en SQL avec la méthode `execute` d'un curseur. On peut aussi exécuter tout un script avec `executescript` ou — mieux, voir plus bas — `executemany`
-- Une fois qu'elles sont exécutées, il faut les valider en utilisant la méthode `commit` de la connexion. Tant qu'on ne l'a pas fait, rien ne se passe.
-- Pour récupérer les résultats d'une requête on peut utilise les méthodes `fetchone`, `fetchall` ou `fetchmany` du curseur. Comme d'hab, la [doc](https://docs.python.org/3/library/sqlite3.html#cursor-objects) est votre amie.
+- On exécute des commandes en SQL avec la méthode `execute` d'un curseur. On peut aussi exécuter
+  tout un script avec `executescript` ou — mieux, voir plus bas — `executemany`
+- Une fois qu'elles sont exécutées, il faut les valider en utilisant la méthode `commit` de la
+  connexion. Tant qu'on ne l'a pas fait, rien ne se passe.
+- Pour récupérer les résultats d'une requête on peut utilise les méthodes `fetchone`, `fetchall` ou
+  `fetchmany` du curseur. Comme d'hab, la
+  [doc](https://docs.python.org/3/library/sqlite3.html#cursor-objects) est votre amie.
 - On ferme les curseurs avec leur méthode `close`
 
 
@@ -236,10 +240,13 @@ recettes = read_recette("Tiramisu")
 
 ## Utiliser une base de données dans FastAPI
 
-C'est assez courant d'avoir besoin de bases de données pour des applications complexes. Les cas typiques sont
+C'est assez courant d'avoir besoin de bases de données pour des applications complexes. Les cas
+typiques sont
 
-- Une base qui rassemble des données qu'on compte présenter aux utilisateurices (par exemple avec la base de l'exo précédent on peut vouloir leur permettre de faire des recherches dans un treebank)
-- Une base à usage interne comme une base d'utiliateurices qui stocke leur nom, leur avatar, leurs paramètres, des infos de connexion (comme un hash du mot de passe)…
+- Une base qui rassemble des données qu'on compte présenter aux utilisateurices (par exemple avec la
+  base de l'exo précédent on peut vouloir leur permettre de faire des recherches dans un treebank)
+- Une base à usage interne comme une base d'utilisateurices qui stocke leur nom, leur avatar, leurs
+  paramètres, des infos de connexion (comme un hash du mot de passe)…
 
 
 Ce n'est pas très compliqué, voyons ensemble un exemple :
@@ -321,15 +328,24 @@ def get_tree_view(tree_id: str, db: sqlite3.Cursor = Depends(get_db)):
 
 ```
 
-Ça marche exactement comme les API qu'on a déjà réalisé, simplement les opérations font appel à `sqlite3` pour interagir avec une base de données.
+Ça marche exactement comme les API qu'on a déjà réalisé, simplement les opérations font appel à
+`sqlite3` pour interagir avec une base de données.
 
 
-Le seul truc nouveau ici (mais dont on aurait pû se passer) c'est l'utilisation de `Depends` et `get_db` : il s'agit d'une [injection de dépendance](https://fastapi.tiangolo.com/tutorial/dependencies) : quand un paramètre dans un point d'accès a comme annotation de type `Depends(get_db)`, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`. Une fois la fonction correspondant au point d'accès terminée, FastAPI reprends l'exécution de `get_db` pour faire un `commit`, puis fermer le curseur et la base.
+Le seul truc nouveau ici (mais dont on aurait pû se passer) c'est l'utilisation de `Depends` et
+`get_db` : il s'agit d'une [injection de
+dépendance](https://fastapi.tiangolo.com/tutorial/dependencies) : quand un paramètre dans un point
+d'accès a comme annotation de type `Depends(get_db)`, il n'est pas récupéré à partir de la requête
+mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`. Une fois la fonction
+correspondant au point d'accès terminée, FastAPI reprends l'exécution de `get_db` pour faire un
+`commit`, puis fermer le curseur et la base.
 
-Ces dernières opérations sont placées dans la clause `finally` d'un bloc `try:`, ce qui qui assure qu'elles seront exécutées même si la méthode d'API ou le `commit` échouent.
+Ces dernières opérations sont placées dans la clause `finally` d'un bloc `try:`, ce qui assure
+qu'elles seront exécutées même si la méthode d'API ou le `commit` échouent.
 
 
-Pour une utilisation plus agréable sans écrire de requêtes SQL à la main, on peut utiliser [SQLAlchemy](https://docs.sqlalchemy.org) qui s'intègre bien avec FastAPI
+Pour une utilisation plus agréable sans écrire de requêtes SQL à la main, on peut utiliser
+[SQLAlchemy](https://docs.sqlalchemy.org) qui s'intègre bien avec FastAPI
 
 ```python
 # %load apis/full_treebank.py
@@ -415,12 +431,23 @@ async def create_tree_view(tree: Tree):
 
 ```
 
-C'est essentiellement la même chose, en plus agréable à écrire mais aussi en plus magique. À vous de voir ce que vous préférez, FastAPI a [un tutoriel](https://fastapi.tiangolo.com/tutorial/sql-databases) sur l'utilisation de SQLAlchemy pour un gestionnaire d'utilisateurices basique.
+C'est essentiellement la même chose, en plus agréable à écrire mais aussi en plus magique. À vous de
+voir ce que vous préférez, FastAPI a [un
+tutoriel](https://fastapi.tiangolo.com/tutorial/sql-databases) sur l'utilisation de SQLAlchemy pour
+un gestionnaire d'utilisateurices basique.
 
 
-Ça vaut aussi le coup de lire un jour [le tutoriel de SQLAlchemy](https://docs.sqlalchemy.org/en/14/tutorial) qui est plus ou moins la bibliothèque standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu mais ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être un⋅e alchimiste ?).
+Ça vaut aussi le coup de lire un jour [le tutoriel de
+SQLAlchemy](https://docs.sqlalchemy.org/en/14/tutorial) qui est plus ou moins la bibliothèque
+standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu mais
+ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être un⋅e
+alchimiste ?).
 
-<small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small>
+<small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à
+travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small>
 
 
-Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais très très vite l'idéal est de passer à une bibliothèque comme [FastAPI Users](https://fastapi-users.github.io/fastapi-users/) qui gère pour vous les opérations standard comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 
+Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais
+très très vite l'idéal est de passer à une bibliothèque comme [FastAPI
+Users](https://fastapi-users.github.io/fastapi-users/) qui gère pour vous les opérations standard
+comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 

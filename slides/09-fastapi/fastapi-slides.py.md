@@ -607,6 +607,12 @@ tirer parti pour rendre l'écriture d'API plus agréable et pour gérer automati
 des données. Là encore on ira pas beaucoup plus loin, mais lisez la doc, suivez le tuto, vous
 connaissez la chanson.
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Dernier truc tout neuf : depuis la version [0.89](https://fastapi.tiangolo.com/release-notes/#0890)
+de FastAPI, il est aussi possible d'utiliser un modèle comme annotation de type pour le retour d'une
+méthode !
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 🪐 Exo 🪐
 

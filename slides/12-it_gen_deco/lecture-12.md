@@ -21,8 +21,6 @@ Cours 12 : Itérateurs, générateurs et décorateurs
 ==================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
-
-2021-10-20
 <!-- #endregion -->
 
 ```python
@@ -31,14 +29,14 @@ from IPython.display import display
 
 On ne va pas faire un cours sur la programmation fonctionnelle, mais je vous invite cependant à vous
 intéresser à ce paradigme de programmation ou à jeter un œil au vénérable
-[Lisp](https://fr.wikipedia.org/wiki/Lisp), à [Haskell](https://www.haskell.org/) ou (cocorico à)
+[Lisp](https://fr.wikipedia.org/wiki/Lisp), à [Haskell](https://www.haskell.org/) ou (cocorico) à
 [OCaml](https://ocaml.org/).
 
-En Python tout est objet, ça vous le savez. Vous savez aussi que Python est un langage
+En Python tout est objet, ça, vous le savez. Vous savez aussi que Python est un langage
 multi-paradigme. Vous pouvez programmer dans un style procédural, en objet ou dans un style
 fonctionnel.
 
-Qu'est-ce que cela signifie un style fonctionnel ?
+Qu'est-ce que cela signifie un style fonctionànel ?
 
 Vous ne pourrez pas produire de programmation fonctionnelle « pure » mais vous pouvez vous en
 approcher en privilégiant les fonctions sans effet de bord (pas de changement d'état, par exemple
@@ -271,14 +269,14 @@ Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille
 len(mots_a_gen)
 ```
 
-Mais on peut le parcourir comme une liste. Par contre on ne peut pas les "trancher", on ne peut pas
+Mais on peut le parcourir comme une liste. Par contre, on ne peut pas les "trancher", on ne peut pas
 accéder à un élément d'index `i` comme pour une liste, et on ne peut le parcourir qu'une seule fois.
 
 
 Ça rappelle les itérateurs !
 
 
-C'est parce que c'en est un cas particuleir.
+C'est parce que c'en est un cas particulier.
 
 Les générateurs permettent de créer des itérateurs sans se fatiguer. Une fonction classique reçoit
 des paramètres, calcule un truc avec et renvoie le résultat. Un générateur renvoie un itérateur qui
