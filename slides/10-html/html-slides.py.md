@@ -18,6 +18,10 @@ jupyter:
 <!-- LTeX: language=fr -->
 <!-- #endregion -->
 
+```python
+
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 10 : Générer du HTML
 ==========================
@@ -115,7 +119,7 @@ Et vous savez comment écrire dans un fichier
 <!-- #endregion -->
 
 ```python
-with open("local/spam.html", "w") as out_stream:
+with open("local/spam.html", "w") as out_stream: 
     out_stream.write(doc)
 ```
 
@@ -284,8 +288,8 @@ OK, super mais ça on sait déjà faire
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
-something = "World"
-f"Hello {something}"
+s = "Hello {something}"
+s.format(something="World")
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -436,7 +440,7 @@ print(lst)
 ```python
 env = Environment(
     loader=FileSystemLoader("examples/templates"),
-    autoescape=False,
+    autoescape=True,
 )
 
 t = env.get_template("basic.html.jinja")
@@ -445,7 +449,7 @@ lst = t.render(
         {"name": "<strong>Guido</strong> van Rossum", "position": "Benevolent dictator for life"},
         {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
         {"name": "Kirby Conrod", "position": "Linguist and scholar"},
-    ]
+    ] 
 )
 print(lst)
 ```

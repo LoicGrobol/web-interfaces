@@ -61,7 +61,7 @@ frameworks comme [React](https://reactjs.org) ou [Angular](https://angular.io).
 
 ## Gotchas
 
-Il y a énormément à dire et à apprendre au delà de ce cours, et je vous recommande très fortement
+Il y a énormément à dire et à apprendre au-delà de ce cours, et je vous recommande très fortement
 d'aller lire, ou au moins picorer [le tutoriel de
 MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) et le [*Modern Javascript
 Tutorial*](https://javascript.info). 

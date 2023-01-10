@@ -75,14 +75,12 @@ est indisponible.
   - {% notebook_badges slides/09-fastapi/solutions.py.md %}
   [Solutions](slides/09-fastapi/solutions.py.ipynb)
 
-### 2023-01-10 — HTMl et sucre
+### 2023-01-10 — HTMl
 
 - {% notebook_badges slides/10-html/html-slides.py.md %}
   [Slides HTML](slides/10-html/html-slides.py.ipynb)
   - {% notebook_badges slides/10-html/solutions.py.md %}
   [Solutions](slides/10-html/solutions.py.ipynb)
-- {% notebook_badges slides/11-it_gen_deco/it_gen_deco-slides.py.md %}
-  [Slides itérateurs etc.](slides/11-it_gen_deco/it_gen_deco-slides.py.ipynb)
 
 ## Lire les slides en local
 
