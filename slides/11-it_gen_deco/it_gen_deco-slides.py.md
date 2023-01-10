@@ -62,6 +62,7 @@ fun
 
 ```python slideshow={"slide_type": "fragment"}
 fun2 = fun
+fun(3)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -125,9 +126,9 @@ for it in numbers:
 On peut faire ça avec tous les objets ?
 <!-- #endregion -->
 
-```python
+```python tags=["raises-exception"]
 number = 5
-for i in numbers:
+for i in number:
     print(i)
 ```
 
@@ -267,7 +268,6 @@ def with_a(words):
         if 'a' in word:
             res.append(word)
     return res
-    
 ```
 
 ```python
@@ -315,14 +315,22 @@ for w in mots_a:
     print(w)
 ```
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Construire un générateur, c'est simple : vous remplacez `return` par `yield` dans votre fonction.
+<!-- #endregion -->
 
-C'est tout ? C'est tout.  
+<!-- #region slideshow={"slide_type": "subslide"} -->
+C'est tout ?
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+C'est tout.  
 
 <small>Vous pouvez quand même en apprendre plus en lisant la [PEP
 255](https://www.python.org/dev/peps/pep-0255/) si vous aimez ça.</small>
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Est-ce que ça va vite ?
 <!-- #endregion -->
 
@@ -340,7 +348,7 @@ mots_big = mots * 1000000
 Oui, c'est de la magie. Enfin, c'est plutôt de la triche, regardez :
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "subslide"}
+```python slideshow={"slide_type": "fragment"}
 print(f"mots_a is a {type(mots_a)}")
 print(f"mots_a_gen is a {type(mots_a_gen)}")
 import sys
@@ -348,7 +356,7 @@ print(f"Taille de mots_a : {sys.getsizeof(mots_a)}")
 print(f"Taille de mots_a_gen : {sys.getsizeof(mots_a_gen)}")
 ```
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 `mots_a_gen` n'est pas une liste, c'est un objet `generator`.
 
 Il ne stocke rien ou presque en mémoire, on ne peut pas connaître sa taille
@@ -361,22 +369,27 @@ len(mots_a_gen)
 Mais on peut le parcourir comme une liste. Par contre, on ne peut pas les "trancher", on ne peut pas
 accéder à un élément d'index `i` comme pour une liste, et on ne peut le parcourir qu'une seule fois.
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Ça rappelle les itérateurs !
 <!-- #endregion -->
 
-C'est parce que c'en est un cas particulier.
+<!-- #region slideshow={"slide_type": "subslide"} -->
+C'est parce que c'est un cas particulier d'itérateur
 
-Les générateurs permettent de créer des itérateurs sans se fatiguer. Une fonction classique reçoit
-des paramètres, calcule un truc avec et renvoie le résultat. Un générateur renvoie un itérateur qui
-donne accès à un flux de données.
+Les générateurs permettent de créer des itérateurs sans se fatiguer :
 
+- une fonction classique reçoit des paramètres, calcule un truc avec et renvoie le résultat
+- un générateur renvoie un itérateur qui donne accès à un flux de données.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Concrètement, tant que vous n'appelez pas `next()`, aucun code n'est exécuté. Quand vous appelez
 `next()`, le code est exécuté jusqu'à arriver à un `yield <bidule>`. À ce moment, l'itérateur
 renvoie la valeur <bidule> et se met en pause jusqu'au prochain `next(), où il reprendra l'exécution
 là où il s'est arrêté.
 
 Comme tout itérateur vous pouvez le convertir en liste ou en tuple si vous voulez.
+<!-- #endregion -->
 
 ```python
 %time mots_a_gen = list(gen_with_a(mots_big))
@@ -387,9 +400,11 @@ Mais même sans tricher les générateurs demeurent très efficaces. Vous aurez 
 désormais chaudement recommandé de les utiliser.
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Si vous voulez en savoir plus sur la cuisine du truc vous pouvez utiliser le module `inspect`. Je
 vous conseille d'en lire la doc d'ailleurs
 : [https://docs.python.org/3/library/inspect.html](https://docs.python.org/3/library/inspect.html)
+<!-- #endregion -->
 
 ```python tags=["raises-exception"]
 import inspect
@@ -404,11 +419,13 @@ print(inspect.getgeneratorstate(mots_a_gen))
 print(next(mots_a_gen))
 ```
 
-```python
+```python slideshow={"slide_type": "subslide"}
 inspect.getgeneratorstate(mots_a_gen)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Vous pouvez aussi utiliser des générateurs en compréhension, à la manière des listes en compréhension : 
+<!-- #endregion -->
 
 ```python
 [mot for mot in mots if 'a' in mot]
@@ -418,7 +435,9 @@ Vous pouvez aussi utiliser des générateurs en compréhension, à la manière d
 (mot for mot in mots if 'a' in mot)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Un dernier exemple
+<!-- #endregion -->
 
 ```python
 %%timeit
@@ -438,7 +457,9 @@ for s in squares:
 s
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Ah, et je peux faire ça aussi
+<!-- #endregion -->
 
 ```python
 %%timeit
@@ -449,11 +470,14 @@ for s in squares:
 s
 ```
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
 Il se passerait quoi si j'essayais avec une liste en compréhension ?
 
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Encore un peu de fonctionnel : fonctions lambda, `map` et `filter`
-
+<!-- #endregion -->
 
 `map`et `filter` sont typiquement des fonctions qui viennent des langages fonctionnels. Elles
 renvoient toutes les deux des itérateurs.
@@ -464,7 +488,7 @@ renvoient toutes les deux des itérateurs.
 Oui on peut faire tout ça avec les listes en compréhension. C'est même plus pythonique, vous allez
 donc continuer à utiliser les listes en compréhension plutôt que `map` et `filter`.
 
-```python
+```python slideshow={"slide_type": "subslide"}
 def carre(x):
     return x**2
 
@@ -476,10 +500,10 @@ list(map(carre, numbers))
 ```
 
 ```python
-[it**2 for it in numbers] # so pythonic
+[it**2 for it in numbers] # sooooo pythonic
 ```
 
-```python
+```python slideshow={"slide_type": "subslide"}
 def is_even(x):
     return not x%2
 
@@ -493,20 +517,24 @@ list(filter(is_even, numbers))
 [it for it in numbers if is_even(it)]
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 C'est un peu fastidieux d'écrire ces petites fonctions pour utiliser `map` et `filter`. Avec les
 fonctions lambda, Python offre un moyen d'écrire des petites fonctions, de leur passer des
 paramètres et d'en faire des fonctions anonymes. Oui des fonctions anonymes, elles n'ont pas de nom
 quoi. Encore un truc qui vient de la programmation fonctionnelle, on en utilise plein en JavaScript
 par exemple.
+<!-- #endregion -->
 
 ```python
 for it in map(lambda x: x**2, numbers):
     print(it)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Ici on a bien une fonction qui est paramètre d'une autre fonction (`map`). On utilise souvent des
 fonctions lambda avec `sorted`, typiquement pour trier un dictionnaire par valeur comme vous le
 savez.
+<!-- #endregion -->
 
 ```python
 letters = {'a': 5, 'b': 2, 'c': 7, 'd':1, 'e':12}
@@ -514,15 +542,17 @@ for it, val in sorted(letters.items(), key=lambda item: item[1]):
     print(it, val)
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Les décorateurs
-
+<!-- #endregion -->
 
 Les décorateurs ont été introduits avec la [PEP 318](https://www.python.org/dev/peps/pep-0318/) en
-2003 dans la version 2.4 de Python.
+2003 dans la version 2.4 de Python, mais leur principe est presque aussi vieux que le langage lui-même.
 
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Une fonction est un objet. Vous savez : en Python tout est objet. On peut passer une fonction en
 paramètre d'une fonction. Une fonction peut renvoyer une fonction en valeur de retour.
+<!-- #endregion -->
 
 ```python
 def salut():
@@ -532,8 +562,10 @@ bonjour = salut # passage de la référence de l'objet (remember le cours sur l
 bonjour()
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Avec un décorateur on va emballer une fonction pour ajouter des fonctionnalités. Un décorateur
 reçoit en paramètre une fonction et l'emballe dans une autre.
+<!-- #endregion -->
 
 ```python
 def deco(func):
@@ -549,8 +581,10 @@ obj = deco(name)
 obj()
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 La PEP 318 a introduit le symbole '@'. Ça permet d'avoir une syntaxe plus simple, du code plus
 propre.
+<!-- #endregion -->
 
 ```python
 @deco
@@ -561,8 +595,10 @@ obj = name
 obj()
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Ce décorateur ne sert à rien, on est d'accord. Voici un exemple plus parlant avec un décorateur pour
 vectoriser une fonction :
+<!-- #endregion -->
 
 ```python
 def vectorise(fn):
@@ -579,7 +615,9 @@ def square(x):
 square([2, 7, 1, 3])
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Enfin, voici un décorateur pour mesurer le temps d'exécution d'une fonction :
+<!-- #endregion -->
 
 ```python
 import time
@@ -596,7 +634,7 @@ def timer(func):
     return wrapper
 ```
 
-```python
+```python slideshow={"slide_type": "subslide"}
 @timer
 def doubled_and_add(num):
     res = sum([i*2 for i in range(num)])
@@ -609,7 +647,9 @@ doubled_and_add(100000)
 doubled_and_add(1000000)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Pour la plupart des gens, *écrire* des décorateurs est assez rare. En revanche, il devient de plus
 en plus courant d'avoir à en utiliser pour certaines bibliothèques (comme FastAPI), n'hésitez
 donc pas à explorer davantage comment ils fonctionnent et ce qu'on peut faire avec (**beaucoup** de
 choses).
+<!-- #endregion -->

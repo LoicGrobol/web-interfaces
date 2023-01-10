@@ -78,7 +78,7 @@ est indisponible.
 ### 2023-01-10 — HTMl et sucre
 
 - {% notebook_badges slides/10-html/html-slides.py.md %}
-  [Slides HTML](sslides/10-html/html-slides.py.ipynb)
+  [Slides HTML](slides/10-html/html-slides.py.ipynb)
   - {% notebook_badges slides/10-html/solutions.py.md %}
   [Solutions](slides/10-html/solutions.py.ipynb)
 - {% notebook_badges slides/11-it_gen_deco/it_gen_deco-slides.py.md %}
