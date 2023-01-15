@@ -56,7 +56,7 @@ comme [JQuery](https://jquery.com/), qui
 
 Mais le besoin n'est plus aussi crucial qu'il l'a été, suite à l'introduction des API [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) et [Selectors](https://www.w3.org/TR/selectors-api).
 
-Pour faire des pages web dynamiques, au delà de cas simples, je vous recommande l'utilisation de
+Pour faire des pages web dynamiques, au-delà de cas simples, je vous recommande l'utilisation de
 frameworks comme [React](https://reactjs.org) ou [Angular](https://angular.io).
 
 ## Gotchas
@@ -120,7 +120,7 @@ const b = 3
 
 <!-- #region -->
 Contrairement à Python (mais comme beaucoup de langages), en JavaScript, on délimite les blocs non
-pas avec des tabulations mais avec des accolades :
+pas avec des tabulations, mais avec des accolades :
 
 ```javascript
 const t = [1, 2, 3, 4, 5]
@@ -141,7 +141,7 @@ d'indenter dans les blocs comme vous en avez l'habitude.
 
 
 Les variables se **déclarent** à leur première utilisation avec `let` ou `const` (pour les rendre
-constantes) ou avec `var` **mais éviter d'utiliser `var`** qui tend à devenir obsolète
+constantes) ou avec `var` **mais évitez d'utiliser `var`** qui tend à devenir obsolète
 
 <!-- #region -->
 La portée d'une variable, c'est le bloc dans lequel elle est définie, ainsi
@@ -207,26 +207,29 @@ Pour des raisons historiques, il y a trois types de boucles `for` en `JavaScrip
 
 Il y a deux façons de définir des fonctions en JavaScript :
 
-- L'historique [déclaration `function`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/function) et son jumeau le [mot-clé `function`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/function)
+- L'historique [déclaration
+  `function`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/function) et
+  son jumeau le [mot-clé
+  `function`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/function)
 
   ```javascript
   function getRectArea(width, height) {
-    return width * height;
-  };
+    return width * height
+  }
   ```
 
   ```javascript
   const getRectArea = function(width, height) {
-    return width * height;
-  };
+    return width * height
+  }
   ```
 
 - Les modernes fonctions fléchées
 
   ```javascript
   const getRectArea = (width, height) => {
-    return width * height;
-  };
+    return width * height
+  }
   ```
 
 Il y a des [différences parfois subtiles entre les
