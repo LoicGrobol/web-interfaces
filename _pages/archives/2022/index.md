@@ -1,5 +1,7 @@
 ---
-title: Interfaces web pour le TAL — M2 PluriTAL 2021
+title: Interfaces web pour le TAL — M2 PluriTAL 2022
+layout: default
+permalink: /2022/
 ---
 
 [comment]: <> "LTeX: language=fr"

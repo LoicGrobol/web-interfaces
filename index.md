@@ -9,7 +9,9 @@ layout: default
 
 ## News
 
-- **2022-11-21** Premier cours du semestre le 22/11/2022
+- **2023-01-16** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/project) sont en
+  ligne.
+- **2022-11-21** Premier cours du semestre le 22/11/2022.
 
 ## Infos pratiques
 
@@ -23,6 +25,7 @@ layout: default
 
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/project) sont en ligne
 
 ## Séances
 
