@@ -9,7 +9,7 @@ layout: default
 
 ## News
 
-- **2023-01-16** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/project) sont en
+- **2023-01-16** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en
   ligne.
 - **2022-11-21** Premier cours du semestre le 22/11/2022.
 
@@ -19,13 +19,13 @@ layout: default
 - **Où** Salle 219, bâtiment Paul Ricœur
 - **Quand** 8 séances, les mardi de 13:30 à 16:30, du 22/11/22 au 24/01/23
   - Voir le planning pour les dates exactes (quand il aura été mis en ligne)
-- **Contact** Loïc Grobol [<loic.grobol@parisnanterre.fr>](mailto:loic.grobol@parisnanterre.fr)
+- **Contact** Loïc Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 ## Liens utiles
 
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
-- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/project) sont en ligne
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en ligne
 
 ## Séances
 
