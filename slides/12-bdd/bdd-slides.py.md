@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 16 : FastAPI et les bases de données relationnelles
+Cours 12 : FastAPI et les bases de données relationnelles
 =========================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-11-17
 <!-- #endregion -->
 
 
@@ -102,13 +101,16 @@ migrer plus tard si besoin : « *premature optimisation is the root of all e
 import sqlite3
 ```
 
-Comment on ouvre une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il suffit de donner son chemin
+Comment on ouvre une base de données en SQLite ? On a dit que c'était juste un fichier, et bien il
+suffit de donner son chemin
 
 ```python
 con = sqlite3.connect("db.sqlite3")
 ```
 
-Ça créé le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne accès. On peut aussi passer `":memory:"` à la place d'un chemin, ce qui créé la base en RAM plutôt que comme un fichier.
+Ça crée le fichier s'il n'existe pas déjà, lit la base de donnée qui est dedans et vous y donne
+accès. On peut aussi passer `":memory:"` à la place d'un chemin, ce qui créé la base en RAM plutôt
+que comme un fichier.
 
 
 On fait ce qu'on a à y faire, puis on ferme la connexion.
@@ -195,12 +197,13 @@ Pas de problème jusque là, mais si un individu malveillant passe un nom qui co
 read_recette("Tiramisu' or nom <> 'Tiramisu")
 ```
 
-Ça dumpe toute la table ! Si vous avez eu la mauvaise idée de faire ça dans un `executescript` c'est pire, vous risquez de rencontrer Bobby Tables
+Ça dumpe toute la table ! Si vous avez eu la mauvaise idée de faire ça dans un `executescript` c'est
+pire, vous risquez de rencontrer Bobby Tables
 
 [![](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)](https://xkcd.com/327)
 
 
-Pour éviter ça : on utilise des requêtes paramétrées qui seront asainies pour nous
+Pour éviter ça : on utilise des requêtes paramétrées qui seront assainies pour nous
 
 ```python
 def read_recette(name):
@@ -215,7 +218,8 @@ display(read_recette("Tiramisu"))
 display(read_recette("Tiramisu' or nom <> 'Tiramisu"))
 ```
 
-Avec ça (et un manuel de SQL sous la main) vous avez l'essentiel de ce qu'il faut pour gérer des bases de données en SQLite. On l'a dit, c'est minimaliste.
+Avec ça (et un manuel de SQL sous la main) vous avez l'essentiel de ce qu'il faut pour gérer des
+bases de données en SQLite. On l'a dit, c'est minimaliste.
 
 
 Une dernière astuce ? On peut récupérer des mappings plutôt que des tuples avec `fetch…` :
@@ -236,7 +240,12 @@ recettes = read_recette("Tiramisu")
 
 ## 🌲 Exo 🌲
 
-Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire contiendra pour chaque arbre son attribut `sent_id`, la deuxième contiendra son attribut `text`, enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Remplissez cette base avec le contenu d'un treebank UD de votre choix. Vous pouvez vous aider de [`conllu`](https://github.com/EmilStenstrom/conllu) pour faire le boulot de parser le fichier.
+Écrire un script qui construit une base de données en SQLite qui contient une table à trois colonnes
+qui représente un treebank Universal Dependencies. La première colonne qui servira de clé primaire
+contiendra pour chaque arbre son attribut `sent_id`, la deuxième contiendra son attribut `text`,
+enfin la dernière contiendra l'arbre syntaxique qu format CoNLL-U. Remplissez cette base avec le
+contenu d'un treebank UD de votre choix. Vous pouvez vous aider de
+[`conllu`](https://github.com/EmilStenstrom/conllu) pour faire le boulot de parser le fichier.
 
 ## Utiliser une base de données dans FastAPI
 

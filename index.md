@@ -85,6 +85,13 @@ est indisponible.
   - {% notebook_badges slides/10-html/solutions.py.md %}
   [Solutions](slides/10-html/solutions.py.ipynb)
 
+### 2023-01-17 — Bases de données et quelques autres choses
+
+- {% notebook_badges slides/11-it_gen_deco/it_gen_deco-slides.py.md %}
+  [Slides Itérateurs etc.](slides/11-it_gen_deco/it_gen_deco-slides.py.ipynb)
+- {% notebook_badges slides/12-bdd/bdd-slides.py.md %}
+  [Slides BDD](slides/12-bdd/bdd-slides.py.ipynb)
+
 ## Lire les slides en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec

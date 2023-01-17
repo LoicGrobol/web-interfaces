@@ -19,7 +19,7 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 12 : Itérateurs, générateurs et décorateurs
+Cours 11 : Itérateurs, générateurs et décorateurs
 ==================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
