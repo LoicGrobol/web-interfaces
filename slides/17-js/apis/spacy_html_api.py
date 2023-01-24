@@ -42,5 +42,3 @@ async def postag(inpt: InputData, model="fr_core_news_sm"):
 @app.get("/list")
 async def list_models():
     return {"models": spacy.util.get_installed_models()}
-
-

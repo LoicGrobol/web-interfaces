@@ -92,6 +92,14 @@ est indisponible.
 - {% notebook_badges slides/12-bdd/bdd-slides.py.md %}
   [Slides BDD](slides/12-bdd/bdd-slides.py.ipynb)
 
+### 2023-01-24 — Quelques autres choses
+
+- {% notebook_badges slides/12-streamlit/streamlit-slides.py.md %}
+  [Slides Streamlit](slides/12-streamlit/streamlit-slides.py.ipynb)
+- {% notebook_badges slides/17-js/js-slides.py.md %}
+  [Slides js](slides/17-js/js-slides.py.ipynb)
+
+
 ## Lire les slides en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec

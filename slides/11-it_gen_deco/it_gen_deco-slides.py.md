@@ -62,7 +62,7 @@ fun
 
 ```python slideshow={"slide_type": "fragment"}
 fun2 = fun
-fun(3)
+fun2(3)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -97,10 +97,16 @@ def fun_ret(s):
 
 ```python
 fun = fun_ret("spam")
+fun
 ```
 
 ```python
 fun()
+```
+
+```python
+fun2 = fun_ret("eggs")
+fun2()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -591,8 +597,7 @@ propre.
 def name():
     print("Frédéric")
     
-obj = name
-obj()
+name()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->

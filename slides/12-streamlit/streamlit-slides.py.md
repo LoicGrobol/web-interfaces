@@ -40,7 +40,7 @@ Cependant, il existe des alternatives, qui permettent pour des cas d'usages rest
 directement des interfaces sophistiquées avec très peu d'efforts.
 
 
-On va parler ici de celle qui a le plus de succès récement et la plus intéressante pour nous : Streamlit.
+On va parler ici de celle qui a le plus de succès récemment et la plus intéressante pour nous : Streamlit.
 
 
 ## Streamlit ?
@@ -79,11 +79,11 @@ streamlit run apps/slider.py
 exécutables, entrez-les dans votre terminal.</small>
 
 
-L'application est alors servi depuis votre machine et un onglet s'ouvre dans votre navigateur (sinon
-allez à l'URL donnée dans la console).
+L'application est alors servie depuis votre machine et un onglet s'ouvre dans votre navigateur
+(sinon allez à l'URL donnée dans la console).
 
 
-Comment ça marche ? Eh bien à chaque fois que vous intergissez avec le slider, Streamlit relance le
+Comment ça marche ? Eh bien à chaque fois que vous interagissez avec le slider, Streamlit relance le
 script, en injectant la nouvelle valeur.
 
 
@@ -130,7 +130,8 @@ streamlit run apps/show_dataframe.py
 ```
 <!-- #endregion -->
 
-Voir [la doc](https://docs.streamlit.io/library/advanced-features/caching) pour les détails de fonctionnement de `st.cache`.
+Voir [la doc](https://docs.streamlit.io/library/advanced-features/caching) pour les détails de
+fonctionnement de `st.cache`.
 
 
 ## Widgets graphiques

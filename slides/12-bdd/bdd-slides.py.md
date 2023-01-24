@@ -18,6 +18,10 @@ jupyter:
 <!-- LTeX: language=fr -->
 <!-- #endregion -->
 
+```python
+
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 12 : FastAPI et les bases de données relationnelles
 =========================================================
@@ -404,7 +408,7 @@ dépendance](https://fastapi.tiangolo.com/tutorial/dependencies)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Quand un paramètre dans un point d'accès a comme annotation de type `Depends(get_db)`, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`.
+Quand un paramètre dans un point d'accès a comme valeur par défaut `Depends(get_db)`, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`.
 
 Une fois la fonction correspondant au point d'accès terminée, FastAPI reprends l'exécution de `get_db` pour faire un `commit`, puis fermer le curseur et la base.
 <!-- #endregion -->
@@ -463,7 +467,11 @@ Base.metadata.create_all(bind=engine)
 
 # Methods for interacting with the database
 def get_tree(db: Session, tree_id: str):
-    return db.query(DBTree).where(DBTree.tree_id == tree_id).first()
+    return db.query(
+        DBTree
+    ).where(
+        DBTree.tree_id == tree_id
+    ).first()
 
 
 def get_trees(db: Session):
