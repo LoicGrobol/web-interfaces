@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.1
+      jupytext_version: 1.14.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -21,8 +21,6 @@ Cours 17 : *And another thing…*
 ===============================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
-
-2021-11-17
 <!-- #endregion -->
 
 
@@ -37,7 +35,7 @@ des pages web et être interprété par les navigateurs. Ça permet de donner de
 des pages web sans avoir à communiquer avec un serveur distant : JavaScript tourne en local, sur la
 machine qui affiche la page.
 
-Depuis, comme les autres technologies du web ses usages se sont considérablement étendues, notamment
+Depuis, comme les autres technologies du web ses usages se sont considérablement étendus, notamment
 via [NodeJS](https://nodejs.org) qui permet de l'utiliser comme un langage de programmation système
 ou des plateformes comme [React Native](https://reactnative.dev) ou
 [Electron](https://www.electronjs.org) qui permettent de concevoir des interfaces graphiques natives
