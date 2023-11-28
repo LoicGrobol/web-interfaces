@@ -10,6 +10,7 @@ jupyterlab_rise
 jupytext
 lxml
 nbconvert
+nbgitpuller
 numpy
 matplotlib
 pyflakes

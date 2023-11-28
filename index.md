@@ -9,7 +9,7 @@ layout: default
 
 ## News
 
-- **2022-11-27** Premier cours du semestre le 28/11/2022.
+- **2023-11-27** Premier cours du semestre le 28/11/2023.
 
 ## Infos pratiques
 
@@ -17,9 +17,12 @@ layout: default
 - **Où** Salle 410, bâtiment de la formation continue.
 - **Quand** 8 séances, les mardi de 13:30 à 16:30, du 28/11/22 au 31/01/24
 - **Contact** Loïc Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+  - Demandez une invite pour le serveur Discord !
 
 ## Liens utiles
 
+- Prendre rendez-vous pour des *office hours* en visio :
+  [Calendly](https://calendly.com/lgrobol/remote-office-hour)
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
 ## Séances
@@ -36,8 +39,8 @@ est indisponible.
 ### 2023-11-28 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %}
-  [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.md)
-  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.md)
+  [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
+  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
 
 
 ## Lire les slides en local
