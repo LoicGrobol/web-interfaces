@@ -36,11 +36,11 @@ Les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 sans rien installer. Les slides ont aussi des liens vers une version HTML statique utile si Binder
 est indisponible.
 
-### 2023-11-28 — Internet et programmation orientée objet
+### 2023-11-28 — *Crash course* Python
 
 - {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %}
   [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
-  - [Liste de Swadesh (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/swadesh_light.csv)
+  - [Liste de Swadesh (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/austronesian_swadesh.csv)
   - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels-solutions.py.ipynb)
 
 ## Lire les slides en local
