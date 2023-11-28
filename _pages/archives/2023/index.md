@@ -1,6 +1,7 @@
 ---
-title: Interfaces web pour le TAL — M2 PluriTAL 2024
+title: Interfaces web pour le TAL — M2 PluriTAL 2023
 layout: default
+permalink: /2023/
 ---
 
 [comment]: <> "LTeX: language=fr"
@@ -9,19 +10,24 @@ layout: default
 
 ## News
 
-- **2022-11-27** Premier cours du semestre le 28/11/2022.
+- **2023-01-16** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en
+  ligne.
+- **2022-11-21** Premier cours du semestre le 22/11/2022.
 
 ## Infos pratiques
 
 - **Quoi** « Interfaces web pour le TAL »
-- **Où** Salle 410, bâtiment de la formation continue.
-- **Quand** 8 séances, les mardi de 13:30 à 16:30, du 28/11/22 au 31/01/24
+- **Où** Salle 219, bâtiment Paul Ricœur
+- **Quand** 8 séances, les mardi de 13:30 à 16:30, du 22/11/22 au 24/01/23
+  - Voir le planning pour les dates exactes (quand il aura été mis en ligne)
 - **Contact** Loïc Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 ## Liens utiles
 
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en ligne
+
 ## Séances
 
 Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), voir
@@ -42,6 +48,57 @@ est indisponible.
   [Slides OOP](slides/02-OOP/oop-slides.py.ipynb)
   - [Correction CoNLL-U 1]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v1.py)
   - [Correction CoNLL-U 2]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v2.py)
+
+### 2022-11-29 – Modules, requests, et HTML
+
+- {% notebook_badges slides/03-modules/modules-slides.py.md %}
+  [Slides modules](slides/03-modules/modules-slides.py.ipynb)
+- {% notebook_badges slides/04-requests/requests-slides.py.md %}
+  [Slides request](slides/04-requests/requests-slides.py.ipynb)
+- Suivre le tutoriel [*Getting started with HTML*](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) sur MDN
+
+### 2022-12-06 – Parser et APIs REST
+
+- {% notebook_badges slides/05-parsers/parsers-slides.py.md %}
+  [Slides parser](slides/05-parsers/parsers-slides.py.ipynb)
+  - {% notebook_badges slides/05-parsers/solutions.py.md %} [Corrections](slides/05-parsers/solutions.py.ipynb)
+- {% notebook_badges slides/06-REST/rest-slides.py.md %}
+  [Slides REST](slides/06-REST/rest-slides.py.ipynb)
+
+### 2022-12-16 – Git, débuggueurs, formateurs et linters
+
+- {% notebook_badges slides/07-git/git-slides.py.md %}
+  [Slides git](slides/07-git/git-slides.py.ipynb)
+- {% notebook_badges slides/08-debugger/debug-slides.py.md %}
+  [Slides débuggueurs, formateurs et linters](slides/08-debugger/debug-slides.py.md)
+
+### 2023-01-03 — Typage et FastAPI
+
+- {% notebook_badges slides/09-fastapi/fastapi-slides.py.md %}
+  [Slides FastAPI](slides/09-fastapi/fastapi-slides.py.ipynb)
+  - {% notebook_badges slides/09-fastapi/solutions.py.md %}
+  [Solutions](slides/09-fastapi/solutions.py.ipynb)
+
+### 2023-01-10 — HTMl
+
+- {% notebook_badges slides/10-html/html-slides.py.md %}
+  [Slides HTML](slides/10-html/html-slides.py.ipynb)
+  - {% notebook_badges slides/10-html/solutions.py.md %}
+  [Solutions](slides/10-html/solutions.py.ipynb)
+
+### 2023-01-17 — Bases de données et quelques autres choses
+
+- {% notebook_badges slides/11-it_gen_deco/it_gen_deco-slides.py.md %}
+  [Slides Itérateurs etc.](slides/11-it_gen_deco/it_gen_deco-slides.py.ipynb)
+- {% notebook_badges slides/12-bdd/bdd-slides.py.md %}
+  [Slides BDD](slides/12-bdd/bdd-slides.py.ipynb)
+
+### 2023-01-24 — Quelques autres choses
+
+- {% notebook_badges slides/12-streamlit/streamlit-slides.py.md %}
+  [Slides Streamlit](slides/12-streamlit/streamlit-slides.py.ipynb)
+- {% notebook_badges slides/17-js/js-slides.py.md %}
+  [Slides js](slides/17-js/js-slides.py.ipynb)
 
 
 ## Lire les slides en local

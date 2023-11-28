@@ -352,6 +352,8 @@ suivantes :
     passe-t-il ? Pourquoi ?
 11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
+    avec d'autres ête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
+    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
     avec d'autres headers.
 12. Faites une requête PUT à <https://httpbin.org/anything>
 13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
