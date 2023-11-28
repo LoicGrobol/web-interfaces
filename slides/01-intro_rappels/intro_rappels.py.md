@@ -118,19 +118,27 @@ ma_nouvelle_fonction(2715)
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
+def mon_incroyable_retour(nombre):
+    return nombre + 3
+
 def mon_incroyable_affichage(nombre):
     print(nombre + 3)
-
-def mon_incroyable_retour(nombre):
-    return nombre + 2
 ```
 
 ```python slideshow={"slide_type": "fragment"}
-mon_incroyable_retour(27) 
+mon_incroyable_retour(27)
 ```
 
 ```python slideshow={"slide_type": "subslide"}
 mon_incroyable_affichage(27)
+```
+
+```python slideshow={"slide_type": "fragment"}
+type(mon_incroyable_retour(27))
+```
+
+```python slideshow={"slide_type": "subslide"}
+type(mon_incroyable_affichage(27))
 ```
 
 ```python slideshow={"slide_type": "fragment"}
@@ -674,7 +682,7 @@ else:
 i = 1
 while i < 5:
     print(i)
-    i = i + 1
+    i = i + 1 
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
