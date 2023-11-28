@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.12.0
+      jupytext_version: 1.15.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -346,13 +346,12 @@ propres à la catégorie d'objets *séquences* :
 
 (Vous connaissez d'autres *séquences* au fait ?)
 
-- longueur, minimum, maximum
+- longueur
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "-"}
 spam = "bonjour"
 print(len(spam))
-print(max(spam))
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -382,7 +381,7 @@ print(spam[-3:]) # 3 derniers éléments
 
 ```python slideshow={"slide_type": "-"}
 if 'u' in spam:
-    print("Il y a un u dans {}".format(spam))
+    print(f"Il y a un u dans {spam}")
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -512,7 +511,8 @@ chaine[1] = 'y'
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "-"} -->
-- Les listes sont des *séquences* (comme `str`, `tuple`, `list`)
+- Les listes sont des *séquences* (comme `str` qui sont des séquences de *caractères) d'objets
+  *arbitraires*.
 - Les *séquences* sont des structures de données indicées qui peuvent contenir des éléments de
   différents types
 - Les *séquences* sont des *itérables*, les listes aussi donc
@@ -542,6 +542,17 @@ stack
 <!-- #region slideshow={"slide_type": "fragment"} -->
 C'est même le prototype d'une séquence mutable, elles servent à tout, partout, en Python.
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Quelques fonctions utiles pour des listes de nombres
+<!-- #endregion -->
+
+```python
+lst = [2, 7, 1, 3]
+print(max(lst))
+print(min(lst))
+print(sum(lst))
+```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### ✍️ Exo 5 ✍️
@@ -1183,7 +1194,8 @@ d
 
   - `defaultdict`
 
-`defauldict` est similaire à un `dict` mais il permet l'autovivification
+`defauldict` est similaire à un `dict`, mais il permet l'*autovivification* : les clés sont créées à
+la volée si elles n'existent pas.
 
 Son implémentation le rend plus rapide qu'un dictionnaire utilisé avec la fonction `setdefault`
 
@@ -1223,11 +1235,10 @@ Faites la même chose avec un dictionnaire
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Les fichiers
 
-- Pour travailler avec les fichiers on doit procéder à trois opérations :
+- Pour travailler avec les fichiers on doit procéder à deux opérations :
    1. Ouverture avec la fonction [`open`](https://docs.python.org/3/library/functions.html#open)
       (lève l'exception `FileNotFoundError` en cas d'échec)
    2. Lecture (`read` ou `readline` ou `readlines`) et/ou écriture (`write`)
-   3. Fermeture du fichier avec la fonction `close`
 - Ouverture
   - `open` est une fonction qui accepte de nombreux arguments : lire [la
     doc](https://docs.python.org/3/library/functions.html#open)
@@ -1235,9 +1246,12 @@ Faites la même chose avec un dictionnaire
   - Le plus souvent elle s'emploie de la manière suivante :
 
     ```python
-      >>> #f = open(filename, mode)	   
-      >>> f = open('nom_fichier', 'w')
+    with open("mon_fichier", mode="r") as in_stream:
+        read_data = in_stream.read()
     ```
+
+    L'utilisation du mot clé `with` garantit la fermeture du fichier même si une exception est
+    soulevée.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -1255,50 +1269,45 @@ Voir [la doc](https://docs.python.org/3/library/functions.html#open) pour les d�
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-## Les fichiers : ouverture
-
-La documentation de Python conseille cette façon de faire :
-<!-- #endregion -->
-```python
-with open('mon_fichier', 'r') as f:
-    read_data = f.read()
-```
-
-L'utilisation du mot clé `with` garantit la fermeture du fichier même si une exception est soulevée.
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
 ## Les fichiers : lecture
 
-- `read(size=-1)` lit les `size` premiers octets (mode `b`) ou caractères (mode `t`). Si `size` < 0,
+- `read(size=-1)` lit les `size` premiers octets (mode `b`) ou caractères (mode `t`). Si `size < 0`,
   lit tout le fichier.
-- `readline(size=-1)` lit au plus `size` caractères ou jusqu'à la fin de ligne. Si `size` < 0, lit
+- `readline(size=-1)` lit au plus `size` caractères ou jusqu'à la fin de ligne. Si `size < 0`, lit
   toute la ligne. Il est conseillé de ne pas toucher à `size`.
 - `readlines(hint=-1)` lit `hint` lignes du fichier. Si `hint` < 0, lit toutes les lignes du
   fichier.
-- un objet `file` est un itérable ! (*the pythonic way*)
+- Un objet `file` est un itérable ! C'est la façon Pythonique de faire :
 <!-- #endregion -->
 
 ```python
-for line in f:
-    process(line)
+with open("data/demo.txt") as in_stream:
+    for line in in_stream:
+        print(line)
+```
+
+Attention, les fins de lignes sont conservées (c'est pour ça qu'on a des lignes blanches ici). Pour les enlever on peut utiliser `strip()` :
+
+```python
+with open("data/demo.txt") as in_stream:
+    for line in in_stream:
+        print(line.strip())
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Les fichiers : écriture et fermeture
 
-- `write(text)` écrit `texte` dans le fichier
-- `close()` ferme le fichier.  
+`write(text)` écrit `texte` dans le fichier
 
-En règle générale veillez à toujours fermer les objets fichiers.  
-En mode écriture oublier de fermer un fichier peut réserver des mauvaises surprises
-
-- fonction `print`
 <!-- #endregion -->
 ```python slideshow={"slide_type": "-"}
-with open('mon_fichier', 'w') as output_f:
-    for item in words:
-        print(item, file=output_f)
+with open("demo.txt", 'w') as out_stream:
+    for item in ["spam", "ham", "ægget"]:
+        out_stream.write(item)
+        out_stream.write("\n")
 ```
+
+Attention, `write` n'ajoute pas de fin de ligne `\n` à votre place.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 - `sys.stdin`, `sys.stdout` et `sys.stderr` sont des objets de type `file`
 <!-- #endregion -->
@@ -1306,8 +1315,9 @@ with open('mon_fichier', 'w') as output_f:
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### ✍️ Exo 11
 
-Lisez le fichier `data/austronesian_swadesh.csv` et écrivez les mots des langues Ilocano et Malagasy
-dans deux fichiers distincts.  
+Lisez le fichier [`data/austronesian_swadesh.csv`](data/austronesian_swadesh.csv) et écrivez les
+mots des langues Ilocano et Malagasy dans deux fichiers distincts.
+
 Les données viennent de
 [Wiktionary](https://en.wiktionary.org/wiki/Appendix:Austronesian_Swadesh_lists).
 
