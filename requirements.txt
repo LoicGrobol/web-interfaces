@@ -1,6 +1,5 @@
 beautifulsoup4
 fastapi
-flake8
 ipycytoscape
 ipympl
 Jinja2
@@ -13,9 +12,9 @@ nbconvert
 nbgitpuller
 numpy
 matplotlib
-pyflakes
 regex
 RISE
+ruff
 scipy
 spacy
 spacy_streamlit
