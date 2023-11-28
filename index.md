@@ -33,15 +33,11 @@ Les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 sans rien installer. Les slides ont aussi des liens vers une version HTML statique utile si Binder
 est indisponible.
 
-### 2022-11-22 — Internet et programmation orientée objet
+### 2023-11-28 — Internet et programmation orientée objet
 
-- {% notebook_badges slides/01-internet/internet-slides.py.md %}
-  [Slides Internet](slides/01-internet/internet-slides.py.ipynb)
-  - [Corrections]({{site.url}}{{site.baseurl}}/slides/01-internet/curl.sh)
-- {% notebook_badges slides/02-OOP/oop-slides.py.md %}
-  [Slides OOP](slides/02-OOP/oop-slides.py.ipynb)
-  - [Correction CoNLL-U 1]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v1.py)
-  - [Correction CoNLL-U 2]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v2.py)
+- {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %}
+  [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.md)
+  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.md)
 
 
 ## Lire les slides en local

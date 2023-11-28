@@ -21,8 +21,6 @@ Cours 1 : corrections
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2022-09-21
-
 ## ✍️ Exos 1 ✍️
 
 ### Carré

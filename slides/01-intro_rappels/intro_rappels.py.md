@@ -17,66 +17,12 @@ jupyter:
 <!-- #region slideshow={"slide_type": "slide"} -->
 <!-- LTeX: language=fr -->
 
-Cours 1 : Introduction et rappels Python
-========================================
+Cours 1 : Crash course Python
+=============================
 
 **Loïc Grobol** [\<lgrobol@parisnanterre.fr\>](mailto:lgrobol@parisnanterre.fr)
 
-2022-09-21
-
 <!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Bonjour
-
-- Loïc Grobol (il/iel) [<loic.grobol@parisnanterre.fr>](mailto:loic.grobol@parisnanterre.fr)
-- PHILLIA / MoDyCo (Bâtiment Rémond, 4ème, bureau 404C)
-- *Office hours* le mardi après-midi, n'hésitez pas à passer y compris sans rendez-vous (mais je
-  préfère si vous m'envoyez un mail pour me prévenir)
-- De manière générale, n'hésitez pas à m'écrire
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Infos pratiques
-
-- **Quoi** « Apprentissage artificiel »
-- **Où** Salle 219, bâtiment Paul Ricœur
-- **Quand** 8 séances, les mercredi de 9:30 à 12:30, du 21/09 au 16/11
-  - Voir le planning pour les dates exactes (quand il aura été mis en ligne)
-
-→ PC portable obligatoire pour les cours, de préférence chargé. Si c'est un problème parlez-m'en
-tout de suite et on trouvera une solution.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Liens
-
-- La page du cours (slides, documents, nouvelles, consignes…)
-  - → <https://loicgrobol.github.io/apprentissage-artificiel>
-- Le dépôt GitHub (sources, compléments et historique)
-  - → <https://github.com/LoicGrobol/apprentissage-artificiel>
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Setup
-
-- Tous les notebooks s'ouvrent dans [Binder](https://mybinder.org), y compris les slides
-- Pour l'instant on peut s'en contenter, pour la suite ça ne suffira pas
-- Pour la séance prochaine, il faudra avoir Python 3 installé (mais c'est déjà votre cas à toustes,
-  non ?)
-
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## Aujourd'hui
-
-Crash course Python
-<!-- #endregion -->
-
-```python slideshow={"slide_type": "fragment"}
-print("C'est parti")
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Opérateurs mathématiques et fonctions
