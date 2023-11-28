@@ -269,7 +269,7 @@ MAIS ON NE LE FAIT PAS
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Les types
+## Les types
 
 - Python est un langage à typage *dynamique* fort : le type d'une variable est déterminé par
   l'interpréteur.
@@ -296,7 +296,7 @@ type("Hello")
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "-"}
-isinstance('hello', int)
+isinstance("hello", int)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -780,7 +780,8 @@ assert caracteristiques(1, 1, 1) ==  ("equilatéral", 1)
 assert caracteristiques(1, 1, 2) == ("isocèle", 2)
 assert caracteristiques(1, 2, 1) == ("isocèle", 2)
 assert caracteristiques(2, 1, 1) == ("isocèle", 2)
-assert caracteristiques(2, 3, 1) == ("quelconque", 3)
+assert caracteristiques(2, 3, 1.5) == ("quelconque", 3)
+assert caracteristiques(2, 3, 1) == ("quelconque", 3)  # C'est un triangle plat
 assert caracteristiques(2, 3, 6) == "pas un triangle"
 assert caracteristiques(6, 3, 2) == "pas un triangle"
 assert caracteristiques(2, 6, 3) == "pas un triangle"

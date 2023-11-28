@@ -108,7 +108,7 @@ cas, quand A passe un message à B, il le passe d'abord au hub (en lui disant qu
 B) et le routeur le passe à B.
 
 Il existe d'autres types de réseaux (on parle de *topologie*), le plus important étant les réseaux
-en anneau, qui ne nécessitent pas de centre mais sont moins efficaces.
+en anneau, qui ne nécessitent pas de centre, mais sont moins efficaces.
 
 On peut aussi connecter entre eux des réseaux de ce type, en formant des arbres
 
@@ -133,24 +133,27 @@ des couches inférieures et supérieures.
 
 Dans le modèle TCP/IP, on distingue en général quatre couches
 
-- La couche *applicative* concerne la façon dont une application sur une machine A communique avec
+- La couche **applicative** concerne la façon dont une application sur une machine A communique avec
   une application sur une machine B. On y suppose que chacune des deux applications a accès à une
   interface sur laquelle elle peut envoyer et recevoir des données en sachant qu'elles seront
   correctement transmises à l'autre application. C'est surtout ce niveau qui va nous intéresser.
-- La couche *de transport* définie la façon dont deux machines sur un réseau communiquent. On y
+- La couche de **transport** définie la façon dont deux machines sur un réseau communiquent. On y
   suppose que chaque machine a accès à une interface permettant de passer des messages à l'autre
   machine.
-- La couche *internet* concerne la façon dont des réseaux déjà existants peuvent établir des
+- La couche **internet** concerne la façon dont des réseaux déjà existants peuvent établir des
   communications entre eux et les utiliser pour se passer des messages via leurs routeurs.
-- La couche *de lien* concerne la façon dont les données transitent sur un réseau entre les machines
-  de ce réseau et leur routeur ou entre deux routeurs.
+- La couche de *lien** concerne la façon dont les données transitent sur un réseau entre les
+  machines de ce réseau et leur routeur ou entre deux routeurs.
 
-Imaginons (en simplifiant) qu'une application a sur une machine A veuillent passer un message à une
-application b sur une machine B. Elle place ce message dans un paquet HTTP (applicatif), et le
-confie à l'interface réseau de A, qui va le placer dans un paquet TCP (transport) et la transmettre
-à son routeur (avec lequel elle communique sur la couche de lien). Le routeur va alors déterminer le
-trajet que doit effectuer le paquet pour aller jusqu'à B et le transmettre (couche internet). Le
-paquet arrive au routeur de B qui le transmet à b en suivant les étapes en sens inverse.
+Imaginons (en simplifiant) qu'une application $a$ sur une machine $A$ veuille passer un message à
+une application $b$ sur une machine $B$ :
+
+- $a$ place le message dans un paquet HTTP (**applicatif**)
+- le confie à l'interface réseau de $A$, qui va le placer dans un paquet TCP (**transport**)
+- la transmettre à son routeur (avec lequel elle communique sur la couche de **lien**).
+- Le routeur détermine le trajet que doit effectuer le paquet pour aller jusqu'à $B$ et le
+  transmettre (couche **internet**).
+- Le paquet arrive au routeur de $B$ qui le transmet à $b$ en suivant les étapes en sens inverse.
 
 D'autres couches peuvent venir s'y intercaler. Par exemple pour des communications sécurisées, le
 protocole TLS vient s'intercaler entre la couche transport (TCP) et la couche applicative (HTTP).
@@ -249,12 +252,12 @@ HTTP/3.
 Ses caractéristiques principales, liées à son objectif initial de relier des pages d'hypertextes
 sont d'être :
 
-- Textuel : les métadonnées sont transmises sous forme de données en texte, donc en
-  chaînes de caractères.
+- Textuel : les métadonnées sont transmises sous forme de données en texte, donc en chaînes de
+  caractères.
 - Simple : les messages passés via HTTP sont censés pouvoir être lu et facilement compris par des
-  humain⋅e⋅s
-- Sans mémoire (stateless) : chaque message est indépendant des précédents, ce qui signifie que deux
-  messages identiques devraient avoir des effets identiques.
+  humain⋅es
+- Sans mémoire (*stateless*) : chaque message est indépendant des précédents, ce qui signifie que
+  deux messages identiques devraient avoir des effets identiques.
 
 Ces principes sont en pratique plus souple : si le format est basé sur du texte, il est tout à fait
 possible de l'utiliser pour transmettre d'autres types de données, et en pratique, il est très
