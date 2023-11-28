@@ -40,8 +40,8 @@ est indisponible.
 
 - {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %}
   [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
+  - [Liste de Swadesh (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/swadesh_light.csv)
   - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels-solutions.py.ipynb)
-
 
 ## Lire les slides en local
 

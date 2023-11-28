@@ -514,6 +514,7 @@ l'utilisation d'objets d'autres classes comme attributs. Voir
 <https://python-patterns.guide/gang-of-four/composition-over-inheritance/>
 
 <!-- TODO: ajouter des exemples de données pour tester !!!!!! -->
+<!-- TODO: revoir ces exos… !!!!!! -->
 
 ### ☕ Exos 1 ☕
 

@@ -156,7 +156,8 @@ print(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
 _**J**ava**s**cript **O**bject **N**otation_. Comme son nom l'indique, c'est (à de tout, tout petits
 détails près) la syntaxe pour noter des objets en Javascript.
 
-C'est très très très proche de la syntaxe des `dict` litéraux en Python. Sauf quand c'est différent.
+C'est très très très proche de la syntaxe des `dict` littéraux en Python. Sauf quand c'est
+différent.
 
 Comme d'habitude [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) est
 notre meilleur⋅e ami⋅e. Il a aussi [une description formelle
@@ -204,7 +205,6 @@ response.json()
 Il faut passer les données au paramètre `json` de `requests.post` et non `data` (ou alors il faut
 lui passer sous forme de chaîne de caractère et avoir dans les headers `"Content-Type"` qui vaut
 `"application/json"`).
-
 
 ## 🌐 Exo 🌐
 

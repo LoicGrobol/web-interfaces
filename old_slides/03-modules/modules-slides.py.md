@@ -17,7 +17,7 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 2 : Modules
+Cours 3 : Modules
 =================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
@@ -27,7 +27,8 @@ Cours 2 : Modules
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Les fonctions c'est bien
 
-Quand on réutilise plusieurs fois le même morceau de code, c'est pratique de ne pas avoir à se répéter
+Quand on réutilise plusieurs fois le même morceau de code, c'est pratique de ne pas avoir à se
+répéter
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "subslide"}
@@ -81,18 +82,22 @@ keep_only_10_most_common("Aujourd’hui, maman est morte. Ou peut-être hier, je
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ## Pour vivre heureux, cachons le code
 
-Cette division du code en morceaux plus petits et autonomes s'appelle *séparation des préoccupations*.
+Cette division du code en morceaux plus petits et autonomes s'appelle *séparation des
+préoccupations*.
 
-**Principe** : chaque fonction doit faire une chose et une seule en étant la plus générique possible.
+**Principe** : chaque fonction doit faire une chose et une seule en étant la plus générique
+possible.
 
-Par exemple, peu importe que je n'applique `most_common` que sur des chaînes de caractères ici, elle marcherait pour n'importe quel itérable
+Par exemple, peu importe que je n'applique `most_common` que sur des chaînes de caractères ici, elle
+marcherait pour n'importe quel itérable
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 - Je ne m'occupe que d'une chose à la fois
 - Je ne m'encombre pas l'esprit avec des informations qui ne concernent pas cette chose
-- Quand j'utilise ma fonction, je ne me soucie plus de comment elle a été écrite (et l'implémentation est donc facile à changer)
-- Accessoirement, je ne pollue pas l'espace de nom avec des variables qui ne serviront plus
+- Quand j'utilise ma fonction, je ne me soucie plus de comment elle a été écrite (et
+  l'implémentation est donc facile à changer)
+- Accessoirement, je ne pollue pas l'*espace de nom* avec des variables qui ne serviront plus
 
 On rejoint le concept d'API, dont on reparlera
 <!-- #endregion -->
@@ -115,16 +120,20 @@ Jusque là ça n'a pas l'air très intéressant.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-1. Dans votre fichier `libspam.py`, insérez le code suivant
-  ```python
-  def sing():
-        print("spam, spam, lovely spam!")
-  ```
-2. Créez un fichier `spam.py` **dans le même dossier** et insérez-y
-  ```python
-  import libspam
-  libspam.sing()
-  ```
+1. Dans votre fichier `libspam.py`, insérez le code suivant :
+
+   ```python
+   def sing():
+         print("spam, spam, lovely spam!")
+   ```
+
+2. Créez un fichier `spam.py` **dans le même dossier** et insérez-y :
+
+   ```python
+   import libspam
+   libspam.sing()
+   ```
+
 3. Exécutez `spam.py` (`python3 spam.py`)
 <!-- #endregion -->
 
@@ -134,7 +143,8 @@ Jusque là ça n'a pas l'air très intéressant.
 C'est le niveau suivant de séparation des préoccupations : du code autonome dans un fichier
 différent
 
-→ Non seulement vous n'avez pas besoin de **penser** au code mais vous n'avez même pas à le **voir**
+→ Non seulement vous n'avez pas besoin de **penser** au code, mais vous n'avez même pas à le
+**voir**
 
 Vous pouvez même garder les mêmes modules d'un projet à l'autre, plus de copier-coller brutal de
 code entre vos projets !
@@ -185,8 +195,8 @@ commencent par un underscore
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Les membres entourés d'underscores (comme `__file__`), ou *dunders* sont des membres traités par le
-langage de façon particulière.
+Les membres entourés d'underscores (comme `__file__`), ou *dunders* (pour *double underscore*) sont
+des membres traités par le langage de façon particulière.
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
@@ -199,7 +209,7 @@ Par exemple `__file__` n'est pas défini dans `re.py`, mais est affecté au mome
 # `import`
 
 La commande `import` est l'une des plus importantes commandes de python. Quand elle est invoquée
-comme `import machin`, Python
+comme `import machin`, Python :
 
 1. Cherche dans les dossiers de modules un fichier nommé `machin.py`
 2. Exécute le code qu'il contient
@@ -230,7 +240,7 @@ On peut également importer des modules qui se trouvent dans des sous-dossiers d
 
 Si par exemple vous avez l'arborescence suivante
 
-```
+```text
 .
 ├── script.py
 └── spam
@@ -311,7 +321,8 @@ print(ham.getvalue().splitlines()[3])
 Un package python peut contenir des modules, des répertoires et sous-répertoires, et bien souvent du
 non-python : de la doc html, des données pour les tests, etc… On en reparlera.
 
-Le répertoire principal et les répertoires contenant des modules python doivent contenir un fichier `__init__.py`
+Le répertoire principal et les répertoires contenant des modules python doivent contenir un fichier
+`__init__.py`
 
 `__init__.py` peut être vide, contenir du code d'initialisation ou contenir la variable `__all__`
 
@@ -378,3 +389,5 @@ raison**.
 sys.path.append("[...]") # le chemin vers le dossier operations_pack
 sys.path
 ```
+
+## Exoooooooos
