@@ -38,10 +38,13 @@ est indisponible.
 
 ### 2023-11-28 — *Crash course* Python
 
-- {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %}
-  [Crash course python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
-  - [Liste de Swadesh (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/austronesian_swadesh.csv)
-  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels-solutions.py.ipynb)
+- {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %} [Crash course
+  python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
+  - [Liste de Swadesh
+    (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/austronesian_swadesh.csv)
+  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels-solutions.py.ipynb)
+
 ### 2023-12-12 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/02-internet/internet.py.md %}
