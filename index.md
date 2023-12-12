@@ -49,6 +49,7 @@ est indisponible.
 
 - {% notebook_badges slides/02-internet/internet.py.md %}
   [Notebook internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
+  - [Solutions exercices cURL]({{site.url}}{{site.baseurl}}/slides/02-internet/curl.sh)
 - {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
   - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/03-OOP/data/fr_gsd-ud-train.conllu)
 
@@ -79,14 +80,13 @@ extensions adéquates. Le plus simple est le suivant
 4. Lancez Jupyter
 
    ```console
-   jupyter notebook
+   jupyter lab
    ```
-
-   JupyterLab est aussi utilisable, mais la fonctionnalité slide n'y fonctionne pas pour l'instant.
 
 ## Ressources
 
-Il y a beaucoup, beaucoup de ressources disponibles pour apprendre Python. Ce qui suit n'est qu'une sélection.
+Il y a beaucoup, beaucoup de ressources disponibles pour apprendre Python. Ce qui suit n'est qu'une
+sélection.
 
 ## Livres
 
