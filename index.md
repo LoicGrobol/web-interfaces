@@ -48,8 +48,8 @@ est indisponible.
 ### 2023-12-12 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/02-internet/internet.py.md %}
-  [Notebook internet]({{site.url}}{{site.baseurl}}slides/02-internet/internet.py.ipynb)
-- {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.md)
+  [Notebook internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
+- {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
   - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/03-OOP/data/fr_gsd-ud-train.conllu)
 
 ## Lire les slides en local
