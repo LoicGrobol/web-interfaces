@@ -1447,7 +1447,7 @@ re.sub(r'e|é', 'i', 'éléphanteau')
 ## `\w`
 
 `\w` est la classe prédéfinie des caractères alphanumériques, c'est-à-dire à tous les caractères qui
-ont la propriété Unicode `Letter`` d'après le module `unicodedata` (sauf si le motif est compilé
+ont la propriété Unicode `Letter` d'après le module `unicodedata` (sauf si le motif est compilé
 en binaire ou si l'option `re.ASCII` est activée)
 <!-- #endregion -->
 
