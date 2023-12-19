@@ -62,13 +62,16 @@ est indisponible.
 
 - {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
+  - Solutions :
+    - [Script avec `click`]({{site.url}}{{site.baseurl}}/sslides/04-requests/requrl_click.py)
+    - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/sslides/04-requests/requrl_argparse.py)
 - {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
   REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
 
 Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 <lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
 le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
-`Nanterre`, `P3` ou `Inalco`.
+`Nanterre`, `P3` ou `Inalco`.s
 
 ## Utilisation en local
 
@@ -107,17 +110,17 @@ sélection.
 
 ## Livres
 
-- How to think like a computer scientist, by Jeffrey Elkner, Allen B. Downey, and Chris Meyers.
-Vous pouvez l'acheter. Vous pouvez aussi le lire [ici](http://openbookproject.net/thinkcs/python/english3e/)
-- Dive into Python, by Mark Pilgrim.
-[Ici](http://www.diveintopython3.net/) vous pouvez le lire ou télécharger le pdf.
-- Learning Python, by Mark Lutz.
-- Beginning Python, by Magnus Lie Hetland.
-- Python Algorithms: Mastering Basic Algorithms in the Python Language, by Magnus Lie Hetland.
-Peut-être un peu costaud pour des débutants.
-- Programmation Efficace. Les 128 Algorithmes Qu'Il Faut Avoir Compris et Codés en Python au Cours
-  de sa Vie, by Christoph Dürr and Jill-Jênn Vie. Si le cours vous paraît trop facile. Le code
-  Python est clair, les difficultés sont commentées. Les algos sont très costauds.
+- *How to think like a computer scientist*, by Jeffrey Elkner, Allen B. Downey, and Chris Meyers.
+Vous pouvez l'acheter. Vous pouvez aussi le lire
+[ici](http://openbookproject.net/thinkcs/python/english3e/)
+- *Dive into Python*, by Mark Pilgrim. [Ici](http://www.diveintopython3.net/) Un peu ancien, mais
+toujours pas mal. Vous pouvez le lire en ligne ou télécharger le pdf.
+- *Learning Python*, by Mark Lutz.
+- *Beginning Python*, by Magnus Lie Hetland.
+- *Python Algorithms: Mastering Basic Algorithms* in the Python Language, by Magnus Lie Hetland.
+- *Programmation Efficace. Les 128 Algorithmes Qu'Il Faut Avoir Compris et Codés en Python au Cours
+  de sa Vie*, by Christoph Dürr and Jill-Jênn Vie. Si le cours vous paraît trop facile. Le code
+  Python est clair, les difficultés sont commentées.
 
 ## Web
 
