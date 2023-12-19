@@ -63,8 +63,9 @@ est indisponible.
 - {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
   - Solutions :
-    - [Script avec `click`]({{site.url}}{{site.baseurl}}/sslides/04-requests/requrl_click.py)
-    - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/sslides/04-requests/requrl_argparse.py)
+    - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_base.py)
+    - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_click.py)
+    - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_argparse.py)
 - {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
   REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
 

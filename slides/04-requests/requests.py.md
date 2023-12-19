@@ -294,12 +294,13 @@ Ajoutez quelques paramètres à votre commande, vous pouvez utiliser
 [`click`](https://click.palletsprojects.com/en/8.0.x/) (qu'il vous faudra installer).
 
 - Ajouter à `requrl` une option `-H`/`--header` qui comme celle de curl permet de passer des headers
-  personnalisés
+  personnalisés.
 - Ajouter à `requrl` une option `-o`/`--output` qui comme celle de curl permet d'écrire dans un
-  fichier plutôt que sur la sortie standard
+  fichier plutôt que sur la sortie standard.
+- Ajouter à `requrl` une option `-X`/`--request` qui comme celle de curl permet de choisir le type
+  de requête à effectuer parmi `GET`, `PUT` et `POST`, avec `GET` comme valeur par défaut.
 - Ajouter à `requrl` une option `-d`/`--data` qui comme celle de curl permet de passer des données
-  dans le corps d'une requête `POST`, afficher un message d'erreur si la requête est d'un autre
-  type.
+  dans le corps d'une requête `POST`.
 
 Utilisez [httpbin](https://httpbin.com) pour tester votre commande avec ses différentes options.
 
