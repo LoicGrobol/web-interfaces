@@ -59,7 +59,7 @@ est indisponible.
 - {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
 - {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
-  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.md)
+  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
 
 Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 <lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
