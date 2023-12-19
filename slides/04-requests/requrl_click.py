@@ -4,10 +4,13 @@ import click
 import requests
 
 
-@click.command(help="Download a text resource and print it")
+@click.command(help="Mate http requests.")
 @click.argument("url")
 @click.option(
-    "--header", "-H", help="Headers to add to the request, formatted as JSON."
+    "--header",
+    "-H",
+    help="Headers to add to the request, formatted as JSON.",
+    default="{}",
 )
 @click.option(
     "--output",
@@ -24,22 +27,27 @@ import requests
     show_default=True,
     help="The type of request to send.",
 )
-@click.option("--data", "-d", help="Data to pass to a POST request, formatted as JSON.")
+@click.option(
+    "--data",
+    "-d",
+    help="Data to pass to a POST request, formatted as JSON.",
+    default="{}",
+)
 def main(url, header, output, request, data):
-    if request.lower() == "GET":
+    if request.upper() == "GET":
         response = requests.get(
             url,
-            header=json.loads(header),
+            headers=json.loads(header),
         )
-    elif request.lower() == "PUT":
+    elif request.upper() == "PUT":
         response = requests.put(
             url,
-            header=json.loads(header),
+            headers=json.loads(header),
         )
-    elif request.lower() == "POST":
+    elif request.upper() == "POST":
         response = requests.post(
             url,
-            header=json.loads(header),
+            headers=json.loads(header),
             data=json.loads(data),
         )
     if response:
