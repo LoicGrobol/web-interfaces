@@ -24,10 +24,6 @@ Cours 3 : utiliser `requests`
 
 <!-- #endregion -->
 
-```python
-from IPython.display import display
-```
-
 **Note (2022-02-06)** La bibliothèque [httpx](https://github.com/encode/httpx) semble être plus à
 jour que requests, tout en étant largement compatible. Y jeter un œil serait intéressant.
 
@@ -156,7 +152,7 @@ Et on peut le décoder explicitement
 
 ```python
 import codecs
-print(codecs.decode(response.content, "cp1006")[2000:2300])
+print(codecs.decode(response.content, "cp1252")[2000:2300])
 ```
 
 ### Headers
@@ -172,23 +168,27 @@ response.headers
 On peut de la même façon faire des requêtes `PUT` et `POST` (ainsi que toutes les autres d'ailleurs).
 
 ```python
-requests.post("https://httpbin.org/post")
+response = requests.post("https://httpbin.org/post")
+print(response.text)
 ```
 
 ```python
-requests.put("https://httpbin.org/put")
+response = requests.put("https://httpbin.org/put")
+print(response.text)
 ```
 
 On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre data
 
 ```python
-requests.put("https://httpbin.org/put", data="Hello, world")
+response = requests.put("https://httpbin.org/put", data="Hello, world")
+print(response.text)
 ```
 
 N'importe quel type de données
 
 ```python
-requests.put("https://httpbin.org/put", data="We are the knights who say “Ni”!")
+response = requests.put("https://httpbin.org/put", data="We are the knights who say “Ni”!")
+print(response.text)
 ```
 
 Ah.
@@ -203,14 +203,15 @@ En fait, `requests` ne sait passer que des paramètres binaires, et il encode im
 Pour utiliser un autre encodage, il faut le faire à la main.
 
 ```python
-requests.post("https://httpbin.org/post", data="We are the knights who say “Ni”!".encode("utf-8"))
+response = requests.post("https://httpbin.org/post", data="We are the knights who say “Ni”!".encode("utf-8"))
+print(response.text)
 ```
 
 Mais là le serveur ne saura pas deviner que c'est cet encodage que vous utilisez, il faudra encore lui dire via les *headers*.
 
 ```python
 response = requests.post("https://httpbin.org/post", data="We are the knights who say “Ni”!".encode("utf-8"), headers={'Content-Type': 'text/plain; charset=utf-8'})
-response
+print(response.text)
 ```
 
 ## Headers et paramètres
@@ -226,7 +227,7 @@ On peut ajouter ces paramètres directement à l'URL qu'on requête, mais celà 
 ```python
 paramètres = {"clé": "valeur", "formation": "Master PluriTAL", "hôtel": "Trivago"}
 response = requests.get("https://httpbin.org/get", params=paramètres)
-display(response)
+print(response.text)
 ```
 
 Voici l'URL qui a été utilisé
@@ -241,10 +242,8 @@ Les *headers* se passent exactement de la même manière, en passant un dictionn
 
 ```python
 response = requests.get("https://httpbin.org/get", headers={"user-agent": "pluriquest/1.0.0"})
-display(response.content)
+print(response.text)
 ```
-
-Tiens, c'est marrant cette réponse. À quoi ça ressemble ?
 
 ## 🎨 Exos 🎨
 
