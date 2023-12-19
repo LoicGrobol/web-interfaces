@@ -6,3 +6,7 @@ spaCy
 POS
 lxml
 headers
+Notebook
+Treebank
+Binder
+notebooks

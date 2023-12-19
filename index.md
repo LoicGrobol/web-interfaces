@@ -25,6 +25,7 @@ layout: default
   [Calendly](https://calendly.com/lgrobol/remote-office-hour)
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
+
 ## Séances
 
 Tous les supports sont sur [github](https://github.com/loicgrobol/web-interfaces), voir
@@ -53,6 +54,9 @@ est indisponible.
 - {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook
   OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
   - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/03-OOP/data/fr_gsd-ud-train.conllu)
+  - Solutions :
+    - [Script v1]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v1.py)
+    - [Script v2]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v2.py)
 
 ### 2023-12-19 — `requests` et APIs REST
 
@@ -63,10 +67,10 @@ est indisponible.
 
 Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 <lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
-les nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
+le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
 `Nanterre`, `P3` ou `Inalco`.
 
-## Lire les slides en local
+## Utilisation en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec
 [Jupytext](https://github.com/mwouts/jupytext). C'est entre autres une façon d'avoir un historique
