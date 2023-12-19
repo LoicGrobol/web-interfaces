@@ -112,11 +112,12 @@ On rejoint le concept d'API, dont on reparlera
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-## Qu'est ce qu'un module ?
+## Qu'est-ce qu'un module ?
 
-Techniquement, n'importe quel fichier portant l'extension `.py` et ne comprenant que du code interprétable par Python est un module.
+Techniquement, n'importe quel fichier portant l'extension `.py` et ne comprenant que du code
+interprétable par Python est un module.
 
-Jusque là ça n'a pas l'air très intéressant.
+Jusque-là ça n'a pas l'air très intéressant.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -186,8 +187,9 @@ dir(re)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Par convention, ici comme ailleurs, les membres à usage privé (que vous n'êtes pas censés utiliser
-commencent par un underscore
+Par convention, ici comme ailleurs, les membres à usage privé (qui ne sont pas censés être utilisés
+à l'extérieur du module et ne font donc pas partie de l'interface publique) commencent par un
+underscore.
 <!-- #endregion -->
 
 ```python
@@ -303,7 +305,9 @@ On le trouve souvent dans la nature, mais c'est en général une **très mauvais
 - En ajoutant les fonctions dans l'espace de nommage du script vous pouvez écraser des fonctions
   existantes.
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Et finalement :
+<!-- #endregion -->
 
 ```python
 import contextlib, io
@@ -315,11 +319,11 @@ print(ham.getvalue().splitlines()[3])
 ## Un package
 
 ```python
-! tree operations_pack
+!tree operations_pack
 ```
 
 Un package python peut contenir des modules, des répertoires et sous-répertoires, et bien souvent du
-non-python : de la doc html, des données pour les tests, etc… On en reparlera.
+non-python : de la doc, des données pour les tests…
 
 Le répertoire principal et les répertoires contenant des modules python doivent contenir un fichier
 `__init__.py`
@@ -343,7 +347,7 @@ from operations_pack.avance import *
 multi.multiplication(2,4)
 ```
 
-# Pas de main en Python ?
+# Pas de `main`` en Python ?
 
 Vous trouverez fréquemment le test suivant dans les scripts Python :
 
@@ -375,7 +379,7 @@ façons de gérer les interfaces en ligne de commande…
 
 ## Où sont les modules et les packages ?
 
-Pour que `import` fonctionne il faut que les modules soient dans le PATH.
+Pour que `import` fonctionne il faut que les modules soient dans le `PYTHONPATH``.
 
 ```python
 import sys

@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.1
+      jupytext_version: 1.15.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -32,6 +32,7 @@ Au commencement étaient les variables
 
 ```python slideshow={"slide_type": "-"}
 x = 27
+print(x)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -45,7 +46,7 @@ point_1 = (27, 13)
 point_2 = (19, 84)
 
 def distance(p1, p2):
-    return math.sqrt((p2[0]-p1[0])**2+(p2[1]-p1[1])**2)
+    return math.sqrt((p2[0]-p1[0])**2+(p2[1·]-p1[1])**2)
 
 distance(point_1, point_2)
 ```
@@ -243,8 +244,9 @@ class Vecteur:
 v1 = Vecteur(27, 13)
 v2 = Vecteur(1, 0)
 
-v1.x
-#print(v2.norm())
+print(v1.x)
+print(Vecteur.norm(v2))
+print(v2.norm())
 ```
 
 ```python slideshow={"slide_type": "subslide"}
@@ -299,7 +301,7 @@ Car en Python, tout est objet. Ce qui ne veut pas dire qu'on est obligé d'y fai
 ## POO
 
 La programmation orientée objet (POO/OOP) est une manière de programmer différente de la
-programmation procédurale vue jusqu'ici.
+programmation procédurale.
 
 - Les outils de base sont les objets et les classes
 - Un concept → une classe, une réalisation concrète → un objet
@@ -324,7 +326,7 @@ sans déplaire aux puristes.
 
 ```python slideshow={"slide_type": "-"}
 class Word:
-    """ Classe Word : définit un mot de la langue """
+    """Classe Word : définit un mot de la langue """
     pass
 ```
 
@@ -347,6 +349,10 @@ Et il a déjà des attributs et des méthodes
 
 ```python
 word1.__doc__
+```
+
+```python
+word1.__dict__
 ```
 
 ```python
@@ -465,7 +471,7 @@ class Cake:
 ```
 
 ```python
-gateau = Cake(200, 3, 800)
+gateau = Cake(200, 3, beurre=800)
 gateau.poids
 ```
 
@@ -483,10 +489,12 @@ class CarrotCake(Cake):
     """ pas seulement pour les lapins
         hérite de Cake """
 
-    carotte = 3
-    
+    def __init__(self, carottes, *machin, **kwargs):
+        super().__init__(*machin, **kwargs)
+        self.carottes = carottes
+
     def cuire(self):
-        return self.carotte * self.oeuf
+        return self.carottes * self.oeuf
     
 class ChocolateCake(Cake):
     """ LE gâteau 
@@ -497,7 +505,7 @@ class ChocolateCake(Cake):
 ```
 
 ```python slideshow={"slide_type": "-"}
-gato_carotte = CarrotCake(200, 3, 150)
+gato_carotte = CarrotCake(3, 200, 3, beurre=150)
 gato_carotte.cuire()
 ```
 

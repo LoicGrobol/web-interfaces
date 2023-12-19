@@ -17,12 +17,11 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 9 : consommer des API web
+Cours 5 : consommer des API web
 ================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
-2021-10-06
 <!-- #endregion -->
 
 ```python
@@ -38,13 +37,13 @@ APIs](https://realpython.com/api-integration-in-python/) de Real Python.
 
 ## API ?
 
-_**A**plication **P**rogramming **I**nterface_, en français parfois « interface de programmation
+***A**plication **P**rogramming **I**nterface*, en français parfois « interface de programmation
 d’applications » mais surtout API \[eɪpiˈaɪ\]. À ne pas confondre avec
 l'[API](https://www.internationalphoneticalphabet.org) des phonéticiens (puisqu'en anglais, c'est
 l'IPA, à ne pas confondre avec les bières enrichies en houblon \[vous suivez ?\]).
 
 Il s'agit d'*interfaces* de communications entre *applications*. À la différence des interfaces
-humain⋅e⋅s – machines (même si les deux classes ne sont pas disjointes, d'ailleurs est-ce que vous
+humain⋅es – machines (même si les deux classes ne sont pas disjointes, d'ailleurs est-ce que vous
 voyez des exemples qui sont les deux ?). Autrement dit, une API c'est la surface d'une application,
 son panneau de commande accessible par d'autres applications. On suppose en général que ces
 interfaces sont
@@ -56,7 +55,7 @@ interfaces sont
 
 Le dernier point, l'*opacité* rejoint les considérations de séparation des préoccupations qu'on a
 déjà abordées plusieurs fois : quand j'accède à une application via son API, je ne veux pas avoir à
-me soucier de ce qui ce passe en interne. Tout ce qui compte pour moi, c'est ce que j'y mets et ce
+me soucier de ce qui se passe en interne. Tout ce qui compte pour moi, c'est ce que j'y mets et ce
 que j'en récupère.
 
 Point vocabulaire : si une application A utilise l'API d'une application B, on dira que A est le
@@ -105,7 +104,7 @@ Les principes (un peu simplifiés) de REST sont
 
 - L'absence de mémoire (*statelessness*) : le serveur ne doit pas garder en mémoire de trace des
   requêtes du client.
-- La séparation du client et du serveur : les deux doivent être suffisament découplés pour pouvoir
+- La séparation du client et du serveur : les deux doivent être suffisamment découplés pour pouvoir
   être modifiés sans conséquence de l'un sur l'autre (tant que l'API ne change pas)
 - La possibilité de mettre les requêtes en cache (*cacheability*) : les données renvoyées pour une
   requête données doivent être rigoureusement identique d'une requête sur l'autre afin que le client
@@ -117,11 +116,11 @@ Les principes (un peu simplifiés) de REST sont
   - Chaque message doit contenir une description de la façon dont il doit être lu
 - L'indépendance d'accès (*layered system*) : le comportement de l'interface doit être identique
   quel que soit le moyen utilisé pour y accéder. En particulier, il ne doit pas changer si cet accès
-  passe par des *proxy*.
+  passe par des *proxies*.
 
 ## Accéder à des API
 
-On l'a déjà fait [plusieurs](../01-internet/internet-slides.py.md) [fois](../04-requests/requests-slides.py.md) !
+On l'a déjà fait [plusieurs](../01-internet/internets.py.md) [fois](../04-requests/requests.py.md) !
 
 On a dit qu'il suffisait de faire des requêtes HTTP et ça on sait déjà faire :
 
@@ -153,14 +152,14 @@ print(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
 
 ## JSON
 
-_**J**ava**s**cript **O**bject **N**otation_. Comme son nom l'indique, c'est (à de tout, tout petits
-détails près) la syntaxe pour noter des objets en Javascript.
+***J**ava**S**cript **O**bject **N**otation*. Comme son nom l'indique, c'est (à de tout, tout petits
+détails près) la syntaxe pour noter des objets en JavaScript.
 
 C'est très très très proche de la syntaxe des `dict` littéraux en Python. Sauf quand c'est
 différent.
 
 Comme d'habitude [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) est
-notre meilleur⋅e ami⋅e. Il a aussi [une description formelle
+notre meilleur⋅e ami⋅e. Il y a aussi [une description formelle
 standard](https://www.rfc-editor.org/info/std90).
 
 Sa (relative) simplicité de lecture et d'écriture en a fait le format privilégié d'échange de
@@ -203,37 +202,45 @@ response.json()
 ```
 
 Il faut passer les données au paramètre `json` de `requests.post` et non `data` (ou alors il faut
-lui passer sous forme de chaîne de caractère et avoir dans les headers `"Content-Type"` qui vaut
+lui passer sous forme de chaîne de caractère et avoir dans les *headers* `"Content-Type"` qui vaut
 `"application/json"`).
 
 ## 🌐 Exo 🌐
 
-### Philosophie, le retour
+### Le cheeseshop
 
+En utilisant l'[API de PyPI](https://warehouse.pypa.io/api-reference/json.html), écrire un script
+qui prend en argument un nom de package et affiche (si un tel package existe) les noms et emails des
+auteurices de package et la date de la dernière *release*;
+
+### Zenodo
+
+En utilisant l'[API de Zenodo](https://developers.zenodo.org/#rest-api), écrire un script qui prend
+en argument un nom de fichier, un titre et un nom d'auteurice ; fait un dépôt sur la sandbox de
+Zenodo ; et afficher un lien vers ce nouveau dépôt. Il vous faudra créer un compte pour obtenir un
+*access token*.
+
+### Philosophie
+
+<!-- LTeX: language=en-GB -->
 > Wikipedia trivia: if you take any article, click on the first link in the article text not in
 > parentheses or italics, **and then repeat**, you will eventually end up at "Philosophy". ([xkcd
 > #903](https://xkcd.com/903/))
-
-Ça vous rappelle [quelque chose](../lecture-08/lecture-08.md) ?
+<!-- LTeX: language=fr -->
 
 - Vérifiez sur une page ou deux si c'est vrai
 - Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
   sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
-  *Philosophy* ou une erreur si la page en question n'existe pas
-- Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
+  *Philosophy* ou une erreur si la page en question n'existe pas.
+  - Utilisez l'[API](https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page) de Wikipédia
+    pour obtenir le contenu des pages.
+  - Vous pouvez parser le wikitexte à la main ou utiliser
+    [wikitextparser](https://pypi.org/project/wikitextparser/)
+- Si vous êtes très déterminé⋅es, faites un script qui prend en entrée des pages de Wikipédia et
   produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
   page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
   [NetworkX](https://networkx.org/documentation/latest/reference/drawing.html), un visualiseur
-  interactif comme [pyvis](https://pyvis.readthedocs.io/en/latest/tutorial.html), [un wrapper de
+  interactif comme [pyvis](https://pyvis.readthedocs.io/en/latest/tutorial.html), [un *wrapper* de
   graphviz](https://graphviz.readthedocs.io) ou encore générer directement des fichiers dot.
 
-**MAIS CETTE FOIS-CI ON NE VA PAS SE FARCIR DE PARSER DU HTML** (on va parser du wikitexte à la
-place, mais vous pouvez le faire salement).
 
-Utilisez ça <https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page>.
-
-### Un parseur comme on les aime
-
-À l'aide de l'[API de UDPipe](https://lindat.mff.cuni.cz/services/udpipe/api-reference.php),
-extraire la liste de tous les sujets (seulement la tête nominale) dans [Le Ventre de
-Paris](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/zola_ventre-de-paris.txt).

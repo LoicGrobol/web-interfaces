@@ -430,7 +430,7 @@ automatiquement les interfaces web que vous développez
 - Écrivez un script qui prend en argument de ligne de commande un nom de page Wikipédia (en anglais,
   sauf si vous aimez l'aventure) et donne le nombre de sauts nécessaire pour arriver à la page
   *Philosophy* ou une erreur si la page en question n'existe pas
-- Si vous êtes très déterminé⋅e⋅s, faites un script qui prend en entrée des pages de Wikipédia et
+- Si vous êtes très déterminé⋅es, faites un script qui prend en entrée des pages de Wikipédia et
   produit le graphe (orienté) des pages obtenues en suivant à chaque fois le premier lien de chaque
   page, et ce jusqu'à retomber sur une page déjà visitée. On pourra par exemple utiliser
   [NetworkX](https://networkx.org/documentation/latest/reference/drawing.html), un visualiseur

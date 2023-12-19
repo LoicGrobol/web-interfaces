@@ -47,11 +47,24 @@ est indisponible.
 
 ### 2023-12-12 — Internet et programmation orientée objet
 
-- {% notebook_badges slides/02-internet/internet.py.md %}
-  [Notebook internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
+- {% notebook_badges slides/02-internet/internet.py.md %} [Notebook
+  internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
   - [Solutions exercices cURL]({{site.url}}{{site.baseurl}}/slides/02-internet/curl.sh)
-- {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
+- {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook
+  OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
   - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/03-OOP/data/fr_gsd-ud-train.conllu)
+
+### 2023-12-19 — `requests` et APIs REST
+
+- {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
+  requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
+- {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
+  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.md)
+
+Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
+<lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
+les nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
+`Nanterre`, `P3` ou `Inalco`.
 
 ## Lire les slides en local
 
@@ -124,13 +137,15 @@ Il vous est vivement conseillé d'utiliser un (ou plus) des sites et tutoriels c
 
 [![CC BY Licence badge](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
-Copyright © 2021 Loïc Grobol [\<loic.grobol@gmail.com\>](mailto:loic.grobol@gmail.com)
+Copyright © 2023 Loïc Grobol [\<loic.grobol@gmail.com\>](mailto:loic.grobol@gmail.com)
 
 Sauf indication contraire, les fichiers présents dans ce dépôt sont distribués selon les termes de
 la licence [Creative Commons Attribution 4.0
 International](https://creativecommons.org/licenses/by/4.0/). Voir [le README](README.md#Licences)
 pour plus de détails.
 
- Un résumé simplifié de cette licence est disponible à <https://creativecommons.org/licenses/by/4.0/>.
+Un résumé simplifié de cette licence est disponible à
+<https://creativecommons.org/licenses/by/4.0/>.
 
- Le texte intégral de cette licence est disponible à <https://creativecommons.org/licenses/by/4.0/legalcode>
+Le texte intégral de cette licence est disponible à
+<https://creativecommons.org/licenses/by/4.0/legalcode>

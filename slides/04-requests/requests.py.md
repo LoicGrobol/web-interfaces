@@ -251,7 +251,8 @@ Tiens, c'est marrant cette réponse. À quoi ça ressemble ?
 
 ### Une batterie de requêtes
 
-À l'aide de `requests`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque chose) :
+À l'aide de `requests`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque
+chose) :
 
 1. Une requête à <https://httpbin.org>
 2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?
@@ -278,14 +279,14 @@ Tiens, c'est marrant cette réponse. À quoi ça ressemble ?
 
 #### 1. La base
 
-Écrire un script `requrl.py`, qui prend comme argument de ligne de commande une URL et affiche la ressource correspondante sur la sortie standard (comme un curl très très très basique).
+Écrire un script `requrl.py`, qui prend comme argument de ligne de commande une URL et affiche la
+ressource correspondante sur la sortie standard (comme un curl très très très basique).
 
 #### 2. Quelques paramètres
 
-Ajoutez quelques paramètres à votre commande, avec
-[`argparse`](https://docs.python.org/3/library/argparse.html) mais vous pouvez aussi regarder du
-côté de [`click`](https://click.palletsprojects.com/en/8.0.x/) si vous n'avez pas froid aux yeux
-(mais n'y passez pas tout votre temps).
+Ajoutez quelques paramètres à votre commande, vous pouvez utiliser
+[`argparse`](https://docs.python.org/3/library/argparse.html), mais je vous recommande plutôt
+[`click`](https://click.palletsprojects.com/en/8.0.x/) (qu'il vous faudra installer).
 
 - Ajouter à `requrl` une option `-H`/`--header` qui comme celle de curl permet de passer des headers
   personnalisés
