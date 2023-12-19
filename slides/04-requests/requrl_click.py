@@ -1,10 +1,8 @@
-import argparse
-
 import click
 import requests
 
 
-@click.command("Download a text resource and print it")
+@click.command(help="Download a text resource and print it")
 @click.argument("url")
 def main(url):
     response = requests.get(url)

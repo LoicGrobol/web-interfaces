@@ -203,14 +203,21 @@ En fait, `requests` ne sait passer que des paramètres binaires, et il encode im
 Pour utiliser un autre encodage, il faut le faire à la main.
 
 ```python
-response = requests.post("https://httpbin.org/post", data="We are the knights who say “Ni”!".encode("utf-8"))
+response = requests.post(
+    "https://httpbin.org/post",
+    data="We are the knights who say “Ni”!".encode("utf-8"),
+)
 print(response.text)
 ```
 
 Mais là le serveur ne saura pas deviner que c'est cet encodage que vous utilisez, il faudra encore lui dire via les *headers*.
 
 ```python
-response = requests.post("https://httpbin.org/post", data="We are the knights who say “Ni”!".encode("utf-8"), headers={'Content-Type': 'text/plain; charset=utf-8'})
+response = requests.post(
+    "https://httpbin.org/post",
+    data="We are the knights who say “Ni”!".encode("utf-8"),
+    headers={"Content-Type": "text/plain; charset=utf-8"},
+)
 print(response.text)
 ```
 
