@@ -1,5 +1,5 @@
 ---
-title: Projets Interfaces web pour le TAL 2023
+title: Projets Interfaces web pour le TAL 2024
 layout: default
 permalink: /projects/
 ---

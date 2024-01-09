@@ -58,7 +58,7 @@ est indisponible.
     - [Script v1]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v1.py)
     - [Script v2]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v2.py)
 
-### 2023-12-19 — `requests` et APIs REST
+### 2023-01-09 — `requests` et APIs REST
 
 - {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
@@ -72,7 +72,15 @@ est indisponible.
 Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 <lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
 le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
-`Nanterre`, `P3` ou `Inalco`.s
+`Nanterre`, `P3` ou `Inalco`.
+
+### 2023-12-19 — Décorateurs et FastAPI
+
+- {% slides/06-decorators/decorators.md %} [Notebook
+  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.ipynb)
+- {% slides/07-fastapi/fastapi.py.md %} [Notebook
+  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
+
 
 ## Utilisation en local
 

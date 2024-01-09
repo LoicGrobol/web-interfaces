@@ -19,7 +19,7 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 9 : Faire des API web avec FastAPI
+Cours 7 : Faire des API web avec FastAPI
 =========================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
