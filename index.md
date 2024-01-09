@@ -64,20 +64,9 @@ est indisponible.
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
   - Solutions :
     - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_base.py)
-    - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_click.py)
-    - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_argparse.py)
-- {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
-  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
 
-Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
-<lgrobol@parisnanterre.fr> avant le ???. L'objet du message devra être `[Web 2024] TP Prénom Nom` et
-le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
-`Nanterre`, `P3` ou `Inalco`.
-
-### 2023-12-19 — Décorateurs et FastAPI
-
-- {% notebook_badges slides/06-decorators/decorators.md %} [Notebook
-  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.ipynb)
+py.md %} [Notebook
+  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.py.ipynb)
 - {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
   FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
 
