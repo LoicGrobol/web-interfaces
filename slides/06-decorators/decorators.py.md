@@ -27,7 +27,7 @@ Cours 6 : Décorateurs
 
 *Ce cours est **très** largement inspiré du cours de *Real Python* « [*Primer on Python
 Decorators*](https://realpython.com/primer-on-python-decorators/) »*, vous pouvez aller y jeter un
-œil pour un regard légèrement différent.
+œil pour un regard légèrement différent et plus d'exemples.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 On ne va pas faire un cours sur la programmation fonctionnelle, mais je vous invite cependant à vous
@@ -884,9 +884,13 @@ help(return_greeting)
 En pratique, si on veut écrire des décorateur, c'est une bonne pratique importante d'utiliser `@functools.wraps`.
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Quelques exemples
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Chronométrer une fonction :
+<!-- #endregion -->
 
 ```python
 import functools
@@ -918,7 +922,9 @@ waste_some_time(1)
 waste_some_time(999)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Espionner une fonction :
+<!-- #endregion -->
 
 ```python
 import functools
@@ -937,6 +943,9 @@ def debug(func):
     return wrapper_debug
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Testons :
+<!-- #endregion -->
 ```python
 @debug
 def make_greeting(name, age=None):
@@ -958,7 +967,9 @@ make_greeting("Richard", age=112)
 make_greeting(name="Dorrisile", age=116)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Reprenons nos fonctions mutuellement récursives de tout à l'heure :
+<!-- #endregion -->
 
 ```python
 @debug
@@ -986,5 +997,157 @@ def right(y):
 left(39)
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Ralentir une fonction
+<!-- #endregion -->
+
+```python
+import functools
+import time
+
+def slow_down(func):
+    """Sleep 1 second before calling the function"""
+    @functools.wraps(func)
+    def wrapper_slow_down(*args, **kwargs):
+        time.sleep(1)  # Attendre une seconde
+        return func(*args, **kwargs)
+    return wrapper_slow_down
+
+@slow_down
+def countdown(from_number):
+    if from_number < 1:
+        print("Liftoff!")
+    else:
+        print(from_number)
+        countdown(from_number - 1)
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Voir les autres exemples sur [Real
 Python](https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples).
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Combiner des décorateurs
+
+On peut appliquer plusieurs décorateurs à la suite :
+<!-- #endregion -->
+
+```python
+@debug
+@do_thrice
+def greet(name):
+    print(f"Greetings, {name}!")
+
+greet("Bill")
+```
+
+C'est équivalent à `greet = debug(do_thrice(greet))`
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Du coup l'ordre est significatif ! Observez la différence :
+<!-- #endregion -->
+
+```python
+@do_twice
+@debug
+def greet(name):
+    print(f"Hello {name}")
+
+greet("Bill")
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## Décorateurs paramétrés
+
+C'est souvent utile d'avoir des décorateurs qui prennent eux-mêmes des paramètres. Par exemple
+pensez à `do_twice` et `do_thrice` qu'on a vu précédemment. Ils font la même chose (répéter la
+fonction qu'ils décorent), la seule différence était le nombre de répétitions. Ça serait bien si on
+avait un décorateur générique façon `do_n` pour lequel on choisirait à chaque fois `n`, le nombre de
+répétitions.
+
+Pour ça, on va devoir compliquer un peu les choses et faire en sorte que `do_n` soit une fonction
+qui elle-même renvoie un décorateur :
+<!-- #endregion -->
+
+```python
+def do_n(n):
+    def decorate(fun)
+        @functools.wraps
+        def aux(*args, **kwargs):
+            # Underscore par convention, parce que la valeur n'est pas utilisée
+            for _ in range(n):  
+                fun(*args, **kwargs)
+        return aux
+    return decorate
+
+def greet(name):
+    print(f"Hello {name}")
+
+do_n(5)(greet)("Bill")
+```
+
+Ça fait beaucoup d'imbrications, mais ce n'est pas si compliqué quand on prend les choses une par
+une.
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Ceci est la fonction décorée : on a `n` et `fun` et on répète simplement `n` fois `fun`.
+
+```python
+def aux(*args, **kwargs):
+    # Underscore par convention, parce que la valeur n'est pas utilisée
+    for _ in range(n):  
+        fun(*args, **kwargs)
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Ceci est le décorateur : il dispose déjà de `n`, et si on lui donne une fonction, il la décore
+
+```python
+def decorate(fun)
+        @functools.wraps
+        def aux(*args, **kwargs):
+            ...
+        return aux
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Ceci génère des décorateurs : on lui donne un `n` et il renvoie un décorateur, qui peut alors être
+utilisé pour décorer des fonctions.
+
+```python
+def do_n(n):
+    def decorate(fun)
+        ...
+    return decorate
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Quand on appelle `do_n(5)(greet)("Bill")`, il se passe donc ceci
+<!-- #endregion -->
+
+```python
+decorator = do_n(5)  # On créé un décorateur
+decorated = decorator(greet)  # On décore `greet`
+decorated("Bill")  # On appelle la fonction décorée.
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Et pour utiliser la syntaxe `@` ? Simplement comme ceci :
+<!-- #endregion -->
+
+```python
+@do_n(6)
+def greet(name):
+    print(f"Hello {name}")
+
+greet("Bill")
+```
+
+## ⏳ Exo ⏳
+
+Modifier le décorateur `slow_down` pour lui faire prendre un paramètre `wait`, qui détermine le
+temps ajouté (avec `time.sleep`) à chaque appel de fonction.

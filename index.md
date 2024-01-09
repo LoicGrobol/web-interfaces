@@ -81,9 +81,9 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
 
 - {% notebook_badges slides/06-decorators/decorators.py.md %} [Notebook
   décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.py.ipynb)
+  - {% notebook_badges slides/06-decorators/solutions.py.md %} [Solutions]({{site.url}}{{site.baseurl}}/slides/06-decorators/solutions.py.ipynb)
 - {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
-  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
-
+  - [Exemples](https://github.com/LoicGrobol/web-interfaces/tree/main/slides/07-fastapi/examples).
 
 ## Utilisation en local
 
@@ -93,9 +93,9 @@ git propre, malheureusement ça signifie que pour les ouvrir en local, il faut i
 extensions adéquates. Le plus simple est le suivant
 
 1. Récupérez le dossier du cours, soit en téléchargeant et décompressant
-   [l'archive](https://github.com/LoicGrobol/neural-networks/archive/refs/heads/main.zip)
+   [l'archive](https://github.com/LoicGrobol/web-interfaces/archive/refs/heads/main.zip)
    soit en le clonant avec git : `git clone
-   https://github.com/LoicGrobol/neural-networks.git` et placez-vous dans ce dossier.
+   https://github.com/LoicGrobol/web-interfaces.git` et placez-vous dans ce dossier.
 2. Créez un environnement virtuel pour le cours
 
    ```console
