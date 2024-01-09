@@ -194,7 +194,7 @@ Ce qui se passe : on renvoie bien une seule valeur, mais celle-ci est un tuple
 <!-- #endregion -->
 
 ```python
-a = double_and_pass(7, 2713))
+a = double_and_pass(7, 2713)
 print(type(a))
 ```
 
@@ -290,7 +290,7 @@ assert renvoi("") == "Salut, !"
 
 ```python slideshow={"slide_type": "subslide"}
 def affiche(bidule):
-    passe
+    pass
 ```
 
 ```python
@@ -705,10 +705,16 @@ utiliser des arguments anonymes pour ça :
 ```python
 def do_thrice(fun):
     def aux(*args, **kwargs):
-        func(*args, **kwargs)
-        func(*args, **kwargs)
-        func(*args, **kwargs)
-    return wrapper_do_twice
+        fun(*args, **kwargs)
+        fun(*args, **kwargs)
+        fun(*args, **kwargs)
+    return aux
+
+@do_thrice
+def greet(name):
+    print(f"Greetings, {name}")
+
+greet("Bill")
 ```
 
 Pour plus de détails sur cette syntaxe, vous pouvez consulter [la
@@ -947,6 +953,33 @@ make_greeting("Richard", age=112)
 
 ```python
 make_greeting(name="Dorrisile", age=116)
+```
+
+Reprenons nos fonctions mutuellement récursives de tout à l'heure :
+
+```python
+@debug
+def left(n):
+    if n % 2 == 0:
+        print(f"{n}")
+        left(n//2)
+    elif n == 1:
+        print(f"{n}")
+        return
+    else:
+        right(n)
+
+def right(y):
+    if y % 2 == 1:
+        print(f{y}")
+        right((3*y + 1)//2)
+    elif y == 1:
+        print(f"right: {y}")
+        return
+    else:
+        left(y)
+
+left(39)
 ```
 
 Voir les autres exemples sur [Real
