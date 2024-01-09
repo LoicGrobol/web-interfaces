@@ -157,3 +157,29 @@ def spam():
 
 assert spam() == ("spam", "spam")
 ```
+
+## ⏳ Exo ⏳
+
+> Modifier le décorateur `slow_down` pour lui faire prendre un paramètre `wait`, qui détermine le
+> temps ajouté (avec `time.sleep`) à chaque appel de fonction.
+
+```python
+import functools
+import time
+
+def slow_down(wait=1):
+    """Sleep given amount of seconds before calling the function"""
+    def decorator_slow_down(func):
+        @functools.wraps(func)
+        def wrapper_slow_down(*args, **kwargs):
+            time.sleep(wait)
+            return func(*args, **kwargs)
+        return wrapper_slow_down
+    return decorator_slow_down
+
+@slow_down(5)
+def greet(n):
+    print(f"Salut à toi, {n}.")
+
+greet("Louise Michel")
+```

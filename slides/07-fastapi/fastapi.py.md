@@ -151,11 +151,11 @@ async def root():
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Vous pouvez le lancer avec [Uvicorn](https://www.uvicorn.org/), qui est le serveur
-[ASGI](https://asgi.readthedocs.io) recommandé pour utiliser FastAPI (même si n'importe quel serveur
-ASGI, comme [Hypercorn](https://pgjones.gitlab.io/hypercorn) convient). On ne va pas plus rentrer
-dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit comment marche une
-API et que Uvicorn l'exécute et la rend disponible.
+VIl faut lancer ce script avec un serveur [ASGI](https://asgi.readthedocs.io) comme
+[Uvicorn](https://www.uvicorn.org/), qui est celui recommandé pour utiliser FastAPI (même si
+n'importe quel serveur ASGI, comme [Hypercorn](https://pgjones.gitlab.io/hypercorn) convient). On ne
+va pas plus rentrer dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit
+comment marche une API et que Uvicorn l'exécute et la rend disponible.
 <!-- #endregion -->
 
 <!-- #region -->
