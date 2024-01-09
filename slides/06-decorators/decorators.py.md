@@ -306,10 +306,10 @@ def porquenolosdos(a, b):
 ```
 
 ```python
-assert porquenolosdos(0, 1) = 1
-assert porquenolosdos(1, 0) = 0
-assert porquenolosdos(None, "xy") = xy 
-assert porquenolosdos([1, 2, 3], None) = None
+assert porquenolosdos(0, 1) == 1
+assert porquenolosdos(1, 0) == 0
+assert porquenolosdos(None, "xy") == xy 
+assert porquenolosdos([1, 2, 3], None) == None
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -792,6 +792,9 @@ Testez votre réponse avec la cellule suivante.
 def identity(x):
     return x
 
+def double(x):
+    return 2*x
+
 assert twice(identity)(2) == (2, 2)
 assert twice(double)(4) == (8, 8)
 
@@ -961,20 +964,21 @@ Reprenons nos fonctions mutuellement récursives de tout à l'heure :
 @debug
 def left(n):
     if n % 2 == 0:
-        print(f"{n}")
+        print(n)
         left(n//2)
     elif n == 1:
-        print(f"{n}")
+        print(n)
         return
     else:
         right(n)
 
+@debug
 def right(y):
     if y % 2 == 1:
-        print(f{y}")
+        print(y)
         right((3*y + 1)//2)
     elif y == 1:
-        print(f"right: {y}")
+        print(y)
         return
     else:
         left(y)
