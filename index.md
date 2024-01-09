@@ -9,6 +9,8 @@ layout: default
 
 ## News
 
+- **2024-01-09** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en
+  ligne.
 - **2023-11-27** Premier cours du semestre le 28/11/2023.
 
 ## Infos pratiques
@@ -25,6 +27,7 @@ layout: default
   [Calendly](https://calendly.com/lgrobol/remote-office-hour)
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects).
 
 ## Séances
 

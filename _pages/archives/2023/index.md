@@ -26,7 +26,7 @@ permalink: /2023/
 
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
-- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en ligne
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects).
 
 ## Séances
 
