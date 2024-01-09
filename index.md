@@ -76,9 +76,9 @@ le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `éta
 
 ### 2023-12-19 — Décorateurs et FastAPI
 
-- {% slides/06-decorators/decorators.md %} [Notebook
+- {% notebook_badges slides/06-decorators/decorators.md %} [Notebook
   décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.ipynb)
-- {% slides/07-fastapi/fastapi.py.md %} [Notebook
+- {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
   FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
 
 
