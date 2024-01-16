@@ -93,6 +93,7 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
 
 - {% notebook_badges slides/08-html/html-slides.py.md %} [Slides
   HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
+  - [Exemples]([text](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples))
   - {% notebook_badges slides/08-html/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.md)
 - {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
