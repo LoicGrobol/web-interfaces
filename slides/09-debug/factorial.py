@@ -6,4 +6,4 @@ def factorial(n):
         res = i * res
     return res
     
-factorial(9)
+print(factorial(9))

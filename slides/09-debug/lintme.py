@@ -3,8 +3,8 @@ def vocab(f_path):
     i2t = []
     t2i = dict()
     with open(f_path) as in_stream:
-        for l in in_stream:
-            for word in l.strip().split():
+        for line in in_stream:
+            for word in line.strip().split():
                 if word not in t2i:
                     t2i[word] = len(i2t)
                     i2t.append(word)
@@ -12,10 +12,10 @@ def vocab(f_path):
 
 
 def cooc(__f_path, t2i):
-    cooc = [[0] * len(t2i)] * len(t2i)
+    cooc = [[0]*len(t2i)]*len(t2i)
     with open(__f_path) as in_stream:
-        for l in in_stream:
-            words = l.strip().split()
+        for line in in_stream:
+            words = line.strip().split()
             word_indices = [t2i[w] for w in words]
             for w in word_indices:
                 cooc_w = cooc[w]

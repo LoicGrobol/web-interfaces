@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -203,8 +203,8 @@ def vocab(f_path):
     i2t = []
     t2i = dict()
     with open(f_path) as in_stream:
-        for l in in_stream:
-            for word in l.strip().split():
+        for line in in_stream:
+            for word in line.strip().split():
                 if word not in t2i:
                     t2i[word] = len(i2t)
                     i2t.append(word)
@@ -232,8 +232,8 @@ def cooc(f_path, t2i):
 def cooc(f_path, t2i):
     cooc = [[0]*len(t2i)]*len(t2i)
     with open(f_path) as in_stream:
-        for l in in_stream:
-            words = l.strip().split()
+        for line in in_stream:
+            words = line.strip().split()
             word_indices = [t2i[w] for w in words]
             for w in word_indices:
                 cooc_w = cooc[w]
@@ -315,14 +315,14 @@ On pourrait faire des `print` mais il y a beaucoup de lignes, ça risque d'être
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Pyflakes à la rescousse
+## [Ruff](https://youtu.be/LjkVphx4uE0) à la rescousse
 <!-- #endregion -->
 
-On va utilise [`pyflakes`](https://pypi.org/project/pyflakes/), pensez à l'installer avec `pip`
+On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer avec `pip`
 avant de lancer la cellule suivante.
 
 ```python
-!pyflakes lintme.py
+!ruff lintme.py
 ```
 
 [`lintme.py`](lintme.py) contient les fonctions qu'on a défini précédemment, allez voir ce qu'il y a
@@ -342,7 +342,7 @@ for ո, val in enumerate(lst):
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Juste ici
 
-```text
+```python
 for ո, val in enumerate(lst):
     ^
 ```
@@ -398,47 +398,45 @@ En général un linter vérifie au moins
 - Que les fonctions sont appellées avec des paramètres cohérents (en nombre, en noms…)
 <!-- #endregion -->
 
-Pylint se limite grosso modo à ces fonctions de base, mais il y en a d'autres plus complets.
+Ruff se limite grosso modo à ces fonctions de base, mais il y en a d'autres plus complets.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### PEP8 style
 
-Essayons de lancer [`flake8`](http://flake8.pycqa.org) sur `lintme.py`
+Voici un fichier moche
 <!-- #endregion -->
 
 ```python
-!flake8 lintme.py
+!cat ugly.py
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-`flake8` combine des fonctions de linter (en fait exactement celles de `pyflakes`) et de vérifieur
-de styles plus d'autres (allez lire la doc).
+Est-ce que c'est un problème ? Oui. Ruff vous le dira
 
+```python
+!ruff --select "E" ugly.py
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 En l'occurence il nous dit que la [PEP 8](https://www.python.org/dev/peps/pep-0008) qui définit le
-style recommandé pour Python n'est pas respectée par la ligne suivante :
+style recommandé pour Python n'est pas respectée.
 
-```python
-cooc = [[0]*len(t2i)]*len(t2i)
-```
-
-qui devrait être
-
-```python
-cooc = [[0] * len(t2i)] * len(t2i)
-```
+(Attention : il ne le fait que si on a utilisé `--select "E"` pour dire qu'on voulait qu'il fasse
+ces vérifications).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### [Black](https://www.youtube.com/watch?v=D_JxMb8RLEY)
+### `ruff format`
 
-Au siècle dernier, je vous aurait fait corriger des lignes de code à la main jusqu'à ce que
-`flake8` cesse de se plaindre.
+Au siècle dernier, je vous aurait fait corriger des lignes de code à la main jusqu'à ce qu'il n'y
+ait plus de problèmes.
 <!-- #endregion -->
 
-Mais on est en 2021 et on a inventé mieux.
+Mais les temps ont changé et on a inventé mieux.
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Meet [`black`](https://pypi.org/project/black)
+Meet `ruff format`
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -454,43 +452,72 @@ Meet [`black`](https://pypi.org/project/black)
 <!-- #endregion -->
 
 ```python
-!cat ugly.py | black -q -
+!cat ugly.py | ruff format -
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-`black` reformate vos fichiers de sorte qu'ils respectent la PEP 8, tout en se conformant à des
-règles de style strictes.
+`ruff format` reformate vos fichiers de sorte qu'ils respectent la PEP 8, tout en se conformant à
+des règles de style strictes.
 
-On dit que `black` est un *formatteur de code*.
+On dit que `ruff format` est un *formateur de code*.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Par choix, `black` n'est presque pas configurable : ça évite d'avoir à tergiverser sur les
+Par choix, `ruff format` n'est presque pas configurable : ça évite d'avoir à tergiverser sur les
 conventions à adopter.
 
-Si vous n'avez pas d'opinion précise sur comment votre code doit être, utilisez `black`, si vous
-n'aimez pas les sorties de `black`, persévérez, on s'habitue.
+Si vous n'avez pas d'opinion précise sur comment votre code doit être, utilisez `ruff format`, si
+vous n'aimez pas les sorties de `ruff format`, persévérez, on s'habitue.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Si **vraiment** vous avez des goûts sophistiqués, il existe beaucoup d'autre formatteurs: par
+Si **vraiment** vous avez des goûts sophistiqués, il existe beaucoup d'autre formateurs: par
 exemple autopep8, yapf, rope…
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Pour une utilisation en console, lancez `black` comme
+Pour une utilisation en console, lancez `ruff format` comme
 
 ```bash
-black monfichiermoche.py
+ruff format monfichiermoche.py
 ```
 
-Il le formatte en direct et sauvegarde. **Il modifie votre fichier, attention**.
+Il le formate en direct et sauvegarde. **Il modifie votre fichier, attention**.
+
+(pour éviter ça, on peut faire `cat monfichiermoche.py | ruff format -`)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Plus agréablement : `black` et `flake8` sont intégrés à la plupart des éditeurs et IDEs, n'hésitez
-pas à les utiliser en permanence, vous vous remercierez dans six mois.
+Plus agréablement : `ruff` est intégré à la plupart des éditeurs et IDEs, n'hésitez pas à l'utiliser
+en permanence, vous vous remercierez dans six mois.
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Une dernière chose : si vous vous voulez vraiment vérifier complètement votre code, vous pouvez
+demander à `ruff` de vérifier **toutes** les règles qu'il inclut.
+<!-- #endregion -->
+
+```python
+!ruff check --select "ALL" --preview ugly.py
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Une dernière chose : si vous vous voulez vraiment vérifier complètement votre code, vous pouvez
+demander à Ruff de vérifier **toutes** les règles qu'il inclut.
+<!-- #endregion -->
+
+```python
+!ruff check --select "ALL" --preview ugly.py
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Et il sait même faire certaines corrections pour vous :
+<!-- #endregion -->
+
+```python
+!cat ugly.py | ruff check --select "ALL" --preview --fix -
+```
+
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Enfin libres

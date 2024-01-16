@@ -1,4 +1,8 @@
-def very_important_function(template, *variables, file_path="/dev/null", engine, header = True, debug = False, verbose = False):
-    """Applies `variables` to the `template` and writes to `file`."""
+def very_important_function(file, template, *variables, file_path="/dev/null", engine, header = True, debug = False, verbose = False):
+    """Does something to `file` that's very important"""
     with open(file, 'w') as f:
-        pass
+        print(f.read())
+    
+    j=23+45
+    i       = 12
+    return j/i
