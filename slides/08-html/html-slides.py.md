@@ -260,7 +260,7 @@ Ce qui serait **bien** ça serait de pouvoir écrire du HTML normalement et en P
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Meet [Jinja](https://jinja.palletsprojects.com).
+*Meet* [Jinja](https://jinja.palletsprojects.com).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->

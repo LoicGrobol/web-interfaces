@@ -61,7 +61,7 @@ est indisponible.
     - [Script v1]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v1.py)
     - [Script v2]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v2.py)
 
-### 2023-01-09 — `requests` et APIs REST
+### 2023-12-19 — `requests` et APIs REST
 
 - {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
   requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
@@ -77,7 +77,7 @@ Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
 `Nanterre`, `P3` ou `Inalco`.
 
-### 2023-12-19 — Décorateurs et FastAPI
+### 2024-01-09 — Décorateurs et FastAPI
 
 - {% notebook_badges slides/06-decorators/decorators.py.md %} [Notebook
   décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.py.ipynb)
@@ -88,7 +88,18 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
   - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
   - {% notebook_badges slides/07-fastapi/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
-  
+
+### 2024-01-16 — Outils de debug et HTML
+
+- {% notebook_badges slides/08-html/html-slides.py.md %} [Slides
+  HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
+  - {% notebook_badges slides/08-html/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.md)
+- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
+  - [`factorial.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/factorial.py).
+  - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
+  - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
+    - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
 
 
 ## Utilisation en local

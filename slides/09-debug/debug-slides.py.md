@@ -59,8 +59,10 @@ NameError: name 'anmal' is not defined
 <!-- #region slideshow={"slide_type": "subslide"} -->
 C'est bien pratique : on voit tout de suite le problème :
 
-- La dernière ligne `NameError: name 'anmal' is not defined` nous dit exactement ce qui pose le problème
-- Le reste nous dit où il se trouve et comment on est arrivé⋅e⋅s là. De haut en bas on a la fonction où se trouve le problème, puis la fonction qui l'appellée et ainsi de suite
+- La dernière ligne `NameError: name 'anmal' is not defined` nous dit exactement ce qui pose le
+  problème
+- Le reste nous dit où il se trouve et comment on est arrivé⋅e⋅s là. De haut en bas on a la fonction
+  où se trouve le problème, puis la fonction qui l'appellée et ainsi de suite
 - On parle de *pile d'appels*
 <!-- #endregion -->
 
@@ -166,7 +168,8 @@ factorial(9)
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Un peu de textométrie
 
-**Hypothèse** on veut savoir étant donné un mot, quels sont les mots qui apparaissent le plus souvent dans la même phrase.
+**Hypothèse** on veut savoir étant donné un mot, quels sont les mots qui apparaissent le plus
+souvent dans la même phrase.
 
 On travaille sur un « gros » corpus
 <!-- #endregion -->
@@ -178,7 +181,8 @@ On travaille sur un « gros » corpus
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Extrayons son vocabulaire
 
-**Exercice** écrire une fonction `vocab` qui prend en argument un chemin vers un fichier texte et qui renvoie
+**Exercice** écrire une fonction `vocab` qui prend en argument un chemin vers un fichier texte et
+qui renvoie
 
 - Une liste contenant les mots du vocabulaire du texte
 - Un `dict` qui mappe les mots vers leur position dans la liste
@@ -213,7 +217,10 @@ display(ancor_i2t)
 <!-- #region slideshow={"slide_type": "subslide"} -->
 On construit sa matrice de cooccurrences
 
-**Exercice** écrire une fonction `cooc` qui prend en argument un chemin vers un fichier texte et un dict `{mot: indices}` et qui renvoie la matrice de coocurrences : une liste de listes telle que `cooc[i][j]` est le nombre de fois que les mots `i` et `j` apparaissent dans une même phrase (on suppose que ligne == phrase).
+**Exercice** écrire une fonction `cooc` qui prend en argument un chemin vers un fichier texte et un
+dict `{mot: indices}` et qui renvoie la matrice de coocurrences : une liste de listes telle que
+`cooc[i][j]` est le nombre de fois que les mots `i` et `j` apparaissent dans une même phrase (on
+suppose que ligne == phrase).
 <!-- #endregion -->
 
 ```python
@@ -238,9 +245,11 @@ ancor_cooc = cooc("ancor.txt", ancor_t2i)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Où on peut par exemple récupérer les $k$ mots qui apparaissent le plus souvent dans le contexte d'un mot donné
+Où on peut par exemple récupérer les $k$ mots qui apparaissent le plus souvent dans le contexte d'un
+mot donné
 
-**Exercice** écrire une fonction `arg_k_max` qui renvoie les indices des $k$ plus grands éléments d'une liste.
+**Exercice** écrire une fonction `arg_k_max` qui renvoie les indices des $k$ plus grands éléments
+d'une liste.
 <!-- #endregion -->
 
 ```python
@@ -283,7 +292,9 @@ def arg_k_max(lst, k):
     arg_k_max([9, 10, 2, 3], k=2)
 ```
 
-**Note** Si les performances sont importantes, préférer [`heapq.nlargest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) pour sélectionner les $k$ plus grands éléments d'une liste.
+**Note** Si les performances sont importantes, préférer
+[`heapq.nlargest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) pour sélectionner
+les $k$ plus grands éléments d'une liste.
 
 ```python slideshow={"slide_type": "subslide"}
 def common_neighbours(word, t2i, i2t, cooc, k=10):
@@ -307,13 +318,15 @@ On pourrait faire des `print` mais il y a beaucoup de lignes, ça risque d'être
 ## Pyflakes à la rescousse
 <!-- #endregion -->
 
-On va utilise [`pyflakes`](https://pypi.org/project/pyflakes/), pensez à l'installer avec `pip` avant de lancer la cellule suivante.
+On va utilise [`pyflakes`](https://pypi.org/project/pyflakes/), pensez à l'installer avec `pip`
+avant de lancer la cellule suivante.
 
 ```python
 !pyflakes lintme.py
 ```
 
-[`lintme.py`](lintme.py) contient les fonctions qu'on a défini précédemment, allez voir ce qu'il y a dans les lignes 31 et 35.
+[`lintme.py`](lintme.py) contient les fonctions qu'on a défini précédemment, allez voir ce qu'il y a
+dans les lignes 31 et 35.
 
 
 Est-ce que vous voyez le problème ?
@@ -329,7 +342,7 @@ for ո, val in enumerate(lst):
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Juste ici
 
-```
+```text
 for ո, val in enumerate(lst):
     ^
 ```
@@ -565,7 +578,7 @@ On va débugger dans [Visual Studio Code](https://code.visualstudio.com/).
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Pour les vraiment très grand⋅e⋅s
 
-Pycharm c'est bien, mais même ça a ses limites
+VSCode c'est bien, mais même ça a ses limites
 
 - Quand le code prend toute la RAM
 - Quand on débuggue à distance
@@ -574,7 +587,8 @@ Pycharm c'est bien, mais même ça a ses limites
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Pour ça il existe une alternative directement incluse dans la bibliothèque standard : [`pdb`](https://docs.python.org/3/library/pdb.html).
+Pour ça il existe une alternative directement incluse dans la bibliothèque standard :
+[`pdb`](https://docs.python.org/3/library/pdb.html).
 
 Pour le lancer, rien de plus simple (mais ça ne marche pas bien dans un notebook)
 <!-- #endregion -->
@@ -589,7 +603,7 @@ python -m pdb debugme.py
 Là encore, on regarde le tableau. Pour référence future, tout est dans la doc mais les points
 importants sont
 
-- Les commandes (il suffit de taper la première lettre
+- Les commandes (il suffit de taper la première lettre)
   - `l[ist]`: affiche les lignes autour de l'instruction courante
   - `ll[ist]`: affiche tout la fonction courante
   - `n[ext]`: passer à l'instruction suivante dans la fonction en cours

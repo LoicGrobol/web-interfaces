@@ -25,7 +25,7 @@ Aller jusqu'à « *Philosophy* », version HTML
 2021-10-06
 <!-- #endregion -->
 
-~~**Avertissement** au 2021-12-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on n'y vas plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.~~
+~~**Avertissement** au 2021-12-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on ne va plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.~~
 
 Au 2022-12-06, on revient effectivement à Philosophy.
 
