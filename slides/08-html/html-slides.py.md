@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -31,7 +31,7 @@ Cours 10 : Générer du HTML
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "-"}
-from IPython.display import display, HTML
+from IPython.display import display
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -111,6 +111,7 @@ En plus dans un notebook ça se fait bien avec
 <!-- #endregion -->
 
 ```python
+from IPython.display import HTML
 HTML(doc)
 ```
 
@@ -350,7 +351,7 @@ t = Template("""Some interesting people:
 lst = t.render(
     people=[
         {"name": "Guido van Rossum", "position": "Benevolent dictator for life"},
-        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Ines Montani", "position": "Cofounder of explosion.ai"},
         {"name": "Kirby Conrod", "position": "Linguist and scholar"},
     ]
 )
@@ -400,7 +401,7 @@ t = env.get_template("basic.html.jinja")
 lst = t.render(
     people=[
         {"name": "Guido van Rossum", "position": "Benevolent dictator for life"},
-        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Ines Montani", "position": "Cofounder of explosion.ai"},
         {"name": "Kirby Conrod", "position": "Linguist and scholar"},
     ]
 )
@@ -419,7 +420,7 @@ En plus, les bons IDE supportent la syntaxe de Jinja, vous devriez donc au moins
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Parmi les autres fonctions intéressantes, Jinja permet d'échapper automatiquement le HTML, afin de
 se prémunir des injections de code. Par exemple si on reprend l'environnement précédent mais qu'on
-change un peu les données
+change un peu les données (ce qui peut arriver si les données en question ne sont pas gérées directement par vous, mais sont issues des utilisateurs de votre application).
 <!-- #endregion -->
 
 ```python
@@ -431,11 +432,27 @@ lst = t.render(
     ]
 )
 print(lst)
+display(HTML(lst))
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Évidemment ici ce n'est pas très grave, mais on peut faire beaucoup de choses avec `<script>` par exemple. Mieux vaut donc éviter ceci
+Évidemment ici ce n'est pas très grave, `<strong>` n'est pas un tag très dangereux. En revanche on peut faire beaucoup de choses avec `<script>`. Pour un exemple, décommentez la dernière ligne de la cellule suivante, puis exécutez la.
 <!-- #endregion -->
+
+```python
+lst = t.render(
+    people=[
+        {"name": "<script>alert('boo!')</script>Guido van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
+        {"name": "Kirby Conrod", "position": "Linguist and scholar"},
+    ]
+)
+print(lst)
+# display(HTML(lst)) 
+```
+
+ Pour éviter ça :
+
 
 ```python
 env = Environment(
@@ -446,12 +463,13 @@ env = Environment(
 t = env.get_template("basic.html.jinja")
 lst = t.render(
     people=[
-        {"name": "<strong>Guido</strong> van Rossum", "position": "Benevolent dictator for life"},
+        {"name": "<script>alert('boo!')</script>Guido van Rossum", "position": "Benevolent dictator for life"},
         {"name": "Ines Montani", "position": "cofounder of explosion.ai"},
         {"name": "Kirby Conrod", "position": "Linguist and scholar"},
     ] 
 )
 print(lst)
+display(HTML(lst)) 
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
