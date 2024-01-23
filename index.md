@@ -96,11 +96,21 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
   - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
   - {% notebook_badges slides/08-html/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
-- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
+- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides
+  Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
   - [`factorial.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/factorial.py).
   - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
   - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
     - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
+
+### 2024-01-23 — Bases de données et parsers
+
+- {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
+  BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
+- {% slides/11-parsers/parsers.py.md %} [Slides
+  Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/parsers.py.ipynb)
+  - {% slides/11-parsers/solutions.py.md %} [Slides
+    Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/solutions.py.ipynb)
 
 
 ## Utilisation en local

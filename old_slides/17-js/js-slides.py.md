@@ -243,7 +243,7 @@ const materials = [
   'Beryllium'
 ];
 
-console.log(materials.map(material => material.length));
+console.log(materials.map(m => m.length));
 ```
 <!-- #endregion -->
 

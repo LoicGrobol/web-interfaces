@@ -299,7 +299,7 @@ from re import *
 sub(r"[aeiou]", "💓", "Plurital")
 ```
 
-On le trouve souvent dans la nature, mais c'est en général une **très mauvaise idéé**:
+On le trouve souvent dans la nature, mais c'est en général une **très mauvaise idée**:
 
 - Ça rend très difficile de savoir d'où viennent les objets dans votre module
 - En ajoutant les fonctions dans l'espace de nommage du script vous pouvez écraser des fonctions

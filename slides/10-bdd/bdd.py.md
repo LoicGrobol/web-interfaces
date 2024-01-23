@@ -408,9 +408,12 @@ dépendance](https://fastapi.tiangolo.com/tutorial/dependencies)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Quand un paramètre dans un point d'accès a comme valeur par défaut `Depends(get_db)`, il n'est pas récupéré à partir de la requête mais en récupérant ce qui est renvoyé par le générateur `get_db` avec `yield`.
+Quand un paramètre dans un point d'accès a comme valeur par défaut `Depends(gen)`, il n'est pas
+récupéré à partir de la requête, mais à partir de ce qui est renvoyé par le générateur `gen` avec
+`yield`.
 
-Une fois la fonction correspondant au point d'accès terminée, FastAPI reprends l'exécution de `get_db` pour faire un `commit`, puis fermer le curseur et la base.
+Une fois la fonction correspondant au point d'accès terminée, FastAPI reprends l'exécution de
+`get_db` pour faire un `commit`, puis fermer le curseur et la base.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -509,17 +512,17 @@ async def create_tree_view(tree: Tree):
 
 ```
 
-C'est essentiellement la même chose, en plus agréable à écrire mais aussi en plus magique. À vous de
-voir ce que vous préférez, FastAPI a [un
+C'est essentiellement la même chose, en plus agréable à écrire, mais aussi en plus magique. À vous
+de voir ce que vous préférez, FastAPI a [un
 tutoriel](https://fastapi.tiangolo.com/tutorial/sql-databases) sur l'utilisation de SQLAlchemy pour
 un gestionnaire d'utilisateurices basique.
 
 
 Ça vaut aussi le coup de lire un jour [le tutoriel de
 SQLAlchemy](https://docs.sqlalchemy.org/en/14/tutorial) qui est plus ou moins la bibliothèque
-standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu mais
-ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être un⋅e
-alchimiste ?).
+standard pour travailler avec des bases de données relationnelle en Python. C'est un peu touffu,
+mais ça se fait en prenant son temps et vous vous remercierez plus tard (et qui ne voudrait pas être
+un⋅e alchimiste ?).
 
 <small>Bien sûr il n'y a pas que les BDD relationnelles dans la vie et vous aurez probablement à
 travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</small>
@@ -528,4 +531,4 @@ travailler avec d'autres trucs comme MongoDB mais ceci est une autre histoire</s
 Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut se faire à la main, mais
 très très vite l'idéal est de passer à une bibliothèque comme [FastAPI
 Users](https://fastapi-users.github.io/fastapi-users/) qui gère pour vous les opérations standard
-comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin. 
+comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin.

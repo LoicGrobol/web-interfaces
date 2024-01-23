@@ -17,7 +17,7 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 5 : Parser des documents balisés avec `lxml` et BeautifulSoup
+Cours 11 : Parser des documents balisés avec `lxml` et BeautifulSoup
 ==================================================================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
@@ -44,8 +44,8 @@ documents potentiellement mal formés.
 Installons ces modules, soit dans votre terminal avec `pip`, soit en exécutant la cellule de code
 suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce cours dans un
 environnement virtuel et si vous avez installé le [requirements.txt](../../requirements.txt) de ce
-cours, ces modules sont déjà installés. Nous aurons également besoin de `requests` [que nous avons
-déjà utilisé](../04-requests/requests-slides.py.md) et plus anecdotiquement de `matplotlib`.
+cours, ces modules sont déjà installés. Nous aurons également besoin de `requests` et plus
+anecdotiquement de `matplotlib`.
 
 
 ```python
@@ -292,7 +292,7 @@ source = root.xpath(
 print(source[0])
 ```
 
-Pour le contenu il faut ruser. La difficulté ici tient à l'utilisation d'élements `<lb/>` de type
+Pour le contenu il faut ruser. La difficulté ici tient à l'utilisation d'éléments `<lb/>` de type
 [milestones](http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/CO.html#CORS5) pour noter les
 retours à la ligne :
 
@@ -308,7 +308,7 @@ anais de maime pour nous<lb/>
 ### 🥲 Exo 🥲
 
 1\. Récupérez dans un premier temps l'ensemble des balises `<p>` en utilisant la méthode
-[findall](http://effbot.org/zone/element.htm#searching-for-subelements). la méthode `findall`
+[findall](http://effbot.org/zone/element.htm#searching-for-subelements). La méthode `findall`
 renvoie une liste avec tous les éléments correspondant au chemin argument.
 
 ```python
@@ -319,8 +319,8 @@ for elem in body: # tout le texte ne s'affichera pas, c'est normal !
 
 Ici on ne récupère que les nœuds `text` précédant les éléments `<lb/>`.
 
-2\. Utilisez la fonction `xpath` pour récupérer tous les nœuds text du corps de la lettre. Vous
-intégrerez dans votre requête la fonction `text` (vue un peu plus haut) dans votre chemin xpath
+2\. Utilisez la fonction `xpath` pour récupérer tous les nœuds texte du corps de la lettre. Vous
+intégrerez dans votre requête la fonction `text` (vue un peu plus haut) dans votre chemin XPath
 (vous pouvez _aussi_ fouiller [par ici](https://lxml.de/xpathxslt.html) pour avoir de la
 documentation supplémentaire).
 
@@ -330,7 +330,7 @@ for text in body:
     print(text, end="")
 ```
 
-3\. Écrivez une requête xpath pour récupérer tous les éléments raturés de la lettre de Joséphine.
+3\. Écrivez une requête XPath pour récupérer tous les éléments raturés de la lettre de Joséphine.
 
 ## Avec DOM
 
@@ -373,7 +373,7 @@ Et maintenant le contenu et ses éléments milestones
 
 ### 😌 Exo 😌
 
-Pour garder la forme, vous réécrirez les boucles `for` suivies de `if` en listes en intension.
+Pour garder la forme, vous réécrirez les boucles `for` suivies de `if` en listes en compréhension.
 
 ```python
 body = dom.getElementsByTagNameNS("http://www.tei-c.org/ns/1.0", 'body')[0]
@@ -414,11 +414,11 @@ print(text.getText())
 
 `lxml` est rapide, Beautiful Soup simple à utiliser. Le combo diablement efficace.
 
-Il y a un autre module super pour le web que nous ne verrons pas dans cette séance mais que je me
-dois de vous indiquer : [Selenium](https://selenium-python.readthedocs.io/) Selenium va vous
-permettre d'automatiser des actions sur un navigateur. Je vous conseille d'essayer, c'est assez
-plaisant de voir votre navigateur piloté par un script. C'est aussi génial pour tester
-automatiquement les interfaces web que vous développez
+Il y a un autre module super pour le web que nous ne verrons pas dans cette séance, mais que je me
+dois de vous indiquer : [Selenium](https://selenium-python.readthedocs.io/), qui vous permet
+d'automatiser des actions sur un navigateur. Je vous conseille d'essayer, c'est assez plaisant de
+voir votre navigateur piloté par un script. C'est aussi génial pour tester automatiquement les
+interfaces web que vous développez
 
 ## 🤔 Exo d'application 🤔
 
