@@ -109,6 +109,7 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
   BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
 - {% slides/11-parsers/parsers.py.md %} [Slides
   Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/parsers.py.ipynb)
+  - [Joséphine]({{site.url}}{{site.baseurl}}/slides/11-parsers/data/josephine-1-150119.xml)
   - {% slides/11-parsers/solutions.py.md %} [Slides
     Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/solutions.py.ipynb)
 

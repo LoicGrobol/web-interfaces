@@ -200,9 +200,7 @@ Nous allons travailler sur un fichier au format [TEI](http://www.tei-c.org/) ext
 [*Corpus 14*](https://hdl.handle.net/11403/corpus14/v1).
 
 Le fichier se nomme [`josephine-1-150119.xml`](data/josephine-1-150119.xml). Il s'agit d'une
-lettre d'une femme de soldat à son époux. Les chemins du notebook devraient fonctionner sur Binder,
-pour bosser en local, vous pouvez le récupérer sur
-[GitHub](https://raw.githubusercontent.com/LoicGrobol/web-interfaces/main/data/josephine-1-150119.xml)
+lettre d'une femme de soldat à son époux.
 
 Nous allons extraire du fichier TEI les informations suivantes :
 
