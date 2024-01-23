@@ -218,7 +218,7 @@ Pourquoi `lxml` et pas `xml.etree.ElementTree` ? Parce que : [1](http://lxml.de/
 surtout [2](http://lxml.de/performance.html).
 
 La bonne nouvelle, c'est que votre code sera aussi compatible avec `xml.etree.ElementTree` ou
-`xml.etree.cElementTree` parce que xml utilise l'API ElementTree. Sauf pour la méthode `xpath` qui
+`xml.etree.cElementTree` parce que XML utilise l'API ElementTree. Sauf pour la méthode `xpath` qui
 est propre à `libxml`.
 
 ```python
@@ -267,8 +267,8 @@ print("Texte : {}".format(source.text))
 
 ### Avec des requêtes xpath
 
-`lxml` a aussi une méthode [xpath](https://lxml.de/xpathxslt.html) qui permet d'utiliser directement
-des [expressions xpath](https://www.w3schools.com/xml/xpath_syntax.asp) (sans oublier les espaces de
+`lxml` a aussi une méthode [XPath](https://lxml.de/xpathxslt.html) qui permet d'utiliser directement
+des [expressions XPath](https://www.w3schools.com/xml/xpath_syntax.asp) (sans oublier les espaces de
 noms pour notre fichier) :
 
 ```python
@@ -291,7 +291,7 @@ print(source[0])
 ```
 
 Pour le contenu il faut ruser. La difficulté ici tient à l'utilisation d'éléments `<lb/>` de type
-[milestones](http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/CO.html#CORS5) pour noter les
+[`milestone`](http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/CO.html#CORS5) pour noter les
 retours à la ligne :
 
 ```xml
@@ -306,7 +306,7 @@ anais de maime pour nous<lb/>
 ### 🥲 Exo 🥲
 
 1\. Récupérez dans un premier temps l'ensemble des balises `<p>` en utilisant la méthode
-[findall](http://effbot.org/zone/element.htm#searching-for-subelements). La méthode `findall`
+[`findall`](http://effbot.org/zone/element.htm#searching-for-subelements). La méthode `findall`
 renvoie une liste avec tous les éléments correspondant au chemin argument.
 
 ```python
@@ -367,7 +367,7 @@ for node in sourceDesc.childNodes:
         print(node.lastChild.nodeValue)
 ```
 
-Et maintenant le contenu et ses éléments milestones
+Et maintenant le contenu et ses éléments `milestone`
 
 ### 😌 Exo 😌
 
