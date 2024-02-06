@@ -17,7 +17,7 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 17 : *And another thing…*
+Cours 12 : *And another thing…*
 ===============================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
@@ -363,7 +363,7 @@ Ici la page web requête l'API au moyen de méthodes comme
 ```
 <!-- #endregion -->
 
-Elle permet d'accéder à l'API spacy suivante :
+Elle permet d'accéder à l'API spacy suivante (qu'il aurait vraiment fallu faire avec Jinja) :
 
 ```python
 # %load apis/spacy_html_api.py
@@ -417,7 +417,7 @@ async def list_models():
 ```
 
 <!-- #region -->
-Pour le rendu, aller dans le dossier [apis](apis/) qui accompagne ce notebook, lancer l'API dans Uvicorn
+Pour le rendu, aller dans le dossier [apis](apis/) qui accompagne ce notebook, lancer l'API dans Uvicorn :
 
 ```bash
 uvicorn spacy_html_api:app

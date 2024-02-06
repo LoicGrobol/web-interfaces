@@ -16,7 +16,7 @@ jupyter:
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 <!-- LTeX: language=fr -->
-Cours 07 : git
+Cours 13 : git
 ==============
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)

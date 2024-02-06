@@ -113,6 +113,13 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
   - {% notebook_badges slides/11-parsers/solutions.py.md %} [Slides
     Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/solutions.py.ipynb)
 
+### 2024-02-06 : Javascript et git
+
+- {% notebook_badges slides/12-js/js.py.md %} [Slides
+  js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
+- {% notebook_badges slides/13-git/git.py.md %} [Slides
+  git]({{site.url}}{{site.baseurl}}/slides/13-git/git.py.md)
+
 
 ## Utilisation en local
 

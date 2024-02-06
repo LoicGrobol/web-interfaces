@@ -393,5 +393,3 @@ raison**.
 sys.path.append("[...]") # le chemin vers le dossier operations_pack
 sys.path
 ```
-
-## Exoooooooos
