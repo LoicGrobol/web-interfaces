@@ -118,7 +118,7 @@ et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `�
 - {% notebook_badges slides/12-js/js.py.md %} [Slides
   js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
 - {% notebook_badges slides/13-git/git.py.md %} [Slides
-  git]({{site.url}}{{site.baseurl}}/slides/13-git/git.py.md)
+  git]({{site.url}}{{site.baseurl}}/slides/13-git/git.py.ipynb)
 
 
 ## Utilisation en local
