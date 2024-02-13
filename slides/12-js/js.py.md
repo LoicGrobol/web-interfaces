@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -217,9 +217,9 @@ Il y a deux façons de définir des fonctions en JavaScript :
   ```
 
   ```javascript
-  const getRectArea = function(width, height) {
+  (function(width, height) {
     return width * height
-  }
+  })(15, 13)
   ```
 
 - Les modernes fonctions fléchées
@@ -423,5 +423,5 @@ Pour le rendu, aller dans le dossier [apis](apis/) qui accompagne ce notebook, l
 uvicorn spacy_html_api:app
 ```
 
-puis aller à <http://localhost:8000/front/spacy_api.html>.
+puis aller à <http://localhost:8000/front/spacy_form.html>.
 <!-- #endregion -->

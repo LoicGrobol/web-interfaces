@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -181,8 +181,8 @@ diffs.
 Ajoutons un peu de code à `projet.py`
 
 ```bash
-echo "print('hello, world')" > project.py
-python3 project.py
+echo "print('hello, world')" > projet.py
+python3 projet.py
 git commit -am "make it do something"
 ```
 <!-- #endregion -->
@@ -202,7 +202,7 @@ Malheur ! On a détruit le projet. Comment on le récupère ?
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 ```bash
-git checkout "project.py"
+git checkout "projet.py"
 ls
 ```
 <!-- #endregion -->
@@ -213,7 +213,7 @@ ls
 Faisons en vitesse quelques autres changements
 
 ```bash
-echo "print('spam')" > project.py && git commit -am "add spam" && echo "print('ham')" > project.py && git commit -am "change to ham"
+echo "print('spam')" > projet.py && git commit -am "add spam" && echo "print('ham')" > projet.py && git commit -am "change to ham"
 ```
 
 Vérifiez l'historique avec `git log`
@@ -255,7 +255,7 @@ git checkout main
 On peut aussi combiner les deux versions de `checkout`
 
 ```bash
-git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- project.py
+git checkout a7b576b62accff1cec652f6a313e37ce784c8254 -- projet.py
 ```
 <!-- #endregion -->
 
@@ -276,7 +276,7 @@ En fait, quand on fait un commit, git n'enregistre pas tous les changements, il 
 Faites donc
 
 ```shell
-git add project.py
+git add projet.py
 git commit -m "j'ai changé un truc"
 ```
 <!-- #endregion -->
