@@ -1,6 +1,7 @@
 ---
-title: Interfaces web pour le TAL — M2 PluriTAL 2025
+title: Interfaces web pour le TAL — M2 PluriTAL 2024
 layout: default
+permalink: /2024/
 ---
 
 [comment]: <> "LTeX: language=fr"
@@ -9,21 +10,25 @@ layout: default
 
 ## News
 
-- **2024-11-19** Premier cours du semestre le 28/11/2023.
+- **2024-01-09** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en
+  ligne.
+- **2023-11-27** Premier cours du semestre le 28/11/2023.
 
 ## Infos pratiques
 
 - **Quoi** « Interfaces web pour le TAL »
-- **Où** Salle 408, bâtiment de la formation continue.
+- **Où** Salle 410, bâtiment de la formation continue.
 - **Quand** 8 séances, les mardi de 13:30 à 16:30, du 28/11/22 au 31/01/24
-- **Contact** L. Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+- **Contact** Loïc Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+  - Demandez une invite pour le serveur Discord !
 
 ## Liens utiles
 
 - Prendre rendez-vous pour des *office hours* en visio :
-  [mon calendrier](https://calendar.app.google/N9oW2c9BzhXsWrrv9)
+  [Calendly](https://calendly.com/lgrobol/remote-office-hour)
 - Lien Binder de secours :
   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LoicGrobol/web-interfaces/main)
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects).
 
 ## Séances
 
@@ -36,7 +41,16 @@ Les slides et les notebooks ci-dessous ont tous des liens Binder pour une utilis
 sans rien installer. Les slides ont aussi des liens vers une version HTML statique utile si Binder
 est indisponible.
 
-### 2024-11-19 — Internet et programmation orientée objet
+### 2023-11-28 — *Crash course* Python
+
+- {% notebook_badges slides/01-intro_rappels/intro_rappels.py.md %} [Crash course
+  python]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels.py.ipynb)
+  - [Liste de Swadesh
+    (csv)]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/data/austronesian_swadesh.csv)
+  - {% notebook_badges slides/01-intro_rappels/intro_rappels-solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/01-intro_rappels/intro_rappels-solutions.py.ipynb)
+
+### 2023-12-12 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/02-internet/internet.py.md %} [Notebook
   internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
@@ -47,6 +61,66 @@ est indisponible.
   - Solutions :
     - [Script v1]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v1.py)
     - [Script v2]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v2.py)
+
+### 2023-12-19 — `requests` et APIs REST
+
+- {% notebook_badges slides/04-requests/requests.py.md %} [Notebook
+  requests]({{site.url}}{{site.baseurl}}/slides/04-requests/requests.py.ipynb)
+  - Solutions :
+    - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_base.py)
+    - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_click.py)
+    - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/04-requests/requrl_argparse.py)
+- {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
+  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
+
+Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
+<lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2024] TP Prénom Nom`
+et le nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
+`Nanterre`, `P3` ou `Inalco`.
+
+### 2024-01-09 — Décorateurs et FastAPI
+
+- {% notebook_badges slides/06-decorators/decorators.py.md %} [Notebook
+  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-decorators/decorators.py.ipynb)
+  - {% notebook_badges slides/06-decorators/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/06-decorators/solutions.py.ipynb)
+- {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
+  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
+  - {% notebook_badges slides/07-fastapi/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
+
+### 2024-01-16 — Outils de debug et HTML
+
+- {% notebook_badges slides/08-html/html-slides.py.md %} [Slides
+  HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
+  - {% notebook_badges slides/08-html/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
+- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides
+  Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
+  - [`factorial.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/factorial.py).
+  - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
+  - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
+    - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
+
+### 2024-01-23 — Bases de données et parsers
+
+- {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
+  BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
+- {% notebook_badges slides/11-parsers/parsers.py.md %} [Slides
+  Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/parsers.py.ipynb)
+  - [Joséphine]({{site.url}}{{site.baseurl}}/slides/11-parsers/data/josephine-1-150119.xml)
+  - {% notebook_badges slides/11-parsers/solutions.py.md %} [Slides
+    Parsers]({{site.url}}{{site.baseurl}}/slides/11-parsers/solutions.py.ipynb)
+
+### 2024-02-06 : Javascript et git
+
+- {% notebook_badges slides/12-js/js.py.md %} [Slides
+  js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
+- {% notebook_badges slides/13-git/git.py.md %} [Slides
+  git]({{site.url}}{{site.baseurl}}/slides/13-git/git.py.ipynb)
+
 
 ## Utilisation en local
 
@@ -119,7 +193,7 @@ Il vous est vivement conseillé d'utiliser un (ou plus) des sites et tutoriels c
 
 [![CC BY Licence badge](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
-Copyright © 2024 Loïc Grobol [\<loic.grobol@gmail.com\>](mailto:loic.grobol@gmail.com)
+Copyright © 2023 Loïc Grobol [\<loic.grobol@gmail.com\>](mailto:loic.grobol@gmail.com)
 
 Sauf indication contraire, les fichiers présents dans ce dépôt sont distribués selon les termes de
 la licence [Creative Commons Attribution 4.0
