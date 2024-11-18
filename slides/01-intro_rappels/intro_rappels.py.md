@@ -611,11 +611,11 @@ couleurs.items()
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Les tuples
 
-- Les tuples (`tuple`) sont des *séquences* similaires aux listes sauf qu'elles ne peuvent pas être
-  modifiées (*immutable*).
+- Les tuples (`tuple`) sont des *séquences* similaires aux listes sauf qu'ils ne peuvent pas être
+  modifiés (*immutable*).
 - Les tuples sont souvent utilisés comme valeur de retour d'une fonction.
-- Contrairement aux listes, les tuples peuvent être utilisés comme clé de dictionnaire, à votre
-  avis pourquoi ?.
+- Contrairement aux listes, les tuples peuvent être utilisés comme clé de dictionnaire, à votre avis
+  pourquoi ?.
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "-"}
@@ -1295,7 +1295,8 @@ with open("data/demo.txt") as in_stream:
         print(line)
 ```
 
-Attention, les fins de lignes sont conservées (c'est pour ça qu'on a des lignes blanches ici). Pour les enlever on peut utiliser `strip()` :
+Attention, les fins de lignes sont conservées (c'est pour ça qu'on a des lignes blanches ici). Pour
+les enlever on peut utiliser `strip()` :
 
 ```python
 with open("data/demo.txt") as in_stream:

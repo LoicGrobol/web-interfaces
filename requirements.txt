@@ -16,7 +16,7 @@ regex
 RISE
 ruff
 scipy
-spacy
+spacy >= 3.7
 spacy_streamlit
 sqlalchemy
 streamlit
