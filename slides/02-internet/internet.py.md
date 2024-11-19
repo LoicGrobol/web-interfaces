@@ -173,7 +173,7 @@ Votre adresse IP (v4) se lit dans `inet` et votre adresse IP (v6) dans `inet6`. 
 adresses entre vous et avec l'adresse que vous donne par exemple <https://whatismyipaddress.com/>,
 que constatez-vous ?
 
-Quel site se trouve à l'adresse suivante [`http://128.30.52.100`](http://128.30.52.100) ?
+Quel site se trouve à l'adresse suivante [`http://34.223.124.45`](http://34.223.124.45) ?
 
 Il n'est évidemment pas pratique de travailler directement avec les adresses IP pour accéder à des
 machines publiques.
@@ -199,7 +199,7 @@ du trajet que suivent les données pour aller de votre machine à une autre avec
 `traceroute` (il vous faudra peut-être l'installer)
 
 ```python
-!traceroute python.net
+!traceroute python.org
 ```
 
 ### Paquets
