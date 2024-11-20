@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.15.2
+      jupytext_version: 1.16.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -46,7 +46,7 @@ point_1 = (27, 13)
 point_2 = (19, 84)
 
 def distance(p1, p2):
-    return math.sqrt((p2[0]-p1[0])**2+(p2[1·]-p1[1])**2)
+    return math.sqrt((p2[0]-p1[0])**2+(p2[1]-p1[1])**2)
 
 distance(point_1, point_2)
 ```
@@ -82,7 +82,7 @@ from collections import namedtuple
 Point = namedtuple('Point', ('x', 'y'))
 
 point_1 = Point(27, 13)
-point_2 = Point(19, 84)
+point_2 = Point(19, 8 4)
 
 def distance(p1, p2):
     return math.sqrt((p2.x-p1.x)**2+(p2.y-p1.y)**2)
@@ -157,6 +157,7 @@ Vous êtes **fortement** encouragé⋅es à utiliser des tuples nommés quand vo
 qui renvoie plusieurs valeurs.
 
 ```python slideshow={"slide_type": "subslide"}
+from collections import namedtuple
 Vecteur = namedtuple('Vecteur', ('x', 'y'))
 
 v1 = Vecteur(27, 13)
@@ -223,11 +224,7 @@ C'est un peu mieux, mais pas top. (Même si on aurait pu trouver une solution pl
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
- ## Ces fameux objets
 
-Une des solutions pour faire mieux c'est de passer à la vitesse supérieure : les objets.
-
-Ça va d'abord être un peu plus désagréable, pour ensuite être beaucoup plus agréable.
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "-"}
@@ -292,7 +289,7 @@ Et vous en avez déjà rencontré plein
 
 ```python
 print(type('abc'))
-print('abc'.islower())
+print('abc'.upper())
 ```
 
 Car en Python, tout est objet. Ce qui ne veut pas dire qu'on est obligé d'y faire attention…
@@ -326,7 +323,7 @@ sans déplaire aux puristes.
 
 ```python slideshow={"slide_type": "-"}
 class Word:
-    """Classe Word : définit un mot de la langue """
+    """Classe Word : déinit un mot de la langue """
     pass
 ```
 
@@ -336,7 +333,7 @@ Pour créer un objet, on appelle simplement sa classe comme une fonction
 
 ```python slideshow={"slide_type": "-"}
 word1 = Word()
-print(type(word1)) # renvoie la classe qu'instancie l'objet
+prit(type(word1)) # renvoie la classe qu'instancie l'objet
 ```
 
 <!-- #region slideshow={"slide_type": "-"} -->
