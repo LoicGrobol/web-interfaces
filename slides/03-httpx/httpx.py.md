@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.11.2
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web
     language: python
     name: python3
 ---
@@ -142,7 +142,21 @@ La valeur de `response.status_code` est la valeur du code d'état de la réponse
 httpx.get("http://example.com/this/resource/does/not/exist")
 ```
 
-Si on veut lever une exception en cas d'erreur, on peut utilise `raise_for_status()` :
+On peut vérifier si une requête est un succès avec `is_success`
+
+```python
+for url in (
+    "https://plurital.org",
+    "https://example.com/this/resource/does/not/exist",
+):
+    response = httpx.get(url).raise_for_status()
+    if response.is_success:
+        print(f"{url} est atteignable")
+    else:
+        print(f"{url} n'est pas atteignable ")
+```
+
+Si on veut lever une exception en cas d'erreur, on peut aussi utiliser `raise_for_status()` :
 
 ```python
 for url in (
@@ -214,50 +228,28 @@ print(response.text)
 Ce sont toutes simplement des alias pour `httpx.request` :
 
 ```python
-httpx.request("GET", "https://httpbingo.org/get")
+httpx.request("GET", "https://httpbin.org/get")
 print(response.text)
 ```
 
-On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre data
+On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre content
 
 ```python
-response = httpx.put("https://httpbin.org/put", data="Hello, world")
+response = httpx.put("https://httpbin.org/put", content="Hello, world")
 print(response.text)
 ```
-
-N'importe quel type de données
 
 ```python
-response = httpx.put("https://httpbin.org/put", data="We are the knights who say “Ni”!")
+response = httpx.put("https://httpbin.org/put", content="We are the Knights Who Say “Ni”!")
 print(response.text)
 ```
 
-Ah.
-
-Quel est le problème ici ?
-
-En fait, `httpx` ne sait passer que des paramètres binaires, et il encode implicitement les chaînes de caractères en `latin-1`, [comme c'est la norme](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.4.1).
-
-Pour utiliser un autre encodage, il faut le faire à la main.
-
-```python
-response = httpx.post(
-    "https://httpbin.org/post",
-    data="We are the knights who say “Ni”!".encode("utf-8"),
-)
-print(response.text)
-```
-
-Mais là le serveur ne saura pas deviner que c'est cet encodage que vous utilisez, il faudra encore lui dire via les *headers*.
-
-```python
-response = httpx.post(
-    "https://httpbin.org/post",
-    data="We are the knights who say “Ni”!".encode("utf-8"),
-    headers={"Content-Type": "text/plain; charset=utf-8"},
-)
-print(response.text)
-```
+La valeur passée à `content` sera convertie en flux d'octets (le type `bytes`). S'il s'agit d'une
+chaîne de caractères, elle sera encodée en UTF-8 (contrairement à ce que fait `requests` qui
+respecte [le standard HTTP/1.1 d'avant
+2014](https://www.w3.org/International/articles/http-charset/index.en) et utilise ISO-8859-1 par
+défaut). Si besoin vous pouvez encoder vous-même, avec `"hello".encode("cp1252")` par exemple, et
+passer dans ce cas le *header* `Content-Type: text/html; charset=windows-1252`.
 
 ## Headers et paramètres
 
@@ -266,15 +258,15 @@ En plus du corps d'une requête, il y a d'autres façons de passer des informati
 ### Les paramètres d'URL
 
 Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple
-<http://httpbin.org/get?key=val> a comme paramètre `key`, de valeur `value`.
+<http://httpbin.org/get?key=val> a comme paramètre `key`, de valeur `value` et <https://duckduckgo.com/?q=legends+and+latte&ia=web> a comme paramètres `q`, qui vaut `"legends+and+latte"` et `ia` qui vaut `"web"`.
 
 On peut ajouter ces paramètres directement à l'URL qu'on requête, mais ça demande de les encoder
-soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `requests` sous forme
+soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `httpx` sous forme
 d'un `dict`.
 
 ```python
 paramètres = {"clé": "valeur", "formation": "Master PluriTAL", "hôtel": "Trivago"}
-response = httpx.get("https://httpbingo.org/get", params=paramètres)
+response = httpx.get("https://httpbin.org/get", params=paramètres)
 print(response.text)
 ```
 
@@ -289,7 +281,7 @@ response.url
 Les *headers* se passent exactement de la même manière, en passant un dictionnaire
 
 ```python
-response = httpx.get("https://httpbingo.org/get", headers={"user-agent": "pluriquest/1.0.0"})
+response = httpx.get("https://httpbin.org/get", headers={"User-Agent": "pluriquest/1.0.0"})
 print(response.text)
 ```
 
@@ -306,7 +298,7 @@ chose) :
 4. Une requête GET à <https://httpbin.org/anything>, mais cette fois-ci avec le paramètre
    `value=panda`
 5. Récupérez le fichier `robots.txt` de Google (<http://google.com/robots.txt>)
-6. Faites une requête `GET` à <https://httpbin.org/anything> avec le *header* `User-Agent: elephant`
+6. Faites une requête `GET` à <https://httpbin.org/anything> avec le *header* `User-Agent: Elephant`
 7. Faites une requête à <https://httpbin.org/anything> et affichez les *headers* de la réponse
 8. Faites une requête `POST` à <https://httpbin.org/anything> avec comme corps `{"value": "panda"}`
 9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
@@ -318,8 +310,8 @@ chose) :
 13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
 14. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
-15. Téléchargez la page d'accueil de Twitter <https://twitter.com> en espagnol (ou une autre langue)
-    avec une utilisation judicieuse des *headers*.
+15. Téléchargez la page d'accueil de DuckDuckGo <https://duckduckgo.com> en espagnol (ou une autre
+    langue) avec une utilisation judicieuse des *headers*.
 
 ### requrl
 

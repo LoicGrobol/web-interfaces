@@ -365,5 +365,5 @@ suivantes :
     réponse est vide.
 15. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
     avec l'option `-u login:password)`
-16. Téléchargez la page d'accueil de Twitter <https://twitter.com> en espagnol (ou une autre langue)
+16. Téléchargez la page d'accueil de DuckDuckGo <https://duckduckgo.com> en espagnol (ou une autre langue)
     avec une utilisation judicieuse des *headers*.

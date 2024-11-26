@@ -53,4 +53,4 @@ curl https://www.twitter.com
 curl http://httpbin.org/anything -u "morgan:pwd"
 
 # 16
-curl -H "accept-language:es"  https://twitter.com 
+curl -H "accept-language:es"  https://duckduckgo.com
