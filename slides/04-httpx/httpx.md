@@ -252,7 +252,7 @@ d'un `dict`.
 
 ```python
 paramètres = {"clé": "valeur", "formation": "Master PluriTAL", "hôtel": "Trivago"}
-response = requests.get("https://httpbin.org/get", params=paramètres)
+response = httpx.get("https://httpbingo.org/get", params=paramètres)
 print(response.text)
 ```
 
@@ -267,7 +267,7 @@ response.url
 Les *headers* se passent exactement de la même manière, en passant un dictionnaire
 
 ```python
-response = requests.get("https://httpbin.org/get", headers={"user-agent": "pluriquest/1.0.0"})
+response = httpx.get("https://httpbingo.org/get", headers={"user-agent": "pluriquest/1.0.0"})
 print(response.text)
 ```
 
@@ -275,7 +275,7 @@ print(response.text)
 
 ### Une batterie de requêtes
 
-À l'aide de `requests`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque
+À l'aide de `httpx`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque
 chose) :
 
 1. Une requête à <https://httpbin.org>
@@ -303,7 +303,7 @@ chose) :
 
 #### 1. La base
 
-Écrire un script `requrl.py`, qui prend comme argument de ligne de commande une URL et affiche la
+Écrire un **script** `requrl.py`, qui prend comme argument de ligne de commande une URL et affiche la
 ressource correspondante sur la sortie standard (comme un curl très très très basique).
 
 #### 2. Quelques paramètres
