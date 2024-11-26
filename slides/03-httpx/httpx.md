@@ -25,18 +25,39 @@ Cours 3 : utiliser `httpx`
 
 <!-- #endregion -->
 
-**Note** La bibliothèque [request](https://requests.readthedocs.io), un peu moins moderne est aussi très utilisée, ça peut valoir le coup d'y jeter un œil.
+**Note** La bibliothèque [requests](https://requests.readthedocs.io), un peu moins moderne est aussi
+très utilisée, ça peut valoir le coup d'y jeter un œil.
 
-<!-- #region -->
-**Note** Si vos requêtes sur httpbin font des timeouts, vous pouvez essayer avec
-`https://httpbingo.org` à la place. En désespoir de cause, lancez netcat avec `nc -kdl 8000` et
-faites vos requêtes `http://localhost:8000`, vos requêtes feront des timeout (netcat ne répond pas),
-mais au moins vous les verrez dans le terminal. Une autre solution est de lancer httpbin en local avec Docker :
+<!-- #region slideshow={"slide_type": "slide"} -->
+**Note** Si vos requêtes sur httpbin (qui n'est plus maintenu au 2024-11-26) font des timeouts, vous
+pouvez essayer avec `https://httpbingo.org` à la place. Sinon vous pouvez utiliser httpbin en local
+(attention, ça ne marchera donc pas sur Binder). Installez-le (dans un venv bien sûr) si besoin (il
+est maintenant dans le `requirements.txt` du cours).
 
 ```bash
-docker pull kennethreitz/httpbin
-docker run -p 80:80 kennethreitz/httpbin
+python -m pip install gunicorn httpbin
 ```
+
+ou avec [uv](https://docs.astral.sh/uv/)
+
+```bash
+uv pip install gunicorn httpbin
+```
+
+Il se lance ensuite avec
+
+```bash
+gunicorn httpbin:app
+```
+
+Si vous le laisser tourner dans un terminal, vous pouvez ensuite envoyer vos requêtes à
+`http://localhost:8000`. Arrêtez-le avec <kbd>ctrl</kbd>+<kbd>C</kbd>. Voir
+<https://github.com/psf/httpbin> pour plus d'info (par exemple comment faire ça avec Docker).
+
+En désespoir de cause, lancez netcat avec `nc -kdl 8000` et faites vos requêtes
+`http://localhost:8000`, vos requêtes feront des timeout (netcat ne répond pas), mais au moins vous
+les verrez dans le terminal.
+
 <!-- #endregion -->
 
 ## HTTP en Python
@@ -73,14 +94,15 @@ httpx doit être installé. Si vous avez installé le `requirements.txt` du cour
 %pip install -U httpx[http2]
 ```
 
-L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans ce cours mais qui peuvent être utilse. Si vous voulez aussi l'interface en ligne de commande (un genre de cURL), vous pouvez installer avec `[cli]`, ou `[http2, cli]` pour avoir les deux.
+L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans
+ce cours mais qui peuvent être utilse. Si vous voulez aussi l'interface en ligne de commande (un
+genre de cURL), vous pouvez installer avec `[cli]`, ou `[http2, cli]` pour avoir les deux.
 
 ```python
 import httpx
 ```
 
 ## Une première requête
-
 
 Exécutez la cellule de code suivante
 
@@ -150,7 +172,6 @@ print(response.text)
 
 Dans le cas de la page d'accueil du site du master, il est assez conséquent, puisqu'il s'agit de tout le code HTML de la page.
 
-
 `httpx` fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe, le contenu sous forme binaire non décodée est toujours disponible dans l'attribut `content`.
 
 ```python
@@ -209,12 +230,9 @@ print(response.text)
 
 Ah.
 
-
 Quel est le problème ici ?
 
-
 En fait, `httpx` ne sait passer que des paramètres binaires, et il encode implicitement les chaînes de caractères en `latin-1`, [comme c'est la norme](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.4.1).
-
 
 Pour utiliser un autre encodage, il faut le faire à la main.
 
@@ -291,7 +309,7 @@ chose) :
    application/json`
 10. Une requête GET à <https://www.google.com> avec le *header* `Accept-Encoding: gzip`.
 11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
-    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. 
+    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images.
 12. Faites une requête PUT à <https://httpbin.org/anything>
 13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images

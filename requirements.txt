@@ -1,5 +1,7 @@
 beautifulsoup4
 fastapi
+gunicorn
+httpbin
 httpx[http2]
 ipycytoscape
 ipympl
