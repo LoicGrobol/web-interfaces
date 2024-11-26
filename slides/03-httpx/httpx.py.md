@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.11.2
+      jupytext_version: 1.16.4
   kernelspec:
-    display_name: cours-web
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -95,7 +95,7 @@ httpx doit être installé. Si vous avez installé le `requirements.txt` du cour
 ```
 
 L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans
-ce cours mais qui peuvent être utilse. Si vous voulez aussi l'interface en ligne de commande (un
+ce cours mais qui peuvent être utiles. Si vous voulez aussi l'interface en ligne de commande (un
 genre de cURL), vous pouvez installer avec `[cli]`, ou `[http2, cli]` pour avoir les deux.
 
 ```python
@@ -157,13 +157,13 @@ for url in (
     print(f"{url} est atteignable")
 ```
 
-**Attention** `200` n'est pas le seul type code correspondant à une réussite.
+**Attention** `200` n'est pas le seul code correspondant à une réussite.
 
 ### Contenu
 
 Une requête de type `GET` attend en général une ressource, qui se trouve en cas de succès dans le contenu ou *payload* de la réponse.
 
-S'il s'agit d'un texte, on le trouvera dans lattribut `text`
+S'il s'agit d'un texte, on le trouvera dans l'attribut `text`
 
 ```python
 response = httpx.get("https://plurital.org")
@@ -183,6 +183,10 @@ Et on peut le décoder explicitement
 ```python
 import codecs
 print(codecs.decode(response.content, "cp1252")[-100:])
+```
+
+```python
+# TODO: un exemple avec une image
 ```
 
 ### Headers
@@ -247,7 +251,7 @@ print(response.text)
 Mais là le serveur ne saura pas deviner que c'est cet encodage que vous utilisez, il faudra encore lui dire via les *headers*.
 
 ```python
-response = requests.post(
+response = httpx.post(
     "https://httpbin.org/post",
     data="We are the knights who say “Ni”!".encode("utf-8"),
     headers={"Content-Type": "text/plain; charset=utf-8"},

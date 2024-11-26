@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.11.2
+      jupytext_version: 1.16.4
   kernelspec:
-    display_name: cours-web
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -140,7 +140,7 @@ Jusque-là ça n'a pas l'air très intéressant.
    libspam.sing()
    ```
 
-3. Exécutez `spam.py` (`python3 spam.py`)
+3. Exécutez `spam.py` (`python spam.py`)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -262,7 +262,7 @@ import spam.ham
 ```
 
 Et sera disponible sous le nom `spam.ham`. Par exemple dans la bibliothèque standard, vous trouverez
-`sys.path` sur ce modèle.
+`sys.path` sur ce modèle (mais utilisez plutôt `pathlib`).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -349,17 +349,21 @@ simple.soustraction(4, 2)
 `__all__` dans `__init__.py` définit quels seront les modules qui seront importés avec `import *`
 
 ```python
+!cat operations_pack/__init__.py
+```
+
+```python
 from operations_pack import *
 multi.multiplication(2,4)
 ```
 
 <!-- #region -->
-# Pas de `main`` en Python ?
+# Pas de `main` en Python ?
 
 Vous trouverez fréquemment le test suivant dans les scripts Python :
 
 ```python
-if __name__ == '__main__':
+if __name__ == "__main__":
     instruction1
     instruction2
 ```
@@ -372,7 +376,7 @@ ou
 def main():
     instruction
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 <!-- #endregion -->
