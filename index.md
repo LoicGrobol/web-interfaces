@@ -53,7 +53,7 @@ est indisponible.
   Modules]({{site.url}}{{site.baseurl}}/slides/04-modules/modules.py.ipynb)
 
 - {% notebook_badges slides/03-httpx/httpx.md %} [Notebook
-  HTTPX]({{site.url}}{{site.baseurl}}slides/03-httpx/httpx.py.ipynb)
+  HTTPX]({{site.url}}{{site.baseurl}}/slides/03-httpx/httpx.py.ipynb)
   
   Solutions :
 
