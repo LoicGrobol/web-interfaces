@@ -69,9 +69,9 @@ git propre, malheureusement ça signifie que pour les ouvrir en local, il faut i
 extensions adéquates. Le plus simple est le suivant
 
 1. Récupérez le dossier du cours, soit en téléchargeant et décompressant
-   [l'archive](https://github.com/LoicGrobol/neural-networks/archive/refs/heads/main.zip)
+   [l'archive](https://github.com/LoicGrobol/web-interfaces/archive/refs/heads/main.zip)
    soit en le clonant avec git : `git clone
-   https://github.com/LoicGrobol/neural-networks.git` et placez-vous dans ce dossier.
+   https://github.com/LoicGrobol/web-interfaces.git` et placez-vous dans ce dossier.
 2. Créez un environnement virtuel pour le cours
 
    ```console
