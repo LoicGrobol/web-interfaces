@@ -57,6 +57,7 @@ est indisponible.
   
   Solutions :
 
+  - [Requêtes]({{site.url}}{{site.baseurl}}/slides/03-httpx/solutions.py)
   - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_base.py)
   - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
   - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
