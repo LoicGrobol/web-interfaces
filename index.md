@@ -52,7 +52,7 @@ est indisponible.
 - {% notebook_badges slides/04-modules/modules.py.md %} [Notebook
   Modules]({{site.url}}{{site.baseurl}}/slides/04-modules/modules.py.ipynb)
 
-- {% notebook_badges slides/03-httpx/httpx.md %} [Notebook
+- {% notebook_badges slides/03-httpx/httpx.py.md %} [Notebook
   HTTPX]({{site.url}}{{site.baseurl}}/slides/03-httpx/httpx.py.ipynb)
   
   Solutions :
