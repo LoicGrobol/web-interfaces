@@ -367,9 +367,9 @@ if __name__ == '__main__':
     main()
 ```
 
-Cela évite que le code sous le test ne soit exécuté lors de l'import du script : `__name__` est une
-variable créée automatiquement qui vaut `__main__` si le script a été appelé en ligne de commande,
-le nom du script s'il a été importé.
+Cela évite que le code dans le bloc `if` ne soit exécuté lors de l'import du script : `__name__`
+est une variable créée automatiquement qui vaut `__main__` si et seulement si le script a été appelé
+en ligne de commande, le nom du script s'il a été importé.
 
 Accessoirement cela permet d'organiser son code et de le rendre plus lisible
 Cela permet aussi d'importer les fonctions du script à la manière d'un module

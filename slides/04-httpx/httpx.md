@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.11.2
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web
     language: python
     name: python3
 ---
@@ -17,15 +18,26 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 3 : utiliser `requests`
+Cours 3 : utiliser `httpx`
 =============================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
-**Note (2022-02-06)** La bibliothèque [httpx](https://github.com/encode/httpx) semble être plus à
-jour que requests, tout en étant largement compatible. Y jeter un œil serait intéressant.
+**Note** La bibliothèque [request](https://requests.readthedocs.io), un peu moins moderne est aussi très utilisée, ça peut valoir le coup d'y jeter un œil.
+
+<!-- #region -->
+**Note** Si vos requêtes sur httpbin font des timeouts, vous pouvez essayer avec
+`https://httpbingo.org` à la place. En désespoir de cause, lancez netcat avec `nc -kdl 8000` et
+faites vos requêtes `http://localhost:8000`, vos requêtes feront des timeout (netcat ne répond pas),
+mais au moins vous les verrez dans le terminal. Une autre solution est de lancer httpbin en local avec Docker :
+
+```bash
+docker pull kennethreitz/httpbin
+docker run -p 80:80 kennethreitz/httpbin
+```
+<!-- #endregion -->
 
 ## HTTP en Python
 
@@ -45,32 +57,26 @@ des usages très simples soit pour servir de base à des bibliothèques de plus 
 
 On jouera donc peut-être un peu avec plus tard, mais dans un premier temps on va se concentrer sur
 une bibliothèque dont l'objectif est de rendre tout ceci simple :
-[`requests`](https://docs.python-requests.org).
+[`httpx`](https://www.python-httpx.org/).
 
-Ce cours est largement inspiré du [tutoriel sur `requests` de RealPython](https://realpython.com/python-requests/#getting-started-with-requests) et du [quickstart de `requests`](https://docs.python-requests.org/en/latest/user/quickstart).
+Ce cours est largement inspiré du [tutoriel sur `requests` de RealPython](https://realpython.com/python-requests/#getting-started-with-requests) et du [quickstart de `requests`](https://docs.python-requests.org/en/latest/user/quickstart) (mais adaptés à httpx).
 
-## `requests` ?
+## `httpx` ?
 
-`requests`.
+`httpx`.
 
-`requests` est un projet de [Kenneth Reitz](https://kennethreitz.org/), un développeur Python très
-prolifique et très bon en relations publiques, connu pour le soin apporté aux interfaces de ses
-bibliothèques, réputées *simples* et *puissantes*.
+`httpx` est une bibliothèque développée par [encode](https://www.encode.io/), à qui on doit aussi uvicorn et starlette, dont on reparlera, ainsi que MkDocs, qui est la base d'à peu près la moitié des sites de documentation sérieux.
 
-(Cela étant dit, je ne vous recommande pas d'utiliser un de ses projets phares, `pipenv`.)
-
-Installons `requests`, soit dans votre terminal avec `pip`, soit en exécutant la cellule de code
-suivante. Comme d'habitude, il est vivement recommandé de travailler pour ce cours dans un
-[environnement virtuel](../lecture-05/lecture-05.md) et si vous avez installé le
-[requirements.txt](../../requirements.txt) de ce cours, `requests` est déjà installé.
-
+httpx doit être installé. Si vous avez installé le `requirements.txt` du cours, rien de nouveau. Sinon faites-le en exécutant la cellule ci-dessous (rappellez-vous de toujours travailler dans un environnement virtuel).
 
 ```python
-%pip install -U requests
+%pip install -U httpx[http2]
 ```
 
+L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans ce cours mais qui peuvent être utilse. Si vous voulez aussi l'interface en ligne de commande (un genre de cURL), vous pouvez installer avec `[cli]`, ou `[http2, cli]` pour avoir les deux.
+
 ```python
-import requests
+import httpx
 ```
 
 ## Une première requête
@@ -79,21 +85,23 @@ import requests
 Exécutez la cellule de code suivante
 
 ```python
-requests.get("http://plurital.org")
+httpx.get("https://plurital.org")
 ```
 
-Bravo, vous avez fait votre première requête HTTP en Python ! La fonction [`requests.get`](https://docs.python-requests.org/en/latest/api/#requests.get) envoie en effet une requête `GET` à l'URL passée en argument.
+Bravo, vous avez fait votre première requête HTTP en Python ! La fonction `httpx.get` envoie en effet une requête `GET` à l'URL passée en argument.
+
+Bon, par contre la réponse affichée n'est pas très informative.
 
 ### L'objet `Response`
 
 On recommence
 
 ```python
-response = requests.get("http://plurital.org")
+response = httpx.get("https://plurital.org")
 type(response)
 ```
 
-[`requests.get`](https://docs.python-requests.org/en/latest/api/#requests.get) renvoie un objet du type [`requests.Response`](https://docs.python-requests.org/en/latest/api/#requests.Response), qui est une interface pour le contenu de la réponse HTTP obtenue. Nous allons voir ses principales propriétés.
+`httpx.get` renvoie donc un objet du type [`httpx.Response`](https://www.python-httpx.org/api/#response), qui est une interface pour le contenu de la réponse HTTP obtenue. Nous allons voir ses principales propriétés.
 
 #### `status_code`
 
@@ -109,21 +117,22 @@ La valeur de `response.status_code` est la valeur du code d'état de la réponse
 → Voir [la liste complète sur MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 ```python
-requests.get("http://example.com/this/resource/does/not/exist")
+httpx.get("http://example.com/this/resource/does/not/exist")
 ```
 
-Les objets de type `Response` ont une valeur de vérité intéressante : ils sont vrais si et seulement si la requête a réussi :
+Si on veut lever une exception en cas d'erreur, on peut utilise `raise_for_status()` :
 
 ```python
 for url in (
-    "http://plurital.org",
-    "http://example.com/this/resource/does/not/exist",
+    "https://plurital.org",
+    "https://example.com/this/resource/does/not/exist",
 ):
-    response = requests.get(url)
-    if response:
-        print(f"{url} est atteignable")
-    else:
-        print(f"{url} n'est pas atteignable")
+    try:
+        response = httpx.get(url).raise_for_status()
+    except httpx.HTTPStatusError as e:
+        print(f"{url} n'est pas atteignable : {e}")
+        continue
+    print(f"{url} est atteignable")
 ```
 
 **Attention** `200` n'est pas le seul type code correspondant à une réussite.
@@ -135,24 +144,24 @@ Une requête de type `GET` attend en général une ressource, qui se trouve en c
 S'il s'agit d'un texte, on le trouvera dans lattribut `text`
 
 ```python
-response = requests.get("http://plurital.org")
-response.text
+response = httpx.get("https://plurital.org")
+print(response.text)
 ```
 
-Dans le cas de la page d'accueil du site du master, il est asseez conséquent, puisqu'il s'agit de tout le code HTML de la page.
+Dans le cas de la page d'accueil du site du master, il est assez conséquent, puisqu'il s'agit de tout le code HTML de la page.
 
 
-`requests` fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe, le contenu sous forme binaire non décodée est toujours disponible dans l'attribut `content`.
+`httpx` fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe, le contenu sous forme binaire non décodée est toujours disponible dans l'attribut `content`.
 
 ```python
-response.content
+print(response.content)
 ```
 
 Et on peut le décoder explicitement
 
 ```python
 import codecs
-print(codecs.decode(response.content, "cp1252")[2000:2300])
+print(codecs.decode(response.content, "cp1252")[-100:])
 ```
 
 ### Headers
@@ -168,26 +177,33 @@ response.headers
 On peut de la même façon faire des requêtes `PUT` et `POST` (ainsi que toutes les autres d'ailleurs).
 
 ```python
-response = requests.post("https://httpbin.org/post")
+response = httpx.post("https://httpbin.org/post")
 print(response.text)
 ```
 
 ```python
-response = requests.put("https://httpbin.org/put")
+response = httpx.put("https://httpbin.org/put")
+print(response.text)
+```
+
+Ce sont toutes simplement des alias pour `httpx.request` :
+
+```python
+httpx.request("GET", "https://httpbingo.org/get")
 print(response.text)
 ```
 
 On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre data
 
 ```python
-response = requests.put("https://httpbin.org/put", data="Hello, world")
+response = httpx.put("https://httpbin.org/put", data="Hello, world")
 print(response.text)
 ```
 
 N'importe quel type de données
 
 ```python
-response = requests.put("https://httpbin.org/put", data="We are the knights who say “Ni”!")
+response = httpx.put("https://httpbin.org/put", data="We are the knights who say “Ni”!")
 print(response.text)
 ```
 
@@ -197,13 +213,13 @@ Ah.
 Quel est le problème ici ?
 
 
-En fait, `requests` ne sait passer que des paramètres binaires, et il encode implicitement les chaînes de caractères en `latin-1`, [comme c'est la norme](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.4.1).
+En fait, `httpx` ne sait passer que des paramètres binaires, et il encode implicitement les chaînes de caractères en `latin-1`, [comme c'est la norme](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.4.1).
 
 
 Pour utiliser un autre encodage, il faut le faire à la main.
 
 ```python
-response = requests.post(
+response = httpx.post(
     "https://httpbin.org/post",
     data="We are the knights who say “Ni”!".encode("utf-8"),
 )
@@ -227,9 +243,12 @@ En plus du corps d'une requête, il y a d'autres façons de passer des informati
 
 ### Les paramètres d'URL
 
-Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple <http://httpbin.org/get?key=val> a comme paramètre `key`, de valeur `value`.
+Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple
+<http://httpbin.org/get?key=val> a comme paramètre `key`, de valeur `value`.
 
-On peut ajouter ces paramètres directement à l'URL qu'on requête, mais celà demande de les encoder soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `requests` sous forme d'un dict.
+On peut ajouter ces paramètres directement à l'URL qu'on requête, mais ça demande de les encoder
+soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `requests` sous forme
+d'un `dict`.
 
 ```python
 paramètres = {"clé": "valeur", "formation": "Master PluriTAL", "hôtel": "Trivago"}
@@ -304,4 +323,5 @@ Ajoutez quelques paramètres à votre commande, vous pouvez utiliser
 
 Utilisez [httpbin](https://httpbin.com) pour tester votre commande avec ses différentes options.
 
-Vous pouvez aussi essayer d'implémenter les autres options de curl, certaines sont plus faciles que d'autres.
+Vous pouvez aussi essayer d'implémenter les autres options de curl, certaines sont plus faciles que
+d'autres.
