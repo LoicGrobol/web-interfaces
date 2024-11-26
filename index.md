@@ -3,7 +3,6 @@ title: Interfaces web pour le TAL — M2 PluriTAL 2025
 layout: default
 ---
 
-[comment]: <> "LTeX: language=fr"
 
 <!-- LTeX: language=fr -->
 
@@ -38,15 +37,29 @@ est indisponible.
 
 ### 2024-11-19 — Internet et programmation orientée objet
 
-- {% notebook_badges slides/02-internet/internet.py.md %} [Notebook
-  internet]({{site.url}}{{site.baseurl}}/slides/02-internet/internet.py.ipynb)
-  - [Solutions exercices cURL]({{site.url}}{{site.baseurl}}/slides/02-internet/curl.sh)
-- {% notebook_badges slides/03-OOP/oop.py.md %} [Notebook
-  OOP]({{site.url}}{{site.baseurl}}/slides/03-OOP/oop.py.ipynb)
-  - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/03-OOP/data/fr_gsd-ud-train.conllu)
+- {% notebook_badges slides/01-internet/internet.py.md %} [Notebook
+  internet]({{site.url}}{{site.baseurl}}/slides/01-internet/internet.py.ipynb)
+  - [Solutions exercices cURL]({{site.url}}{{site.baseurl}}/slides/01-internet/curl.sh)
+- {% notebook_badges slides/02-OOP/oop.py.md %} [Notebook
+  OOP]({{site.url}}{{site.baseurl}}/slides/02-OOP/oop.py.ipynb)
+  - [Treebank GSD-fr train]({{site.url}}{{site.baseurl}}/slides/02-OOP/data/fr_gsd-ud-train.conllu)
   - Solutions :
-    - [Script v1]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v1.py)
-    - [Script v2]({{site.url}}{{site.baseurl}}/slides/03-OOP/correction_conllu_v2.py)
+    - [Script v1]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v1.py)
+    - [Script v2]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v2.py)
+
+### 2024-11-26 — Modules et HTTPX
+
+- {% notebook_badges slides/04-modules/modules.py.md %} [Notebook
+  Modules]({{site.url}}{{site.baseurl}}/slides/04-modules/modules.py.ipynb)
+
+- {% notebook_badges slides/03-httpx/httpx.md %} [Notebook
+  HTTPX]({{site.url}}{{site.baseurl}}slides/03-httpx/httpx.py.ipynb)
+  
+  Solutions :
+
+  - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_base.py)
+  - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
+  - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
 
 ## Utilisation en local
 

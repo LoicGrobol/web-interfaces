@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.12.0
+      jupytext_version: 1.11.2
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web
     language: python
     name: python3
 ---
@@ -17,7 +18,7 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 3 : Modules
+Cours 4 : Modules
 =================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
@@ -76,7 +77,11 @@ def keep_only_10_most_common(s):
             res.append("_")
     return "".join(res)
 
-keep_only_10_most_common("Aujourd’hui, maman est morte. Ou peut-être hier, je ne sais pas. J’ai reçu un télégramme de l’asile : « Mère décédée. Enterrement demain. Sentiments distingués. » Cela ne veut rien dire. C’était peut-être hier.")
+keep_only_10_most_common(
+    """Aujourd’hui, maman est morte. Ou peut-être hier, je ne sais pas. J’ai reçu un télégramme de
+    l’asile : « Mère décédée. Enterrement demain. Sentiments distingués. » Cela ne veut rien dire.
+    C’était peut-être hier."""
+)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -310,7 +315,8 @@ Et finalement :
 <!-- #endregion -->
 
 ```python
-import contextlib, io
+import contextlib
+import io
 with contextlib.redirect_stdout(io.StringIO()) as ham:
     import this
 print(ham.getvalue().splitlines()[3])
@@ -343,10 +349,11 @@ simple.soustraction(4, 2)
 `__all__` dans `__init__.py` définit quels seront les modules qui seront importés avec `import *`
 
 ```python
-from operations_pack.avance import *
+from operations_pack import *
 multi.multiplication(2,4)
 ```
 
+<!-- #region -->
 # Pas de `main`` en Python ?
 
 Vous trouverez fréquemment le test suivant dans les scripts Python :
@@ -356,7 +363,9 @@ if __name__ == '__main__':
     instruction1
     instruction2
 ```
+<!-- #endregion -->
 
+<!-- #region -->
 ou
 
 ```python
@@ -366,6 +375,7 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+<!-- #endregion -->
 
 Cela évite que le code dans le bloc `if` ne soit exécuté lors de l'import du script : `__name__`
 est une variable créée automatiquement qui vaut `__main__` si et seulement si le script a été appelé
@@ -374,7 +384,7 @@ en ligne de commande, le nom du script s'il a été importé.
 Accessoirement cela permet d'organiser son code et de le rendre plus lisible
 Cela permet aussi d'importer les fonctions du script à la manière d'un module
 
-Je vous ~recommande vivement~ demande de l'inclure dans tous vos scripts. On verra aussi d'autres
+Je vous ~~recommande vivement~~ demande de l'inclure dans tous vos scripts. On verra aussi d'autres
 façons de gérer les interfaces en ligne de commande…
 
 ## Où sont les modules et les packages ?
@@ -390,6 +400,6 @@ sys.path
 raison**.
 
 ```python
-sys.path.append("[...]") # le chemin vers le dossier operations_pack
+sys.path.append("/home/bidule/mon/super/module/")
 sys.path
 ```
