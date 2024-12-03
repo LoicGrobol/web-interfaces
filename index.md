@@ -62,6 +62,16 @@ est indisponible.
   - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
   - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
 
+### 2023-12-19 — APIs REST en mode client
+
+- {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
+  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
+
+Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
+<lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2024] TP REST` et le
+nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
+`Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
+
 ## Utilisation en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec

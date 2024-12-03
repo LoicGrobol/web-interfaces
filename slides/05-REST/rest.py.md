@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.11.2
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web
     language: python
     name: python3
 ---
@@ -23,10 +24,6 @@ Cours 5 : consommer des API web
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
-
-```python
-from IPython.display import display
-```
 
 ```python
 %pip install -U requests
@@ -77,8 +74,8 @@ se passe par exemple avec une requête `GET` sur le point d'accès (*endpoint*)
 ```
 
 ```python
-import requests
-requests.get("https://api.github.com/users/loicgrobol").text
+import httpx
+print(httpx.get("https://api.github.com/users/loicgrobol").text)
 ```
 
 Le serveur est alors littéralement un serveur web, les concepts s'alignent !
@@ -120,12 +117,12 @@ Les principes (un peu simplifiés) de REST sont
 
 ## Accéder à des API
 
-On l'a déjà fait [plusieurs](../01-internet/internets.py.md) [fois](../04-requests/requests.py.md) !
+On l'a déjà fait [plusieurs](../01-internet/internets.py.md) [fois](../03-httpx/httpx.py.md) !
 
 On a dit qu'il suffisait de faire des requêtes HTTP et ça on sait déjà faire :
 
 ```python
-print(requests.get("https://jsonplaceholder.typicode.com/comments/1").text)
+print(httpx.get("https://jsonplaceholder.typicode.com/comments/1").text)
 ```
 
 Par contre, on a pas reparlé de ce format étrange.
@@ -135,24 +132,24 @@ Par contre, on a pas reparlé de ce format étrange.
 
 ```python
 import ast
-ast.literal_eval(requests.get("https://jsonplaceholder.typicode.com/comments/1").text)
+ast.literal_eval(httpx.get("https://jsonplaceholder.typicode.com/comments/1").text)
 ```
 
 Mais ce n'est pas tout à fait ça
 
 ```python
-ast.literal_eval(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
+ast.literal_eval(httpx.get("https://jsonplaceholder.typicode.com/todos/1").text)
 ```
 
 Tiens, d'ailleurs, est-ce que vous voyez le problème ?
 
 ```python
-print(requests.get("https://jsonplaceholder.typicode.com/todos/1").text)
+print(httpx.get("https://jsonplaceholder.typicode.com/todos/1").text)
 ```
 
 ## JSON
 
-***J**ava**S**cript **O**bject **N**otation*. Comme son nom l'indique, c'est (à de tout, tout petits
+**J**ava**S**cript **O**bject **N**otation*. Comme son nom l'indique, c'est (à de tout, tout petits
 détails près) la syntaxe pour noter des objets en JavaScript.
 
 C'est très très très proche de la syntaxe des `dict` littéraux en Python. Sauf quand c'est
@@ -170,7 +167,7 @@ C'est facile de le parser en Python et de récupérer un `dict` avec le module n
 
 ```python
 import json
-data_as_a_str = requests.get("https://api.github.com/users/loicgrobol").text
+data_as_a_str = httpx.get("https://api.github.com/users/loicgrobol").text
 data_as_a_dict = json.loads(data_as_a_str)
 data_as_a_dict
 ```
@@ -183,10 +180,11 @@ s = json.dumps(d)
 s
 ```
 
-En plus `requests` le fait pour nous
+En plus `httpx` le fait pour nous
 
 ```python
-data_as_a_dict = requests.get("https://api.github.com/users/loicgrobol").json()
+data_as_a_dict = httpx.get("https://api.github.com/users/loicgrobol").json()
+data_as_a_dict
 ```
 
 Même pas besoin de se fatiguer.
@@ -194,7 +192,7 @@ Même pas besoin de se fatiguer.
 Si on veut *envoyer* du JSON, il y a une subtilité :
 
 ```python
-response = requests.post(
+response = httpx.post(
   "https://jsonplaceholder.typicode.com/todos",
   json={"userId": 1, "title": "Buy milk", "completed": False}
 )
@@ -204,6 +202,9 @@ response.json()
 Il faut passer les données au paramètre `json` de `requests.post` et non `data` (ou alors il faut
 lui passer sous forme de chaîne de caractère et avoir dans les *headers* `"Content-Type"` qui vaut
 `"application/json"`).
+
+
+Attention, si vous essayez de faire ça dans un `get`, httx ne va pas être d'accord : ce n'est pas une méthode HTTP avec laquelle on est censé envoyer des données.
 
 ## 🌐 Exo 🌐
 

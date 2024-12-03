@@ -301,3 +301,11 @@ Un des trucs les plus utiles de git, ce sont les branches, qui permettent de gé
 
 On va suivre ensemble le tutoriel interactif de [*Learn Git Branching*](https://learngitbranching.js.org/)
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Ressources
+
+- [Oh shit Git](https://ohshitgit.com/)
+
+<!-- #endregion -->
+
