@@ -30,6 +30,14 @@ Cours 6 : Fonctions avancées
 Decorators*](https://realpython.com/primer-on-python-decorators/) »*, vous pouvez aller y jeter un
 œil pour un regard légèrement différent et plus d'exemples.
 
+```python
+# Les imports se font **toujours** en début de notebook
+import functools
+import random
+import time
+from datetime import datetime
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 On ne va pas faire un cours sur la programmation fonctionnelle, mais je vous invite cependant à vous
 intéresser à ce paradigme de programmation ou à jeter un œil au vénérable
@@ -112,8 +120,6 @@ fois) :
 <!-- #endregion -->
 
 ```python
-import random
-
 def rand_fun():
     return random.random()
 
@@ -329,7 +335,7 @@ sum(1, 2, 3)
 sum(1, 2, 3, 4, 5, 6)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 On dit que la fonction `sum` est **variadique**. Tous les langages de programmation ne le permettent
 pas, parce qu'en pratique on peut toujours remplacer ça par une fonction qui prend une liste en
 argument.
@@ -345,7 +351,7 @@ def my_sum(lst):
 my_sum([1, 2, 3, 4])
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Mais la syntaxe sans les doubles délimiteurs `([` est quand même agréable, du coup on peut utiliser la syntaxe suivante.
 <!-- #endregion -->
 
@@ -359,7 +365,7 @@ def my_sum(*lst):
 my_sum(1, 2, 3, 4)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 `*lst` signifie « collecte les arguments qui n'ont pas été affectés et mets-les dans une liste ». On peut donc avoir ça :
 <!-- #endregion -->
 
@@ -375,7 +381,7 @@ varfun(1)
 
 (Tiens, ce n'est pas exactement une liste. C'est quoi ?)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Ça ne concerne par contre que les arguments *positionnels*, pas ceux *nommés* :
 <!-- #endregion -->
 
@@ -390,7 +396,7 @@ print()
 varfun(1,2,3,4,5, bidule="machin")
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Si on veut avoir des arguments variadiques nommés, on peut les récupérer comme ça :
 <!-- #endregion -->
 
@@ -404,7 +410,7 @@ print()
 varfun("abc")
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Et on peut combiner les deux :
 <!-- #endregion -->
 
@@ -419,7 +425,7 @@ print()
 varfun("abc")
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Réciproquement, si vous disposez de listes ou de dictionnaires, vous pouvez les passer à votre
 fonction comme si c'étaient des arguments :
 <!-- #endregion -->
@@ -457,7 +463,7 @@ d = {"a": -6, "truc": 1, "chose": "abc"}
 fun(**d)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Et même combiner tout ça (en pratique allez y doucement, ça rend vite le code illisible) :
 <!-- #endregion -->
 
@@ -744,8 +750,6 @@ Voici un autre exemple :
 <!-- #endregion -->
 
 ```python
-from datetime import datetime
-
 def not_during_the_night(func):
     def wrapper():
         if 9 <= datetime.now().hour < 17:
@@ -1006,8 +1010,6 @@ Pour éviter ça, on peut utiliser le **décorateur** (!)
 <!-- #endregion -->
 
 ```python
-import functools
-
 def log(func):
     @functools.wraps(func)
     def sub(*args, **kwargs):
@@ -1040,7 +1042,8 @@ help(return_greeting)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-En pratique, si on veut écrire des décorateur, c'est une bonne pratique importante d'utiliser `@functools.wraps`.
+Si on veut écrire des décorateurs, c'est une bonne pratique importante d'utiliser
+`@functools.wraps`, à moins d'avoir une raison vraiment **très** importante de faire autrement.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -1052,9 +1055,6 @@ Chronométrer une fonction :
 <!-- #endregion -->
 
 ```python
-import functools
-import time
-
 def timer(func):
     """Print the runtime of the decorated function"""
     @functools.wraps(func)
@@ -1086,8 +1086,6 @@ Espionner une fonction :
 <!-- #endregion -->
 
 ```python
-import functools
-
 def debug(func):
     """Print the function signature and return value"""
     @functools.wraps(func)
@@ -1161,9 +1159,6 @@ left(39)
 <!-- #endregion -->
 
 ```python
-import functools
-import time
-
 def slow_down(func):
     """Sleep 1 second before calling the function"""
     @functools.wraps(func)
@@ -1250,7 +1245,8 @@ do_n(5)(greet)("Bill")
 une.
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Ceci est la fonction décorée : on a `n` et `fun` et on répète simplement `n` fois `fun`.
+Ceci est la fonction après décoration : on a `n` et `fun`, la fonction à décorer ; on appelle
+simplement `n` fois `fun`.
 
 ```python
 def aux(*args, **kwargs):
@@ -1310,3 +1306,4 @@ greet("Bill")
 
 Modifier le décorateur `slow_down` pour lui faire prendre un paramètre `wait`, qui détermine le
 temps ajouté (avec `time.sleep`) à chaque appel de fonction.
+sub

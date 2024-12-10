@@ -1,5 +1,5 @@
 beautifulsoup4
-fastapi
+fastapi[all]
 gunicorn
 httpbin
 httpx[http2]

@@ -16,5 +16,5 @@ SURNAMES = {
 async def surname(name):
     try:
         return {"surname": SURNAMES[name]}
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Item {name} not found")
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=f"Item {name} not found") from e

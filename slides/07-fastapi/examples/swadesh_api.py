@@ -16,10 +16,10 @@ with open("../data/austronesian_swadesh.csv") as csvfile:
 async def swadesh(word, lang="English"):
     try:
         word_translations = swadesh_dict[word]
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Word {word!r} not found")
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=f"Word {word!r} not found") from e
 
     try:
         return word_translations[lang]
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Language {lang!r} not found")
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=f"Language {lang!r} not found") from e

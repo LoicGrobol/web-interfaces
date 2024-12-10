@@ -1,13 +1,14 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.16.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -27,7 +28,8 @@ Cours 7 : Faire des API web avec FastAPI
 <!-- #endregion -->
 
 ```python
-from IPython.display import display
+import http.server
+import socketserver
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -50,9 +52,7 @@ Comme d'habitude, Python est là pour nous, prêt à subvenir à tous nos besoin
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Note importante : à partir d'ici on va devoir faire des trucs qui nécessite plus de droits que ce
 que nous offre Binder, il va donc plutôt falloir ouvrir ces documents en local, et très vite écrire
-des scripts (oui, oui). Donc [maintenant](../07-git/git-slides.py.md) que vous savez utiliser Git,
-cloner <https://github.com/loicgrobol/web-interfaces> et travailler en local sera
-certainement plus pratique.
+des scripts (oui, oui).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -61,8 +61,6 @@ avoir commenté sa première ligne.
 <!-- #endregion -->
 
 ```script magic_args="false --no-raise-error"
-import http.server
-import socketserver
 
 with socketserver.TCPServer(("", 8000), http.server.SimpleHTTPRequestHandler) as httpd:
     httpd.serve_forever()
@@ -115,10 +113,6 @@ Ce qui suit est librement inspiré des tutoriels de FastAPI [de sa propre
 doc](https://fastapi.tiangolo.com) et de [*Real
 Python*](https://realpython.com/fastapi-python-web-apis).
 <!-- #endregion -->
-
-```python
-%pip install -U fastapi[all]
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Une première API
@@ -231,7 +225,7 @@ facile de l'enrichir.
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Et les autres méthodes ?
 
-Easy
+Fastoche
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "subslide"}
@@ -242,7 +236,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root():
+async def root_get():
     return {"message": "Hello World"}
 
 
@@ -251,7 +245,7 @@ async def root_post():
     return {
         "message": (
             "you POST api? you post her <body> like the webpage?"
-            " oh! oh! jail for client! jail for client for One Thousand Years!!!!"
+            " oh! oh! jail for server! jail for server for One Thousand Years!!!!"
         ),
     }
 ```
@@ -263,7 +257,7 @@ uvicorn hello_post:app
 ```
 <!-- #endregion -->
 
-```python tags=["raises-exception"] slideshow={"slide_type": "fragment"}
+```python slideshow={"slide_type": "fragment"} tags=["raises-exception"]
 import httpx
 httpx.post("http://localhost:8000").json()
 ```
@@ -317,6 +311,7 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
+
 SURNAMES = {
     "lancelot": "the brave",
     "bedevere": "the wise",
@@ -325,12 +320,14 @@ SURNAMES = {
     "tim": "the enchanter (not a knight)"
 }
 
+
 @app.get("/knights/{knight_name}")
 async def surname(knight_name):
     try:
         return {"surname": SURNAMES[knight_name]}
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Item {knight_name} not found")
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=f"Item {knight_name} not found") from e
+
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -355,6 +352,7 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
+
 SURNAMES = {
     "lancelot": "the brave",
     "bedevere": "the wise",
@@ -363,15 +361,17 @@ SURNAMES = {
     "tim": "the enchanter (not a knight)"
 }
 
+
 @app.get("/knights/")
 async def surname(name):
     try:
         return {"surname": SURNAMES[name]}
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Item {name} not found")
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=f"Item {name} not found") from e
+
 ```
 
-```bash tags=["raises-exception"] slideshow={"slide_type": "subslide"}
+```bash slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 curl -X GET "localhost:8000/knights/?name=lancelot"
 ```
 
@@ -428,12 +428,12 @@ knights = [
 async def surname(number):
     try:
         return {"knight": knights[number]}
-    except IndexError:
-        raise HTTPException(status_code=404, detail=f"No knight with number {number} found")
+    except IndexError as e:
+        raise HTTPException(status_code=404, detail=f"No knight with number {number} found") from e
 
 ```
 
-```python tags=["raises-exception"] slideshow={"slide_type": "subslide"}
+```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 !curl -X GET "localhost:8000/knights/?number=1"
 ```
 
@@ -458,6 +458,7 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
+
 knights = [
     "King Arthur",
     "Sir Bedevere the Wise",
@@ -469,16 +470,17 @@ knights = [
     "Ector",
 ]
 
+
 @app.get("/knights/")
-async def surname(number: int):
+async def name(number: int):
     try:
         return {"knight": knights[number]}
-    except IndexError:
-        raise HTTPException(status_code=404, detail=f"No knight with number {number} found")
+    except IndexError as e:
+        raise HTTPException(status_code=404, detail=f"No knight with number {number} found") from e
 
 ```
 
-```python tags=["raises-exception"] slideshow={"slide_type": "subslide"}
+```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 !curl -X GET "localhost:8000/knights/?number=1"
 ```
 
@@ -573,7 +575,7 @@ from dataclasses import dataclass
 class DataClassCard:
     rank: str
     suit: str
-        
+
 c = DataClassCard(rank="roi", suit="💗")
 display(c)
 display(c.suit)
