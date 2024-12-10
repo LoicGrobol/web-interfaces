@@ -2,7 +2,7 @@
 from urllib.parse import urljoin
 import sys
 
-import requests
+import httpx
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString
 
@@ -60,7 +60,7 @@ def search_for(start_url, target_title="Philosophy"):
     visited = set()
     while title != target_title:
         n_hops += 1
-        response = requests.get(next_url)
+        response = httpx.get(next_url, follow_redirects=True)
         soup = BeautifulSoup(response.text, "lxml")
         # Les titres sont de la forme  "{titre de page} - Wikipedia"
         title = soup.title.string.split(" - ")[0]

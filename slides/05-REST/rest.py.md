@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.11.2
+      jupytext_version: 1.16.4
   kernelspec:
-    display_name: cours-web
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -25,16 +25,12 @@ Cours 5 : consommer des API web
 
 <!-- #endregion -->
 
-```python
-%pip install -U requests
-```
-
 Ce cours est partiellement adapté du tutoriel [Python and REST
 APIs](https://realpython.com/api-integration-in-python/) de Real Python.
 
 ## API ?
 
-***A**plication **P**rogramming **I**nterface*, en français parfois « interface de programmation
+***A**pplication **P**rogramming **I**nterface*, en français parfois « interface de programmation
 d’applications » mais surtout API \[eɪpiˈaɪ\]. À ne pas confondre avec
 l'[API](https://www.internationalphoneticalphabet.org) des phonéticiens (puisqu'en anglais, c'est
 l'IPA, à ne pas confondre avec les bières enrichies en houblon \[vous suivez ?\]).
@@ -149,7 +145,7 @@ print(httpx.get("https://jsonplaceholder.typicode.com/todos/1").text)
 
 ## JSON
 
-**J**ava**S**cript **O**bject **N**otation*. Comme son nom l'indique, c'est (à de tout, tout petits
+_**J**ava**S**cript **O**bject **N**otation_. Comme son nom l'indique, c'est (à de tout, tout petits
 détails près) la syntaxe pour noter des objets en JavaScript.
 
 C'est très très très proche de la syntaxe des `dict` littéraux en Python. Sauf quand c'est
@@ -167,7 +163,7 @@ C'est facile de le parser en Python et de récupérer un `dict` avec le module n
 
 ```python
 import json
-data_as_a_str = httpx.get("https://api.github.com/users/loicgrobol").text
+data_as_a_str = httpx.get("https://jsonplaceholder.typicode.com/todos/1").text
 data_as_a_dict = json.loads(data_as_a_str)
 data_as_a_dict
 ```
@@ -183,7 +179,7 @@ s
 En plus `httpx` le fait pour nous
 
 ```python
-data_as_a_dict = httpx.get("https://api.github.com/users/loicgrobol").json()
+data_as_a_dict = httpx.get("https://jsonplaceholder.typicode.com/todos/1").json()
 data_as_a_dict
 ```
 

@@ -1,13 +1,14 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.16.4
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -19,8 +20,8 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 6 : Décorateurs
-======================
+Cours 6 : Fonctions avancées
+===========================
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 <!-- #endregion -->
@@ -52,7 +53,7 @@ graphe de routage des données entre ces fonctions.
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Ça a pour principal avantage de permettre d'utiliser des outils mathématiques puissants pour
-analyser des programmes, afin de prouver leur *correction* ou leur sécurité, voire de les optimiser
+analyser des programmes, afin de prouver le·ur *correction* ou leur sécurité, voire de les optimiser
 automatiquement.
 <!-- #endregion -->
 
@@ -106,7 +107,8 @@ print(const())
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Une fonction sans arguments, avec une valeur de retour non-constante (essayez de l'appeler plusieurs fois) :
+Une fonction sans arguments, avec une valeur de retour non-constante (essayez de l'appeler plusieurs
+fois) :
 <!-- #endregion -->
 
 ```python
@@ -269,8 +271,8 @@ left(39)
 1\. Écrire une fonction `renvoi` qui prend en argument une chaîne de caractères et **renvoie** une
 salutation sur le modèle de la cellule ci-après.
 
-2\. Écrire une fonction `affiche` qui prend en argument une chaîne de caractères et **affiche** la même
-salutation, mais renvoie `None`.
+2\. Écrire une fonction `affiche` qui prend en argument une chaîne de caractères et **affiche** la
+même salutation, mais renvoie `None`.
 
 3\. Écrire une fonction `porquenolosdos` à deux arguments qui affiche le premier et renvoie le
 deuxième.
@@ -311,6 +313,165 @@ assert porquenolosdos(1, 0) == 0
 assert porquenolosdos(None, "xy") == xy 
 assert porquenolosdos([1, 2, 3], None) == None
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Jouer avec les arguments
+
+Il arrive qu'on ne sache pas à l'avance quels arguments une fonction peut prendre, comme ici dans
+`sum` :
+<!-- #endregion -->
+
+```python
+sum(1, 2, 3)
+```
+
+```python
+sum(1, 2, 3, 4, 5, 6)
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+On dit que la fonction `sum` est **variadique**. Tous les langages de programmation ne le permettent
+pas, parce qu'en pratique on peut toujours remplacer ça par une fonction qui prend une liste en
+argument.
+<!-- #endregion -->
+
+```python
+def my_sum(lst):
+    res = 0
+    for e in lst:
+        res += e
+    return res
+
+my_sum([1, 2, 3, 4])
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Mais la syntaxe sans les doubles délimiteurs `([` est quand même agréable, du coup on peut utiliser la syntaxe suivante.
+<!-- #endregion -->
+
+```python
+def my_sum(*lst):
+    res = 0
+    for e in lst:
+        res += e
+    return res
+
+my_sum(1, 2, 3, 4)
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+`*lst` signifie « collecte les arguments qui n'ont pas été affectés et mets-les dans une liste ». On peut donc avoir ça :
+<!-- #endregion -->
+
+```python
+def varfun(head, *rest):
+    print(f"head: {head}")
+    print(f"rest: {rest}")
+
+varfun(1, 2, 3, 4, 5)
+print()
+varfun(1)
+```
+
+(Tiens, ce n'est pas exactement une liste. C'est quoi ?)
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Ça ne concerne par contre que les arguments *positionnels*, pas ceux *nommés* :
+<!-- #endregion -->
+
+```python
+def varfun(a, *lst, bidule="truc"):
+    print(f"a: {a}")
+    print(f"lst: {lst}")
+    print(f"bidule: {bidule}")
+
+varfun(1,2,3,4,5)
+print()
+varfun(1,2,3,4,5, bidule="machin")
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Si on veut avoir des arguments variadiques nommés, on peut les récupérer comme ça :
+<!-- #endregion -->
+
+```python
+def varfun(a, **d):
+    print(f"a: {a}")
+    print(f"d: {d}")
+
+varfun(1, machin=1, truc="bidule")
+print()
+varfun("abc")
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Et on peut combiner les deux :
+<!-- #endregion -->
+
+```python
+def varfun(a, *l, **d):
+    print(f"a: {a}")
+    print(f"l: {l}")
+    print(f"d: {d}")
+
+varfun(1, 2, 3, machin=1, truc="bidule")
+print()
+varfun("abc")
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Réciproquement, si vous disposez de listes ou de dictionnaires, vous pouvez les passer à votre
+fonction comme si c'étaient des arguments :
+<!-- #endregion -->
+
+```python
+def fun(a, b, c):
+    print(f"a: {a}")
+    print(f"b: {b}")
+    print(f"c: {c}")
+
+l = [1, 2, 3]
+fun(*l)
+
+print()
+
+l = [1, 2]
+fun("xyz", *l)
+print()
+fun(*l, "xyz")
+```
+
+```python slideshow={"slide_type": "slide"}
+def fun(a, truc, chose):
+    print(f"a: {a}")
+    print(f"truc: {truc}")
+    print(f"chose: {chose}")
+
+# Attention les clés du dictionnaires doivent alors être des str
+d = {"truc": 1, "chose": "abc"}
+fun(12, **d)
+
+print()
+
+d = {"a": -6, "truc": 1, "chose": "abc"}
+fun(**d)
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Et même combiner tout ça (en pratique allez y doucement, ça rend vite le code illisible) :
+<!-- #endregion -->
+
+```python
+def fun(a, b, *args, **kwargs):
+    print(a, b, args, kwargs)
+
+fun(1, 2, 3, 4, 5, 6, truc=-2, machin="chose")
+```
+
+Pour plus de détails sur cette syntaxe, vous ~~pouvez~~ devez consulter [la doc pour la syntaxe des
+définitions](https://docs.python.org/3/reference/compound_stmts.html#function-definitions) et des
+[appels](https://docs.python.org/3/reference/expressions.html#calls) de fonction, ou la présentation
+plus pédagogique de [Real Python](https://realpython.com/python-kwargs-and-args/).
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Des citoyennes de première classe
@@ -397,8 +558,8 @@ Tutor](https://pythontutor.com/render.html#code=def%20parent%28%29%3A%0A%20%20%2
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Quelques notes :
 
-- L'ordre dans lequel les fonctions enfant sont définies n'a pas d'importance : elles ne sont
-  exécutées que quand elles sont appelées.
+- L'ordre dans lequel les fonctions enfant sont **définies** n'a pas d'importance : leur code n'est
+  exécuté que quand elles sont **appelées**. À la définition, il est simplement *analysé*.
 <!-- #endregion -->
 
 ```python
@@ -441,7 +602,7 @@ child()  # Ni celà
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-- Les fonctions enfant ont accès aux variables accessibles dans la fonction parent (on dit que ce
+- Les fonctions enfant ont accès aux variables accessibles dans la fonction parent, on dit que ce
   sont des *fermetures* (en:*closures*) :
 <!-- #endregion -->
 
@@ -587,10 +748,10 @@ from datetime import datetime
 
 def not_during_the_night(func):
     def wrapper():
-        if 7 <= datetime.now().hour < 22:
+        if 9 <= datetime.now().hour < 17:
             func()
         else:
-            pass  # Hush, the neighbors are asleep
+            pass  # Hush, the sun is down
     return wrapper
 
 def say_whee():
@@ -699,7 +860,7 @@ greet("Bill")
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Et si on ne sait pas à l'avance quels arguments va prendre la fonction qui sera décorée ? On peut
-utiliser des arguments anonymes pour ça :
+utiliser des arguments variadiques comme ça :
 <!-- #endregion -->
 
 ```python
@@ -717,9 +878,7 @@ def greet(name):
 greet("Bill")
 ```
 
-Pour plus de détails sur cette syntaxe, vous pouvez consulter [la
-doc](https://docs.python.org/3/reference/expressions.html#calls), ou la présentation plus
-pédagogique de [Real Python](https://realpython.com/python-kwargs-and-args/).
+Ça veut dire que quel que soient les arguments passés à `do_thrice`, ils seront repassés à `fun` tel quel. Par convention, on note `*args` les arguments positionnels et `**kwargs` les `keywords`.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 😴 Exo 😴

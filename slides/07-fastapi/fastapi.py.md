@@ -88,7 +88,7 @@ compliqué. On va donc utiliser la star du jour : FastAPI.
 FastAPI est une bibliothèque conçue par [Sebastián Ramírez](https://tiangolo.com), un ancien
 développeur de chez [Explosion.ai](https://explosion.ai/), une charmante entreprise qui développe
 des outils libres de TAL. Vous avez sans doute déjà entendu parler de [spaCy](https://spacy.io/). À
-l'heure ou j'écris ces lignes, il a également une moustache fabuleuse.
+l'heure où j'écris ces lignes, il a également une moustache fabuleuse.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -264,8 +264,8 @@ uvicorn hello_post:app
 <!-- #endregion -->
 
 ```python tags=["raises-exception"] slideshow={"slide_type": "fragment"}
-import requests
-requests.post("http://localhost:8000").json()
+import httpx
+httpx.post("http://localhost:8000").json()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -298,11 +298,11 @@ async def root_fr():
 ```
 
 ```python tags=["raises-exception"]
-requests.get("http://localhost:8000/en").json()
+httpx.get("http://localhost:8000/en").json()
 ```
 
 ```python tags=["raises-exception"]
-requests.get("http://localhost:8000/fr").json()
+httpx.get("http://localhost:8000/fr").json()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -338,11 +338,11 @@ Remarquez aussi l'utilisation de `HTTPException` qui permet de renvoyer des code
 <!-- #endregion -->
 
 ```python tags=["raises-exception"]
-requests.get("http://localhost:8000/knights/lancelot").json()
+httpx.get("http://localhost:8000/knights/lancelot").json()
 ```
 
 ```python tags=["raises-exception"]
-requests.get("http://localhost:8000/knights/mordred").json()
+httpx.get("http://localhost:8000/knights/mordred").json()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -506,7 +506,7 @@ données envoyées dans le corps de la requête ?
 Rappelez vous
 
 ```python
-response = requests.post("https://httpbin.org/post", json={"message": "We are the knights who say “Ni”!"})
+response = httpx.post("https://httpbin.org/post", json={"message": "We are the knights who say “Ni”!"})
 response.json()
 ```
 
@@ -537,7 +537,7 @@ async def surname(data: EchoData):
 ```
 
 ```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
-response = requests.post("http://localhost:8000/echo", json={"message": "We are the knights who say “Ni”!"})
+response = httpx.post("http://localhost:8000/echo", json={"message": "We are the knights who say “Ni”!"})
 response.json()
 ```
 
@@ -548,7 +548,7 @@ Et si on ne suit pas le format ?
 <!-- #endregion -->
 
 ```python tags=["raises-exception"]
-response = requests.post("http://localhost:8000/echo", json={"speech": "We are the knights who say “Ni”!"})
+response = httpx.post("http://localhost:8000/echo", json={"speech": "We are the knights who say “Ni”!"})
 display(response)
 display(response.json())
 ```
@@ -623,7 +623,7 @@ méthode !
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
-requests.post(
+httpx.post(
     "http://localhost:8000/postag",
     params={"model": "fr_core_news_sm"},
     json={"sentence": "je reconnais l'existence du kiwi!"}

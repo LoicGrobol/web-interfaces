@@ -72,6 +72,18 @@ Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
 `Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
 
+### 2024-12-10 — Fonctions avancées et FastAPI
+
+- {% notebook_badges slides/06-functions++/functions++.py.md %} [Notebook
+  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-functions++/functions++.py.ipynb)
+  - {% notebook_badges slides/06-decorators/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/06-functions++/solutions.py.ipynb)
+- {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
+  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
+  - {% notebook_badges slides/07-fastapi/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
+
 ## Utilisation en local
 
 Les supports de ce cours sont écrits en Markdown, convertis en notebooks avec

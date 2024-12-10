@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    custom_cell_magics: kql
     formats: ipynb,md
     split_at_heading: true
     text_representation:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.2
+      jupytext_version: 1.11.2
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web
     language: python
     name: python3
 ---
@@ -28,10 +29,6 @@ Aller jusqu'à « *Philosophy* », version HTML
 ~~**Avertissement** au 2021-12-30, suite [à une guerre d'édition sur Wikipedia en anglais](https://en.wikipedia.org/w/index.php?title=Truth&diff=1062263197&oldid=1062256561), on ne va plus jusqu'à « Philosophy », mais à une boucle entre « Fact » et « Truth ». Comme tout ce qui dépend de sources de données externes, le reste de ce notebook est donc à prendre avec des pincettes.~~
 
 Au 2022-12-06, on revient effectivement à Philosophy.
-
-```python
-from IPython.display import display
-```
 
 ## Énoncé
 
@@ -59,13 +56,8 @@ On va d'abord commencer par jouer un peu avec les données, on fera un script ap
 On commence par s'assurer qu'on les bons outils
 
 ```python
-%pip install -U beautifulsoup4 lxml matplotlib requests
-```
-
-```python
 from bs4 import BeautifulSoup
-import lxml
-import requests
+import httpx
 ```
 
 ## Premier essai
@@ -75,7 +67,7 @@ On part de la page [Algorithmic Bias](https://en.wikipedia.org/wiki/Algorithmic_
 
 ```python
 url = "https://en.wikipedia.org/wiki/Algorithmic_bias"
-response = requests.get(url)
+response = httpx.get(url)
 soup = BeautifulSoup(response.text, 'lxml')
 soup
 ```
@@ -112,7 +104,7 @@ next_url
 On récupère la page suivante
 
 ```python
-response = requests.get(next_url)
+response = httpx.get(next_url)
 soup = BeautifulSoup(response.text, 'lxml')
 soup.title.text
 ```
@@ -136,7 +128,7 @@ Plutôt que de refaire la même sauce à la mano, on va écrire une fonction
 ```python
 def get_next_url(url):
     """Récupère la page à `url` et renvoie l'addresse du premier lien du premier paragraphe"""
-    response = requests.get(url)
+    response = httpx.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
     # Plutôt que de créer une liste et de jeter tout sauf son premier élément,
     # on fait ça avec un générateur
@@ -172,7 +164,7 @@ On voit que [Latin language](https://en.wikipedia.org/wiki/Latin) nous envoie su
 Regardons un peu ce que la page a dans le ventre
 
 ```python
-response = requests.get("https://en.wikipedia.org/wiki/Latin")
+response = httpx.get("https://en.wikipedia.org/wiki/Latin")
 soup = BeautifulSoup(response.text, 'lxml')
 first_p = next(p for p in soup.body.find_all("p") if p.text and not p.text.isspace())
 first_p
@@ -254,7 +246,7 @@ On remet tout ça dans notre fonction
 ```python
 def get_next_url(url):
     """Récupère la page à `url` et revoie l'addresse du premier lien du premier paragraphe"""
-    response = requests.get(url)
+    response = httpx.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
     first_p = next(p for p in soup.body.find_all("p") if p.text and not p.text.isspace())
     first_link = next(
@@ -288,7 +280,7 @@ commence pas par `#`.
 ```python
 def get_next_url(url):
     """Récupère la page à `url` et revoie l'addresse du premier lien du premier paragraphe"""
-    response = requests.get(url)
+    response = httpx.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
     first_p = next(p for p in soup.body.find_all("p") if p.text and not p.text.isspace())
     first_link = next(
@@ -307,7 +299,7 @@ nom différent. Mais on se préoccupera de ça si on tombe dessus, comme c'est p
 
 ```python tags=["raises-exception"]
 next_url = "https://en.wikipedia.org/wiki/Latin"
-for _ in range(16):
+for _ in range(32):
     print(next_url)
     next_url = get_next_url(next_url)
 ```
@@ -327,7 +319,7 @@ C'est effectivement un truc auquel on avait pas pensé et qu'il faudra gérer, m
 ce cas précis
 
 ```python
-response = requests.get("https://en.wikipedia.org/wiki/Religious_philosophy")
+response = httpx.get("https://en.wikipedia.org/wiki/Religious_philosophy")
 soup = BeautifulSoup(response.text, 'lxml')
 first_p = next(p for p in soup.body.find_all("p") if p.text and not p.text.isspace())
 first_p
@@ -343,7 +335,7 @@ class="mw-parser-output" …>` et qu'on peut donc récupérer avec un sélecteur
 ```python
 def get_next_url(url):
     """Récupère la page à `url` et revoie l'addresse du premier lien du premier paragraphe"""
-    response = requests.get(url)
+    response = httpx.get(url)
     soup = BeautifulSoup(response.text, "lxml")
     
     # Un sélecteur CSS pour récupérer le contenu de la page
@@ -448,7 +440,7 @@ def search_for(start_url, target_title="Philosophy"):
     visited = set()
     while title != target_title:
         n_hops += 1
-        response = requests.get(next_url)
+        response = httpx.get(next_url, follow_redirects=True)
         soup = BeautifulSoup(response.text, "lxml")
         # Les titres sont de la forme  "{titre de page} - Wikipedia"
         title = soup.title.string.split(" - ")[0]
@@ -487,10 +479,6 @@ search_for("https://en.wikipedia.org/wiki/Special:Random")
 
 Si on est très motivé⋅e⋅s, on va essayer de visualiser la structure que ça donne à Wikipédia. Pour
 ça on peut se servir de [ipycytoscape](https://github.com/cytoscape/ipycytoscape)
-
-```python
-%pip install ipycytoscape networkx
-```
 
 ```python
 import ipycytoscape
@@ -532,7 +520,7 @@ def walk(start_url, target_title="Philosophy"):
     title = None
     graph_dict = dict()
     while title != target_title:
-        response = requests.get(next_url)
+        response = httpx.get(next_url, follow_redirects=True)
         soup = BeautifulSoup(response.text, "lxml")
         new_title = soup.title.string.split(" - ")[0]
         graph_dict[title] = new_title
@@ -567,7 +555,7 @@ def walk(min_pages=128):
     graph_dict = dict()
     title = None
     while len(graph_dict) < min_pages:
-        response = requests.get(next_url)
+        response = httpx.get(next_url, follow_redirects=True)
         soup = BeautifulSoup(response.text, "lxml")
         new_title = soup.title.string.split(" - ")[0]
         if title is not None:
@@ -586,11 +574,15 @@ def walk(min_pages=128):
                 next_url = "https://en.wikipedia.org/wiki/Special:Random"
     return graph_dict
 
+
 def gen_graph(walk):
     return {
-        'nodes': [{"data": {"id": title}} for title in walk.keys()],
-        'edges': [{"data": {"source": source, "target": target }} for source, target in walk.items()]
+        "nodes": [{"data": {"id": title}} for title in walk.keys()],
+        "edges": [
+            {"data": {"source": source, "target": target}} for source, target in walk.items()
+        ],
     }
+
 
 data = gen_graph(walk(128))
 ```
