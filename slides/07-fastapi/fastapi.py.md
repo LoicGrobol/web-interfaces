@@ -425,7 +425,7 @@ knights = [
 
 
 @app.get("/knights/")
-async def surname(number):
+async def surname(numbe):
     try:
         return {"knight": knights[number]}
     except IndexError as e:
@@ -471,7 +471,7 @@ knights = [
 ]
 
 
-@app.get("/knights/")
+@app.get("/knights/") 
 async def name(number: int):
     try:
         return {"knight": knights[number]}

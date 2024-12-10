@@ -1292,7 +1292,7 @@ decorated("Bill")  # On appelle la fonction décorée.
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Et pour utiliser la syntaxe `@` ? Simplement comme ceci :
-<!-- #endregion -->
+
 
 ```python
 @do_n(6)
@@ -1302,8 +1302,19 @@ def greet(name):
 greet("Bill")
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## ⏳ Exo ⏳
 
 Modifier le décorateur `slow_down` pour lui faire prendre un paramètre `wait`, qui détermine le
 temps ajouté (avec `time.sleep`) à chaque appel de fonction.
-sub
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## ⏳ Exo ⏳
+
+## Et après
+
+Allez lire [le tuto de Real
+Python](https://realpython.com/primer-on-python-decorators/#fancy-decorators). Vous y apprendrez par
+exemple à écrire des décorateurs pour des classes (oui, comme `@dataclass`).
+<!-- #endregion -->
