@@ -91,7 +91,7 @@ async def read_message(message: str = Form(...)):
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
 
 ```python
-def make_ul(elems: List[str], path: str):
+def make_ul(elems: list[str], path: str):
     above = """<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -126,7 +126,6 @@ print(open("local/moody_bands.html").read())
 
 ```python
 # %load examples/echo_list_api.py
-from typing import List
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
@@ -135,7 +134,7 @@ app = FastAPI()
 
 
 class InputData(BaseModel):
-    lines: List[str]
+    lines: list[str]
 
 
 @app.post("/", response_class=HTMLResponse)

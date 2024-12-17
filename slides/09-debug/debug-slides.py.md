@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.16.5
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -322,7 +322,7 @@ On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer ave
 avant de lancer la cellule suivante.
 
 ```python
-!ruff lintme.py
+!ruff check lintme.py
 ```
 
 [`lintme.py`](lintme.py) contient les fonctions qu'on a défini précédemment, allez voir ce qu'il y a
@@ -414,7 +414,7 @@ Voici un fichier moche
 Est-ce que c'est un problème ? Oui. Ruff vous le dira
 
 ```python
-!ruff --select "E" ugly.py
+!ruff check --select "E" ugly.py
 ```
 <!-- #endregion -->
 
@@ -526,7 +526,7 @@ Ah, c'est bon d'avoir du code qui marche
 <!-- #endregion -->
 
 ```python
-display(common_neighbours("moi", ancor_t2i, ancor_i2t, ancor_cooc))
+common_neighbours("moi", ancor_t2i, ancor_i2t, ancor_cooc)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -534,11 +534,11 @@ Enfin, on a fini, la fonction marche, on peut l'appliquer à ce qu'on veut
 <!-- #endregion -->
 
 ```python
-display(common_neighbours("bonjour", ancor_t2i, ancor_i2t, ancor_cooc))
+common_neighbours("bonjour", ancor_t2i, ancor_i2t, ancor_cooc)
 ```
 
 ```python slideshow={"slide_type": "subslide"}
-display(common_neighbours("Russie", ancor_t2i, ancor_i2t, ancor_cooc))
+common_neighbours("Russie", ancor_t2i, ancor_i2t, ancor_cooc)
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -546,11 +546,11 @@ Euh
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "subslide"}
-display(common_neighbours("Orléans", ancor_t2i, ancor_i2t, ancor_cooc))
+common_neighbours("Orléans", ancor_t2i, ancor_i2t, ancor_cooc)
 ```
 
 ```python
-display(common_neighbours("médecin", ancor_t2i, ancor_i2t, ancor_cooc))
+common_neighbours("médecin", ancor_t2i, ancor_i2t, ancor_cooc)
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -597,7 +597,7 @@ code en particulier ça va être compliqué à gérer.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Pour les grand⋅e⋅s
 
-On va débugger dans [Visual Studio Code](https://code.visualstudio.com/).
+On va débugger dans [Visual Studio Code](https://code.visualstudio.com/) avec `debugpy`.
 
 (On regarde le tableau, désolé pour celleux qui ne sont pas là)
 <!-- #endregion -->

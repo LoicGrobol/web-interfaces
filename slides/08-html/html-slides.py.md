@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.0
+      jupytext_version: 1.16.5
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -18,10 +18,6 @@ jupyter:
 <!-- LTeX: language=fr -->
 <!-- #endregion -->
 
-```python
-
-```
-
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 10 : Générer du HTML
 ==========================
@@ -29,10 +25,6 @@ Cours 10 : Générer du HTML
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
-
-```python slideshow={"slide_type": "-"}
-from IPython.display import display
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## HTML
@@ -59,10 +51,13 @@ Concevoir
   Assurez-vous qu'elle passe au [valideur du W3C](https://validator.w3.org)
 - Une API avec FastAPI qui reçoit des requêtes de type POST venant de la page que vous avez créé et
   qui crée pour chacune un nouveau fichier texte sur votre machine dont le contenu est le contenu du
-  champ de texte. Vous aurez besoin de regarder [dans sa
-  doc](https://fastapi.tiangolo.com/tutorial/request-forms/) comment on récupère dans FastAPI des
+  champ de texte. **Vous aurez besoin de regarder [dans sa
+  doc](https://fastapi.tiangolo.com/tutorial/request-forms/)** comment on récupère dans FastAPI des
   données envoyées depuis un formulaire (malheureusement ce n'est pas du JSON ! Pour ça il faut
   court-circuiter avec du JavaScript).
+  - **Attention** les champs de formulaire sont référencés par leur attribut `name` dans une un
+    envoi de formulaire via POST. Si cette phrase est complètement obscure pour vous, allez **lire
+    les docs**.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -137,9 +132,7 @@ fichier et qui écrit dans ce fichier une page HTML qui contient une liste non-o
 <!-- #endregion -->
 
 ```python
-from typing import List
-
-def make_ul(elems: List[str], path: str):
+def make_ul(elems: list[str], path: str):
     pass  # À vous de jouer
 
 # Pour tester
@@ -259,7 +252,8 @@ En plus dans aucun des deux cas on a le confort de
 - Une gestion correcte par git
 - …
 
-Ce qui serait **bien** ça serait de pouvoir écrire du HTML normalement et en Python de ne faire que changer les parties intéressantes.
+Ce qui serait **bien** ça serait de pouvoir écrire du HTML normalement et en Python de ne faire que
+changer les parties intéressantes.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->

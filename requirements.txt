@@ -6,7 +6,7 @@ httpx[http2]
 ipycytoscape
 ipympl
 Jinja2
-jupyter_server!=2.11.0
+jupyter_server != 2.11.0
 jupyterlab
 jupyterlab_rise
 jupytext
