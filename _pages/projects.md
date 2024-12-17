@@ -1,5 +1,5 @@
 ---
-title: Projets Interfaces web pour le TAL 2024
+title: Projets Interfaces web pour le TAL 2025
 layout: default
 permalink: /projects/
 ---
@@ -21,12 +21,26 @@ entreprise (mais assurez-vous avant que ce soit OK de partager votre code avec m
 On peut éventuellement relaxer ces exigences si vous avez une idée spécifique, mais commencez par
 m'en parler avant.
 
+Contrainte spécifique pour 2025 : pas de chatbot ou d'interface pour LLM. Vous en voyez déjà bien
+assez par ailleurs, ça vous changera les idées.
+
 ## Consignes
 
-- Projet à rendre le 8 mars 2024 *au plus tard*
+- Composition des groupes et sujets des projets à envoyer avant le 20 janvier 2025 (envoyer un mail
+  par groupe avec vos noms, prénoms et établissements et une description concise, mais précise du
+  projet). Si vous avez un doute sur la pertinence ou la faisabilité du projet, venez m'en parler
+  avant.
+- Projet à rendre le 8 mars 2025 *au plus tard*
 - Projet de préférence collectif, par groupe de 2 ou 3
   - Si c'est un problème pour vous, venez me voir, tout est négociable
   - S'il y a un problème — quel qu'il soit — dans votre groupe, n'hésitez pas à m'en parler
+- Rendus par mail à `lgrobol@parisnanterre.fr` avec en objet `[web2025] Projet final` et les noms,
+  prénoms et établissements de tous les membres du groupe dans le corps du mail.
+  - **Si l'objet est différent, je ne verrai pas votre rendu**. Et si un nom manque, vous risquez de
+    ne pas avoir de note.
+  - J'accuserai réception sous trois jours ouvrés dans la mesure du possible, relancez-moi si ce
+    n'est pas le cas.
+
 
 Le rendu devra comporter :
 

@@ -1,7 +1,7 @@
 ---
 title: Projets Interfaces web pour le TAL 2023
 layout: default
-permalink: /2023/projects/
+permalink: /2024/projects/
 ---
 
 [comment]: <> "LTeX: language=fr"

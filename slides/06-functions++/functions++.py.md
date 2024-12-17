@@ -1310,8 +1310,6 @@ temps ajouté (avec `time.sleep`) à chaque appel de fonction.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## ⏳ Exo ⏳
-
 ## Et après
 
 Allez lire [le tuto de Real

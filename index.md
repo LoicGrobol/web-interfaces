@@ -8,6 +8,8 @@ layout: default
 
 ## News
 
+- **2024-12-17** Les [consignes pour les projets]({{site.url}}{{site.baseurl}}/projects) sont en
+  ligne.
 - **2024-11-19** Premier cours du semestre le 28/11/2023.
 
 ## Infos pratiques
@@ -83,6 +85,20 @@ nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établi
   - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
   - {% notebook_badges slides/07-fastapi/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
+
+### 2024-12-17 — Outils de debug et HTML
+
+- {% notebook_badges slides/08-html/html-slides.py.md %} [Slides
+  HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
+  - {% notebook_badges slides/08-html/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
+- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides
+  Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
+  - [`factorial.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/factorial.py).
+  - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
+  - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
+    - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
 
 ## Utilisation en local
 

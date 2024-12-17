@@ -144,7 +144,8 @@ def make_ul(elems: List[str], path: str):
 
 # Pour tester
 make_ul(["The Beths", "Beirut", "Death Cab for Cutie"], "local/moody_bands.html")
-print(open("local/moody_bands.html").read())
+with open("local/moody_bands.html") as in_stream:
+    print(in_stream.read())
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -184,7 +185,12 @@ HTML(lxml.html.tostring(html, encoding=str))
 ## Avec FastAPI
 
 Pour afficher du HTML quand on accède à votre point d'accès FastAPI, vous pouvez utiliser
-`fastapi.responses.HTMLResponse`, ce qui indique par exemple au navigateur qu'il faut interpréter les données reçues comme une page web.
+[`fastapi.responses.HTMLResponse`](https://fastapi.tiangolo.com/reference/responses/?h=html#fastapi.responses.HTMLResponse)
+(qui n'est en fait rien de plus qu'un wrapper de
+[`starlette.responses.HTMLResponses](https://www.starlette.io/responses/#htmlresponse)).
+Fondamentalement, ça ne fait que mettre vos données dans une réponse générique avec un header
+`media_type = "text/html"`, mais c'est plus lisible comme ça
+
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "subslide"}
@@ -227,9 +233,9 @@ Et allez voir <http://localhost:8000>
 <!-- #endregion -->
 
 <!-- #region -->
-1\. Concevoir une API avec FastAPI qui reçoit des requêtes de type POST contenant une liste de
-chaînes de caractère et répond avec une page HTML qui contient une liste ordonnée dont les
-éléments sont les chaînes de caractères reçus.
+1\. Concevoir une API qui reçoit des requêtes de type POST contenant une liste de chaînes de
+caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les
+chaînes de caractères reçus.
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
 
@@ -270,12 +276,9 @@ Ce qui serait **bien** ça serait de pouvoir écrire du HTML normalement et en P
 Jinja.
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%pip install -U Jinja2
-```
-
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Jinja est un « moteur de templates » (*template engine*), c'est un genre de `str.format` ou de *f-string*. Voyez plutôt :
+Jinja est un « moteur de templates » (*template engine*), c'est un genre de `str.format` ou de
+*f-string*. Voyez plutôt :
 <!-- #endregion -->
 
 ```python
@@ -285,12 +288,17 @@ t.render(something="World")
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-OK, super mais ça on sait déjà faire
+OK, super, mais ça on sait déjà faire
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
 s = "Hello {something}"
-s.format(something="World")
+print(s.format(something="World"))
+```
+
+```python slideshow={"slide_type": "fragment"}
+something="World"
+print(f"Hello {something}")
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -419,8 +427,9 @@ En plus, les bons IDE supportent la syntaxe de Jinja, vous devriez donc au moins
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Parmi les autres fonctions intéressantes, Jinja permet d'échapper automatiquement le HTML, afin de
-se prémunir des injections de code. Par exemple si on reprend l'environnement précédent mais qu'on
-change un peu les données (ce qui peut arriver si les données en question ne sont pas gérées directement par vous, mais sont issues des utilisateurs de votre application).
+se prémunir des injections de code. Par exemple si on reprend l'environnement précédent, mais qu'on
+change un peu les données (ce qui peut arriver si les données en question ne sont pas gérées
+directement par vous, mais sont issues des utilisateurices de votre application).
 <!-- #endregion -->
 
 ```python
@@ -436,7 +445,9 @@ display(HTML(lst))
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Évidemment ici ce n'est pas très grave, `<strong>` n'est pas un tag très dangereux. En revanche on peut faire beaucoup de choses avec `<script>`. Pour un exemple, décommentez la dernière ligne de la cellule suivante, puis exécutez la.
+Évidemment ici ce n'est pas très grave, `<strong>` n'est pas un tag très dangereux. En revanche on
+peut faire beaucoup de choses avec `<script>`. Pour un exemple, décommentez la dernière ligne de la
+cellule suivante, puis exécutez-la.
 <!-- #endregion -->
 
 ```python
@@ -451,7 +462,7 @@ print(lst)
 # display(HTML(lst)) 
 ```
 
- Pour éviter ça :
+Pour éviter ça :
 
 
 ```python
@@ -488,7 +499,7 @@ Voici le contenu de [`examples/templates/hello.html.jinja`](examples/templates/j
 </head>
 <body>
     <h1>Hello, {{name}}</h1>
-    <p>How do you do, fellow nerd?</p>
+    <p>How do you do, fellow kids?</p>
 </body>
 </html>
 ```
@@ -523,5 +534,5 @@ Lancez cette API avec `uvicorn jinja_api:app` et allez à <http://localhost:8000
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 🙄 Exo 🙄
 
-Reprenez les APIs de 🧊 et réécrivez-les en Jinja. Si, si, c'est pour votre bien.
+Reprenez les APIs de 🧊 et réécrivez-les en Jinja. C'est pour votre bien.
 <!-- #endregion -->
