@@ -18,10 +18,6 @@ jupyter:
 <!-- LTeX: language=fr -->
 <!-- #endregion -->
 
-```python
-
-```
-
 <!-- #region slideshow={"slide_type": "slide"} -->
 Cours 12 : FastAPI et les bases de données relationnelles
 =========================================================
@@ -532,3 +528,10 @@ Pour la gestion d'utilisateurices en particulier : sur un prototype ça peut s
 très très vite l'idéal est de passer à une bibliothèque comme [FastAPI
 Users](https://fastapi-users.github.io/fastapi-users/) qui gère pour vous les opérations standard
 comme la gestion de mots de passe tout en vous laissant personnaliser ce dont vous avez besoin.
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## 👉 Exo 👉
+
+Faire une API en FastAPI qui utilise la base que vous avez créé dans l'exo précédent et permet de
+chercher tous les arbres du treebank qui contiennent un mot donné par le client.
+<!-- #endregion -->

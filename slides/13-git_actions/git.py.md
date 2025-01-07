@@ -271,7 +271,8 @@ Que se passe-t-il ?
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Git vous dit que votre changement n'a pas été *stage*, « ajouté à l'index ».
 
-En fait, quand on fait un commit, git n'enregistre pas tous les changements, il enregistre seulement ceux qui ont été mis dans l'index avec [`git add`](https://git-scm.com/docs/git-add).
+En fait, quand on fait un commit, git n'enregistre pas tous les changements, il enregistre seulement
+ceux qui ont été mis dans l'index avec [`git add`](https://git-scm.com/docs/git-add).
 
 Faites donc
 
@@ -282,9 +283,11 @@ git commit -m "j'ai changé un truc"
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Ça permet plein de trucs, par exemple si vous avez modifié plusieurs fichiers mais voulez répartir vos modifications sur plusieurs commit pour plus de lisibilité.
+Ça permet plein de trucs, par exemple si vous avez modifié plusieurs fichiers mais voulez répartir
+vos modifications sur plusieurs commit pour plus de lisibilité.
 
-On peut même faire plus sophistiqué, par exemple en ne stageant pas toutes les modifications dans un fichier (mais là il vaut mieux passer par une interface graphique)
+On peut même faire plus sophistiqué, par exemple en ne stageant pas toutes les modifications dans un
+fichier (mais là il vaut mieux passer par une interface graphique)
 
 Enfin, ça permet de vérifier ce qui a changé avant de commiter :
 
@@ -297,7 +300,9 @@ git diff --cached
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Branches 🌲
 
-Un des trucs les plus utiles de git, ce sont les branches, qui permettent de gérer plusieurs historiques de changements, en les faisant diverger, évoluer en parallèle, puis se réconcilier. C'est idéal pour travailler à plusieurs, ou seul⋅e sur plusieurs parties d'un projet.
+Un des trucs les plus utiles de git, ce sont les branches, qui permettent de gérer plusieurs
+historiques de changements, en les faisant diverger, évoluer en parallèle, puis se réconcilier.
+C'est idéal pour travailler à plusieurs, ou seul⋅e sur plusieurs parties d'un projet.
 
 On va suivre ensemble le tutoriel interactif de [*Learn Git Branching*](https://learngitbranching.js.org/)
 <!-- #endregion -->

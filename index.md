@@ -64,7 +64,7 @@ est indisponible.
   - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
   - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
 
-### 2023-12-19 — APIs REST en mode client
+### 2023-12-03 — APIs REST en mode client
 
 - {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
   REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
@@ -99,6 +99,14 @@ nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établi
   - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
   - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
     - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
+
+### 2025-01-??? — Bases de données Javascript
+
+- {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
+  BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
+- {% notebook_badges slides/12-js/js.py.md %} [Slides
+  js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
+
 
 ## Utilisation en local
 

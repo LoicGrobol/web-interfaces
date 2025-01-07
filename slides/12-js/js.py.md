@@ -342,10 +342,8 @@ Ici la page web requête l'API au moyen de méthodes comme
           sentence: form.querySelector("#sentence").value,
       }
 
-      // On pourrait aussi utiliser `form.action` plutot que de remettre
-      // l'URL en dur
       const response = await fetch(
-          "http://localhost:8000/postag",
+          form.action,
           {
               method: "POST",
               headers: {

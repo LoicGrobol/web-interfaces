@@ -31,10 +31,8 @@
           sentence: form.querySelector("#sentence").value,
       }
 
-      // On pourrait aussi uttiliser `form.action` plutot que de remettre
-      // l'URL en dur
       const response = await fetch(
-          "http://localhost:8000/postag",
+          form.action,
           {
               method: "POST",
               headers: {
