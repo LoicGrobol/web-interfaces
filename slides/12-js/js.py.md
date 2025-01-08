@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.1
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -22,7 +22,6 @@ Cours 12 : *And another thing…*
 
 **Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 <!-- #endregion -->
-
 
 ```python
 from IPython.display import display
@@ -62,7 +61,7 @@ frameworks comme [React](https://reactjs.org) ou [Angular](https://angular.io).
 Il y a énormément à dire et à apprendre au-delà de ce cours, et je vous recommande très fortement
 d'aller lire, ou au moins picorer [le tutoriel de
 MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) et le [*Modern Javascript
-Tutorial*](https://javascript.info). 
+Tutorial*](https://javascript.info).
 
 Ici, on va se limiter à quelques trucs bons à savoir si vous apprenez JavaScript en venant de Python
 
@@ -90,7 +89,7 @@ const b = 3
 (a + b).toString()
 ```
 
-Ne fait pas ce que vous pensez mais 
+Ne fait pas ce que vous pensez mais
 
 ```javascript
 const a = 2
@@ -137,7 +136,6 @@ d'indenter dans les blocs comme vous en avez l'habitude.
 
 ### Déclarer des variables
 
-
 Les variables se **déclarent** à leur première utilisation avec `let` ou `const` (pour les rendre
 constantes) ou avec `var` **mais évitez d'utiliser `var`** qui tend à devenir obsolète
 
@@ -176,10 +174,10 @@ Pour des raisons historiques, il y a trois types de boucles `for` en `JavaScrip
 - `for` qui est la boucle `for` du langage C :
 
   ```javascript
-  let str = "";
+  let str = ""
 
   for (let i = 0; i < 9; i++) {
-      str = str + i;
+      str = str + i
   }
 
   console.log(str);
@@ -189,10 +187,10 @@ Pour des raisons historiques, il y a trois types de boucles `for` en `JavaScrip
 - `for (… of …)` qui plus ou moins la même chose que `for` en Python
 
   ```javascript
-  const array1 = ['a', 'b', 'c'];
+  const array1 = ['a', 'b', 'c']
 
   for (const element of array1) {
-      console.log(element);
+      console.log(element)
   }
   ```
 
@@ -214,12 +212,15 @@ Il y a deux façons de définir des fonctions en JavaScript :
   function getRectArea(width, height) {
     return width * height
   }
+  getRectArea(15, 13)
   ```
 
+  ou
+
   ```javascript
-  (function(width, height) {
+  const getRectArea = function(width, height) {
     return width * height
-  })(15, 13)
+  }
   ```
 
 - Les modernes fonctions fléchées
@@ -258,7 +259,7 @@ d'outils pour les observer et les manipuler. Par exemple ceci change la couleur 
 document.body.style.background = "red";
 ```
 
-On parle de DOM : _**D**ocument **O**bject **M**odel_.
+On parle de DOM : ***D**ocument **O**bject **M**odel*.
 
 Il **faut** garder sous la main [la documentation du DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 <!-- #endregion -->
@@ -306,7 +307,7 @@ logique sur JavaScript, que ce soit côté client (donc page web) que du côté 
 recommande même d'éviter ici d'utiliser du JavaScript côté serveur (ce qu'on pourrait faire en
 Node). L'architecture adaptée si vous voulez une interface web graphique :
 
-```
+```text
 Système de TAL ⇆ API (FastAPI[+Jinja][+SQL]) ⇆ Page web (HTML+CSS+JavaScript)
 ```
 
@@ -327,7 +328,7 @@ Ici la page web requête l'API au moyen de méthodes comme
   <h1>POS-tagger</h1>
   <form action="http://localhost:8000/postag" method="POST" id="inputForm">
     <label for="sentence">La phrase à analyser</label>
-    <input name="sentence" id="sentence" value="Il y a un lama dans mon salon !" />
+    <input name="sentence" id="sentence" value="Il y a un lama dans mon salon !" />
     <button type="submit">Envoyer</button>
   </form>
 
@@ -347,6 +348,7 @@ Ici la page web requête l'API au moyen de méthodes comme
           {
               method: "POST",
               headers: {
+                "Accept": "text/html",
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(data),
@@ -361,17 +363,31 @@ Ici la page web requête l'API au moyen de méthodes comme
 ```
 <!-- #endregion -->
 
-Elle permet d'accéder à l'API spacy suivante (qu'il aurait vraiment fallu faire avec Jinja) :
+Elle permet d'accéder à l'API SpaCy suivante (qu'il aurait été mieux de faire avec Jinja) :
 
 ```python
 # %load apis/spacy_html_api.py
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
 import spacy
 
 app = FastAPI()
+
+# Voir <https://fastapi.tiangolo.com/tutorial/cors> pour une explication de pourquoi il faut faire
+# ça
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:8000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 app.mount("/front", StaticFiles(directory="static"), name="front")
@@ -387,31 +403,14 @@ async def postag(inpt: InputData, model="fr_core_news_sm"):
         raise HTTPException(status_code=422, detail=f"Model {model!r} unavailable")
     nlp = spacy.load(model)
     doc = nlp(inpt.sentence)
-    above = """<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>This is what you asked me to display</title>
-  </head>
-  <body>
-  <ol>
-"""
-    below = """
-  </ol>
-  </body>
-</html>
-"""
     lst = "\n".join([f"<li>{w.text}: {w.pos_}</li>" for w in doc])
-    html_content = "\n".join([above, lst, below])
+    html_content = f"<ol>\n{lst}</ol>"
     return HTMLResponse(content=html_content, status_code=200)
 
 
 @app.get("/list")
 async def list_models():
     return {"models": spacy.util.get_installed_models()}
-
-
-
 ```
 
 <!-- #region -->

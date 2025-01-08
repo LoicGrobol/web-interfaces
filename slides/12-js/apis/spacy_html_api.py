@@ -1,10 +1,24 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
 import spacy
 
 app = FastAPI()
+
+# Voir <https://fastapi.tiangolo.com/tutorial/cors> pour une explication de pourquoi il faut faire
+# ça
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:8000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 app.mount("/front", StaticFiles(directory="static"), name="front")
@@ -20,22 +34,8 @@ async def postag(inpt: InputData, model="fr_core_news_sm"):
         raise HTTPException(status_code=422, detail=f"Model {model!r} unavailable")
     nlp = spacy.load(model)
     doc = nlp(inpt.sentence)
-    above = """<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>This is what you asked me to display</title>
-  </head>
-  <body>
-  <ol>
-"""
-    below = """
-  </ol>
-  </body>
-</html>
-"""
     lst = "\n".join([f"<li>{w.text}: {w.pos_}</li>" for w in doc])
-    html_content = "\n".join([above, lst, below])
+    html_content = f"<ol>\n{lst}</ol>"
     return HTMLResponse(content=html_content, status_code=200)
 
 

@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.6
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -148,7 +148,7 @@ On fait ce qu'on a à y faire, puis on ferme la connexion.
 <!-- #endregion -->
 
 ```python
-con.close() 
+con.close()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -256,7 +256,10 @@ Pour éviter ça : on utilise des requêtes paramétrées qui seront assainies
 def read_recette(name):
     with closing(sqlite3.connect("db.sqlite3")) as con:
         cur = con.cursor()
-        cur.execute("select * from recettes where nom=:lenom", {"lenom": name})
+        cur.execute(
+            "select * from recettes where nom=:lenomdelarecette",
+            {"lenomdelarecette": name},
+        )
         res = cur.fetchall()
         cur.close()
     return res
