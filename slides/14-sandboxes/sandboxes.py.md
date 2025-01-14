@@ -222,6 +222,10 @@ Les programmes qui veulent modifier votre `PATH` (genre `©onda`) ont tendance �
 `.bashrc` directement (ce qui est détestable), ou à vous demander de le modifier vous-même (ce qui
 est ok), il contient donc souvent des trucs étranges que vous n'y avez pas mis.
 
+En général, on ajoute à son `PATH`, un dossier comme `~/.local/bin`, où on a les droits d'écriture,
+ce qui permet d'installer des programmes sans avoir à demander à l'admin système, et à séparer les
+programme installés pour tous les utilisateurices de la machine et ceux à usage personnel
+
 ### Autres trucs à évoquer
 
 Liens dynamiques et `LD_LIBRARY_PATH`, `rpath`.
@@ -271,14 +275,101 @@ qui ne servent pas à tous les scripts, une bonne partie du langage est en fait 
 dans `/usr/lib/python3.xx/site-packages`) et à des bibliothèques compilées (typiquement dans
 `/usr/lib/python3.xx/lib-dynload`).
 
+Historiquement, pour ajouter des modules à Python et les rendre accessibles à tous les scripts, on
+pouvait donc simplement les copier dans `site-packages`. Ça peut être fait à la main, ou via des
+packages systèmes, par exemple
+[`python3-requests`](https://packages.ubuntu.com/oracular/python3-requests) dans Ubuntu.
+
+Faire un package système, c'est lourd, et copier à la main, c'est sujet à plein d'erreurs. On a donc
+développé des outils pour aider à gérer `site-packages` ont été développés :
+
+- `distutils` (Python 1.6, 2000), un module de la bibliothèque standard pour créer des scripts
+  d'installation avec un peu de métadonnées, en particulier des *versions*
+- Des formats de métadonnées dans les PEP [241](https://peps.python.org/pep-0241/),
+  [314](https://peps.python.org/pep-0314/), [345](https://peps.python.org/pep-0345/),
+  [566](https://peps.python.org/pep-0566/), [643](https://peps.python.org/pep-0643/)…
+- [PyPI](https://pypi.org/), le cheeseshop, un dépôt de packages accessibles programmatiquement.
+- Setuptools, un successeur à distutils qui introduit le format de distribution source Egg.
+- Le format de distribution [*standardisé*](https://peps.python.org/pep-0427/) Wheel, qui peut
+  contenir des fichiers compilés (« *binaries* »).
+- **Pip**, un installateur de package reposant sur Setuptools et interfaçant avec PyPI.
+
+(voir [The hitchhiker's guide to Python
+packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/history.html) pour un
+historique (obsolète))
+
+Du point de vue utilisateurice, l'objectif final de tout ça c'est une interface qui permet de faire
+`pip install nomdupackage`, qu'un package soit localisé dans un index (en général PyPI), téléchargé,
+et installé dans `site-packages`, avec gestion des versions et des dépendances.
+
+Tout va pour le mieux dans le meilleur des mondes, avec quelques bizarreries (genre Debian qui
+remplace `site-packages` par `dist-packages`) mais c'est OK.
+
+Quels problèmes vous voyez apparaître ?
+
+### Permissions
+
+Évidemment un des problèmes d'avoir les packages installés dans `/usr/lib/…`, c'est que ce sont des
+fichiers qui ne sont pas en accessible en écriture aux utilisateurices dans Linux. Évidemment si
+vous avez les droits pour ça, vous pouvez vous mettre en mode superuser avec `sudo` et le faire
+quand même, mais ce n'est pas idéal.
+
+Pour ça, comme pour `PATH`, Python va lire dans une variable d'environnement, `PYTHONPATH`, une
+liste de dossiers où il ira chercher des modules. Son contenu est accessible dans `sys.path` :
+
+```python
+import sys
+sys.path
+```
+
+Cette variable est modifiable au même titre que `PATH` pour y ajouter des dossiers à la convenance des utilisateurices.
 
 
+En surplus, pour des raisons de simplicité, Python va aussi chercher des modules dans un dossier
+d'installation locale (s'il existe), dans `~/.local/lib/python3.xx/…`. Jusqu'à récemment,
+l'installation dans cet espace pouvait être demandé à Pip avec l'option `--user`.
 
-## Environnements virtuels
 
-historique, fonctionnement
+Le deuxième problème, plus difficile à régler, c'est que plusieurs projets peuvent avoir des
+dépendances incompatibles. Par exemple si mon projet `A` dépend de PyTorch 1, et `B` dépend de
+Pytorch 2. Dans ces projets, il peut aussi y avoir le système même : Ubuntu, Manjaro… dépendent pour
+leur fonctionnement de packages Python, ça signifie a priori qu'il ne serait pas possible d'utiliser
+des versions de packages différentes de celles nécéssaire au système pour des projets personnels, ce
+qui est, là encore, très peu pratique.
 
-virtualenv, venv,
+## Environnements
+
+Pour régler ce deuxième problème on peut manipuler complètement `PYTHONPATH` et éventuellement
+`PYTHONHOME` (qui donne le chemin de la bibliothèque standard), en construisant un `site-packages`
+parallèle. C'est un peu lourd à gérer à la main, et des outils ont donc été construit pour aider à
+ça : workingenv, puis surtout [virtualenv](https://pypi.org/project/virtualenv).
+
+Ce procédé a été simplifié et standardisé par la [PEP 405](https://peps.python.org/pep-0405/) (qu'il
+vaut le coup de lire). Concrètement, quand `python` est invoqué, il cherche un fichier `pyvenv.cfg`
+qui lui est adjacent ou dans le dossier parent. S'il en trouve un, il sait qu'il est dans une
+installation isolée, et ne va chercher les modules et la bibliothèque standard que dans celle-ci.
+
+
+Un environnement a en général cette structure
+
+```text
+/
+├── bin
+│   ├── python
+│   └── …
+├── etc
+│   └── …
+├── include
+│   └── site
+├── lib
+│   └── python3.xx
+├── lib64 -> lib
+├── pyvenv.cfg
+└── share
+    └── …
+```
+
+Elle fait mirroir à la structure UNIX standard, et contient des copies (ou des liens symboliques) d'une installation Python autonome.
 
 ## D'autres installations
 
