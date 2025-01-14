@@ -312,7 +312,8 @@ Quels problèmes vous voyez apparaître ?
 Évidemment un des problèmes d'avoir les packages installés dans `/usr/lib/…`, c'est que ce sont des
 fichiers qui ne sont pas en accessible en écriture aux utilisateurices dans Linux. Évidemment si
 vous avez les droits pour ça, vous pouvez vous mettre en mode superuser avec `sudo` et le faire
-quand même, mais ce n'est pas idéal.
+quand même, mais ce n'est pas idéal (en particulier parce que ça risque de perturber votre OS, qui
+gère déjà ses propres packages). Donc on retient : jamais, jamais, jamais on écrit ~~`sudo pip`~~.
 
 Pour ça, comme pour `PATH`, Python va lire dans une variable d'environnement, `PYTHONPATH`, une
 liste de dossiers où il ira chercher des modules. Son contenu est accessible dans `sys.path` :
@@ -363,17 +364,150 @@ Un environnement a en général cette structure
 │   └── site
 ├── lib
 │   └── python3.xx
+│       └── site-packages
 ├── lib64 -> lib
 ├── pyvenv.cfg
 └── share
     └── …
 ```
 
-Elle fait mirroir à la structure UNIX standard, et contient des copies (ou des liens symboliques) d'une installation Python autonome.
+Elle fait mirroir à la structure UNIX standard, et contient des copies (ou des liens symboliques)
+d'une installation Python autonome, y compris les fichiers des packages (données dans `share`,
+programmes dans `bin`…), etc. `pyvenv.cfg` contient aussi quelques options de configuration de
+l'environnement.
 
+Si on exécute le programme `{virtenv}/bin/python`, où `{virtenv}` est le chemin vers l'environnement virtuel, cette instance de Python va donc détecter automatiquement qu'il est dans cet environnement, et utiliser cette installation en conséquence.
+
+
+Notez que ça permet non seulement d'avoir plusieurs `site-packages` isolés, mais aussi d'utiliser
+facilement plusieurs versions de Python lui-même, isolées de l'installation système. Ainsi certains
+de mes environnements à l'heure où j'écris ces lignes contiennent un Python 3.13, et d'autres sont
+restés en 3.12.
+
+
+Après le succès de `virtualenv`, d'autres alternatives sont apparues pour créer et gérer des
+environnements virtuels : `venv` (qui est juste virtualenv redistribué dans la bibliothèque standard
+de Python, sauf sous Debian et variantes qui ne peuvent rien faire comme tout le monde), Poetry,
+PipEnv, uv, virtualfish (pour fish), vox et uvox (pour Xonsh)…
+
+### Activer un environnement
+
+On peut donc utiliser un Python isolé en exécutant directement `{virtenv}/bin/python`, mais c'est un peu désagréable, ce serait mieux de pouvoir décider « dans cette session j'utilise l'environnement machin » et qu'ensuite, simplement appeler `python` nous donne l'environnement choisi.
+
+Une idée de comment faire ?
+
+<!-- #region -->
+En modifiant `PATH` ! C'est ce que font les *scripts d'activation*, qui sont facultatifs (de fait la
+spécification des environnements virtuels n'impose que le fichier `pyvenv.cfg`) que la plupart des
+gestionnaires d'environnements mettent dans `{virtenv}/bin/`. Par exemple voici un bout de
+`{virtenv}/bin/activate`, qu'on peut ajouter à une session bash avec `source {virtenv}/bin/activate`
+pour modifier `PATH` :
+
+```bash
+[…]
+
+VIRTUAL_ENV='/home/lgrobol/.virtualenvs/cours-web'
+if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
+    VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
+fi
+export VIRTUAL_ENV
+
+_OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+
+[…]
+```
+<!-- #endregion -->
+
+En plus de modifier `PATH` (vous voyez où ?), il définit un certain nombre de variables comme `VIRTUAL_ENV`, relativement standard, qui permettent aux programmes de déterminer qu'ils ont été invoqués dans un environnement virtuel. Il définit aussi la fonction `deactivate`, qui fait de son mieux pour remettre le shell dans l'état où il était avant l'activation.
+
+Il y aussi des `activate.fish`, `activate.csh`…
+
+
+Notez que ce n'est pas un mécanisme très robuste, même s'il est pratique. Parmis les défauts
+notables, on ne peut pas enchasser les activations (il faut désactiver un environnement avant
+d'activer le suivant), certain programmes comme Pip ne détectent pas bien l'environnement en toutes
+circonstances (il vaut donc mieux l'appeller avec `python -m pip` pour être sûr⋅e que c'est bien le
+Pip de l'environnement virtuel qu'on utilise et pas un autre), etc.
+
+
+En résumé, pour utiliser une installation indépendante de Python :
+
+- On crée un environnement virtuel
+- Quand on veut travailler dedans, on peut
+    - Appeller Python via son chemin complet
+    - Activer l'environnement dans son shell `source /mon/env/virt/bin/activate`… et utiliser
+      simplement `python` 
+- Pour installer des paquets, préférer `python -m pip` à juste `pip`
+- Quand on a fini, on `deactivate` (ou on ferme le terminal et on en rouvre un autre au besoin…)
+
+
+### Conventions
+
+Les environnements virtuels, ce sont donc des dossiers sur votre machine, sans plus de contrainte. En général on les place
+
+- Soit dans le dossier de votre projet, dans un dossier `.venv`
+- Soit dans votre home, dans `~/.virtualenvs/{nom}` (convention de virtualenvwrapper)
+
+La plupart des outils (genre vscode) vont aller les chercher dans ces endroits là, je vous recommande donc d'utiliser ça, sauf si vous avez une bonne raison de faire autrement.
+
+<!-- #region -->
 ## D'autres installations
 
-pyenv et uv
+### uv
+
+[uv](https://docs.astral.sh/uv/), développé par Astral à qui on doit aussi Ruff est une alternative
+à Pip et VirtualEnv (et un successeur/remplaçant de [rye](https://rye.astral.sh/)). Écrit en Rust,
+très très optimisé pour la rapidité et l'économie d'espace disque, il permet de :
+
+- Installer et gérer plusieurs versions de Python
+- Créer et gérer des environnements virtuels
+- Gérer des packages (mais seulement dans des environnements)
+
+En général, uv respecte bien les standards et s'assure de vous empêcher de vous tirer des balles
+dans les pieds (c'est pour ça qu'il ne marche que dans des environnements par exemple).
+
+Vous l'aurez compris, je vous encourage très fort à l'utiliser. Allez voir leur doc pour l'installer, puis
+
+- `uv venv` pour créer des environnements, qui s'activent comme d'habitude.
+    - Par défaut il utilise la version de Python de votre système, mais vous pouvez changer ça avec
+      l'option `-p`, genre `uv venv … -p 3.12`.
+- `uv pip` qui propose un clone de interface de Pip
+- `uv tool` permet d'installer des packages Python comme outils, dans des environnements dédiés.
+  Essayez par exemple `uv tool install cowsay`.
+<!-- #endregion -->
+
+<!-- #region -->
+### Pyenv
+
+Un peu rendu obsolète par uv
+
+### [Pixi](https://pixi.sh)
+
+Encore un peu neuf 
+<!-- #endregion -->
+
+## Et Conda ?
+
+Non.
+
+Enfin bon.
+
+Conda c'est un écosystème complètement parallèle, qui offre les mêmes fonctionnalités que
+Pip+virtualenv+PyPI, avec comme unique avantage que leur dépôt de paquet contient aussi des
+bibliothèques non-Python (comme CUDA), même si c'est aussi des choses qui commencent à arriver sur
+PyPI. Ça peut rester utile dans certains cas, notamment si vous écrivez beaucoup d'extensions en
+C/C++/Rust, etc. Mais c'est absolument dispensable.
+
+À part ça
+
+- Conda ne suit pas de façon consistante les standards de packaging
+- Les packages sont (et doivent) construits à part de ceux de l'écosystème standard et ne sont en
+  général pas compatible
+- Même tarif pour les versions de Python
+- Tout l'écosystème dépend complètement d'Anaconda Inc et n'existe pas vraiment s'ils disparaissent.
+- Conda modifie sauvagement votre bashrc sans demander la permission et ça c'est impardonnable.
 
 ## Conteneurs
 

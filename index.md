@@ -100,13 +100,17 @@ nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établi
   - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
     - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
 
-### 2025-01-??? — Bases de données Javascript
+### 2025-01-07 — Bases de données et Javascript
 
 - {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
   BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
 - {% notebook_badges slides/12-js/js.py.md %} [Slides
   js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
 
+### 2025-01-14 — Bacs à sable
+
+- {% notebook_badges slides/14-sandboxes/sandboxes.py.md %} [Slides
+  BàS]({{site.url}}{{site.baseurl}}/slides/14-sandboxes/sandboxes.py.ipynb)
 
 ## Utilisation en local
 
