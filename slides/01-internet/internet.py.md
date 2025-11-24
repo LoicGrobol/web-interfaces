@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -20,7 +20,7 @@ jupyter:
 Cours 1 : Internet, Web et HTTP
 ===============================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
@@ -86,7 +86,8 @@ point-à-point.
 
 Et théoriquement, c'est possible de le faire pour autant de machines qu'on veut
 
-![Dix ordinateurs, nommés A, …, J, disposés en cercle et reliés chacun à tous les autres par un réseau de câbles](pics/internet-schema-2.png)
+![Dix ordinateurs, nommés A, …, J, disposés en cercle et reliés chacun à tous les autres par un
+réseau de câbles](pics/internet-schema-2.png)
 
 Mais ça fait beaucoup de câbles et de prises. Combien d'ailleurs ?
 
@@ -101,7 +102,8 @@ Pour éviter ça, on peut plutôt avoir une machine qui sert de centre (ou *hub*
 sera une machine spécialisée, qu'on appelle *routeur*. Chaque machine du réseau est alors reliée
 seulement au hub.
 
-![Dix ordinateurs, nommés A, …, J, disposés en cercle et tous reliés à une machine centrale](pics/internet-schema-3.png)
+![Dix ordinateurs, nommés A, …, J, disposés en cercle et tous reliés à une machine
+centrale](pics/internet-schema-3.png)
 
 On parle alors de réseau *en étoile*. Ça permet de simplifier considérablement le réseau. Dans ce
 cas, quand A passe un message à B, il le passe d'abord au hub (en lui disant que le destinataire est

@@ -38,6 +38,7 @@ assez par ailleurs, ça vous changera les idées.
   prénoms et établissements de tous les membres du groupe dans le corps du mail.
   - **Si l'objet est différent, je ne verrai pas votre rendu**. Et si un nom manque, vous risquez de
     ne pas avoir de note.
+  - **Les noms de tous les membres du projet doivent apparaître dans la documentation.**
   - J'accuserai réception sous trois jours ouvrés dans la mesure du possible, relancez-moi si ce
     n'est pas le cas.
 

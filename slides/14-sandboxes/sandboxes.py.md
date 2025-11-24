@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.11.2
+      jupytext_version: 1.16.6
   kernelspec:
-    display_name: cours-web
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -134,6 +134,10 @@ which [
 
 Autres trucs qui existent dans bash (et en fait dans tous les shells) : fonctions et alias.
 
+```bash
+alias
+```
+
 ### Ok mais où
 
 Pour les *builtins* et les *keywords*, la question de comment bash sait quoi en faire ne se pose pas
@@ -152,9 +156,19 @@ Pas top.
 
 À la place, la solution qui est adoptée sur tous (à peu près) les OS, c'est d'avoir une liste de
 dossier qui vont contenir des programmes. Certains sont conventionnels (par exemple sur Linux, vous
-avez typiquement au moins `/bin`, `/usr/bin` et `/usr/sbin` dedans).
+avez typiquement au moins `/bin`, `/usr/bin` et `/usr/local/sbin` dedans).
 
 Comment ça marche ?
+
+```bash
+ls /usr/bin
+```
+
+Pour bash cette liste est stockée dans la variable `$PATH`
+
+```bash
+echo $PATH
+```
 
 Sans rentrer dans trop de détails : `$PATH` dans bash combine plusieurs
 
@@ -184,7 +198,7 @@ vraie liste dans leurs structures de données propres.
 
 Quand vous saisissez une instruction comme `machin` dans bash, son protocole est donc
 
-- S'il existe un *builtin* qui s'appelle `machin`, on utilise ça.
+- S'il existe un *builtin* ou une fonction qui s'appelle `machin`, on utilise ça.
 - Sinon, on cherche dans chacun des dossiers de `$PATH`, dans l'ordre, s'il n'y a pas un fichier
   exécutable qui s'appelle `machin` dedans.
 
@@ -192,11 +206,13 @@ Quand vous saisissez une instruction comme `machin` dans bash, son protocole est
 
 Comment changer votre `PATH`, par exemple pour y ajouter un dossier ? Ça dépend évidemment de votre
 shell, mais pour bash, comme c'est juste une variable qui contient une chaîne de caractères, c'est
-aussi simple que la deuxième ligne dans la cellule suivante
+aussi simple que la troisième ligne dans la cellule suivante
 
 ```bash
 echo $PATH
+echo
 export PATH="/mon/dossier:$PATH"
+echo
 echo $PATH
 ```
 
@@ -214,11 +230,10 @@ soit un `.bashrc` (typiquement `~/.bashrc`), qui est exécuté par chaque instan
 lancez vous. Dans le doute `~/.profile` est la meilleure solution.
 
 ```bash
-
 cat ~/.bashrc
 ```
 
-Les programmes qui veulent modifier votre `PATH` (genre `©onda`) ont tendance à aller modifier votre
+Les programmes qui veulent modifier votre `PATH` (genre `conda`) ont tendance à aller modifier votre
 `.bashrc` directement (ce qui est détestable), ou à vous demander de le modifier vous-même (ce qui
 est ok), il contient donc souvent des trucs étranges que vous n'y avez pas mis.
 
@@ -228,18 +243,15 @@ programme installés pour tous les utilisateurices de la machine et ceux à usag
 
 ### Autres trucs à évoquer
 
+arborsecence standard (/etc, /bin, /lib etc.) et dossiers xdg.
 Liens dynamiques et `LD_LIBRARY_PATH`, `rpath`.
 
 ## Python, installations et packages
 
-
-site packages, installation à la mano, installation avec un gestionnaire de paquets système,
-installation avec pip, user obsolè
-
 ### Python
 
 Python est (en général) un langage *interprété*, c'est-à-dire que quand on exécute un programme en
-Python, un programme, `python`, dit *interpréteur*, vient lire un *cript* — un fichier texte qui
+Python, un programme, `python`, dit *interpréteur*, vient lire un *script* — un fichier texte qui
 contient des instructions — et exécute ces instructions.
 
 L'interpréteur est un programme comme un autre sur votre machine. En général vous le trouverez dans
@@ -272,7 +284,7 @@ pathlib.__file__
 Pour ne pas surcharger l'exécutable `python` et éviter de ralentir l'exécution avec des fonctionnalités
 qui ne servent pas à tous les scripts, une bonne partie du langage est en fait distribuée dans les
 *modules* de la bibliothèque standard. Ces modules correspondent à des fichiers Python (typiquement
-dans `/usr/lib/python3.xx/site-packages`) et à des bibliothèques compilées (typiquement dans
+dans `/usr/lib/python3.xx/` ou `/usr/lib/python3.xx/site-packages`) et à des bibliothèques compilées (typiquement dans
 `/usr/lib/python3.xx/lib-dynload`).
 
 Historiquement, pour ajouter des modules à Python et les rendre accessibles à tous les scripts, on
