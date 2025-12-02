@@ -25,12 +25,12 @@ curl --header "User-Agent:Elephant" http://httpi.dev/anything
 curl --include http://httpi.dev/anything
 
 # 8
-# --request peut aussi s'écrire -X
-curl --data '{"value": "panda"}' -X POST http://httpi.dev/anything
+# --request peut aussi s'écrire --request
+curl --data '{"value": "panda"}' --request POST http://httpi.dev/anything
 
 # 9
 # En demandant un Content-Type, vous recevez une réponse différente
-curl --header "Content-Type:application/json" --data '{"value": "panda"}' -X POST http://httpi.dev/anything
+curl --header "Content-Type:application/json" --data '{"value": "panda"}' --request POST http://httpi.dev/anything
 
 # 10
 # Accept-Encoding signale qu'on veut bien recevoir une réponse compressée
@@ -40,7 +40,7 @@ curl --header "Accept-Encoding:gzip" https://www.google.com
 curl http://httpi.dev/image --header "Accept:image/png"
 
 # 12
-curl -X PUT http://httpi.dev/anything
+curl --request PUT http://httpi.dev/anything
 
 #13
 curl http://httpi.dev/image/jpeg
