@@ -360,7 +360,7 @@ suivantes :
 12. Faites une requête PUT à <https://httpi.dev/anything>
 13. Récupérez <https://httpi.dev/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
-14. Requêtez <https://mastodon.social>. Essayez à l'aide des *headers* de comprendre pourquoi la
+14. Requêtez <http://mastodon.social>. Essayez à l'aide du mode verbose de comprendre pourquoi la
     réponse est vide.
 15. Faites une requête à <https://httpi.dev/anything> en précisant un login et un mot de passe
     avec l'option `-u login:password)`

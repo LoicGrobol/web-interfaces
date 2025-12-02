@@ -46,6 +46,15 @@ curl -X PUT http://httpi.dev/anything
 curl http://httpi.dev/image/jpeg
 
 #14
+curl -v http://mastodon.social
+
+# 301 "moved permanently" vers https://mastodon.social. Votre navigateur suit la redirection, mais
+# curl par défaut non et il faut lui passer le flag --location:
+
+curl --location http://mastodon.social
+
+# Ou à la main
+
 curl https://mastodon.social
 
 #15
