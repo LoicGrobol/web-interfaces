@@ -356,16 +356,13 @@ suivantes :
 10. Une requête GET à <https://www.google.com> avec le header `Accept-Encoding: gzip`. Que se
     passe-t-il ? Pourquoi ?
 11. Faites une requête à <https://httpi.dev/image> avec le *header* `Accept: image/png`.
-    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
-    avec d'autres ête à <https://httpi/image> avec le *header* `Accept: image/png`.
-    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
-    avec d'autres headers.
-12. Faites une requête PUT à <https://httpbin.org/anything>
-13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
+    Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez avec d'autres headers.
+12. Faites une requête PUT à <https://httpi.dev/anything>
+13. Récupérez <https://httpi.dev/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
-14. Requêtez <https://www.twitter.com>. Essayez à l'aide des *headers* de comprendre pourquoi la
+14. Requêtez <https://mastodon.social>. Essayez à l'aide des *headers* de comprendre pourquoi la
     réponse est vide.
-15. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
+15. Faites une requête à <https://httpi.dev/anything> en précisant un login et un mot de passe
     avec l'option `-u login:password)`
 16. Téléchargez la page d'accueil de DuckDuckGo <https://duckduckgo.com> en espagnol (ou une autre langue)
     avec une utilisation judicieuse des *headers*.
