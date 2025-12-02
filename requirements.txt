@@ -21,7 +21,5 @@ RISE
 ruff
 scipy
 spacy >= 3.7
-spacy_streamlit
 sqlalchemy
-streamlit
 uvicorn

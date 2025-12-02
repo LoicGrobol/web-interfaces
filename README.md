@@ -37,7 +37,7 @@ bundle exec jekyll serve
 ```
 
 Astuce pour les pages : Jekyll n'est pas très bon pour les pages qui ne sont pas des postes de blog,
-les ajouter dans `_pages` (ce qui fonctionne parce qu'on l'a mis dans `_config.yml`)- et leur donner
+les ajouter dans `_pages` (ce qui fonctionne parce qu'on l'a mis dans `_config.yml`) et leur donner
 un `permalink` dans le header.
 
 ## Licences

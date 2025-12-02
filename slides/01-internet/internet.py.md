@@ -188,9 +188,9 @@ On fonctionne donc avec un système de *noms de domaines* qui ajoute une couche 
 accéder à une machine on demande à un serveur de noms de domaines (DNS) l'adresse qui correspond à
 une chaîne de caractères : son nom de domaine. Comme :
 
-- <http://python.net>
-- <http://plurital.org>
-- <http://w3c.org>
+- `python.org`
+- `plurital.org`
+- `w3c.org`
 
 Voir par exemple [la doc du MDN](pour plus d'infos sur les noms de domaine).
 
@@ -201,7 +201,7 @@ du trajet que suivent les données pour aller de votre machine à une autre avec
 `traceroute` (il vous faudra peut-être l'installer)
 
 ```python
-!traceroute python.org
+!traceroute plurital.org
 ```
 
 ### Paquets
@@ -265,14 +265,14 @@ Ces principes sont en pratique plus souple : si le format est basé sur du tex
 possible de l'utiliser pour transmettre d'autres types de données, et en pratique, il est très
 courant d'implémenter des protocoles à mémoire (*stateful*) en surcouche d'HTTP (par exemple au
 moyen de [jetons](https://fr.wikipedia.org/wiki/Identificateur_de_session) et de
-[cookies](https://fr.wikipedia.org/wiki/Cookie_\(informatique\)).
+[cookies](https://fr.wikipedia.org/wiki/Cookie_\(informatique\))).
 
 ### Un exemple
 
 Un exemple avec la commande cURL (qu'il vous faudra peut-être installer)
 
 ```python
-!curl -v https://kde.org
+!curl -v https://kde.org/index.html
 ```
 
 On peut y voir
@@ -342,22 +342,22 @@ utilisées l'une pour l'autre.
 À l'aide de `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP
 suivantes :
 
-1. Une requête à <https://httpbin.org>
-2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?
-3. Une requête POST à <https://httpbin.org/anything>
-4. Une requête GET à <https://httpbin.org/anything>, mais cette fois-ci avec le paramètre
+1. Une requête à <https://httpi.dev>
+2. Une requête à <https://httpi.dev/anything>. Que vous renvoie-t-on ?
+3. Une requête POST à <https://httpi.dev/anything>
+4. Une requête GET à <https://httpi.dev/anything>, mais cette fois-ci avec le paramètre
    `value=panda`
 5. Téléchargez le fichier `robots.txt` de Google (<http://www.google.com/robots.txt>)
-6. Faites une requête `GET` à <https://httpbin.org/anything> avec le header `User-Agent: elephant`
-7. Faites une requête à <https://httpbin.org/anything> et affichez les *headers* de la réponse
-8. Faites une requête `POST` à <https://httpbin.org/anything> avec comme corps `{"value": "panda"}`
+6. Faites une requête `GET` à <https://httpi.dev/anything> avec le header `User-Agent: elephant`
+7. Faites une requête à <https://httpi.dev/anything> et affichez les *headers* de la réponse
+8. Faites une requête `POST` à <https://httpi.dev/anything> avec comme corps `{"value": "panda"}`
 9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
    application/json`
 10. Une requête GET à <https://www.google.com> avec le header `Accept-Encoding: gzip`. Que se
     passe-t-il ? Pourquoi ?
-11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
+11. Faites une requête à <https://httpi.dev/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
-    avec d'autres ête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
+    avec d'autres ête à <https://httpi/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images. Essayez
     avec d'autres headers.
 12. Faites une requête PUT à <https://httpbin.org/anything>

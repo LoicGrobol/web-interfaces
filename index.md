@@ -8,7 +8,7 @@ layout: default
 
 ## News
 
-- **2025-11-24** Premier cours du semestre le 24/11/2025.
+- **2025-11-24** Premier cours du semestre le 02/12/2025.
 
 ## Infos pratiques
 
@@ -29,7 +29,7 @@ données additionnelles éventuelles). Attention : pour les utiliser en local,
 packages du `requirements.txt` (dans un environnement virtuel). Si vous ne savez pas comment faire,
 allez voir [« Utilisation en local »](#utilisation-en-local)
 
-### 2025-11-24 — Internet et programmation orientée objet
+### 2025-12-02 — Internet et programmation orientée objet
 
 - {% notebook_badges slides/01-internet/internet.py.md %} [Notebook
   internet]({{site.url}}{{site.baseurl}}/slides/01-internet/internet.py.ipynb)
