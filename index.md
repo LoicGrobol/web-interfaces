@@ -41,6 +41,21 @@ allez voir [« Utilisation en local »](#utilisation-en-local)
     - [Script v1]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v1.py)
     - [Script v2]({{site.url}}{{site.baseurl}}/slides/02-OOP/correction_conllu_v2.py)
 
+### 2025-12-08 — Modules et HTTPX
+
+- {% notebook_badges slides/04-modules/modules.py.md %} [Notebook
+  Modules]({{site.url}}{{site.baseurl}}/slides/04-modules/modules.py.ipynb)
+
+- {% notebook_badges slides/03-httpx/httpx.py.md %} [Notebook
+  HTTPX]({{site.url}}{{site.baseurl}}/slides/03-httpx/httpx.py.ipynb)
+  
+  Solutions :
+
+  - [Requêtes]({{site.url}}{{site.baseurl}}/slides/03-httpx/solutions.py)
+  - [Script sans rien]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_base.py)
+  - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
+  - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages

@@ -82,7 +82,7 @@ from collections import namedtuple
 Point = namedtuple('Point', ('x', 'y'))
 
 point_1 = Point(27, 13)
-point_2 = Point(19, 8 4)
+point_2 = Point(19, 8)
 
 def distance(p1, p2):
     return math.sqrt((p2.x-p1.x)**2+(p2.y-p1.y)**2)
@@ -149,10 +149,6 @@ def bidule(lst1, lst2):
 bidule([2,7,1,3], [1,2,4,8])
 ```
 
-```python
-
-```
-
 Vous êtes **fortement** encouragé⋅es à utiliser des tuples nommés quand vous écrivez une fonction
 qui renvoie plusieurs valeurs.
 
@@ -212,7 +208,7 @@ def norm(v):
     else:
         raise ValueError('Type non supporté')
 
-def is_unit(v):
+def is_unit(v): 
     return norm(v) == 1
 
 print(is_unit(v1))
@@ -236,14 +232,17 @@ class Vecteur:
         self.y = y
         
     def norm(self):
+        print("Je calcule la norme d'un vecteur en 2D")
         return math.sqrt(self.x**2 + self.y**2)
 
 v1 = Vecteur(27, 13)
 v2 = Vecteur(1, 0)
 
+print(type(v1))
 print(v1.x)
 print(Vecteur.norm(v2))
 print(v2.norm())
+print(type(v2).norm(v2))
 ```
 
 ```python slideshow={"slide_type": "subslide"}
@@ -254,6 +253,7 @@ class Vecteur3D:
         self.z = z
         
     def norm(self):
+        print("Je calcule la norme d'un vecteur en 3D")
         return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
 u1 = Vecteur3D(27, 13, 6)
@@ -288,13 +288,15 @@ Et vous en avez déjà rencontré plein
 <!-- #endregion -->
 
 ```python
-print(type('abc'))
-print('abc'.upper())
+s = "abc"
+print(type(s))
+print(s.upper())
+print(type(s).upper(s))
 ```
 
 Car en Python, tout est objet. Ce qui ne veut pas dire qu'on est obligé d'y faire attention…
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} jp-MarkdownHeadingCollapsed=true -->
 ## POO
 
 La programmation orientée objet (POO/OOP) est une manière de programmer différente de la
@@ -324,7 +326,7 @@ sans déplaire aux puristes.
 ```python slideshow={"slide_type": "-"}
 class Word:
     """Classe Word : déinit un mot de la langue """
-    pass
+    pass 
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -333,7 +335,7 @@ Pour créer un objet, on appelle simplement sa classe comme une fonction
 
 ```python slideshow={"slide_type": "-"}
 word1 = Word()
-prit(type(word1)) # renvoie la classe qu'instancie l'objet
+print(type(word1)) # renvoie la classe qu'instancie l'objet
 ```
 
 <!-- #region slideshow={"slide_type": "-"} -->
@@ -383,17 +385,18 @@ class Word:
     """ Classe Word : définit un mot de la langue """
     
     def __init__(self, form, lemma, pos):
+        print("Je vais créer un mot")
         self.form = form
         self.lemma = lemma
         self.pos = pos
 
 word = Word('été', 'être', 'V')
-word.lemma
+print(word.lemma)
 ```
 
 ```python
-word2 = Word('été', 'été', 'NOM')
-word2.lemma
+word2 = Word(form='été', pos='NOM', lemma='été')
+print(print(.lemma)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -431,7 +434,7 @@ class Word:
             return False
 
 w = Word("autrices", "auteur", "noun")
-print(w)
+print(w.brown_string())
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
