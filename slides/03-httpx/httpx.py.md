@@ -48,23 +48,18 @@ On jouera donc peut-être un peu avec plus tard, mais dans un premier temps on v
 une bibliothèque dont l'objectif est de rendre tout ceci simple :
 [`httpx`](https://www.python-httpx.org/).
 
-Ce cours est largement inspiré du [tutoriel sur `requests` de RealPython](https://realpython.com/python-requests/#getting-started-with-requests) et du [quickstart de `requests`](https://docs.python-requests.org/en/latest/user/quickstart) (mais adaptés à httpx).
+Ce cours est largement inspiré du [tutoriel sur `requests` de
+RealPython](https://realpython.com/python-requests/#getting-started-with-requests) et du [quickstart
+de `requests`](https://docs.python-requests.org/en/latest/user/quickstart) (mais adaptés à httpx).
 
 ## `httpx` ?
 
 `httpx`.
 
-`httpx` est une bibliothèque développée par [encode](https://www.encode.io/), à qui on doit aussi uvicorn et starlette, dont on reparlera, ainsi que MkDocs, qui est la base d'à peu près la moitié des sites de documentation sérieux.
+`httpx` est une bibliothèque développée par [encode](https://www.encode.io/), à qui on doit aussi
+uvicorn et starlette, dont on reparlera, ainsi que MkDocs, qui est la base d'à peu près la moitié
+des sites de documentation sérieux.
 
-httpx doit être installé. Si vous avez installé le `requirements.txt` du cours, rien de nouveau. Sinon faites-le en exécutant la cellule ci-dessous (rappellez-vous de toujours travailler dans un environnement virtuel).
-
-```python
-!uv pip install -U "httpx[http2]"
-```
-
-L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans
-ce cours mais qui peuvent être utiles. Si vous voulez aussi l'interface en ligne de commande (un
-genre de cURL), vous pouvez installer avec `[cli]`, ou `[http2, cli]` pour avoir les deux.
 
 ```python
 import httpx
@@ -78,7 +73,8 @@ Exécutez la cellule de code suivante
 httpx.get("https://plurital.org")
 ```
 
-Bravo, vous avez fait votre première requête HTTP en Python ! La fonction `httpx.get` envoie en effet une requête `GET` à l'URL passée en argument.
+Bravo, vous avez fait votre première requête HTTP en Python ! La fonction `httpx.get` envoie en
+effet une requête `GET` à l'URL passée en argument.
 
 Bon, par contre la réponse affichée n'est pas très informative.
 
@@ -91,7 +87,9 @@ response = httpx.get("https://plurital.org")
 type(response)
 ```
 
-`httpx.get` renvoie donc un objet du type [`httpx.Response`](https://www.python-httpx.org/api/#response), qui est une interface pour le contenu de la réponse HTTP obtenue. Nous allons voir ses principales propriétés.
+`httpx.get` renvoie donc un objet du type
+[`httpx.Response`](https://www.python-httpx.org/api/#response), qui est une interface pour le
+contenu de la réponse HTTP obtenue. Nous allons voir ses principales propriétés.
 
 #### `status_code`
 
@@ -99,10 +97,14 @@ type(response)
 response.status_code
 ```
 
-La valeur de `response.status_code` est la valeur du code d'état de la réponse HTTP. Les plus important pour nous sont
+La valeur de `response.status_code` est la valeur du code d'état de la réponse HTTP. Les plus
+important pour nous sont
 
-- [`200 OK`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200) : la requête a réussi et si des données ont été demandées, elles seront dans le corps de la réponse.
-- [`404 NOT FOUND`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) : la ressource demandée n'a pas été trouvée. Souvent parce que le serveur ne trouve pas de ressource à l'adresse demandée.
+- [`200 OK`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200) : la requête a réussi et
+  si des données ont été demandées, elles seront dans le corps de la réponse.
+- [`404 NOT FOUND`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) : la ressource
+  demandée n'a pas été trouvée. Souvent parce que le serveur ne trouve pas de ressource à l'adresse
+  demandée.
 
 → Voir [la liste complète sur MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
@@ -144,7 +146,8 @@ for url in (
 
 ### Contenu
 
-Une requête de type `GET` attend en général une ressource, qui se trouve en cas de succès dans le contenu ou *payload* de la réponse.
+Une requête de type `GET` attend en général une ressource, qui se trouve en cas de succès dans le
+contenu ou *payload* de la réponse.
 
 S'il s'agit d'un texte, on le trouvera dans l'attribut `text`
 
@@ -153,9 +156,11 @@ response = httpx.get("https://plurital.org")
 print(response.text)
 ```
 
-Dans le cas de la page d'accueil du site du master, il est assez conséquent, puisqu'il s'agit de tout le code HTML de la page.
+Dans le cas de la page d'accueil du site du master, il est assez conséquent, puisqu'il s'agit de
+tout le code HTML de la page.
 
-`httpx` fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe, le contenu sous forme binaire non décodée est toujours disponible dans l'attribut `content`.
+`httpx` fait de son mieux pour déterminer automatiquement l'encodage du texte, mais s'il se trompe,
+le contenu sous forme binaire non décodée est toujours disponible dans l'attribut `content`.
 
 ```python
 print(response.content)
@@ -182,7 +187,8 @@ Image(filename='image.png')
 
 ### Headers
 
-On a dit que les *headers* des messages HTTP contiennent des métadonnées sur ces messages. Le header de notre réponse est accessible directement sous forme de dictionnaire.
+On a dit que les *headers* des messages HTTP contiennent des métadonnées sur ces messages. Le header
+de notre réponse est accessible directement sous forme de dictionnaire.
 
 ```python
 response.headers
@@ -209,7 +215,9 @@ httpx.request("GET", "https://httpi.dev/get")
 print(response.text)
 ```
 
-On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps, celles qu'on vient de faire n'ont donc pas vraiment de sens. On peut passer des données textuelles ou binaires avec le paramètre `content` :
+On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur
+corps, celles qu'on vient de faire n'ont donc pas vraiment de sens. On peut passer des données
+textuelles ou binaires avec le paramètre `content` :
 
 ```python
 response = httpx.put("https://httpi.dev/put", content="Hello, world")
@@ -229,7 +237,12 @@ défaut). Si besoin vous pouvez encoder vous-même, avec `"hello".encode("cp1252
 passer dans ce cas le *header* `Content-Type: text/html; charset=windows-1252`.
 
 
-Pour la requête POST, une des applications principales est la soumission de formulaires, comme celui à <https://httpbingo.org/forms/post> (allez voir la source). Quand vous cliquez sur le bouton « Submit order », votre navigateur envoie une requête POST avec comme payload les données que vous avez saisies dans les champs, dans une représentation assez spécifique (et un peu obsolète). Dans httpx, vous pouvez passer ces données en utilisant le paramètre `data` de la façon suivante (ici pour les champs `custname`, `custtel`, `delivery` et `comments`) :
+Pour la requête POST, une des applications principales est la soumission de formulaires, comme celui
+à <https://httpbingo.org/forms/post> (allez voir la source). Quand vous cliquez sur le bouton
+« Submit order », votre navigateur envoie une requête POST avec comme payload les données que vous
+avez saisies dans les champs, dans une représentation assez spécifique (et un peu obsolète). Dans
+httpx, vous pouvez passer ces données en utilisant le paramètre `data` de la façon suivante (ici
+pour les champs `custname`, `custtel`, `delivery` et `comments`) :
 
 ```python
 response = httpx.post(
@@ -244,16 +257,20 @@ response = httpx.post(
 print(response.text)
 ```
 
-Comparez avec ce que fait votre navigateur (ouvrez les outils de développement avec clic droit > inspect et ouvrez l'onglet network, puis cliquez sur le bouton).
+Comparez avec ce que fait votre navigateur (ouvrez les outils de développement avec clic droit >
+inspect et ouvrez l'onglet network, puis cliquez sur le bouton).
 
 ## Headers et paramètres
 
-En plus du corps d'une requête, il y a d'autres façons de passer des informations : les paramètres et les headers.
+En plus du corps d'une requête, il y a d'autres façons de passer des informations : les paramètres
+et les headers.
 
 ### Les paramètres d'URL
 
 Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple
-<http://httpi.dev/get?key=val> a comme paramètre `key`, de valeur `value` et <https://duckduckgo.com/?q=legends+and+latte&ia=web> a comme paramètres `q`, qui vaut `"legends+and+latte"` et `ia` qui vaut `"web"`.
+<http://httpi.dev/get?key=val> a comme paramètre `key`, de valeur `value` et
+<https://duckduckgo.com/?q=legends+and+latte&ia=web> a comme paramètres `q`, qui vaut
+`"legends+and+latte"` et `ia` qui vaut `"web"`.
 
 On peut ajouter ces paramètres directement à l'URL qu'on requête, mais ça demande de les encoder
 soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `httpx` sous forme
