@@ -337,6 +337,8 @@ utilisées l'une pour l'autre.
 
 ## 🔮 Exos 🔮
 
+**Voir la note ci-dessous**
+
 (Tirés de <https://jvns.ca/blog/2019/08/27/curl-exercises/>)
 
 À l'aide de `curl` et de [sa documentation](https://curl.se/docs/), faites les requêtes HTTP
@@ -366,3 +368,34 @@ suivantes :
     avec l'option `-u login:password)`
 16. Téléchargez la page d'accueil de DuckDuckGo <https://duckduckgo.com> en espagnol (ou une autre langue)
     avec une utilisation judicieuse des *headers*.
+
+<!-- #region -->
+**Note** Si vos requêtes sur `https://httpi.dev` font des timeouts, vous
+pouvez essayer avec `https://httpbingo.org` à la place. Sinon vous pouvez utiliser httpbin en local
+(attention, ça ne marchera donc pas sur Binder). Installez-le (dans un venv bien sûr) si besoin (il
+est maintenant dans le `requirements.txt` du cours).
+
+```bash
+uv pip install gunicorn httpbin
+```
+
+Ou avec pip
+
+```bash
+python -m pip install gunicorn httpbin
+```
+
+Il se lance ensuite avec
+
+```bash
+gunicorn httpbin:app
+```
+
+Si vous le laisser tourner dans un terminal, vous pouvez ensuite envoyer vos requêtes à
+`http://localhost:8000`. Arrêtez-le avec <kbd>ctrl</kbd>+<kbd>C</kbd>. Voir
+<https://github.com/psf/httpbin> pour plus d'info (par exemple comment faire ça avec Docker).
+
+En désespoir de cause, lancez netcat avec `nc -kdl 8000` et faites vos requêtes
+`http://localhost:8000`, vos requêtes feront des timeout (netcat ne répond pas), mais au moins vous
+les verrez dans le terminal.
+<!-- #endregion -->

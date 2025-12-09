@@ -8,9 +8,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.11.2
+      jupytext_version: 1.18.1
   kernelspec:
-    display_name: cours-web
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -21,44 +21,12 @@ jupyter:
 Cours 3 : utiliser `httpx`
 =============================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
 **Note** La bibliothèque [requests](https://requests.readthedocs.io), un peu moins moderne est aussi
 très utilisée, ça peut valoir le coup d'y jeter un œil.
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-**Note** Si vos requêtes sur httpbin (qui n'est plus maintenu au 2024-11-26) font des timeouts, vous
-pouvez essayer avec `https://httpbingo.org` à la place. Sinon vous pouvez utiliser httpbin en local
-(attention, ça ne marchera donc pas sur Binder). Installez-le (dans un venv bien sûr) si besoin (il
-est maintenant dans le `requirements.txt` du cours).
-
-```bash
-python -m pip install gunicorn httpbin
-```
-
-ou avec [uv](https://docs.astral.sh/uv/)
-
-```bash
-uv pip install gunicorn httpbin
-```
-
-Il se lance ensuite avec
-
-```bash
-gunicorn httpbin:app
-```
-
-Si vous le laisser tourner dans un terminal, vous pouvez ensuite envoyer vos requêtes à
-`http://localhost:8000`. Arrêtez-le avec <kbd>ctrl</kbd>+<kbd>C</kbd>. Voir
-<https://github.com/psf/httpbin> pour plus d'info (par exemple comment faire ça avec Docker).
-
-En désespoir de cause, lancez netcat avec `nc -kdl 8000` et faites vos requêtes
-`http://localhost:8000`, vos requêtes feront des timeout (netcat ne répond pas), mais au moins vous
-les verrez dans le terminal.
-
-<!-- #endregion -->
 
 ## HTTP en Python
 
@@ -91,7 +59,7 @@ Ce cours est largement inspiré du [tutoriel sur `requests` de RealPython](https
 httpx doit être installé. Si vous avez installé le `requirements.txt` du cours, rien de nouveau. Sinon faites-le en exécutant la cellule ci-dessous (rappellez-vous de toujours travailler dans un environnement virtuel).
 
 ```python
-%pip install -U httpx[http2]
+!uv pip install -U "httpx[http2]"
 ```
 
 L'extra `[http2]` sert à installer les fonctions liées à HTTP/2, qu'on ne verra en principe pas dans
@@ -139,7 +107,8 @@ La valeur de `response.status_code` est la valeur du code d'état de la réponse
 → Voir [la liste complète sur MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 ```python
-httpx.get("http://example.com/this/resource/does/not/exist")
+response = httpx.get("http://example.com/this/resource/does/not/exist")
+print(response.status_code)
 ```
 
 On peut vérifier si une requête est un succès avec `is_success`
@@ -149,7 +118,7 @@ for url in (
     "https://plurital.org",
     "https://example.com/this/resource/does/not/exist",
 ):
-    response = httpx.get(url).raise_for_status()
+    response = httpx.get(url)
     if response.is_success:
         print(f"{url} est atteignable")
     else:
@@ -200,7 +169,15 @@ print(codecs.decode(response.content, "cp1252")[-100:])
 ```
 
 ```python
-# TODO: un exemple avec une image
+response = httpx.get("https://hugovk.dev/python-3.14.png")
+print(response.content[:100])
+with open("image.png", "wb") as out_stream:
+    out_stream.write(response.content)
+```
+
+```python
+from IPython.display import Image
+Image(filename='image.png') 
 ```
 
 ### Headers
@@ -216,31 +193,31 @@ response.headers
 On peut de la même façon faire des requêtes `PUT` et `POST` (ainsi que toutes les autres d'ailleurs).
 
 ```python
-response = httpx.post("https://httpbin.org/post")
+response = httpx.post("http://httpi.dev/post")
 print(response.text)
 ```
 
 ```python
-response = httpx.put("https://httpbin.org/put")
+response = httpx.put("https://httpi.dev/put")
 print(response.text)
 ```
 
 Ce sont toutes simplement des alias pour `httpx.request` :
 
 ```python
-httpx.request("GET", "https://httpbin.org/get")
+httpx.request("GET", "https://httpi.dev/get")
 print(response.text)
 ```
 
-On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps. On peut faire ça avec le paramètre content
+On a dit que les requêtes de ces types étaient en général utilisées pour passer des données via leur corps, celles qu'on vient de faire n'ont donc pas vraiment de sens. On peut passer des données textuelles ou binaires avec le paramètre `content` :
 
 ```python
-response = httpx.put("https://httpbin.org/put", content="Hello, world")
+response = httpx.put("https://httpi.dev/put", content="Hello, world")
 print(response.text)
 ```
 
 ```python
-response = httpx.put("https://httpbin.org/put", content="We are the Knights Who Say “Ni”!")
+response = httpx.post("https://httpi.dev/post", content="We are the Knights Who Say “Ni”!")
 print(response.text)
 ```
 
@@ -251,6 +228,24 @@ respecte [le standard HTTP/1.1 d'avant
 défaut). Si besoin vous pouvez encoder vous-même, avec `"hello".encode("cp1252")` par exemple, et
 passer dans ce cas le *header* `Content-Type: text/html; charset=windows-1252`.
 
+
+Pour la requête POST, une des applications principales est la soumission de formulaires, comme celui à <https://httpbingo.org/forms/post> (allez voir la source). Quand vous cliquez sur le bouton « Submit order », votre navigateur envoie une requête POST avec comme payload les données que vous avez saisies dans les champs, dans une représentation assez spécifique (et un peu obsolète). Dans httpx, vous pouvez passer ces données en utilisant le paramètre `data` de la façon suivante (ici pour les champs `custname`, `custtel`, `delivery` et `comments`) :
+
+```python
+response = httpx.post(
+    "https://httpbingo.org/post",  # La cible du formulaire: nom de domaine+contenu du paramètre "action" de <form>
+    data={
+        "custname": "Morgan",
+        "custtel": "+33680469301",
+        "delivery": "Aerial strike",
+        "comments": "",
+    },
+)
+print(response.text)
+```
+
+Comparez avec ce que fait votre navigateur (ouvrez les outils de développement avec clic droit > inspect et ouvrez l'onglet network, puis cliquez sur le bouton).
+
 ## Headers et paramètres
 
 En plus du corps d'une requête, il y a d'autres façons de passer des informations : les paramètres et les headers.
@@ -258,7 +253,7 @@ En plus du corps d'une requête, il y a d'autres façons de passer des informati
 ### Les paramètres d'URL
 
 Une façon de passer des options dans une requête est de les ajouter à l'URL demandé, par exemple
-<http://httpbin.org/get?key=val> a comme paramètre `key`, de valeur `value` et <https://duckduckgo.com/?q=legends+and+latte&ia=web> a comme paramètres `q`, qui vaut `"legends+and+latte"` et `ia` qui vaut `"web"`.
+<http://httpi.dev/get?key=val> a comme paramètre `key`, de valeur `value` et <https://duckduckgo.com/?q=legends+and+latte&ia=web> a comme paramètres `q`, qui vaut `"legends+and+latte"` et `ia` qui vaut `"web"`.
 
 On peut ajouter ces paramètres directement à l'URL qu'on requête, mais ça demande de les encoder
 soi-même, ce qui n'est pas très pratique. À la place on peut les confier à `httpx` sous forme
@@ -266,7 +261,7 @@ d'un `dict`.
 
 ```python
 paramètres = {"clé": "valeur", "formation": "Master PluriTAL", "hôtel": "Trivago"}
-response = httpx.get("https://httpbin.org/get", params=paramètres)
+response = httpx.get("https://httpi.dev/get", params=paramètres)
 print(response.text)
 ```
 
@@ -281,7 +276,7 @@ response.url
 Les *headers* se passent exactement de la même manière, en passant un dictionnaire
 
 ```python
-response = httpx.get("https://httpbin.org/get", headers={"User-Agent": "pluriquest/1.0.0"})
+response = httpx.get("https://httpi.dev/get", headers={"User-Agent": "pluriquest/1.0.0"})
 print(response.text)
 ```
 
@@ -292,24 +287,24 @@ print(response.text)
 À l'aide de `httpx`, faites les requêtes HTTP suivantes (elles devraient vous dire quelque
 chose) :
 
-1. Une requête à <https://httpbin.org>
-2. Une requête à <https://httpbin.org/anything>. Que vous renvoie-t-on ?
-3. Une requête POST à <https://httpbin.org/anything>
-4. Une requête GET à <https://httpbin.org/anything>, mais cette fois-ci avec le paramètre
+1. Une requête à <https://httpi.dev>
+2. Une requête à <https://httpi.dev/anything>. Que vous renvoie-t-on ?
+3. Une requête POST à <https://httpi.dev/anything>
+4. Une requête GET à <https://httpi.dev/anything>, mais cette fois-ci avec le paramètre
    `value=panda`
 5. Récupérez le fichier `robots.txt` de Google (<http://google.com/robots.txt>)
-6. Faites une requête `GET` à <https://httpbin.org/anything> avec le *header* `User-Agent: Elephant`
-7. Faites une requête à <https://httpbin.org/anything> et affichez les *headers* de la réponse
-8. Faites une requête `POST` à <https://httpbin.org/anything> avec comme corps `{"value": "panda"}`
+6. Faites une requête `GET` à <https://httpi.dev/anything> avec le *header* `User-Agent: Elephant`
+7. Faites une requête à <https://httpi.dev/anything> et affichez les *headers* de la réponse
+8. Faites une requête `POST` à <https://httpi.dev/anything> avec comme corps `{"value": "panda"}`
 9. Faites la même requête qu'en 8., mais cette fois-ci en précisant en *header* `Content-Type:
    application/json`
 10. Une requête GET à <https://www.google.com> avec le *header* `Accept-Encoding: gzip`.
-11. Faites une requête à <https://httpbin.org/image> avec le *header* `Accept: image/png`.
+11. Faites une requête à <https://httpi.dev/image> avec le *header* `Accept: image/png`.
     Sauvegarder le résultat dans un fichier PNG et ouvrez-le dans une visualiseuse d'images.
-12. Faites une requête PUT à <https://httpbin.org/anything>
-13. Récupérez <https://httpbin.org/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
+12. Faites une requête PUT à <https://httpi.dev/anything>
+13. Récupérez <https://httpi.dev/image/jpeg>, sauvegardez le résultat dans un fichier et ouvrez le
     dans un éditeur d'images
-14. Faites une requête à <https://httpbin.org/anything> en précisant un login et un mot de passe
+14. Faites une requête à <https://httpi.dev/anything> en précisant un login et un mot de passe
 15. Téléchargez la page d'accueil de DuckDuckGo <https://duckduckgo.com> en espagnol (ou une autre
     langue) avec une utilisation judicieuse des *headers*.
 
@@ -335,7 +330,7 @@ Ajoutez quelques paramètres à votre commande, vous pouvez utiliser
 - Ajouter à `requrl` une option `-d`/`--data` qui comme celle de curl permet de passer des données
   dans le corps d'une requête `POST`.
 
-Utilisez [httpbin](https://httpbin.com) pour tester votre commande avec ses différentes options.
+Utilisez [httpi](https://httpi.dev) pour tester votre commande avec ses différentes options.
 
 Vous pouvez aussi essayer d'implémenter les autres options de curl, certaines sont plus faciles que
 d'autres.
