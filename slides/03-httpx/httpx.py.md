@@ -245,8 +245,11 @@ httpx, vous pouvez passer ces données en utilisant le paramètre `data` de la f
 pour les champs `custname`, `custtel`, `delivery` et `comments`) :
 
 ```python
+# Le formulaire de test sur httpi.dev n'est pas fonctionnel :(
+
 response = httpx.post(
-    "https://httpbingo.org/post",  # La cible du formulaire: nom de domaine+contenu du paramètre "action" de <form>
+    # La cible du formulaire: nom de domaine+contenu du paramètre "action" de <form>
+    "https://httpbingo.org/post",
     data={
         "custname": "Morgan",
         "custtel": "+33680469301",

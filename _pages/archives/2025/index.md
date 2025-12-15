@@ -74,6 +74,7 @@ Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
 <lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2024] TP REST` et le
 nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
 `Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
+Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice mais essayez !
 
 ### 2024-12-10 — Fonctions avancées et FastAPI
 

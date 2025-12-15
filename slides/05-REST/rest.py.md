@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -21,7 +21,7 @@ jupyter:
 Cours 5 : consommer des API web
 ================================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
@@ -159,7 +159,8 @@ Sa (relative) simplicité de lecture et d'écriture en a fait le format privilé
 données pour les API web, puis petit à petit aussi le format standard *de facto* pour énormément
 d'usages.
 
-C'est facile de le parser en Python et de récupérer un `dict` avec le module natif [json](https://docs.python.org/fr/3/library/json.html)
+C'est facile de le parser en Python et de récupérer un `dict` avec le module natif
+[json](https://docs.python.org/fr/3/library/json.html)
 
 ```python
 import json
@@ -200,7 +201,8 @@ lui passer sous forme de chaîne de caractère et avoir dans les *headers* `"Con
 `"application/json"`).
 
 
-Attention, si vous essayez de faire ça dans un `get`, httx ne va pas être d'accord : ce n'est pas une méthode HTTP avec laquelle on est censé envoyer des données.
+Attention, si vous essayez de faire ça dans un `get`, httx ne va pas être d'accord : ce n'est pas
+une méthode HTTP avec laquelle on est censé envoyer des données.
 
 ## 🌐 Exo 🌐
 

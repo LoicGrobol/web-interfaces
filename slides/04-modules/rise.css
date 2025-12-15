@@ -1,0 +1,6 @@
+/* This to fix the code size in RISE slideshows. Unstable, untested etc. And must be present in
+every directory where there are slide notebooks */
+
+.rise-enabled .cm-editor{
+    font-size: 1.75rem; 
+}

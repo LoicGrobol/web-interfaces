@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -23,7 +23,7 @@ jupyter:
 Cours 6 : Fonctions avancées
 ===========================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 <!-- #endregion -->
 
 *Ce cours est **très** largement inspiré du cours de *Real Python* « [*Primer on Python
@@ -61,7 +61,7 @@ graphe de routage des données entre ces fonctions.
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Ça a pour principal avantage de permettre d'utiliser des outils mathématiques puissants pour
-analyser des programmes, afin de prouver le·ur *correction* ou leur sécurité, voire de les optimiser
+analyser des programmes, afin de prouver leur *correction* ou leur sécurité, voire de les optimiser
 automatiquement.
 <!-- #endregion -->
 
@@ -352,7 +352,8 @@ my_sum([1, 2, 3, 4])
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Mais la syntaxe sans les doubles délimiteurs `([` est quand même agréable, du coup on peut utiliser la syntaxe suivante.
+Mais la syntaxe sans les doubles délimiteurs `([` est quand même agréable, du coup on peut utiliser
+la syntaxe suivante.
 <!-- #endregion -->
 
 ```python
@@ -366,7 +367,8 @@ my_sum(1, 2, 3, 4)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-`*lst` signifie « collecte les arguments qui n'ont pas été affectés et mets-les dans une liste ». On peut donc avoir ça :
+`*lst` signifie « collecte les arguments qui n'ont pas été affectés et mets-les dans une liste ». On
+peut donc avoir ça :
 <!-- #endregion -->
 
 ```python
@@ -476,7 +478,7 @@ fun(1, 2, 3, 4, 5, 6, truc=-2, machin="chose")
 
 Pour plus de détails sur cette syntaxe, vous ~~pouvez~~ devez consulter [la doc pour la syntaxe des
 définitions](https://docs.python.org/3/reference/compound_stmts.html#function-definitions) et des
-[appels](https://docs.python.org/3/reference/expressions.html#calls) de fonction, ou la présentation
+[appels](https://docs.python.org/3/reference/expressions.html#calls) de fonction, et la présentation
 plus pédagogique de [Real Python](https://realpython.com/python-kwargs-and-args/).
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -558,7 +560,7 @@ Maintenant, testez :
 parent()
 ```
 
-Vous pouvez aussi visualiser l'exécution sur [Python
+Vous pouvez aussi visualiser l'exécution en utilisant le débuggueur de Jupyter ou sur [Python
 Tutor](https://pythontutor.com/render.html#code=def%20parent%28%29%3A%0A%20%20%20%20print%28%22Printing%20from%20the%20parent%28%29%20function%22%29%0A%0A%20%20%20%20def%20first_child%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Printing%20from%20the%20first_child%28%29%20function%22%29%0A%0A%20%20%20%20def%20second_child%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22Printing%20from%20the%20second_child%28%29%20function%22%29%0A%0A%20%20%20%20second_child%28%29%0A%20%20%20%20first_child%28%29%0A%20%20%20%20%0Aparent%28%29&cumulative=false&curInstr=15&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -882,7 +884,8 @@ def greet(name):
 greet("Bill")
 ```
 
-Ça veut dire que quel que soient les arguments passés à `do_thrice`, ils seront repassés à `fun` tel quel. Par convention, on note `*args` les arguments positionnels et `**kwargs` les `keywords`.
+Ça veut dire que quel que soient les arguments passés à `do_thrice`, ils seront repassés à `fun` tel
+quel. Par convention, on note `*args` les arguments positionnels et `**kwargs` les `keywords`.
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 😴 Exo 😴

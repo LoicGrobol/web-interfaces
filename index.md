@@ -56,6 +56,17 @@ allez voir [« Utilisation en local »](#utilisation-en-local)
   - [Script avec `click`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_click.py)
   - [Script avec `argparse`]({{site.url}}{{site.baseurl}}/slides/03-httpx/requrl_argparse.py)
 
+### 2025-12-15 — APIs REST en mode client
+
+- {% notebook_badges slides/05-REST/rest.py.md %} [Notebook
+  REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
+
+Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
+<lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2025] TP REST` et le
+nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
+`Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
+Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essayez !
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages
