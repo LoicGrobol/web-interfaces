@@ -62,7 +62,7 @@ allez voir [« Utilisation en local »](#utilisation-en-local)
   REST]({{site.url}}{{site.baseurl}}/slides/05-REST/rest.py.ipynb)
 
 Vos solutions pour les exercices du notebook REST sont à envoyer dans un zip à
-<lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2025] TP REST` et le
+<lgrobol@parisnanterre.fr> avant le 29/01. L'objet du message devra être `[Web 2026] TP REST` et le
 nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établissement` étant
 `Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
 Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essayez !
@@ -76,34 +76,34 @@ Je cite le [Crash course Python](slides/01-tools/python_crash_course.py.ipynb):
 - Les environnements virtuels sont des installations isolées de Python. Ils vous permettent d'avoir
   des versions indépendantes de Python et des packages que vous installez
   - Gérez vos environnements et vos packages avec [uv](https://docs.astral.sh/uv/). Installez-le,
-	lisez la doc.
+    lisez la doc.
   - Pour créer un environnement virtuel : `uv venv /chemin/vers/…`
   - La convention, c'est `uv venv .venv`, ce qui créée un dossier (caché par défaut sous Linux et
-	Mac OS car son nom commence par `.`) : `.venv` dans le dossier courant (habituellement le
-	dossier principal de votre projet). Donc faites ça.
+    Mac OS car son nom commence par `.`) : `.venv` dans le dossier courant (habituellement le
+    dossier principal de votre projet). Donc faites ça.
   - Il est **obligatoire** de travailler dans un environnement virtuel. L'idéal est d'en avoir un
-	par cours, un par projet, etc. - uv est assez précautionneux avec l'espace disque, il y a donc
-	assez peu de désavantage à avoir beaucoup d'environnements virtuels.
+    par cours, un par projet, etc. - uv est assez précautionneux avec l'espace disque, il y a donc
+    assez peu de désavantage à avoir beaucoup d'environnements virtuels.
   - Un environnement virtuel doit être **activé** avant de s'en servir. Concrètement ça remplace la
-	commande `python` de votre système par celle de l'environnement. - Dans Bash par exemple, ça se
-	fait avec `source .venv/bin/activate` (en remplaçant par le chemin de l'environnement s'il est
-	  différent) - `deactivate` pour le désactiver et rétablir votre commande `python`. À faire
-	avant d'en activer un autre.
+    commande `python` de votre système par celle de l'environnement. - Dans Bash par exemple, ça se
+    fait avec `source .venv/bin/activate` (en remplaçant par le chemin de l'environnement s'il est
+      différent) - `deactivate` pour le désactiver et rétablir votre commande `python`. À faire
+    avant d'en activer un autre.
 - On installe des packages avec `uv pip` ou `python -m pip` (mais plutôt `uv pip`, et jamais juste
   `pip`).
   - `uv pip install numpy` pour installer Numpy.
   - Si vous avez un fichier avec un nom de package par ligne (par exemple le
-	[`requirements.txt`](https://github.com/LoicGrobol/web-interfaces/blob/main/requirements.txt) du
-	cours) : `uv pip install -U -r requirements.txt`
+    [`requirements.txt`](https://github.com/LoicGrobol/web-interfaces/blob/main/requirements.txt) du
+    cours) : `uv pip install -U -r requirements.txt`
   - Le flag `-U` ou `--upgrade` sert à mettre à jour les packages si possible : `uv pip install -U
-	numpy` etc.
+    numpy` etc.
 - Je répète : on installe uniquement dans un environnement virtuel, on garde ses environnements bien
   séparés (un par cours, pas un pour tout le M2).
   - Dans un projet, on note dans un `requirements.txt` (ou `.lst`) les packages dont le projet a
-	besoin pour fonctionner.
+    besoin pour fonctionner.
   - Les environnements doivent être légers : ça ne doit pas être un problème de les effacer, de les
-	recréer… Si vous ne savez pas recréer un environnement que vous auriez perdu, c'est qu'il y a un
-	problème dans votre façon de les gérer.
+    recréer… Si vous ne savez pas recréer un environnement que vous auriez perdu, c'est qu'il y a un
+    problème dans votre façon de les gérer.
 - Si vous voulez en savoir plus, **et je recommande très fortement de vouloir en savoir plus, c'est
   vital de connaître ses outils de travail**, il faut : *lire les documentations de **tous** les
   outils et **toutes** les commandes que vous utilisez*.

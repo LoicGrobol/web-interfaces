@@ -166,7 +166,8 @@ C'est facile de le parser en Python et de récupérer un `dict` avec le module n
 import json
 data_as_a_str = httpx.get("https://jsonplaceholder.typicode.com/todos/1").text
 data_as_a_dict = json.loads(data_as_a_str)
-data_as_a_dict
+print(data_as_a_dict)
+print(data_as_a_dict["userId"])
 ```
 
 Et la conversion dans l'autre sens n'est pas compliquée non plus
@@ -174,14 +175,14 @@ Et la conversion dans l'autre sens n'est pas compliquée non plus
 ```python
 d = {"name": "Launcelot", "quest": "Seek the Holy Grail", "sparrows seen": 2, "fears": [], "married": False, 0: None}
 s = json.dumps(d)
-s
+print(s)
 ```
 
 En plus `httpx` le fait pour nous
 
 ```python
 data_as_a_dict = httpx.get("https://jsonplaceholder.typicode.com/todos/1").json()
-data_as_a_dict
+print(data_as_a_dict)
 ```
 
 Même pas besoin de se fatiguer.
@@ -193,7 +194,7 @@ response = httpx.post(
   "https://jsonplaceholder.typicode.com/todos",
   json={"userId": 1, "title": "Buy milk", "completed": False}
 )
-response.json()
+print(response.json())
 ```
 
 Il faut passer les données au paramètre `json` de `requests.post` et non `data` (ou alors il faut
@@ -201,16 +202,16 @@ lui passer sous forme de chaîne de caractère et avoir dans les *headers* `"Con
 `"application/json"`).
 
 
-Attention, si vous essayez de faire ça dans un `get`, httx ne va pas être d'accord : ce n'est pas
+Attention, si vous essayez de faire ça dans un `get`, httpx ne va pas être d'accord : ce n'est pas
 une méthode HTTP avec laquelle on est censé envoyer des données.
 
 ## 🌐 Exo 🌐
 
 ### Le cheeseshop
 
-En utilisant l'[API de PyPI](https://warehouse.pypa.io/api-reference/json.html), écrire un script
+En utilisant l'[API de PyPI](https://docs.pypi.org/api/), écrire un script
 qui prend en argument un nom de package et affiche (si un tel package existe) les noms et emails des
-auteurices de package et la date de la dernière *release*;
+auteurices de package et la date de la dernière *release*.
 
 ### Zenodo
 
