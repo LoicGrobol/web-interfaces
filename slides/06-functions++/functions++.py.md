@@ -763,17 +763,17 @@ def not_during_the_night(func):
 def say_whee():
     print("Whee!")
 
-say_whee = not_during_the_night(say_whee)
+say_whee_decorated = not_during_the_night(say_whee)
 ```
 
 Essayez d'exécuter la cellule suivante ce soir
 
 ```python
-say_whee()
+say_whee_decorated()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Notez qu'en écrivant `say_whee = not_during_the_night(say_whee)`, on a définitivement changé la
+Notez que si on écrivait `say_whee = not_during_the_night(say_whee)`, on a définitivement changé la
 valeur de la **variable** `say_whee`, qui ne contient plus la fonction de départ, mais la fonction
 décorée.
 <!-- #endregion -->
@@ -797,7 +797,7 @@ def my_decorator(func):
         print("Something is happening after the function is called.")
     return wrapper
 
-@my_decorator  # ← voyez comme c'est sucré
+@my_decorator #  ← voyez comme c'est sucré
 def say_whee():
     print("Whee!")
 
@@ -831,6 +831,14 @@ def do_thrice(fun):
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Appliquons-le à une fonction simple :
 <!-- #endregion -->
+
+```python
+@do_thrice
+def greet_ted():
+    print(f"Greetings, Ted")
+
+greet_ted()
+```
 
 ```python
 @do_thrice
@@ -881,7 +889,12 @@ def do_thrice(fun):
 def greet(name):
     print(f"Greetings, {name}")
 
+@do_thrice
+def greet_ted():
+    print("Greetings to you, Ted")
+
 greet("Bill")
+greet_ted()
 ```
 
 Ça veut dire que quel que soient les arguments passés à `do_thrice`, ils seront repassés à `fun` tel

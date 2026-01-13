@@ -71,6 +71,8 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
 
 - {% notebook_badges slides/06-functions++/functions++.py.md %} [Notebook
   décorateurs]({{site.url}}{{site.baseurl}}/slides/06-functions++/functions++.py.ipynb)
+  - [Liste de Swadesh pour les langues
+    austronésiennes]({{site.url}}/{{site.baseurl}}/slides/07-fastapi/data/austronesian_swadesh.csv)
   - {% notebook_badges slides/06-decorators/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/06-functions++/solutions.py.ipynb)
 - {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook

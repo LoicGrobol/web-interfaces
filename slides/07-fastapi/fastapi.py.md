@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -60,7 +60,8 @@ Nous disions donc que Python était là pour nous : démonstration, exécutez 
 avoir commenté sa première ligne.
 <!-- #endregion -->
 
-```script magic_args="false --no-raise-error"
+```python
+# %%script false --no-raise-error
 
 with socketserver.TCPServer(("", 8000), http.server.SimpleHTTPRequestHandler) as httpd:
     httpd.serve_forever()
@@ -145,7 +146,7 @@ async def root():
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-VIl faut lancer ce script avec un serveur [ASGI](https://asgi.readthedocs.io) comme
+Il faut lancer ce script avec un serveur [ASGI](https://asgi.readthedocs.io) comme
 [Uvicorn](https://www.uvicorn.org/), qui est celui recommandé pour utiliser FastAPI (même si
 n'importe quel serveur ASGI, comme [Hypercorn](https://pgjones.gitlab.io/hypercorn) convient). On ne
 va pas plus rentrer dans les détails techniques pour cette fois, l'idée ici est que FastAPI décrit
@@ -259,7 +260,7 @@ uvicorn hello_post:app
 
 ```python slideshow={"slide_type": "fragment"} tags=["raises-exception"]
 import httpx
-httpx.post("http://localhost:8000").json()
+print(httpx.post("http://localhost:8000").json())
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -339,7 +340,7 @@ httpx.get("http://localhost:8000/knights/lancelot").json()
 ```
 
 ```python tags=["raises-exception"]
-httpx.get("http://localhost:8000/knights/mordred").json()
+httpx.get("http://localhost:8000/knights/mordred")
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -378,7 +379,7 @@ curl -X GET "localhost:8000/knights/?name=lancelot"
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## 💫 Exo 💫
 
-Coder une API qui prend comme paramètres un mot en anglais de la liste de Swadesh et une langue
+Coder une API qui accepte une requête GET avec comme paramètres un mot en anglais de la liste de Swadesh et une langue
 austronésienne et renvoie le mot correspondant dans cette langue à partir de
 [`austronesian_swadesh.csv`](data/austronesian_swadesh.csv).
 <!-- #endregion -->
