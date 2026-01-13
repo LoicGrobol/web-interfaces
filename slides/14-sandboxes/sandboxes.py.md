@@ -243,7 +243,7 @@ programme installés pour tous les utilisateurices de la machine et ceux à usag
 
 ### Autres trucs à évoquer
 
-arborsecence standard (/etc, /bin, /lib etc.) et dossiers xdg.
+arborscence standard (/etc, /bin, /lib etc.) et dossiers xdg.
 Liens dynamiques et `LD_LIBRARY_PATH`, `rpath`.
 
 ## Python, installations et packages

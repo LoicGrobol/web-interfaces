@@ -67,6 +67,18 @@ nom de fichier devra être de la forme `prénom_nom-établissment.zip`, `établi
 `Nanterre`, `P3` ou `Inalco` et vos prénoms et noms doivent être présents dans le corps du message.
 Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essayez !
 
+### 2026-01-12 — Fonctions avancées et FastAPI
+
+- {% notebook_badges slides/06-functions++/functions++.py.md %} [Notebook
+  décorateurs]({{site.url}}{{site.baseurl}}/slides/06-functions++/functions++.py.ipynb)
+  - {% notebook_badges slides/06-decorators/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/06-functions++/solutions.py.ipynb)
+- {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
+  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
+  - {% notebook_badges slides/07-fastapi/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages
