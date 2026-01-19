@@ -60,9 +60,7 @@ Nous disions donc que Python était là pour nous : démonstration, exécutez 
 avoir commenté sa première ligne.
 <!-- #endregion -->
 
-```python
-# %%script false --no-raise-error
-
+```script magic_args="false --no-raise-error"
 with socketserver.TCPServer(("", 8000), http.server.SimpleHTTPRequestHandler) as httpd:
     httpd.serve_forever()
 ```
