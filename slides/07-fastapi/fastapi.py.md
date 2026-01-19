@@ -400,6 +400,19 @@ with open("data/austronesian_swadesh.csv") as csvfile:
 swadesh_dict["bird"]
 ```
 
+Ou mieux encore
+
+```python
+import polars as pl
+
+swadesh_dict = (
+    pl.read_csv("data/austronesian_swadesh.csv")
+    .select(pl.exclude("N°"))
+    .rows_by_key("English", unique=True, named=True)
+)
+swadesh_dict["bird"]
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conversion de types
 
@@ -426,7 +439,7 @@ knights = [
 
 
 @app.get("/knights/")
-async def surname(numbe):
+async def surname(number):
     try:
         return {"knight": knights[number]}
     except IndexError as e:

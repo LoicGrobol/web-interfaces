@@ -81,6 +81,19 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   - {% notebook_badges slides/07-fastapi/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
 
+### 2026-01-20 — HTML
+
+- {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
+  FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/07-fastapi/examples).
+  - {% notebook_badges slides/07-fastapi/solutions.py.md %}
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
+- {% notebook_badges slides/08-html/html-slides.py.md %} [Slides
+  HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
+  - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
+  - {% notebook_badges slides/08-html/solutions.py.md %}
+	[Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages

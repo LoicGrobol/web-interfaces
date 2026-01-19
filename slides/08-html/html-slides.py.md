@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -40,24 +40,6 @@ aussi disponibles en français)
     data*](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data)
 - Ne pas hésiter à fouiller dans les autres parties du tutoriel (notamment CSS et JavaScript) pour
   mieux les comprendre. À faire selon vos goûts.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-## 🥋 Exo 🥋
-
-Concevoir
-
-- Une page HTML avec un formulaire comprenant un champ de texte et un bouton de soumission.
-  Assurez-vous qu'elle passe au [valideur du W3C](https://validator.w3.org)
-- Une API avec FastAPI qui reçoit des requêtes de type POST venant de la page que vous avez créé et
-  qui crée pour chacune un nouveau fichier texte sur votre machine dont le contenu est le contenu du
-  champ de texte. **Vous aurez besoin de regarder [dans sa
-  doc](https://fastapi.tiangolo.com/tutorial/request-forms/)** comment on récupère dans FastAPI des
-  données envoyées depuis un formulaire (malheureusement ce n'est pas du JSON ! Pour ça il faut
-  court-circuiter avec du JavaScript).
-  - **Attention** les champs de formulaire sont référencés par leur attribut `name` dans une un
-    envoi de formulaire via POST. Si cette phrase est complètement obscure pour vous, allez **lire
-    les docs**.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -225,18 +207,14 @@ Et allez voir <http://localhost:8000>
 ## 🧊 Exo 🧊
 <!-- #endregion -->
 
-<!-- #region -->
 1\. Concevoir une API qui reçoit des requêtes de type POST contenant une liste de chaînes de
 caractère et répond avec une page HTML qui contient une liste ordonnée dont les éléments sont les
 chaînes de caractères reçus.
 
 Bien entendu, vérifiez que votre HTML passe au [valideur du W3C](https://validator.w3.org).
 
-
 2\. Reprendre votre API précédente qui utilisait spaCy pour renvoyer les POS tag correspondant à
 une requête et faites lui renvoyer une présentation des résultats en HTML plutôt que du JSON.
-
-<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Les templates avec Jinja
@@ -529,4 +507,22 @@ Lancez cette API avec `uvicorn jinja_api:app` et allez à <http://localhost:8000
 ## 🙄 Exo 🙄
 
 Reprenez les APIs de 🧊 et réécrivez-les en Jinja. C'est pour votre bien.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+## 🥋 Exo 🥋
+
+Concevoir
+
+- Une page HTML avec un formulaire comprenant un champ de texte et un bouton de soumission.
+  Assurez-vous qu'elle passe au [valideur du W3C](https://validator.w3.org)
+- Une API avec FastAPI qui reçoit des requêtes de type POST venant de la page que vous avez créé et
+  qui crée pour chacune un nouveau fichier texte sur votre machine dont le contenu est le contenu du
+  champ de texte. **Vous aurez besoin de regarder [dans sa
+  doc](https://fastapi.tiangolo.com/tutorial/request-forms/)** comment on récupère dans FastAPI des
+  données envoyées depuis un formulaire (malheureusement ce n'est pas du JSON ! Pour ça il faut
+  court-circuiter avec du JavaScript).
+  - **Attention** les champs de formulaire sont référencés par leur attribut `name` dans un envoi de
+    formulaire via POST. Si cette phrase est complètement obscure pour vous, allez **lire les
+    docs**.
 <!-- #endregion -->

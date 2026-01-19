@@ -11,11 +11,12 @@ jupyterlab
 jupyterlab_rise
 jupytext
 lxml
+matplotlib
 nbconvert
 nbgitpuller
 networkx
 numpy
-matplotlib
+polars
 regex
 RISE
 ruff
