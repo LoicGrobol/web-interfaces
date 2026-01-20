@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.18.1
+      jupytext_version: 1.19.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -520,6 +520,7 @@ données envoyées dans le corps de la requête ?
 Rappelez vous
 
 ```python
+import httpx
 response = httpx.post("https://httpbin.org/post", json={"message": "We are the knights who say “Ni”!"})
 response.json()
 ```
@@ -536,18 +537,15 @@ simplifie les choses, promis</small>
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-
 app = FastAPI()
-
 
 # On déclare le format que doivent suivre le corps des requêtes sur notre endpoint
 class EchoData(BaseModel):
     message: str
 
-
 @app.post("/echo")
 async def surname(data: EchoData):
-    return {"answer": f"Vous avez envoyé le message {data.message!r}"}
+    return {"answer": f"Vous avez envoyé le message: {data.message}"}
 ```
 
 ```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
@@ -573,10 +571,7 @@ display(response.json())
 ## Pydantic et les dataclasses
 <!-- #endregion -->
 
-Les classes comme `EchoData` sont ce qu'on appelle des *dataclasses*, ce sont des nouvelles
-arrivantes en Python (3.7+), où elle servent à modéliser des objets qui sont principalement des
-conteneurs de données structurées et pour lesquelles le constructeur (`__init__`) peut être
-construit automatiquement. Le module natif
+Les classes comme `EchoData` sont ce qu'on appelle des *dataclasses*, pour lesquelles le constructeur (`__init__`) peut être défini automatiquement. Le module natif
 [`dataclass`](https://docs.python.org/3/library/dataclasses.html) en propose une implémentation
 basique
 
@@ -589,7 +584,7 @@ class DataClassCard:
     suit: str
 
 c = DataClassCard(rank="roi", suit="💗")
-display(c)
+display(str(c))
 display(c.suit)
 ```
 
@@ -603,8 +598,12 @@ class RegularCard:
         self.rank = rank
         self.suit = suit
 
+    def __str__(self):
+        return f"DataClassCard(rank='{self.rank}', suit='{self.suit}')"
+        
+
 c = RegularCard(rank="roi", suit="💗")
-display(c)
+display(str(c))
 display(c.suit)
 ```
 
@@ -635,6 +634,10 @@ méthode !
 - Un point d'accès accessible par POST, qui prend comme paramètre un nom de modèle spaCy et comme
   données une phrase et renvoie la liste des POS tags prédits par ce modèle spaCy pour cette phrase.
 <!-- #endregion -->
+
+```python
+httpx.get("http://localhost:8000/model")
+```
 
 ```python slideshow={"slide_type": "subslide"} tags=["raises-exception"]
 httpx.post(
