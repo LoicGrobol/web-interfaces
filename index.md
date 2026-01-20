@@ -81,7 +81,7 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   - {% notebook_badges slides/07-fastapi/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/07-fastapi/solutions.py.ipynb)
 
-### 2026-01-20 — HTML
+### 2026-01-20 — HTML
 
 - {% notebook_badges slides/07-fastapi/fastapi.py.md %} [Notebook
   FastAPI]({{site.url}}{{site.baseurl}}/slides/07-fastapi/fastapi.py.ipynb)
@@ -92,7 +92,7 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   HTML]({{site.url}}{{site.baseurl}}/slides/08-html/html-slides.py.ipynb)
   - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
   - {% notebook_badges slides/08-html/solutions.py.md %}
-	[Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
+    [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
 
 ## Utilisation en local
 
