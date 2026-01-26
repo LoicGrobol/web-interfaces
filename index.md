@@ -13,8 +13,8 @@ layout: default
 ## Infos pratiques
 
 - **Quoi** « Interfaces web pour le TAL »
-- **Où** Salle ???, bâtiment de la formation continue.
-- **Quand** 8 séances, les mardi de 09:30 à 12:30, du 24/11/2025 au ???/2026
+- **Où** Salle 205, bâtiment de la formation continue.
+- **Quand** 8 séances, les mardi de 09:30 à 12:30, du 24/11/2025 au 10/02/2026
 - **Contact** L. Grobol [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 ## Liens utiles
@@ -93,6 +93,17 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   - [Exemples](https://github.com/{{site.repository}}/tree/main/slides/08-html/examples)
   - {% notebook_badges slides/08-html/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
+
+### 2026-01-27— Outils de debug et bases de données
+
+- {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides
+  Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
+  - [`factorial.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/factorial.py).
+  - [`lintme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/lintme.py).
+  - [`debugme.py`]({{site.url}}{{site.baseurl}}/slides/09-debug/debugme.py).
+    - [`ancor.txt`]({{site.url}}{{site.baseurl}}/slides/09-debug/ancor.txt).
+- {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
+  BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
 
 ## Utilisation en local
 

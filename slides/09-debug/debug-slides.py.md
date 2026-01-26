@@ -7,9 +7,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.5
+      jupytext_version: 1.19.0
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: cours-web (3.14.0)
     language: python
     name: python3
 ---
@@ -19,7 +19,7 @@ jupyter:
 Cours 08 : Débuggueurs, formatteurs et linters
 ==============================================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
@@ -78,8 +78,7 @@ catchy_song("llama")
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Pensez à aller voir [la doc](https://docs.python.org/library/exceptions.html) si vous ne comprenez
-pas l'erreur que vous recevez.
+Pensez à aller voir [la doc](https://docs.python.org/library/exceptions.html) si vous ne comprenez pas l'erreur que vous recevez.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -96,6 +95,7 @@ $$\text{factorielle}(n) = 1×2×…×n$$
 
 ```python slideshow={"slide_type": "subslide"}
 import math
+# 1×2×3×4×5×6×7×8×9
 math.factorial(9)
 ```
 
@@ -108,6 +108,8 @@ def factorial(n):
     pass  # À vous !
 ```
 
+Voici une proposition
+
 ```python slideshow={"slide_type": "subslide"}
 def factorial(n):
     if n == 0:
@@ -116,8 +118,13 @@ def factorial(n):
     for i in range(1, n):
         res = i * res
     return res
+```
 
+Voyons si elle marche :
+
+```python
 factorial(9)
+
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -138,7 +145,7 @@ def factorial(n):
         print(i, res)
         res = i * res
     return res
-    
+
 factorial(9)
 ```
 
@@ -161,15 +168,14 @@ def factorial(n):
     for i in range(1, n+1):
         res = i * res
     return res
-    
+
 factorial(9)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Un peu de textométrie
 
-**Hypothèse** on veut savoir étant donné un mot, quels sont les mots qui apparaissent le plus
-souvent dans la même phrase.
+**Hypothèse** on veut savoir étant donné un mot, quels sont les mots qui apparaissent le plus souvent dans la même phrase.
 
 On travaille sur un « gros » corpus
 <!-- #endregion -->
@@ -198,6 +204,8 @@ def vocab(f_path):
     return t2i, i2t
 ```
 
+Voici une proposition :
+
 ```python slideshow={"slide_type": "subslide"}
 def vocab(f_path):
     i2t = []
@@ -211,7 +219,7 @@ def vocab(f_path):
     return t2i, i2t
 
 ancor_t2i, ancor_i2t = vocab("ancor.txt")
-display(ancor_i2t)
+print(ancor_i2t)
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -227,6 +235,8 @@ suppose que ligne == phrase).
 def cooc(f_path, t2i):
     pass
 ```
+
+Ma proposition :
 
 ```python slideshow={"slide_type": "subslide"}
 def cooc(f_path, t2i):
@@ -262,6 +272,8 @@ def arg_k_max(lst, k):
 arg_k_max([9, 10, 2, 3], k=2)
 ```
 
+Voici la mienne :
+
 ```python slideshow={"slide_type": "subslide"}
 def arg_k_max(lst, k):
     """Renvoie les indices des k plus grands éléments de `lst`"""
@@ -278,7 +290,7 @@ Ou si les boucles c'est votre passion
 ```python slideshow={"slide_type": "fragment"}
 def arg_k_max(lst, k):
     """Renvoie les indices des k plus grands éléments de `lst`"""
-    res = [] 
+    res = []
     for ո, val in enumerate(lst):
         if len(res) < k:
             res.append((n, val))
@@ -302,7 +314,7 @@ def common_neighbours(word, t2i, i2t, cooc, k=10):
     k_largest = arg_k_max(context, k)
     return [i2t[index] for index in k_largest]
 
-display(common_neighbours("moi", ancor_t2i, ancor_i2t, ancor_cooc))
+print(common_neighbours("moi", ancor_t2i, ancor_i2t, ancor_cooc))
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -318,8 +330,9 @@ On pourrait faire des `print` mais il y a beaucoup de lignes, ça risque d'être
 ## [Ruff](https://youtu.be/LjkVphx4uE0) à la rescousse
 <!-- #endregion -->
 
-On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer avec `pip`
-avant de lancer la cellule suivante.
+On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer avec `pip` avant de
+lancer la cellule suivante pour le lancer sur le fichier [`lintme.py`](lintme.py), dans lequel j'ai
+mis le code des cellules précédentes.
 
 ```python
 !ruff check lintme.py
@@ -495,15 +508,6 @@ en permanence, vous vous remercierez dans six mois.
 <!-- #region slideshow={"slide_type": "subslide"} -->
 Une dernière chose : si vous vous voulez vraiment vérifier complètement votre code, vous pouvez
 demander à `ruff` de vérifier **toutes** les règles qu'il inclut.
-<!-- #endregion -->
-
-```python
-!ruff check --select "ALL" --preview ugly.py
-```
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-Une dernière chose : si vous vous voulez vraiment vérifier complètement votre code, vous pouvez
-demander à Ruff de vérifier **toutes** les règles qu'il inclut.
 <!-- #endregion -->
 
 ```python

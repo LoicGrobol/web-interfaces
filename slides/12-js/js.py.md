@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.6
+      jupytext_version: 1.18.1
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -51,7 +51,9 @@ comme [JQuery](https://jquery.com/), qui
 - Servent de complément à la bibliothèque standard
 - Peuvent être mis à jour régulièrement sans nécessiter de mise à jour des navigateurs clients
 
-Mais le besoin n'est plus aussi crucial qu'il l'a été, suite à l'introduction des API [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) et [Selectors](https://www.w3.org/TR/selectors-api).
+Mais le besoin n'est plus aussi crucial qu'il l'a été, suite à l'introduction des API
+[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) et
+[Selectors](https://www.w3.org/TR/selectors-api).
 
 Pour faire des pages web dynamiques, au-delà de cas simples, je vous recommande l'utilisation de
 frameworks comme [React](https://reactjs.org) ou [Angular](https://angular.io).
@@ -81,7 +83,7 @@ On peut aussi les mettre sur une même ligne, comme en Python, en les séparant 
 console.log("machin"); console.log("truc")
 ```
 
-En revanche on met un `;` quand il s'agit de lever une ambiguïté :
+En revanche on met un `;` quand il s'agit de lever une ambiguïté. Ceci :
 
 ```javascript
 const a = 2
@@ -89,7 +91,7 @@ const b = 3
 (a + b).toString()
 ```
 
-Ne fait pas ce que vous pensez mais
+ne fait pas ce que vous pensez, mais :
 
 ```javascript
 const a = 2
@@ -97,6 +99,14 @@ const b = 3(a + b).toString()
 ```
 
 Ce qui est une erreur. Il faut plutôt écrire
+
+```javascript
+const a = 2;
+const b = 3;
+(a + b).toString()
+```
+
+ou au moins
 
 ```javascript
 const a = 2
@@ -140,7 +150,7 @@ Les variables se **déclarent** à leur première utilisation avec `let` ou `con
 constantes) ou avec `var` **mais évitez d'utiliser `var`** qui tend à devenir obsolète
 
 <!-- #region -->
-La portée d'une variable, c'est le bloc dans lequel elle est définie, ainsi
+La portée d'une variable, c'est le bloc dans lequel elle est définie, ainsi ceci :
 
 ```javascript
 const a = 2
@@ -174,16 +184,15 @@ Pour des raisons historiques, il y a trois types de boucles `for` en `JavaScrip
 - `for` qui est la boucle `for` du langage C :
 
   ```javascript
-  let str = ""
+  let int = 0
 
   for (let i = 0; i < 9; i++) {
-      str = str + i
+      int = int + i
   }
 
-  console.log(str);
+  console.log(int);
   ```
 
-  (notez l'affreuse conversion implicite entre entier et chaîne de caractères)
 - `for (… of …)` qui plus ou moins la même chose que `for` en Python
 
   ```javascript
@@ -223,7 +232,7 @@ Il y a deux façons de définir des fonctions en JavaScript :
   }
   ```
 
-- Les modernes fonctions fléchées
+- Les flèches
 
   ```javascript
   const getRectArea = (width, height) => {
@@ -233,15 +242,15 @@ Il y a deux façons de définir des fonctions en JavaScript :
 
 Il y a des [différences parfois subtiles entre les
 deux](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
-En général on utilise surtout les fonctions fléchées pour des fonctions anonymes (comme les lambdas
-en Python, mais ici elles ne sont pas limitées à une seule expression)
+En général, on utilise surtout les flèches pour des fonctions anonymes (comme les lambdas en Python,
+mais pas limitées à une seule expression) :
 
 ```javascript
 const materials = [
-  'Hydrogen',
-  'Helium',
-  'Lithium',
-  'Beryllium'
+  "Hydrogen",
+  "Helium",
+  "Lithium",
+  "Beryllium",
 ];
 
 console.log(materials.map(m => m.length));
@@ -251,7 +260,7 @@ console.log(materials.map(m => m.length));
 <!-- #region -->
 ### DOM et usage dans un navigateur
 
-En général on utilise JavaScript dans une page web. Dans ce cas, il existe un objet global,
+En général, on utilise JavaScript dans une page web. Dans ce cas, il existe un objet global,
 `document` qui est une représentation de la page et de ses éléments et qui offre un grand nombre
 d'outils pour les observer et les manipuler. Par exemple ceci change la couleur du fond de la page
 
@@ -267,15 +276,17 @@ Il **faut** garder sous la main [la documentation du DOM](https://developer.mozi
 ### Évènements
 
 Beaucoup d'éléments d'interaction en JavaScript utilisent la notion d'évènement, qu'on exploite en
-liant des fonctions (`callbacks`) à des actions ou des circonstances prédéfinies (`hooks`)
+liant des fonctions (*listeners* ou *callbacks*) à des actions ou des circonstances prédéfinies
+(*events* ou *hooks*) :
 
 <!-- #region -->
 ```html
 <input id="elem" type="button" value="Click me">
 <script>
+  // "ajoute la fonction suivant à la liste des trucs à faire quand quelqu'un cliaue sur `elem`"
   elem.addEventListener(
-    "click",
-    function() {
+    "click",  // <- event
+    function() {  // <- listener
         console.log("Hello, world!")
     },
   )
@@ -286,17 +297,20 @@ liant des fonctions (`callbacks`) à des actions ou des circonstances prédéfin
 `Hello, world!` s'affiche dans la console à chaque fois qu'on clique sur le bouton et seulement à ce
 moment (pas au chargement de la page).
 
-Pour des cas simples on peut aussi redéfinir complètement l'évènement
+Pour des cas simples, on peut aussi redéfinir complètement l'évènement :
 
 <!-- #region -->
 ```html
 <input id="elem" type="button" value="Click me">
 <script>
+  // "remplace la liste des trucs à faire quand quelqu'un cliaue sur `elem` par la fonction suivante"
   elem.onclick = function() {
       alert('Thank you')
   }
 </script>
 ```
+
+mais c'est en général plutôt à éviter.
 <!-- #endregion -->
 
 ## Interfaces
@@ -311,8 +325,10 @@ Node). L'architecture adaptée si vous voulez une interface web graphique :
 Système de TAL ⇆ API (FastAPI[+Jinja][+SQL]) ⇆ Page web (HTML+CSS+JavaScript)
 ```
 
-Ici la page web requête l'API au moyen de méthodes comme
-[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). En voici un exemple :
+Ici, par exemple, voici une page web qui intercepte la méthode POST normale de la page, et requête
+une API au moyen de la méthode
+[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), l'équivalent du `request` de
+`httpx` :
 
 <!-- #region -->
 ```html
@@ -422,3 +438,9 @@ uvicorn spacy_html_api:app
 
 puis aller à <http://localhost:8000/front/spacy_form.html>.
 <!-- #endregion -->
+
+Cette façon de remplacer une gestion des requêtes qu'aurait fait le navigateur (ce qui se passe
+quand vous faites submit sur un formulaire) par un traitement custom à base de requêtes en
+JavaScript est ce qu'on appelle la méthode
+[Ajax](https://en.wikipedia.org/wiki/Ajax_(programming))(pour *asynchronous JavaScript + XML*, même
+si de nos jours on n'utilise plus vraiment XML pour ça).

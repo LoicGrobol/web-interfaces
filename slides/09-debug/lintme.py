@@ -11,9 +11,9 @@ def vocab(f_path):
     return t2i, i2t
 
 
-def cooc(__f_path, t2i):
+def cooc(f_path, t2i):
     cooc = [[0]*len(t2i)]*len(t2i)
-    with open(__f_path) as in_stream:
+    with open(f_path) as in_stream:
         for line in in_stream:
             words = line.strip().split()
             word_indices = [t2i[w] for w in words]
