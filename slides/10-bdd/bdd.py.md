@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.6
+      jupytext_version: 1.19.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -22,7 +22,7 @@ jupyter:
 Cours 12 : FastAPI et les bases de données relationnelles
 =========================================================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 
 <!-- #endregion -->
 
@@ -152,7 +152,9 @@ con.close()
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Astuce : on peut utiliser [`contextlib.closing`](https://docs.python.org/3/library/contextlib.html#contextlib.closing) pour le faire automatiquement et proprement
+Astuce : on peut utiliser
+[`contextlib.closing`](https://docs.python.org/3/library/contextlib.html#contextlib.closing) pour le
+faire automatiquement et proprement
 <!-- #endregion -->
 
 ```python

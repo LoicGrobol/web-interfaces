@@ -1,6 +1,7 @@
 def vocab(f_path):
     i2t = []
     t2i = dict()
+    breakpoint()
     with open(f_path) as in_stream:
         for l in in_stream:
             for word in l.strip().split():

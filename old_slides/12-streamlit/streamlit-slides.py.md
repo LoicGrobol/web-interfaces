@@ -7,7 +7,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.19.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -20,7 +20,7 @@ jupyter:
 Cours 12 : Interfaces magiques avec Streamlit
 =============================================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 <!-- #endregion -->
 
 Ce document est très fortement inspiré du tutoriel [*Streamlit 101: An in-depth introduction*](https://towardsdatascience.com/streamlit-101-an-in-depth-introduction) et du [tutoriel de Streamlit](https://docs.streamlit.io/library/get-started).

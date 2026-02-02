@@ -9,7 +9,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.19.0
   kernelspec:
-    display_name: cours-web (3.14.0)
+    display_name: Python 3 (ipykernel)
     language: python
     name: python3
 ---
@@ -330,7 +330,7 @@ On pourrait faire des `print` mais il y a beaucoup de lignes, ça risque d'être
 ## [Ruff](https://youtu.be/LjkVphx4uE0) à la rescousse
 <!-- #endregion -->
 
-On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer avec `pip` avant de
+On va utiliser [Ruff](https://pypi.org/project/ruff/), pensez à l'installer avant de
 lancer la cellule suivante pour le lancer sur le fichier [`lintme.py`](lintme.py), dans lequel j'ai
 mis le code des cellules précédentes.
 

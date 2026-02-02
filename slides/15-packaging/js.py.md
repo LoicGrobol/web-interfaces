@@ -17,7 +17,7 @@ jupyter:
 <!-- LTeX: language=fr -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Cours 12 : *And another thing…*
+Cours N+1 : Faire des packages en Python
 ===============================
 
 **L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)

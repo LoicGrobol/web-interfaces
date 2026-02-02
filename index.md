@@ -19,6 +19,7 @@ layout: default
 
 ## Liens utiles
 
+- [Consignes pour les projets]({{site.url}}{{site.baseurl}}/projects)
 - Prendre rendez-vous pour des *office hours* en visio :
   [mon calendrier](https://calendar.app.google/N9oW2c9BzhXsWrrv9)
 
