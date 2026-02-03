@@ -95,7 +95,7 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   - {% notebook_badges slides/08-html/solutions.py.md %}
     [Solutions]({{site.url}}{{site.baseurl}}/slides/08-html/solutions.py.ipynb)
 
-### 2026-01-27— Outils de debug et bases de données
+### 2026-01-27— Outils de debugage et bases de données
 
 - {% notebook_badges slides/09-debug/debug-slides.py.md %} [Slides
   Debug]({{site.url}}{{site.baseurl}}/slides/09-debug/debug-slides.py.ipynb)
