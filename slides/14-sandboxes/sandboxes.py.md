@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.6
+      jupytext_version: 1.19.0
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -21,11 +21,11 @@ jupyter:
 Cours 14 : bacs à sable
 =======================
 
-**Loïc Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
+**L. Grobol** [<lgrobol@parisnanterre.fr>](mailto:lgrobol@parisnanterre.fr)
 <!-- #endregion -->
 
 Rappel : dans un notebook, une ligne qui commence par `!` est exécutée dans votre shell par défaut
-(sur ma machinee c'est `fish`, sur la vôtre probablement `bash`), une cellule qui commence par
+(sur ma machine c'est `fish`, sur la vôtre probablement `bash`), une cellule qui commence par
 `%%bash` est exécutée comme un script bash indépendant (les cellules bash n'interagissent pas entre
 elles).
 
@@ -243,8 +243,8 @@ programme installés pour tous les utilisateurices de la machine et ceux à usag
 
 ### Autres trucs à évoquer
 
-arborscence standard (/etc, /bin, /lib etc.) et dossiers xdg.
-Liens dynamiques et `LD_LIBRARY_PATH`, `rpath`.
+arborscence standard (/etc, /bin, /lib etc.) et dossiers xdg. Liens dynamiques et `LD_LIBRARY_PATH`,
+`rpath`.
 
 ## Python, installations et packages
 
@@ -264,16 +264,17 @@ python --version
 
 (On reparle de ce résultat dans une seconde si ce n'est pas `/usr/bin/python`)
 
-En général, vous utilisez CPython, qui est écrit en lagage C, mais il y en a d'autres versions !
+En général, vous utilisez CPython, qui est écrit en langage C, mais il y en a d'autres versions !
 Notablement Jython (écrit en Java), RustPython (en Rust) et PyPy (écrit lui-même en Python, promis
 ça a du sens).
 
 
-En simplifiant : tout ce qui permet d'exécuter des programmes en Python est dans ce fichier `/usr/bin/python`.
+En simplifiant : tout ce qui permet d'exécuter des programmes en Python est dans ce fichier
+`/usr/bin/python`.
 
 ### Modules
 
-Sauf que on sait que c'est pas vrai :
+Sauf qu'on sait que c'est pas vrai :
 
 ```python
 import pathlib
@@ -281,11 +282,11 @@ import pathlib
 pathlib.__file__
 ```
 
-Pour ne pas surcharger l'exécutable `python` et éviter de ralentir l'exécution avec des fonctionnalités
-qui ne servent pas à tous les scripts, une bonne partie du langage est en fait distribuée dans les
-*modules* de la bibliothèque standard. Ces modules correspondent à des fichiers Python (typiquement
-dans `/usr/lib/python3.xx/` ou `/usr/lib/python3.xx/site-packages`) et à des bibliothèques compilées (typiquement dans
-`/usr/lib/python3.xx/lib-dynload`).
+Pour ne pas surcharger l'exécutable `python` et éviter de ralentir l'exécution avec des
+fonctionnalités qui ne servent pas à tous les scripts, une bonne partie du langage est en fait
+distribuée dans les *modules* de la bibliothèque standard. Ces modules correspondent à des fichiers
+Python (typiquement dans `/usr/lib/python3.xx/` ou `/usr/lib/python3.xx/site-packages`) et à des
+bibliothèques compilées (typiquement dans `/usr/lib/python3.xx/lib-dynload`).
 
 Historiquement, pour ajouter des modules à Python et les rendre accessibles à tous les scripts, on
 pouvait donc simplement les copier dans `site-packages`. Ça peut être fait à la main, ou via des
@@ -335,7 +336,8 @@ import sys
 sys.path
 ```
 
-Cette variable est modifiable au même titre que `PATH` pour y ajouter des dossiers à la convenance des utilisateurices.
+Cette variable est modifiable au même titre que `PATH` pour y ajouter des dossiers à la convenance
+des utilisateurices.
 
 
 En surplus, pour des raisons de simplicité, Python va aussi chercher des modules dans un dossier
@@ -347,12 +349,12 @@ Le deuxième problème, plus difficile à régler, c'est que plusieurs projets p
 dépendances incompatibles. Par exemple si mon projet `A` dépend de PyTorch 1, et `B` dépend de
 Pytorch 2. Dans ces projets, il peut aussi y avoir le système même : Ubuntu, Manjaro… dépendent pour
 leur fonctionnement de packages Python, ça signifie a priori qu'il ne serait pas possible d'utiliser
-des versions de packages différentes de celles nécéssaire au système pour des projets personnels, ce
+des versions de packages différentes de celles nécessaire au système pour des projets personnels, ce
 qui est, là encore, très peu pratique.
 
 ## Environnements
 
-Pour régler ce deuxième problème on peut manipuler complètement `PYTHONPATH` et éventuellement
+Pour régler ce deuxième problème, on peut manipuler complètement `PYTHONPATH` et éventuellement
 `PYTHONHOME` (qui donne le chemin de la bibliothèque standard), en construisant un `site-packages`
 parallèle. C'est un peu lourd à gérer à la main, et des outils ont donc été construit pour aider à
 ça : workingenv, puis surtout [virtualenv](https://pypi.org/project/virtualenv).
@@ -388,7 +390,9 @@ d'une installation Python autonome, y compris les fichiers des packages (donnée
 programmes dans `bin`…), etc. `pyvenv.cfg` contient aussi quelques options de configuration de
 l'environnement.
 
-Si on exécute le programme `{virtenv}/bin/python`, où `{virtenv}` est le chemin vers l'environnement virtuel, cette instance de Python va donc détecter automatiquement qu'il est dans cet environnement, et utiliser cette installation en conséquence.
+Si on exécute le programme `{virtenv}/bin/python`, où `{virtenv}` est le chemin vers l'environnement
+virtuel, cette instance de Python va donc détecter automatiquement qu'il est dans cet environnement,
+et utiliser cette installation en conséquence.
 
 
 Notez que ça permet non seulement d'avoir plusieurs `site-packages` isolés, mais aussi d'utiliser
@@ -404,7 +408,9 @@ PipEnv, uv, virtualfish (pour fish), vox et uvox (pour Xonsh)…
 
 ### Activer un environnement
 
-On peut donc utiliser un Python isolé en exécutant directement `{virtenv}/bin/python`, mais c'est un peu désagréable, ce serait mieux de pouvoir décider « dans cette session j'utilise l'environnement machin » et qu'ensuite, simplement appeler `python` nous donne l'environnement choisi.
+On peut donc utiliser un Python isolé en exécutant directement `{virtenv}/bin/python`, mais c'est un
+peu désagréable, ce serait mieux de pouvoir décider « dans cette session, j'utilise l'environnement
+machin » et qu'ensuite, simplement appeler `python` nous donne l'environnement choisi.
 
 Une idée de comment faire ?
 
@@ -432,15 +438,18 @@ export PATH
 ```
 <!-- #endregion -->
 
-En plus de modifier `PATH` (vous voyez où ?), il définit un certain nombre de variables comme `VIRTUAL_ENV`, relativement standard, qui permettent aux programmes de déterminer qu'ils ont été invoqués dans un environnement virtuel. Il définit aussi la fonction `deactivate`, qui fait de son mieux pour remettre le shell dans l'état où il était avant l'activation.
+En plus de modifier `PATH` (vous voyez où ?), il définit un certain nombre de variables comme
+`VIRTUAL_ENV`, relativement standard, qui permettent aux programmes de déterminer qu'ils ont été
+invoqués dans un environnement virtuel. Il définit aussi la fonction `deactivate`, qui fait de son
+mieux pour remettre le shell dans l'état où il était avant l'activation.
 
-Il y aussi des `activate.fish`, `activate.csh`…
+Il y a aussi des `activate.fish`, `activate.csh`…
 
 
-Notez que ce n'est pas un mécanisme très robuste, même s'il est pratique. Parmis les défauts
-notables, on ne peut pas enchasser les activations (il faut désactiver un environnement avant
-d'activer le suivant), certain programmes comme Pip ne détectent pas bien l'environnement en toutes
-circonstances (il vaut donc mieux l'appeller avec `python -m pip` pour être sûr⋅e que c'est bien le
+Notez que ce n'est pas un mécanisme très robuste, même s'il est pratique. Parmi les défauts
+notables, on ne peut pas enchâsser les activations (il faut désactiver un environnement avant
+d'activer le suivant), certains programmes comme Pip ne détectent pas bien l'environnement en toutes
+circonstances (il vaut donc mieux l'appeler avec `python -m pip` pour être sûr⋅e que c'est bien le
 Pip de l'environnement virtuel qu'on utilise et pas un autre), etc.
 
 
@@ -448,7 +457,7 @@ En résumé, pour utiliser une installation indépendante de Python :
 
 - On crée un environnement virtuel
 - Quand on veut travailler dedans, on peut
-    - Appeller Python via son chemin complet
+    - Appeler Python via son chemin complet
     - Activer l'environnement dans son shell `source /mon/env/virt/bin/activate`… et utiliser
       simplement `python` 
 - Pour installer des paquets, préférer `python -m pip` à juste `pip`
@@ -457,12 +466,14 @@ En résumé, pour utiliser une installation indépendante de Python :
 
 ### Conventions
 
-Les environnements virtuels, ce sont donc des dossiers sur votre machine, sans plus de contrainte. En général on les place
+Les environnements virtuels, ce sont donc des dossiers sur votre machine, sans plus de contrainte.
+En général on les place
 
 - Soit dans le dossier de votre projet, dans un dossier `.venv`
 - Soit dans votre home, dans `~/.virtualenvs/{nom}` (convention de virtualenvwrapper)
 
-La plupart des outils (genre vscode) vont aller les chercher dans ces endroits là, je vous recommande donc d'utiliser ça, sauf si vous avez une bonne raison de faire autrement.
+La plupart des outils (genre vscode) vont aller les chercher dans ces endroits là, je vous
+recommande donc d'utiliser ça, sauf si vous avez une bonne raison de faire autrement.
 
 <!-- #region -->
 ## D'autres installations
@@ -497,7 +508,7 @@ Un peu rendu obsolète par uv
 
 ### [Pixi](https://pixi.sh)
 
-Encore un peu neuf 
+Encore un peu neuf. Et en priorité base sur Conda (qui est bof).
 <!-- #endregion -->
 
 ## Et Conda ?

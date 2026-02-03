@@ -106,6 +106,18 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
 - {% notebook_badges slides/10-bdd/bdd.py.md %} [Slides
   BDD]({{site.url}}{{site.baseurl}}/slides/10-bdd/bdd.py.ipynb)
 
+### 2026-02-03 — Intro à JS et packaging en Python
+
+- {% notebook_badges slides/12-js/js.py.md %} [Slides
+  js]({{site.url}}{{site.baseurl}}/slides/12-js/js.py.ipynb)
+  - [Strudel](https://strudel.cc/)
+  - [Coding Trance Music from Scratch (Again)](https://www.youtube.com/watch?v=iu5rnQkfO6M)
+- Packaging
+  - [Tutoriel PyPA](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+  - [Pytest](https://pytest.org)
+  - [Tox](https://tox.wiki)
+  - [Codeberg](https://codeberg.org/)
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages
