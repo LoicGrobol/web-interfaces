@@ -118,6 +118,16 @@ Ce n'est pas grave si vous n'arrivez pas à finir le dernier exercice, mais essa
   - [Tox](https://tox.wiki)
   - [Codeberg](https://codeberg.org/)
 
+### 2026-02-10 — Introduction à node et buffet à volonté
+
+- {% notebook_badges slides/12-js/node.py.md %} [Slides
+  Node]({{site.url}}{{site.baseurl}}/slides/12-js/node.py.ipynb)
+- Menu au choix :
+  - TypeScript :
+    - [Tooling et intro](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html)
+    - [Showcase](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+  - [React](https://react.dev/learn)
+
 ## Utilisation en local
 
 ### Environnements virtuels et packages
